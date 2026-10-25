@@ -1,0 +1,35 @@
+[project]
+name = "snf-pa"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "chromadb>=1.5.9",
+    "duckdb>=2.0.0",
+    "httpx>=0.28.1",
+    "langchain-aws>=1.9.0",
+    "langchain-core>=1.7.0",
+    "langchain-ollama>=1.1.0",
+    "langgraph>=1.2.16",
+    "polars>=2.0.0",
+    "pydantic>=2.14.1",
+    "pypdf>=6.21.2",
+    "python-dotenv>=1.2.4",
+    "pyyaml>=6.0.3",
+    "rank-bm25>=0.2.2",
+    "tenacity>=9.2.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.2",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+src = ["src", "tests"]

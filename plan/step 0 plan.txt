@@ -1,0 +1,167 @@
+step 0 plan
+
+SNF 项目：Python 环境（venv）搭建计划
+Context
+总体项目计划在 snf/plan/snf_pa_multi_agent_rag_plan.md（Step 0 = 环境与合规）。本文件只规划 Step 0 的 venv 安装：用 LangGraph 做 multi-agent，本地 Ollama 模型开发，后期可切换 Bedrock（DeepSeek-R1 / Claude）。
+
+已检查的现状（只读）
+Python 3.12.7（系统）、uv 已安装、git 已安装、Ollama 已安装
+D 盘剩余约 250GB；机器：Intel Arc 140V + 32GB 内存，无 NVIDIA
+snf/ 下目前只有 data/ 和 plan/，没有代码、没有 venv
+做法
+用 uv 在 D:\agenticAI\alex_project\snf\.venv 建环境（Python 3.12），依赖写进 pyproject.toml，生成 uv.lock。不污染系统 Python，也避免把虚拟环境放进 data 目录。
+
+安装顺序（分 4 批，每批装完做一个小验证再装下一批）
+第 1 批：数据层（最先装，Step 1–2 马上要用）
+
+duckdb：直接读 .csv.gz，转 Parquet；不要用 pandas 全量加载 GB 级文件
+polars（或 pyarrow）：Parquet 读写与处理
+pydantic：所有 agent 的输入输出 schema
+验证：用 duckdb 读 admissions.csv.gz，复现 Medicare 244,576 / SNF 42,312 两个数字
+第 2 批：LLM 与 agent 编排
+
+langgraph、langchain-core
+langchain-ollama（本地模型）
+langchain-aws（Bedrock，后期切换用；此时只装不配置）
+验证：LangGraph 跑一个两节点的最小图，节点里调 Ollama 返回结构化 JSON
+第 3 批：RAG
+
+chromadb（向量库，本地、轻量，足够 50 例规模）
+rank-bm25（BM25，做 hybrid 检索）
+Embedding：用 Ollama 拉 bge-m3 或 nomic-embed-text，不装 sentence-transformers / torch（体积大、Arc 显卡支持差，没必要）
+文档解析：pypdf（Medicare 手册是 PDF）、beautifulsoup4 + httpx（eCFR 网页）
+验证：切一章政策文本、入库、检索一个问题，命中应在 top-5
+第 4 批：工具与开发
+
+python-dotenv（凭证与配置）、pyyaml（criteria checklist）、tenacity（重试）
+pytest、ruff
+streamlit（Step 7 demo，可延后）
+langsmith 或只写本地 JSONL trace（二选一；用 LangSmith 会把病历内容传到第三方，违反 PhysioNet 协议，默认不启用）
+项目骨架（建环境时一并建）
+snf/
+  pyproject.toml, uv.lock, .gitignore, .env.example
+  src/snf_pa/{data,tools,agents,rag,graph}/
+  tests/
+  derived/   (Parquet、队列文件；gitignore)
+.gitignore 必须包含：data/、derived/、.venv/、.env、任何 trace/缓存目录。
+
+本地模型（Ollama，不属于 pip）
+先拉 qwen3:14b（或 qwen2.5:14b-instruct）做 agent，bge-m3 做 embedding；备选 deepseek-r1:14b
+先拉小的（8B）验证 Arc GPU 是否被用上，再决定 14B
+注意事项
+先 git init？目前不是 git 仓库 —— 建议是，但要等你确认（见问题）
+不装 torch / transformers（本项目用不到，装了很大且 Arc 上麻烦）
+Windows 上 chromadb 偶尔需要 C++ 编译环境；若失败，改用 lancedb
+依赖版本由 uv 解析并锁定，装完记录到 uv.lock
+LLM 调用封装成统一接口（本地 / Bedrock 一行配置切换），第 2 批之后的第一个小任务
+已确认的决定
+venv 位置：snf/.venv，并在 snf/ 下 git init（.gitignore 先于任何 commit 建好，排除 data/、derived/、.venv/、.env、trace 目录）
+Tracing：本地 JSONL，不启用 LangSmith（→ 第 4 批不装 langsmith）
+Verification
+uv run python -c "import duckdb, polars, pydantic, langgraph, chromadb" 无报错
+第 1 批的两个计数与已知数字一致
+LangGraph 最小图 + Ollama 返回合法 JSON
+Chroma 小检索测试通过
+uv run pytest 与 uv run ruff check 能运行
+
+
+
+--can you install Ollama medgemma:4b and bge-m3 and then test them
+
+--小测试LangGraph 和Ollama 测试的是什么？
+这个测试只验证 LangGraph 和 Ollama 能不能接在一起正常工作，不测医学准确度。
+
+它要确认的几件事
+
+LangGraph 本身能跑。 定义一个有状态的图（state），带两个节点，按顺序执行，数据从第一个节点传给第二个。
+节点里能调 Ollama 模型。 节点调用 medgemma:4b，拿到结果后写回 state。
+输出能被结构化。 模型返回的内容要能解析成 Pydantic schema，下游节点才能放心使用。
+条件分支能用。 比如第一个节点判断"不符合资格"就直接结束，不再调用后面的节点。这正是计划里"Eligibility 不通过就不调用 LLM"那一步要用的机制。
+能记录 trace。 每个节点的输入输出写进本地 JSONL，后面审计和调试都靠它。
+为什么要先做这个
+我刚才的测试只直接调了一次模型，没有用 LangGraph。真实项目里有 5–6 个 agent 在图里互相传数据，如果连最小的图都有问题，比如 state 传递不对、结构化输出偶尔解析失败、重试逻辑出错，到那时再排查会难得多。先用一个小例子把这些问题暴露出来，成本很低。
+
+它不测的东西
+
+判断是否符合 Medicare 标准
+RAG 检索政策条款
+真实出院小结的长文本处理
+完整的 6 个 agent
+这些是后面的步骤。这个最小测试用的是我编的短病例，所以通过只说明"管道是通的"。
+
+要我现在写这个测试并运行吗？
+
+--用一份真实病例测试一下medgemma
+这次跑通了：medgemma:4b 对这份真实出院小结给出了合法的结构化结果，结论是符合 SNF（qualifies_for_snf=yes）。但 4 条引用里有 1 条在原文里找不到，所以它的输出不能直接信任。
+
+这份病例
+
+左股骨颈骨折，择期手术入院（SURGICAL SAME DAY ADMISSION），住了 4 个午夜，实际出院去了 SNF。
+出院小结 6,107 字符，去掉去向相关的部分后剩 5,889 字符，我的泄漏关键词（SNF、rehab、extended care 等）检查剩余命中为 0。
+结果
+
+模型判断：每天都有 skilled 需求，符合 SNF，和该病人实际去向一致。
+它给了 2 条 skilled 需求和 2 条功能状态，每条带一句引用。
+4 条引用里有 3 条能在原文中逐字找到，1 条找不到，说明它有轻微编造或改写。这正是计划里 QA agent 要用字符串匹配拦截的情况。
+运行耗时 74 秒。
+这次测试暴露的问题
+
+第一次失败了。 模型进入重复循环，同一句话生成了几十遍，把输出上限用完，JSON 被截断，解析失败。第二次加了三项措施才通过：列表最多 5 项、提示里写"不要重复"、repeat_penalty=1.15。所以 4B 模型在长病历上不稳定，流程里必须有重试和输出长度限制。
+只有 1 个病例，而且结论碰巧和实际去向一致，不能说明准确率。 这是个典型的髋骨折加手术，本来就容易判对。
+这个病例是我按"髋骨折 + Medicare + 去 SNF"挑的，不是随机抽样，偏容易。
+我没有检查它的推理是否真正对照了 Medicare 标准，目前它只是凭常识判断。
+隐私
+
+我之前提到过，第一次失败的报错把几句病历相关的话带进了终端。内容只是一个泛泛的句子（"在术中给了抗生素和抗凝药"这类），没有姓名等信息，但我已经把脚本改成失败时不再打印异常内容。
+完整的模型输出在 traces/real_case_medgemma.json，已被 .gitignore 排除，请你在 IDE 里打开看，我没有把内容读进对话。
+
+
+--can you pull meditron 7b model and test ?
+meditron:7b 对一个病人的结果判断错了，还不如medgemma:4b
+--下载Qwen3 14B， 看上去似乎效果最好。
+
+
+
+Step 1 完成：50 个病例已抽好，输出在 data/sample/，代码在 src/snf_pa/data/，5 个校验测试全部通过。
+
+抽样设计
+
+分类： 5 类诊断（髋骨折、中风、心衰、肺炎/脓毒症、关节置换），每类 10 例，共 50 例。
+每类的组成： 5 例去 SNF（正例）、3 例去 Home Health、2 例回家（后两种都是负例，住院也都 ≥3 个午夜）。
+切分： 开发集 30 例，测试集 20 例，每个组合里都有。
+纳入条件：
+Medicare 保险，入院时 ≥65 岁，出院存活
+住院 ≥3 个午夜
+排除 observation 类住院，以及住院中进过 Observation 病房的
+每个病人只取 1 次住院，这样同一个病人不会同时出现在开发集和测试集
+必须有出院小结
+诊断分类： 看第一诊断（ICD-9 和 ICD-10 都支持）；关节置换则看手术编码。
+随机： 种子是 42，重跑结果一样。
+产出（在 data/sample/，被 .gitignore 排除）
+
+sample_cases.parquet 和 .csv：50 行病例表，含标签、诊断类别、切分、年龄、性别、种族、语言、住院天数、是否进 ICU、第一诊断名称等。
+notes_raw.parquet：这 50 份原始出院小结。这是为 Step 2 预先存好的，省得以后重新扫 1.1GB 的文件。里面是原始病历文本，请保持本地。
+candidate_counts.csv：每个组合下符合条件的住院总数。
+manifest.json：记录种子、纳入排除条件、各组合数量，方便以后复现。
+代码（src/snf_pa/data/）
+
+config.py：路径、种子、每类配额。
+cohort.py：建候选池、抽样、导出病历的 SQL。
+build_sample.py：入口，运行方式 $env:PYTHONPATH="src"; uv run python -m snf_pa.data.build_sample。
+校验测试在 tests/test_sample.py，检查数量、平衡、每人一次住院、纳入条件、病历一一对应。pytest 也已配置好（Step 0 的收尾项顺便做了）。
+抽样时发现的问题（要注意）
+
+髋骨折几乎都去了 SNF： 符合条件的住院里，去 SNF 的有 1,017 次，回家的只有 9 次、Home Health 46 次。所以这一类的负例非常少见，而且可能是不典型病例（比如轻微的大转子骨折）。这类病例上系统"全判符合"几乎总是对的，评估时要单独看，不要被它抬高准确率。
+关节置换那一类，第一诊断多是骨关节炎，而不是手术本身，这是编码方式的结果，不是错误。
+标签是 silver label： 只代表出院去向，不是保险公司的批准决定。
+样本很小： 每个格子只有 1–3 例，评估时结果会有很大波动，只能做定性分析和初步比较。
+observation 的排除是保守的： 我无法精确识别"先观察、后转住院"的情况，所以把进过 Observation 病房的整条都排除了，可能多排除了一些合格的病例。
+ruff 在我之前写的临时检查脚本里报了 6 条风格提示，没有出在新代码里，我没有改它们。
+没有 commit，也没有改计划文件。下一步是 Step 2：去掉出院小结里的去向信息，并做泄漏检测。要进入这一步吗？
+
+
+
+
+
+
+

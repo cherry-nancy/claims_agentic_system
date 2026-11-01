@@ -1,0 +1,16 @@
+category,discharge_location,n_eligible_admissions,n_patients
+heart_failure,HOME,435,380
+heart_failure,HOME HEALTH CARE,1398,1048
+heart_failure,SKILLED NURSING FACILITY,940,796
+hip_fracture,HOME,9,9
+hip_fracture,HOME HEALTH CARE,46,44
+hip_fracture,SKILLED NURSING FACILITY,1017,988
+joint_replacement,HOME,13,13
+joint_replacement,HOME HEALTH CARE,500,435
+joint_replacement,SKILLED NURSING FACILITY,928,788
+pneumonia_sepsis,HOME,586,546
+pneumonia_sepsis,HOME HEALTH CARE,1144,1042
+pneumonia_sepsis,SKILLED NURSING FACILITY,1770,1592
+stroke,HOME,118,117
+stroke,HOME HEALTH CARE,209,208
+stroke,SKILLED NURSING FACILITY,354,348

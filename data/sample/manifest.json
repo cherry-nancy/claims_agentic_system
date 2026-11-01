@@ -1,0 +1,294 @@
+{
+  "created_utc": "2026-10-22T23:20:07+00:00",
+  "seed": 42,
+  "n_cases": 300,
+  "n_notes": 300,
+  "criteria": {
+    "insurance": "Medicare",
+    "min_age_at_admit": 65,
+    "min_inpatient_midnights": 3,
+    "excluded": [
+      "in-hospital deaths",
+      "admission_type containing OBSERVATION",
+      "any stay that passed through the 'Observation' care unit",
+      "admissions without a discharge summary"
+    ],
+    "label": "label_snf=1 if discharge_location is SKILLED NURSING FACILITY (silver label, not a payer decision)",
+    "negatives": "HOME HEALTH CARE and HOME with >=3 midnights, same diagnosis category",
+    "one_admission_per_patient": true,
+    "category_source": "primary diagnosis (seq_num=1), ICD-9/10; joint_replacement via procedure codes"
+  },
+  "target_quotas_per_category": {
+    "SKILLED NURSING FACILITY": 30,
+    "HOME HEALTH CARE": 18,
+    "HOME": 12
+  },
+  "effective_quotas": [
+    {
+      "category": "hip_fracture",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "n": 30
+    },
+    {
+      "category": "hip_fracture",
+      "discharge_location": "HOME HEALTH CARE",
+      "n": 23
+    },
+    {
+      "category": "hip_fracture",
+      "discharge_location": "HOME",
+      "n": 7
+    },
+    {
+      "category": "stroke",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "n": 30
+    },
+    {
+      "category": "stroke",
+      "discharge_location": "HOME HEALTH CARE",
+      "n": 18
+    },
+    {
+      "category": "stroke",
+      "discharge_location": "HOME",
+      "n": 12
+    },
+    {
+      "category": "heart_failure",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "n": 30
+    },
+    {
+      "category": "heart_failure",
+      "discharge_location": "HOME HEALTH CARE",
+      "n": 18
+    },
+    {
+      "category": "heart_failure",
+      "discharge_location": "HOME",
+      "n": 12
+    },
+    {
+      "category": "pneumonia_sepsis",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "n": 30
+    },
+    {
+      "category": "pneumonia_sepsis",
+      "discharge_location": "HOME HEALTH CARE",
+      "n": 18
+    },
+    {
+      "category": "pneumonia_sepsis",
+      "discharge_location": "HOME",
+      "n": 12
+    },
+    {
+      "category": "joint_replacement",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "n": 30
+    },
+    {
+      "category": "joint_replacement",
+      "discharge_location": "HOME HEALTH CARE",
+      "n": 19
+    },
+    {
+      "category": "joint_replacement",
+      "discharge_location": "HOME",
+      "n": 11
+    }
+  ],
+  "split_rule": "rank within cell by hash; position % 5 in [1, 2] -> test",
+  "batch_rule": "batch 1 = first 10 per category-cell prefix (original 50 cases), rest batch 2",
+  "cells": [
+    {
+      "category": "heart_failure",
+      "discharge_location": "HOME",
+      "split": "dev",
+      "n": 6
+    },
+    {
+      "category": "heart_failure",
+      "discharge_location": "HOME",
+      "split": "test",
+      "n": 6
+    },
+    {
+      "category": "heart_failure",
+      "discharge_location": "HOME HEALTH CARE",
+      "split": "dev",
+      "n": 10
+    },
+    {
+      "category": "heart_failure",
+      "discharge_location": "HOME HEALTH CARE",
+      "split": "test",
+      "n": 8
+    },
+    {
+      "category": "heart_failure",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "split": "dev",
+      "n": 18
+    },
+    {
+      "category": "heart_failure",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "split": "test",
+      "n": 12
+    },
+    {
+      "category": "hip_fracture",
+      "discharge_location": "HOME",
+      "split": "dev",
+      "n": 3
+    },
+    {
+      "category": "hip_fracture",
+      "discharge_location": "HOME",
+      "split": "test",
+      "n": 4
+    },
+    {
+      "category": "hip_fracture",
+      "discharge_location": "HOME HEALTH CARE",
+      "split": "dev",
+      "n": 13
+    },
+    {
+      "category": "hip_fracture",
+      "discharge_location": "HOME HEALTH CARE",
+      "split": "test",
+      "n": 10
+    },
+    {
+      "category": "hip_fracture",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "split": "dev",
+      "n": 18
+    },
+    {
+      "category": "hip_fracture",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "split": "test",
+      "n": 12
+    },
+    {
+      "category": "joint_replacement",
+      "discharge_location": "HOME",
+      "split": "dev",
+      "n": 6
+    },
+    {
+      "category": "joint_replacement",
+      "discharge_location": "HOME",
+      "split": "test",
+      "n": 5
+    },
+    {
+      "category": "joint_replacement",
+      "discharge_location": "HOME HEALTH CARE",
+      "split": "dev",
+      "n": 11
+    },
+    {
+      "category": "joint_replacement",
+      "discharge_location": "HOME HEALTH CARE",
+      "split": "test",
+      "n": 8
+    },
+    {
+      "category": "joint_replacement",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "split": "dev",
+      "n": 18
+    },
+    {
+      "category": "joint_replacement",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "split": "test",
+      "n": 12
+    },
+    {
+      "category": "pneumonia_sepsis",
+      "discharge_location": "HOME",
+      "split": "dev",
+      "n": 6
+    },
+    {
+      "category": "pneumonia_sepsis",
+      "discharge_location": "HOME",
+      "split": "test",
+      "n": 6
+    },
+    {
+      "category": "pneumonia_sepsis",
+      "discharge_location": "HOME HEALTH CARE",
+      "split": "dev",
+      "n": 10
+    },
+    {
+      "category": "pneumonia_sepsis",
+      "discharge_location": "HOME HEALTH CARE",
+      "split": "test",
+      "n": 8
+    },
+    {
+      "category": "pneumonia_sepsis",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "split": "dev",
+      "n": 18
+    },
+    {
+      "category": "pneumonia_sepsis",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "split": "test",
+      "n": 12
+    },
+    {
+      "category": "stroke",
+      "discharge_location": "HOME",
+      "split": "dev",
+      "n": 6
+    },
+    {
+      "category": "stroke",
+      "discharge_location": "HOME",
+      "split": "test",
+      "n": 6
+    },
+    {
+      "category": "stroke",
+      "discharge_location": "HOME HEALTH CARE",
+      "split": "dev",
+      "n": 10
+    },
+    {
+      "category": "stroke",
+      "discharge_location": "HOME HEALTH CARE",
+      "split": "test",
+      "n": 8
+    },
+    {
+      "category": "stroke",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "split": "dev",
+      "n": 18
+    },
+    {
+      "category": "stroke",
+      "discharge_location": "SKILLED NURSING FACILITY",
+      "split": "test",
+      "n": 12
+    }
+  ],
+  "files": [
+    "sample_cases.parquet",
+    "sample_cases.csv",
+    "candidate_counts.csv",
+    "notes_raw.parquet"
+  ],
+  "note": "notes_raw.parquet holds raw MIMIC text: keep local, never print or upload."
+}

@@ -1,4 +1,12 @@
-﻿data/
+# Raw / derived MIMIC data stays local (PhysioNet DUA): ignore everything under the top-level data/ ...
+/data/*
+# ... except the sample folder, whose contents are ignored again below
+!/data/sample/
+/data/sample/*
+# only aggregate (non patient-level) files from data/sample are tracked
+!/data/sample/manifest.json
+!/data/sample/candidate_counts.csv
+
 derived/
 .venv/
 .env

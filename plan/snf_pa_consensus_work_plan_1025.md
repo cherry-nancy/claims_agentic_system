@@ -1,624 +1,854 @@
-# SNF 出院 Prior Authorization 审核系统：工作计划
+# SNF 出院 PA 审核系统：系统设计
 
 | 项 | 内容 |
 |---|---|
-| 版本 | v4（2026-11-01），修订记录见附录 D |
+| 版本 | v5（2026-11-01） |
 | 分支 | `zhijie-plan-1025` |
-| 状态 | 方案阶段，尚未写代码 |
-| 数据 | MIMIC-IV v3.1（hosp / icu）+ MIMIC-IV-ED + MIMIC-IV-Note，只读 |
+| 读者 | lead architect / platform scientist |
+| 状态 | 设计阶段，尚未写代码 |
+
+本文只讲系统怎么设计：分哪些部分、每部分用什么、要考虑什么。不含排期。
+流程图用 mermaid（GitHub 网页和手机浏览器都能渲染）；每张图下面的编号附注与图中编号对应，图不显示时也能看懂。
 
 ---
 
-## 1. 目标
+## 目录
 
-**一句话**：给定一位准备出院、拟转入 Skilled Nursing Facility（SNF，专业护理机构）的 Medicare 病人，判断他是否符合 SNF 覆盖的 prior authorization（PA，事先授权）要求；对符合的病人，帮医院准备 PA 申请材料包。
+1. 目标与设计原则
+2. 总体架构
+3. 数据层：从原始数据到 `CaseBundle`
+4. RAG：政策检索与病历检索
+5. Multi-agent：角色、编排、状态
+6. 规则引擎与结论汇总
+7. Part 2：申请材料包
+8. 模型层
+9. 人机协同、审计与可复现
+10. 评估体系
+11. 工程结构
+12. 关键取舍
+13. 风险与开放问题
+14. 附录：数据核查、规划过程、来源、修订记录
+
+---
+
+## 1. 目标与设计原则
 
 ### 1.1 两个部分
 
-| | Part 1：PA 资格审核（核心） | Part 2：PA 申请材料包 |
-|---|---|---|
-| 回答的问题 | 这个病人符不符合 Medicare SNF 覆盖标准？哪条符合、哪条不符合、为什么？ | 符合的话，提交给保险公司的材料怎么准备？ |
-| 使用者 | **医院和保险公司都用** | 医院 |
-| 输入 | 病人的住院病例 | Part 1 的审核结果 + 病例 |
-| 输出 | 逐条标准结果 + 病历证据 + 政策条款 + 总体结论 | PDF 申请材料包 + FHIR 格式的电子申请 |
-| 对应步骤 | Step 3–6（引擎），Step 8–13（真实数据验证） | Step 7 |
+**Part 1：PA 资格审核（核心）**
+- 医院和保险公司都用。
+- 输入一个住院病例，逐条判定 Medicare SNF 覆盖标准（C0–C8）。
+- 每条给出：结果、病历证据（span）、政策条款。
+- 汇总成一个总体结论。
 
-### 1.2 审核结果与后续动作
+**Part 2：申请材料包（医院用）**
+- Part 1 结论为 `APPROVE` 时，生成提交给保险公司的材料（PDF + FHIR）。
+- 结论为 `PEND_INFO` 时，生成补材料清单；补齐后重审。
 
-Part 1 对每条标准给出**逐条结果**，再由代码汇总成**总体结论**。
+### 1.2 结论代码
 
-| 逐条结果（代码名） | 含义 |
+逐条结果：
+
+| 代码 | 含义 |
 |---|---|
 | `MET` | 符合 |
 | `NOT_MET` | 不符合 |
-| `INSUFFICIENT` | 信息不足，无法判断 |
+| `INSUFFICIENT` | 信息不足 |
 
-| 总体结论（代码名） | 含义 | 保险公司那边 | 医院那边（Part 2） |
-|---|---|---|---|
-| `APPROVE` | 所有标准都 `MET` | 建议批准 | 生成完整申请材料包 |
-| `PEND_INFO` | 有标准 `INSUFFICIENT` | 向医院要补充材料 | 生成补材料清单（发给主治医生、PT 等）；补齐后重新审核，变成 `APPROVE` 再生成材料包 |
-| `ADVERSE_RECOMMENDATION` | 有医疗必要性标准 `NOT_MET` | **不自动拒绝**，交给有执照的临床审核员决定 | 默认不生成，显示不符合的标准和理由；case manager 可人工覆盖后仍生成 |
-| `TECHNICAL_NOT_MET` | 技术性条件不符合（如住院不足 3 个午夜） | 交非医师人员确认，并询问"过去 30 天是否有其他住院" | 同上 |
+总体结论：
 
-系统**永远不签发最终的拒绝决定**。
+| 代码 | 含义 |
+|---|---|
+| `APPROVE` | 全部符合 |
+| `PEND_INFO` | 有信息不足，需补材料 |
+| `ADVERSE_RECOMMENDATION` | 医疗必要性不符，交临床审核员 |
+| `TECHNICAL_NOT_MET` | 技术条件不符（如住院不足 3 午夜），交非医师确认 |
 
-### 1.3 成功标准
-1. 用 12–15 个合成病例完整演示 Part 1 和 Part 2，结果稳定、可重复。
-2. 在 MIMIC 冻结测试集（200 例，其中 120 例有人工标注的 gold 标签）上给出 Part 1 的验证数字：逐条准确率、错误拒绝率、错误批准率。
-3. Part 2 的材料包能"自洽"：交给保险视图重新审核，结论与医院侧一致（Step 7 的自检）。
-4. 一套能给投资人看的 demo 和材料（Step 14）。
+### 1.3 审核标准
 
-### 1.4 不在范围内
+| ID | 标准 | 条文 |
+|---|---|---|
+| C0 | Medicare Part A 资格 | — |
+| C1 | 连续 ≥3 个住院午夜 | §409.30(a) |
+| C2 | 出院 30 天内入住 SNF | §409.30(b) |
+| C3 | 针对住院期间治疗的病情 | §409.31(b)(2) |
+| C4 | 需要 skilled nursing / rehab | §409.31–.33 |
+| C5 | 每日需要（护理 7 天 / 康复 5 天每周） | §409.34 |
+| C6 | 实际上只能在 SNF 提供 | §409.35 |
+| C7 | 医师认证 | §424.20 |
+| C8 | benefit period 剩余天数 | §409.61 |
+
+依据：MA 计划须沿用 Traditional Medicare 覆盖标准（CMS-4201-F，§422.101(b)(c)），所以标准统一为 42 CFR 409.30–409.36 + Medicare Benefit Policy Manual（BPM）Ch.8。
+
+### 1.4 设计原则（不变量）
+
+1. **系统不做最终拒绝。** 拒绝类结论只是"建议"，必须由人签字。
+2. **每条结论都可追溯。** 证据只能引用病历 span ID，条款只能引用索引里存在的 section ID。
+3. **能用代码的不用 LLM。** 日期、计数、规则汇总全部是确定性代码。
+4. **LLM 只做"读 → 结构化判断"。** 流程由代码编排，LLM 不自己决定下一步。
+5. **规则、模型、prompt 都是配置。** 换 MA 计划规则、换模型、改 prompt 都不改引擎代码。
+6. **引擎与数据源解耦。** 引擎只认 `CaseBundle`；MIMIC、FHIR、提交的材料包都先转成它。
+7. **病历文本是数据，不是指令。** prompt 里用分隔符包住病历，防止文本里的内容被当成指令。
+
+### 1.5 不在范围内
 - 自动拒保。
-- IRF（康复医院）等其他照护级别的判定。
-- 真实医院系统对接（只做 FHIR 格式示意）。
-- ROI 类指标（首次通过率、减少住院天数）：MIMIC 测不出，需要日后医院试点。
-
-### 1.5 术语表
-
-| 术语 | 说明 |
-|---|---|
-| MA / TM（FFS） | Medicare Advantage（商业保险公司经营的 Medicare 计划，需要 PA）/ Traditional Medicare（传统按服务付费的 Medicare，SNF 不需要 PA） |
-| BPM Ch.8 | Medicare Benefit Policy Manual 第 8 章，SNF 覆盖的官方说明 |
-| UM | Utilization Management，保险公司的用量审核部门 |
-| case manager | 医院负责出院安排的人员 |
-| home health | 居家医疗护理（另一种出院去向） |
-| skilled nursing / skilled rehab | 必须由专业护士或治疗师提供的护理 / 康复 |
-| daily basis | "每日"要求：护理每周 7 天，或康复每周至少 5 天 |
-| practical matter | "实际上只能在 SNF 住院提供"这一要求 |
-| custodial care | 生活照料（洗澡、穿衣等），不算 skilled |
-| benefit period | Medicare SNF 福利的计算周期（每期最多 100 天） |
-| Jimmo | Jimmo v. Sebelius 和解：不能因"无改善潜力"拒绝维持性的 skilled 服务 |
-| nH Predict | 一款用住院天数预测做拒保的算法，引发诉讼，本项目明确不这样做 |
-| plan profile | 一个 YAML 配置文件，写着某个保险计划的规则；本项目有 `strict_tm`（要求住院满 3 个午夜）和 `ma_waiver`（豁免 3 天） |
-| `CaseBundle` | 审核引擎的**输入**：一个病例的全部内容（时间线、病历文本、结构化事实卡、影像报告） |
-| 申请材料包 | Part 2 的**输出**：医院提交给保险公司的材料。保险视图审核时先把它转成 `CaseBundle` |
-| `view` | 引擎参数：`provider`（医院视图）或 `payer`（保险视图） |
-| T_pa | 模拟的 PA 提交时刻，默认出院前 24 小时；只用这之前的数据 |
-| span ID | 病历中每个句子 / 条目的稳定编号，引用证据时只用编号 |
-| 事实卡 | 由结构化数据生成的一句话证据，例如"出院前 48h 内静脉万古霉素已给 4 次" |
-| gold / dev-gold / test-gold | 人工按标准逐条标注的"标准答案"；dev-gold 用于开发，test-gold 用于最终评估 |
-| 主设定 / realistic 设定 | 主设定遮蔽会泄露出院去向的内容；realistic 设定加回 PT 的去向建议等，作对照 |
-| POE | MIMIC 中的医嘱表（provider order entry），可查到"转为住院"医嘱的时间 |
-| TEAM | CMS 2026 年起的一个支付模型，对部分手术豁免 3 天规则；本项目不采用 |
-| NDMC | 保险公司拒绝时需发给病人的书面通知 |
-| Fable | 规划阶段用来仲裁分歧的模型（附录 B） |
+- IRF 等其他照护级别的判定。
+- 真实医院 EHR 对接（只做 FHIR 适配器和格式示意）。
 
 ---
 
-## 2. 背景与定位
+## 2. 总体架构
 
-### 2.1 为什么按"MA 的 PA 流程 + TM 的覆盖标准"来做
-- TM 本身不对 SNF 做 PA；需要 PA 的是 MA 计划。
-- CMS-4201-F（§422.101(b)(c)）要求 MA 必须沿用 TM 的覆盖标准，所以判定依据统一为 **42 CFR 409.30–409.36 + BPM Ch.8**，可以逐条引用。
-- MIMIC 的 `insurance='Medicare'` 不区分 TM 和 MA，所以 3 天规则做成可配置的 plan profile（D2）。
-
-### 2.2 医院和保险公司：不同在哪
-两边看的是同一套东西：同一份标准、同一类病历证据、同一批政策条文，所以 Part 1 的引擎共用。差别如下：
-
-| | 医院 | 保险公司 |
-|---|---|---|
-| Part 1 输入 | 完整病历 | **只有医院提交的申请材料包**；没提交的就当不存在 |
-| Part 1 结论怎么用 | 提交前预审：能不能批、哪条有问题 | 建议结论交审核员签字；按 CMS-0057-F 时限（72 小时 / 7 天）处理 |
-| Part 2 | 生成申请材料包 | 不适用 |
-| 关心的指标 | 首次提交通过率、等授权的滞留天数、case manager 用时 | 审核员用时、决定一致性、申诉推翻率 |
-| 监管压力 | 低 | 高（§422.566(d)、CMS 2024-02 FAQ） |
-
-暂以医院为主线讲故事，保险视图作为第二视图（实现方式见 D15）。
-
-### 2.3 投资人视角
-
-| 投资人会问 | 回答 / 对应产出 |
-|---|---|
-| 解决谁的什么痛点？ | MA 的 SNF PA 拒绝在申诉后 95% 被推翻（OIG 2026）；CMS 要求 72 小时 / 7 天内决定（2026-01-01 起）；2027 年起保险公司须提供电子 PA API |
-| 准确率多少？ | MIMIC 冻结测试集上的逐条准确率、错误拒绝率、错误批准率（Step 13） |
-| 安全吗？会不会乱拒？ | 永不自动拒绝；Jimmo 安全测试；每条结论都可追溯到病历原文和条款 |
-| 为什么是现在？ | CMS-0057-F 的 2026 / 2027 两个时间点；SNF 拒绝正受 OIG 和国会关注 |
-| 和竞品有何不同？ | 专注 SNF；逐条可解释、可审计；规则可按保险计划配置；可私有化部署；FHIR 输出 |
-| 能接进医院系统吗？ | 引擎只认 `CaseBundle`，FHIR 适配器已做（Step 3）；输出 FHIR 申请（Step 7） |
-| 部署和数据安全？ | 正式运行走 AWS Bedrock；也可用本地模型私有化部署（D14） |
-| 还缺什么？ | ROI 需要医院试点才能证明 |
-
-- 不宣称"批准率提升 X%"这类 MIMIC 测不出的指标。
-- 不把产品讲成"自动拒保"。
-- 主要竞品（上线前再核对）：Optum / naviHealth、WellSky（含 CarePort，自 2026-01 起为部分 MA 计划管理 post-acute PA）、Cohere Health（2025 年 C 轮 9,000 万美元）、Waystar、Infinitus。
-
----
-
-## 3. 系统总览
-
-### 3.1 数据流
-
-```
-   病例来源：MIMIC 适配器 │ FHIR 适配器 │ 保险视图：医院提交的申请材料包
-                              ▼
-                     CaseBundle（统一输入）
-                              ▼
-   ┌──────────── Part 1：PA 资格审核引擎 ────────────┐
-   │ intake_rules       代码：C0–C2、时间线、T_pa         │
-   │ abstractor         LLM：抽取证据，只输出 span ID     │
-   │ criteria_reviewer  LLM：逐条判定 C3–C6               │
-   │ aggregator         代码：按 plan profile 汇总总体结论 │
-   │ critic             LLM：复核非 APPROVE + 随机 20% APPROVE │
-   └──────────────────────────┬─────────────────────┘
-                              ▼
-          逐条结果 + 证据 + 条款 + 总体结论 + 结论说明
-               ┌──────────────┴──────────────┐
-          view=provider                 view=payer
-               ▼                             ▼
-   Part 2：申请材料包 / 补材料清单      审核员队列（人工签字）
+```mermaid
+flowchart TD
+  subgraph S1["① 数据源"]
+    A1["MIMIC Parquet"]
+    A2["FHIR Bundle"]
+    A3["提交的材料包"]
+  end
+  S1 --> B["② 适配层"]
+  B --> C[("③ CaseBundle 存储")]
+  C --> D["④ 编排层 LangGraph"]
+  D <--> E["⑤ Agents"]
+  E --> F["⑥ 工具层"]
+  F --> G[("⑦ 知识层")]
+  E --> H["⑧ 模型网关"]
+  D --> I["⑨ 结论 + 证据"]
+  I --> J["⑩ Part 2 材料包"]
+  I --> K["⑪ 人工审核队列"]
+  D -.-> L[("⑫ Trace / 审计")]
+  L -.-> M["⑬ 评估框架"]
 ```
 
-### 3.2 审核标准
-
-| ID | 标准 | 条文 | MIMIC 能否判定 |
-|---|---|---|---|
-| C0 | Medicare Part A 资格 | — | 代理：insurance + 年龄 ≥65 |
-| C1 | 连续 ≥3 个住院午夜（出院日不算；ED 和观察期不算） | §409.30(a)；Ch.8 §20.1 | 代码计算 |
-| C2 | 出院 30 天内入住 SNF | §409.30(b)；§20.2 | 假定满足 |
-| C3 | SNF 照护针对住院期间治疗过的病情 | §409.31(b)(2) | 诊断 + 病历 |
-| C4 | 需要 skilled nursing 或 skilled rehab | §409.31(a)、§409.32、§409.33；§30.2–30.4 | **核心 LLM 判断** |
-| C5 | daily basis | §409.34；§30.6 | 推断 |
-| C6 | practical matter | §409.35；§30.7 | 推断，常为 `INSUFFICIENT` |
-| C7 | 医师认证 | §424.20；§40 | 无数据 → 假定已提交 |
-| C8 | benefit period 剩余天数 | §409.61 | 只能看到本院 → 假定 |
-
-**跨条护栏**（写进 critic 规则）：
-- Jimmo：不能以"无改善潜力 / 已到平台期"拒绝。
-- custodial care（§30.5）不算 skilled。
-- 不能凭诊断本身推定 skilled。
-- 不能用住院天数预测作拒绝依据。
-
-### 3.3 标准 → MIMIC 数据来源
-
-| 标准 | 主要表 / 字段 | 注意 |
-|---|---|---|
-| C0 | admissions.insurance；patients.anchor_age / anchor_year | 不区分 TM / MA |
-| C1 | poe ⨝ poe_detail（Admit category）；admissions；transfers.careunit；edstays | ED 和观察期不计 |
-| C2 / 前序住院 | admissions 自连接；admission_location | 只能看到本院 |
-| C3 | diagnoses_icd；ED triage、diagnosis；出院小结 HPI / Hospital Course；影像报告 | 不用 drgcodes（出院后编码） |
-| C4 / C5（护理） | prescriptions（+emar）给药途径；poe（PICC / TPN / 鼻饲 / 伤口 / 氧疗）；chartevents 压疮（仅 ICU）；病历 | 只用 T_pa 前；看持续性 |
-| C4 / C5（康复） | poe PT / OT / Speech 会诊、Activity 医嘱；services；procedures_icd；病历功能描述 + Activity Status | PT 去向建议句按 D7 遮蔽 |
-| C6 | Social History；ED arrival_transport；功能状态 | 常缺 → `INSUFFICIENT` |
-| C7 | 无 | 假定已提交 |
+**附注**
+1. **数据源**：三种来源。MIMIC 用于开发和验证；FHIR Bundle 用于合成病例和将来接 EHR；"提交的材料包"是保险视图的输入。
+2. **适配层**：每种来源一个 adapter，负责字段映射、按 T_pa 截断、切 span、生成事实卡。引擎之外的所有数据源差异都在这里消化。
+3. **CaseBundle 存储**：一个病例一个 JSON（带内容 hash），是引擎唯一的输入。可缓存、可重放。
+4. **编排层**：LangGraph 状态机，固定拓扑；负责调用顺序、分支、重试、断点续跑、人工中断。
+5. **Agents**：3 个 LLM 角色（abstractor、criteria_reviewer、critic）+ Part 2 的叙述生成；其余节点是代码（第 5 节）。
+6. **工具层**：政策检索、病历检索、规则引擎、引用解析器。agent 只能通过这些工具拿信息。
+7. **知识层**：政策索引、criterion cards、plan profiles、理由码表。全部带版本号。
+8. **模型网关**：统一的 LLM 调用接口，按角色路由到不同 provider（第 8 节）。
+9. **结论 + 证据**：逐条结果、证据 span、条款、总体结论、结论说明。
+10. **Part 2**：`view=provider` 时进入材料包生成。
+11. **人工审核队列**：`ADVERSE_RECOMMENDATION`、`TECHNICAL_NOT_MET`、人工覆盖都进这里。
+12. **Trace / 审计**：每个节点的输入引用、输出、模型、版本、耗时写入 JSONL。
+13. **评估框架**：读 trace 和 gold 标签计算指标；同一套 runner 跑对照实验。
 
 ---
 
-## 4. 关键设计决策
+## 3. 数据层：从原始数据到 `CaseBundle`
 
-由三位独立规划者辩论、仲裁后确定（附录 B），之后按项目负责人的确认做过调整（第 7 节）。决策依据中的数据见附录 A。
+### 3.1 MIMIC 数据流
 
-### 4.1 判定规则
-| # | 决策 |
-|---|---|
-| D1 | 总体结论四类（1.2 节），系统永不签发最终拒绝。 |
-| D2 | 规则写在 plan profile 里，代码不硬编码。换规则或新增某个保险计划只加 YAML；每次运行把 profile 名和 hash 写进 trace。默认 `strict_tm`，`ma_waiver` 结果并列报告。TEAM 豁免不进实验。字段见下方。 |
-| D3 | **C1 午夜数**从最早、未撤销的 POE "Admit to inpatient" 医嘱时间起算；医嘱后在 ED 等床的时间计入；ED 和观察期不计。没有该医嘱时退回入院时间并打标记，给出上下界；上下界跨过 3 → C1 为 `INSUFFICIENT`。 |
-| D4 | **技术性不符**：在 `strict_tm` 下，同时满足 (a) 有未撤销的住院医嘱、(b) 午夜上下界都 <3、(c) 30 天内没有合格的前序住院，才判 `TECHNICAL_NOT_MET`；否则 C1 为 `INSUFFICIENT`。结论说明写明理由码和条款（§409.30(a)）。 |
-| D5 | **C3–C6 对所有病例都跑**，包括 C1 不符的，这样切换 profile 只需重新汇总，不必重跑 LLM。 |
+```mermaid
+flowchart TD
+  R["① 原始 CSV（只读）"] --> P["② 候选池 + Parquet 子集"]
+  P --> T["③ 时间线抽取"]
+  P --> N["④ 病历处理"]
+  P --> F["⑤ 事实卡生成"]
+  T --> X["⑥ T_pa 截断"]
+  N --> X
+  F --> X
+  X --> Q{"⑦ 泄漏检查"}
+  Q -- 通过 --> CB[("CaseBundle")]
+  Q -- 不通过 --> N
+```
 
-D2 的 profile 字段：
+**附注**
+1. **原始 CSV**：MIMIC-IV 3.1 hosp / icu、ED、Note，未压缩；目录只读。labevents 18GB、chartevents 42GB，不能整表读进内存。
+2. **Parquet 子集**：DuckDB 先建候选池（约 4 万个住院），再把大表按候选池和列白名单过滤，存 zstd Parquet。之后所有步骤只读 Parquet。chartevents / labevents 只取 itemid 白名单。
+3. **时间线**：入院、观察医嘱、住院医嘱（`poe_detail` 的 "Admit to inpatient"）、ED 时段、观察病房时段、出院；同一病人 30 天内的前序住院。C1 的计算在规则引擎里，这里只抽时间点。
+4. **病历处理**：出院小结按标题切段 → 切句 → 分配 span ID；按 3.4 节的规则保留、删除和遮蔽。影像报告按 FINDINGS / IMPRESSION 切块。
+5. **事实卡**：每条标准对应若干 SQL 模板，把结构化数据变成一句话证据（见 3.5 节）。
+6. **T_pa 截断**：`T_pa = max(出院 − 24h, 住院起点)`。之后的数据在 adapter 里直接丢掉，引擎看不到。
+7. **泄漏检查**：数据质量关卡。TF-IDF + 逻辑回归预测出院去向，AUC 异常高说明还有泄漏；残余去向词必须为 0。
+
+### 3.2 `CaseBundle` 结构
+
+```python
+class CaseBundle:
+    case_id: str
+    source: Literal["mimic", "fhir", "packet"]
+    content_hash: str
+    demographics: Demographics
+    timeline: Timeline        # 时间点 + T_pa
+    note_spans: list[Span]    # 出院小结
+    radiology: list[Span]     # 影像报告
+    facts: list[FactCard]     # 结构化事实
+    missing: list[str]        # 缺的材料类型
+
+class Span:
+    span_id: str      # 如 "DS:HC:s14"
+    section: str
+    text: str
+    char_range: tuple[int, int]
+
+class FactCard:
+    fact_id: str      # 如 "RX:<pk>"
+    criterion: list[str]
+    text: str         # 一句话
+    provenance: str   # 表名 + 主键
+```
+
+**要考虑的点**
+- span ID 必须稳定：同一份病历重跑，ID 不变。做法是按 section + 句序编号，并存 `char_range`。
+- `content_hash` 用于缓存和审计：同一 hash 的 CaseBundle 可以直接复用之前的 LLM 结果。
+- `missing` 记录这一例缺什么（PT 评估、家庭支持、医师认证等），给补材料清单用。
+
+### 3.3 时间线与 C1 的数据依据
+- 住院起点：最早、未撤销（`transaction_type='New'`）的 "Admit to inpatient" 医嘱时间。
+- 医嘱下达后在 ED 等床的时间算住院；ED 和观察期本身不算。
+- 没有该医嘱的病例：退回入院时间，打标记，并给出午夜数上下界。
+- 只看 `transfers` 的观察病房会漏掉约 91% 的观察期（附录 A），所以必须用 POE。
+
+### 3.4 病历文本：保留什么、去掉什么
+
+**主设定（默认）**
+- 保留：CC、HPI、PMH、Social Hx、PE、Pertinent Results、Hospital Course、Discharge Condition（Activity / Mental Status，作功能状态代理）。
+- 删除：Disposition、Facility、Discharge Instructions、Followup、Discharge Diagnosis、Discharge Medications。
+- 遮蔽：去向句（rehab、SNF、extended care、placement、bed offer、accepted at 等），以及 PT/OT"建议去 rehab/SNF"的半句（同一句里的功能描述保留）。
+
+**realistic 设定（对照）**
+- 加回 PT/OT 建议句和去掉机构名的 Discharge Medications。
+
+**为什么删 Discharge Medications**：出院时才定稿；而且格式本身会泄露去向（回家病人常带 "RX … Disp … Refills" 行），正则清不掉。用药证据改用事实卡。
+
+### 3.5 事实卡
+
+| 类别 | 来源 | 例子 |
+|---|---|---|
+| 静脉用药 | prescriptions（+emar） | 出院前 48h 静脉万古霉素 4 次 |
+| 管路 / 营养 | poe | PICC 在位；鼻饲进行中 |
+| 伤口 | poe、chartevents | 伤口护理医嘱；压疮 3 期 |
+| 康复 | poe 会诊 | PT 会诊 3 次；OT 会诊 1 次 |
+| 呼吸 | poe | 氧疗 / BiPAP 医嘱 |
+| 功能 | chartevents（ICU） | Braden 活动评分 |
+
+**要考虑的点**
+- 要量化（天数、次数、是否仍在执行），不要只给有 / 无。PT 会诊、静脉补液在 SNF 和 home health 病人里都很常见，只看有无区分不开。
+- emar 在 2013 年前覆盖很低，用药以 prescriptions 为主，卡片标 `emar_available`。
+- 每张卡带 `provenance`，审计时能回查到原表主键。
+
+### 3.6 FHIR 和"提交的材料包"
+- FHIR adapter：Patient、Encounter、Condition、MedicationRequest、ServiceRequest、Observation → 时间线和事实卡；DocumentReference → 病历 span。
+- 材料包 adapter：只把材料包里实际包含的内容转成 `CaseBundle`。这就是保险视图"只看提交内容"的实现方式。
+
+---
+
+## 4. RAG：政策检索与病历检索
+
+两个检索问题性质不同，分开设计。
+
+### 4.1 政策知识库
+
+```mermaid
+flowchart TD
+  D1["① 政策原文"] --> D2["② 解析"]
+  D2 --> D3["③ 按条款切块"]
+  D3 --> D4["④ 加 metadata"]
+  D4 --> I1[("⑤ BM25 索引")]
+  D4 --> I2[("⑤ 向量索引 bge-m3")]
+  Q["⑥ 查询"] --> I1
+  Q --> I2
+  I1 --> FU["⑦ RRF 融合"]
+  I2 --> FU
+  FU --> TF["⑧ Tier 过滤"]
+  TF --> RR{"⑨ 需要 rerank?"}
+  RR -- 否 --> OUT["⑩ 条款 + section ID"]
+  RR -- 是 --> RK["LLM rerank"] --> OUT
+  CC[("⑪ criterion cards")] -. 固定注入 .-> OUT
+```
+
+**附注**
+1. **原文**：
+   - Tier 1（有约束力）：42 CFR 409.30–36、409.60–61、424.20、422.101、422.566–572。
+   - Tier 2（官方指导）：BPM Ch.8；CMS 2024-02 MA FAQ；Jimmo 和解说明；申诉和 NDMC 要求。
+   - Tier 3（背景）：CMS-0057-F、TEAM、WISeR、州法、OIG 报告。
+2. **解析**：CFR 用 XML（本地已有 `42cfr409_subpartD.xml`），BPM 用 PDF（`bp102c08.pdf`）。保留 section 编号层级。
+3. **切块**：以 § 为单位；300–800 tokens；§409.33 和 BPM §30.2–30.4 的举例列表整段保留，不能切断。
+4. **metadata**：`section_id`、`tier`、`source`、`effective_date`、`url`。
+5. **索引**：BM25（条文用词精确，关键词检索很有效）+ bge-m3 向量（处理同义表达），两路都建。
+6. **查询**：由 criteria_reviewer 按标准和病例情况发起，例如"维持性治疗是否算 skilled"。
+7. **融合**：RRF，不调权重，稳定。
+8. **Tier 过滤**：判定时只返回 Tier 1–2；Tier 3 只用于背景说明，判定输出里出现 Tier 3 引用即视为错误。
+9. **rerank**：默认不做。检索评测 recall@5 低于 0.9 时再加（LLM 逐条打分）。
+10. **输出**：条款原文 + section ID。agent 只能引用这里返回过的 ID。
+11. **criterion cards 是主力，检索是补充**：每条标准的定义、条文、正反例写成卡片，按标准固定放进 prompt；检索只用于边界情况和补充引用。原因是语料小（约 200–400 块）、标准固定，靠检索去"找"核心条文反而引入不稳定。
+
+**要考虑的点**
+- 索引带构建 ID（语料 hash + 切块参数 + 嵌入模型版本），写进 trace。
+- 评测集：约 40 条"问题 → 应命中的 section ID"，指标 recall@5、nDCG；另有负向测试（不得引用 Tier 3，特别是 TEAM、WISeR）。
+- 政策会改：每块带生效日期；判定时固定一个版本。
+
+### 4.2 病历检索
+
+```mermaid
+flowchart TD
+  CB[("CaseBundle")] --> L{"① 出院小结长度"}
+  L -- "8k tokens 以内" --> W["② 整份放进上下文"]
+  L -- "超过 8k tokens" --> S["③ 超出部分进单病例索引"]
+  CB --> R["④ 影像报告 + 事实卡"]
+  R --> IDX[("⑤ 单病例 BM25 索引")]
+  S --> IDX
+  Q["⑥ 按标准的查询 + 同义词扩展"] --> IDX
+  IDX --> O["⑦ 返回 span ID / fact ID"]
+  W --> AB["abstractor"]
+  O --> AB
+```
+
+**附注**
+1. **长度判断**：出院小结中位约 2.5k tokens，P99 约 7k（附录 A）。绝大多数整份放得下。
+2. **整份放进上下文**：比切块检索更不容易漏证据；跨段落的信息（如 Hospital Course 里的功能变化）不会被切断。
+3. **超长病历**：只把超出的部分放进索引。
+4. **影像报告和事实卡**：数量多、与每条标准相关度差异大，适合检索。
+5. **单病例索引**：每个病例运行时临时建，用完即弃。不建跨病人的全局向量库：不需要，也避免病人之间的信息混入。
+6. **查询**：每条标准一组关键词 + 同义词（如 "PICC"、"wound vac"、"assist x1"、"NG tube"）。
+7. **输出**：只返回 ID，正文由引用解析器回填。
+
+**要考虑的点**
+- 否定和不确定表述（"no pressure ulcer"、"possible pneumonia"）：abstractor 输出里要带 `assertion`（present / absent / possible）。可用 `mimic-iv-ext-entitycoding` 的标注单独评估这一点。
+- "整份 vs 检索"本身是一个对照实验（第 10 节），以 gold 证据 span 的召回率裁决。
+
+---
+
+## 5. Multi-agent：角色、编排、状态
+
+### 5.1 为什么拆、怎么拆
+拆分 LLM 步骤只有三个理由：
+1. **上下文小**：每个角色只看它需要的东西，模型更准。
+2. **独立复核**：critic 作为"第二双眼睛"，检查前面的判断。
+3. **可单独评估**：每一步的输出都能单独和 gold 对比。
+
+不采用的做法：
+- 单个大 prompt 一次出结论：难以定位错在哪一步，也难以复核。
+- LLM 自由调度 / 多 agent 对话：不可复现，调用次数不可控。
+- 每条标准一个 agent：调用次数翻几倍；C4、C5、C6 之间相互依赖，拆开反而丢信息。保留为对照实验。
+
+### 5.2 节点清单
+
+| 节点 | 类型 | 职责 |
+|---|---|---|
+| `load_case` | 代码 | 读 CaseBundle，按 view 限定范围 |
+| `intake_rules` | 代码 | C0–C2、时间线、T_pa |
+| `abstractor` | LLM | 抽取证据 |
+| `citation_resolver` | 代码 | 校验并回填引用 |
+| `criteria_reviewer` | LLM | 判定 C3–C6 |
+| `aggregator` | 代码 | 按 profile 汇总 |
+| `critic` | LLM | 复核 |
+| `explain` | 模板 | 结论说明、理由码、补材料清单 |
+| `packet_builder` | 代码 + LLM | Part 2 |
+
+每例约 2.5–2.7 次 LLM 调用（abstractor 1 次、criteria_reviewer 1 次、critic 约 30–50% 的病例触发、偶尔退回重判）。
+
+### 5.3 各 LLM 角色
+
+**abstractor（证据抽取）**
+- 输入：整份病历 span + 事实卡 + 单病例检索结果。
+- 任务：按 §409.33 的类别（观察评估、照护计划管理、教学培训、直接 skilled 护理、PT / OT / ST）抽取证据。
+- 输出：`[{span_id, anchor_phrase, claim, assertion, category}]`。
+- 不做判断，只做抽取。
+- 要考虑：长输入容易重复生成 → JSON schema 约束 + 输出长度上限 + 重复惩罚；温度 0。
+
+**criteria_reviewer（逐条判定）**
+- 输入：证据列表（约 1.5k tokens，不看全文）+ C3–C6 的 criterion cards + 政策检索结果。
+- 任务：C3–C6 在一次调用里判完，每条输出结果、证据 ID、条款 ID、理由。
+- 要考虑：
+  - "没有证据"不等于"有反面证据"：前者是 `INSUFFICIENT`，后者才是 `NOT_MET`。prompt 和 schema 都要区分。
+  - 理由要具体，能直接用作拒绝理由（CMS-0057-F 要求写明具体理由）。
+  - 不输出自报置信度（模型自报的置信度不可靠）。
+
+**critic（复核）**
+- 触发：所有非 `APPROVE` + 随机 20% 的 `APPROVE`（防止错误批准无人发现）。
+- 输入：criteria_reviewer 的输出 + 证据 + 事实卡 + 护栏规则。
+- 检查项：
+  1. 缺证据被当成反面证据。
+  2. 以"无改善潜力"为由判不符（违反 Jimmo）。
+  3. 把 custodial care 当成 skilled，或反过来。
+  4. 引用的证据与结论矛盾。
+  5. 事实卡里有 skilled 信号但没被用上。
+  6. 用了禁止的依据（凭诊断推定、住院天数预测）。
+- 输出：`{pass, issues[], suggested_changes}`。不通过时退回 criteria_reviewer 一次；再不通过则进人工队列并附 critic 意见。
+- 要考虑：可以用与 criteria_reviewer 不同的模型，减少同源错误。
+
+### 5.4 编排（LangGraph）
+
+```mermaid
+flowchart TD
+  S(["开始"]) --> LC["load_case"]
+  LC --> IR["intake_rules"]
+  IR --> AB["abstractor"]
+  AB --> CR["citation_resolver"]
+  CR --> RV["criteria_reviewer"]
+  RV --> AG["aggregator"]
+  AG --> Q1{"① 需要 critic?"}
+  Q1 -- 否 --> EX["explain"]
+  Q1 -- 是 --> CT["critic"]
+  CT --> Q2{"② critic 通过?"}
+  Q2 -- 是 --> EX
+  Q2 -- "否，首次" --> RV
+  Q2 -- "否，第二次" --> HQ["人工队列"]
+  EX --> Q3{"③ view"}
+  Q3 -- provider --> P2["Part 2"]
+  Q3 -- payer --> Q4{"④ 结论"}
+  Q4 -- APPROVE --> DONE(["建议批准"])
+  Q4 -- 其他 --> HQ
+  P2 --> DONE2(["材料包 / 补材料清单"])
+```
+
+**附注**
+1. 非 `APPROVE`，或命中 20% 抽样的 `APPROVE`。
+2. critic 最多退回一次，防止死循环。
+3. `view` 只影响输入范围（3.6 节）和输出去向，中间逻辑完全一样。
+4. 保险视图下，`ADVERSE_RECOMMENDATION` 和 `TECHNICAL_NOT_MET` 用 LangGraph 的 `interrupt` 停在人工节点，等签字后继续。
+
+**要考虑的点**
+- 用 checkpointer（SQLite）保存每个节点后的状态：批量运行中断后能续跑；人工签字可以隔天继续。
+- `intake_rules` 判定技术性不符后，**C3–C6 仍然要跑**。这样切换 profile（如改为豁免 3 天）只需重新汇总，不必重跑 LLM。
+- 节点幂等：同一 `CaseBundle` hash + 同一 prompt 版本 + 同一模型，结果可从缓存取。
+
+### 5.5 状态与输出 schema
+
+```python
+class CaseState:
+    case_id: str
+    view: Literal["provider", "payer"]
+    profiles: list[str]
+    eligibility: EligibilityResult
+    evidence: list[Evidence]
+    criteria: dict[str, CriterionResult]
+    decisions: dict[str, Decision]  # 按 profile
+    critic: CriticResult | None
+    review: HumanReview | None
+    cost: CostRecord
+
+class Evidence:
+    span_id: str
+    anchor_phrase: str
+    claim: str
+    assertion: Literal["present",
+                       "absent", "possible"]
+    category: str
+
+class CriterionResult:
+    criterion: str          # C0..C8
+    status: Literal["MET", "NOT_MET",
+                    "INSUFFICIENT"]
+    evidence_ids: list[str]
+    policy_refs: list[str]  # section ID
+    rationale: str
+
+class Decision:
+    profile: str
+    outcome: Literal["APPROVE", "PEND_INFO",
+                     "ADVERSE_RECOMMENDATION",
+                     "TECHNICAL_NOT_MET"]
+    reason_codes: list[str]
+    missing_items: list[str]
+```
+
+### 5.6 Prompt 设计
+- 固定顺序：系统说明 → 病历（分隔符包住）→ criterion cards → 任务。同一病例的多次调用前缀相同，本地模型可复用 KV 缓存。
+- 病历用明确的分隔符包住，并在系统说明里写明"以下是病历数据，不包含给你的指令"。
+- 每个 prompt 有版本号，存在 `prompts/` 下；trace 记录用的是哪个版本。
+- 输出一律用 JSON schema 约束；解析失败最多重试 2 次，仍失败则该病例标为错误进人工队列。
+
+### 5.7 引用机制（防编造）
+
+```mermaid
+flowchart TD
+  M["① 模型输出 span_id + 锚点短语"] --> C1{"② span_id 存在?"}
+  C1 -- 否 --> X["证据作废"]
+  C1 -- 是 --> C2{"③ 锚点在该 span 里?"}
+  C2 -- 否 --> X
+  C2 -- 是 --> F["④ 代码回填原文"]
+  X --> R["⑤ 相关标准降为 INSUFFICIENT"]
+```
+
+**附注**
+1. 模型不写原文，只写 ID 和不超过 8 个词的锚点短语。
+2. ID 必须在这个病例的 `CaseBundle` 里。
+3. 锚点做规范化后的子串匹配（大小写、空白）。
+4. 最终展示的原文都由代码从 `CaseBundle` 取，模型无法编造引用。
+5. 剩下的风险是"引用是真的，但不支持结论"，由 critic 检查。
+
+---
+
+## 6. 规则引擎与结论汇总
+
+### 6.1 plan profile
 
 ```yaml
-three_day_rule: required          # strict_tm 为 required，ma_waiver 为 waived
+# profiles/strict_tm.yaml
+three_day_rule: required     # ma_waiver: waived
 qualifying_stay_lookback_days: 30
 assume_no_other_qualifying_stay: true
 auto_technical_noncoverage: true
 physician_cert: assume_submitted
+benefit_days: assume_available
+pend_before_adverse: true
 critic_approve_sample_rate: 0.2
 ```
 
-### 4.2 数据与证据
-| # | 决策 |
-|---|---|
-| D6 | **T_pa** = max(出院时间 − 24h, 住院起点)，−48h 做敏感性分析。结构化数据和影像报告只用 T_pa 之前的。 |
-| D7 | **主设定的病历输入**：保留 CC / HPI / PMH / Social Hx / PE / Pertinent Results / Hospital Course + Discharge Condition（Activity / Mental Status，作为出院时功能状态的代理）。删除 Disposition / Facility / Discharge Instructions / Followup / Discharge Diagnosis / Discharge Medications。遮蔽去向句和 PT/OT"建议去 rehab/SNF"的半句。用药证据改用 T_pa 前的事实卡。 |
-| D8 | **realistic 设定**：加回 PT/OT 建议句和去掉机构名后的 Discharge Medications；另做"去掉 Activity Status"的敏感性对照。 |
-| D9 | **引用**：病历预先切成带 span ID 的句子 / 条目（如 `DS:HC:s14`、`RX:<pk>`）；LLM 只输出 span ID + ≤8 词的锚点短语；代码校验锚点在该 span 中并回填原文，模型无法编造引用。 |
+- 默认 `strict_tm`（要求住院满 3 个午夜）；`ma_waiver` 并列计算。**默认值待定**（第 13 节）。
+- 新增某个 MA 计划的规则 = 新增一个 YAML。
+- 每次运行把 profile 名和内容 hash 写进 trace。
 
-### 4.3 引擎
-| # | 决策 |
-|---|---|
-| D10 | **固定流程（LangGraph），不让 LLM 自由调度**，节点见 3.1 节。每例约 2.5–2.7 次 LLM 调用。编排、政策检索、结论说明都不是 agent（分别是代码、检索工具、模板）。 |
-| D11 | **病历检索**：整份处理后的出院小结直接放进上下文；单病例 BM25 只用于影像报告、事实卡和超长病历。 |
-| D12 | **解码**：abstractor 温度 0 + JSON schema 约束 + 重复惩罚 + 输出长度上限；criteria_reviewer / critic 温度 0 单次。自一致性 ×3 只有在 dev 上证明有用时才启用。 |
-| D13 | **引擎与数据源解耦**：引擎只认 `CaseBundle`；MIMIC 和 FHIR 各写一个适配器；引擎代码里不出现 MIMIC 表名。 |
-| D14 | **模型可插拔**：统一的 LLM provider 接口，按角色配置。POC 用 Claude Code 订阅和 OpenAI（Codex）订阅，本地 qwen3:14b 作私有化部署对照；之后切换 AWS Bedrock（M5），切换只改配置，在同一测试集上对比结果作为验收。 |
-| D15 | **`view` 参数**：`provider` 用完整病历，输出接 Part 2；`payer` 只用申请材料包，输出接审核员队列。其余引擎逻辑相同。 |
+### 6.2 C1 计算
 
-### 4.4 评估
-| # | 决策 |
-|---|---|
-| D16 | **队列**：Medicare、入院 ≥65 岁、出院存活、anchor 年份桶 2011–2018、有出院小结、每人只取一次住院；测试集只取有 POE 住院医嘱的病例。 |
-| D17 | **规模**：dev 100（含 dev-gold 20–30）/ 冻结 test 200（含 test-gold 120，其中 30 例双人标注），共 300。 |
-| D18 | **主指标**是 gold 上的逐条准确率和错误率，以出院去向为标签的指标只作参考。具体定义见 Step 13。 |
+```mermaid
+flowchart TD
+  W{"① profile 要求 3 天?"} -- 否 --> MET["MET"]
+  W -- 是 --> A{"② 有未撤销的住院医嘱?"}
+  A -- 是 --> B["从医嘱时间起算午夜数"]
+  B --> D{"午夜数至少 3?"}
+  D -- 是 --> MET
+  D -- 否 --> P1{"③ 30 天内有合格前序住院?"}
+  P1 -- 是 --> MET
+  P1 -- 否 --> NM["NOT_MET（技术性）"]
+  A -- 否 --> C["④ 退回入院时间，算上下界"]
+  C --> E{"上下界都至少 3?"}
+  E -- 是 --> MET
+  E -- 否 --> P2{"30 天内有合格前序住院?"}
+  P2 -- 是 --> MET
+  P2 -- 否 --> INS["INSUFFICIENT"]
+```
+
+**附注**
+1. `three_day_rule: waived`（如 `ma_waiver`）时，C1 直接视为 `MET`。
+2. 午夜数：医嘱后在 ED 等床的时间计入；ED、观察期和出院当天不计。
+3. 只有住院医嘱确定、午夜数不足、且没有合格前序住院时，才判 `NOT_MET`（汇总为 `TECHNICAL_NOT_MET`）。院外住院在 MIMIC 里看不到；`assume_no_other_qualifying_stay: true` 时按"没有"处理，但结论里自动附一条询问。
+4. 没有住院医嘱的病例最多只到 `INSUFFICIENT`，补材料时请医院提供住院医嘱日期。
+
+### 6.3 汇总规则（aggregator）
+
+```mermaid
+flowchart TD
+  A{"① C0 或 C1 为 NOT_MET?"} -- 是 --> T["TECHNICAL_NOT_MET"]
+  A -- 否 --> B{"② C3–C6 有 INSUFFICIENT?"}
+  B -- 是 --> P["PEND_INFO"]
+  B -- 否 --> C{"③ C3–C6 有 NOT_MET?"}
+  C -- 是 --> AD["ADVERSE_RECOMMENDATION"]
+  C -- 否 --> AP["APPROVE"]
+```
+
+**附注**
+1. 技术性不符优先。
+2. `pend_before_adverse: true` 时，只要还有信息不足，先要材料，不急着给"建议拒绝"。理由：错误拒绝的代价远高于多要一次材料；同时结论里会标出已发现的不符项。
+3. 只有信息齐全且确有不符，才给 `ADVERSE_RECOMMENDATION`。
+4. C2、C7、C8 在 MIMIC 上按 profile 假定；接入真实数据后它们也走同样的逻辑。
+
+### 6.4 多 profile 并行
+LLM 只跑一遍，aggregator 对每个 profile 各汇总一次，结果存在 `decisions[profile]`。切换 profile 是纯代码操作，毫秒级。
 
 ---
 
-## 5. 工作计划
+## 7. Part 2：申请材料包
 
-### 5.1 路线图
-
-| 里程碑 | 步骤 | 能看到什么 |
-|---|---|---|
-| M0 地基 | Step 0–2 | 模型接口、审核标准卡片、两个 profile |
-| M1 Part 1 跑通 | Step 3–6 | 合成病例上端到端出审核结论 |
-| M2 Part 2 + Demo v1 | Step 7 + Step 14 的页面 1–4、6 | 可以给朋友或顾问看的 demo |
-| M3 真实数据验证 | Step 8–13（先用 dev-gold 出初步数字） | Validation 页初步数字 |
-| M4 投资人版 | test-gold 补齐并冻结；Step 14 其余部分 | 完整 demo + deck + 技术报告 |
-| M5 迁移 | 加 Bedrock provider，同一测试集上对比，通过后切换 | 可部署的正式版本 |
-
-**依赖**：M1、M2 只用合成病例，不依赖 MIMIC，可以先做；M3 可与 M1–M2 并行。Step 3 的 MIMIC 适配器要等 Step 9–11 完成后接上。
-
-### 5.2 阶段 A：地基
-
-#### Step 0 — 仓库整理与模型接口（1 天）
-- **目标**：代码可复现、能入库；三种模型都能调用。
-- **做法**：
-  1. `.gitignore` 里的 `data/` 改为 `/data/`。现在它把 `src/snf_pa/data/` 也忽略了，抽样代码（`config.py`、`cohort.py`、`build_sample.py`）不在仓库里，别人 clone 后 `tests/test_sample.py` 会缺依赖。先确认本地文件还在，再入库。
-  2. 数据路径统一配置：原始数据根目录 `E:/project data/AgentResearch/raw`（只读），读**未压缩的 `.csv`**；派生数据写仓库内的 `derived/`。`derived/`、`traces/`、`data/` 不进 git。
-  3. 样本量对齐：`test_sample.py` 期望 300，`step 0 plan.txt` 写的是 50 → 按 D17 统一（Step 10 重抽后改测试）。
-  4. 目录：`src/snf_pa/engine/`（审核引擎）、`src/snf_pa/adapters/{mimic,fhir}/`、`src/snf_pa/packet/`（Part 2）、`research/`（MIMIC 验证脚本）、`demo/`（合成病例与 UI）。现有空的 `agents/ graph/ rag/ tools/` 并入 `engine/`。
-  5. LLM provider 接口：统一为"prompt + JSON schema → 结构化 JSON"，按角色配置模型。先实现三个：
-     - Ollama（本地 qwen3:14b）；
-     - Claude：`claude -p "<prompt>" --output-format json --json-schema '<schema>'`，结果在返回 JSON 的 `structured_output` 字段，没有就重试。**不要加 `--bare`**（它不读订阅登录）。用 `--permission-mode dontAsk`、尽量少的工具，在一个干净的空目录里调用；
-     - OpenAI：`codex exec "<prompt>" --output-schema ./schema.json -o ./out.json --ephemeral`；
-     - Bedrock 留好位置（`langchain-aws` 已在依赖里）。
-  6. trace 统一写本地 JSONL（`traces/`）。
-- **完成标准**：新 clone 后 `pytest` 可运行（缺数据时跳过）；抽样代码已入库；三个 provider 对同一个合成 prompt 都返回合法 JSON。
-
-#### Step 1 — 速度基准（半天）
-- **目标**：知道每个模型跑一例要多久。
-- **做法**：用合成病例测每个 provider 的单次调用耗时和单例总耗时（长调用约 4k 输入 + 1k 输出；短调用约 1.5k 输入），以及订阅的额度消耗。本地模型显式设 `num_ctx=16384`。
-- **注意**：Arc 140V 上 llama.cpp 有不稳定报告；订阅有速率限制，要估算批量跑 200 例需要多久。
-- **完成标准**：每个模型的"秒 / 调用"和"分钟 / 例"写进 manifest。
-
-#### Step 2 — 审核标准卡片与 plan profile（2–3 天）
-- **目标**：把法规翻译成机器可用、可引用的标准；这同时就是 gold 标注手册。
-- **做法**：
-  - 为 C0–C8 各写一张 YAML 卡片：定义、条文 ID、2–3 个正例和反例（取自 BPM §30.2–30.4）、版本 / 生效日期。
-  - 拒绝理由码表：每个码对应一条标准和一个 CFR 条款（CMS-0057-F 要求写明具体理由）。
-  - 写 `profiles/strict_tm.yaml` 和 `profiles/ma_waiver.yaml`。
-- **注意**：核对本地 `policy_docs/bp102c08.pdf`（Rev. 12283，2023-10-05）是否最新；按 2026 年规则判定；措辞用"licensed clinical reviewer"（§422.566(d) 原文为 physician *or other appropriate health care professional*）。
-- **完成标准**：C0–C8 都有卡片；理由码表和两个 profile 完成。
-
-### 5.3 阶段 B：Part 1 审核引擎（先在合成病例上跑通）
-
-#### Step 3 — `CaseBundle` 与适配器（2–3 天）
-- **目标**：所有病例来源都转成统一输入。
-- **做法**：
-  - 定义 `CaseBundle`（Pydantic）：人口学；时间线（入院、观察医嘱、住院医嘱、ED 时段、出院、T_pa）；带 span ID 的分段病历；事实卡（带来源主键或 FHIR resource id）；影像报告；`source`（mimic / fhir / submitted_packet）。
-  - FHIR 适配器：FHIR Bundle → `CaseBundle`（合成病例走这里，以后接医院 EHR 也走这里）。
-  - MIMIC 适配器：Step 9–11 的产物 → `CaseBundle`（阶段 D 完成后接上）。
-- **完成标准**：合成病例能转成合法的 `CaseBundle`。
-
-#### Step 4 — 合成病例库（3–5 天）
-- **目标**：给开发、单元测试和 demo 提供专门设计、结果可控的病例。
-- **做法**：写 12–15 个合成病人，每个展示一项能力：
-
-| 病例 | 展示的能力 | 预期总体结论 |
-|---|---|---|
-| 髋骨折术后，需每日 PT + 抗凝注射 | 典型批准 | `APPROVE` → 生成材料包 |
-| 肺炎后体能下降，病历里没有 PT 评估 | 发现缺口 | `PEND_INFO`；补上 PT 评估后变 `APPROVE` |
-| 只需要协助洗澡穿衣 | 识别 custodial care | `ADVERSE_RECOMMENDATION` |
-| 住院 2 个午夜 | 技术性不符；切换 profile | `TECHNICAL_NOT_MET`；`ma_waiver` 下进入医疗审查 |
-| 先观察后住院，卡在 3 午夜边界 | C1 按住院医嘱计算 | 视时间而定 |
-| 帕金森，"已到平台期"，需维持性 skilled therapy | Jimmo 陷阱 | `APPROVE` 或 `PEND_INFO`，绝不 `ADVERSE_RECOMMENDATION` |
-| 新鼻饲管 + 伤口负压治疗 | 每日 skilled nursing | `APPROVE` |
-| 卒中，独居，无照护者 | practical matter 满足 | `APPROVE` |
-| 心衰，可以回家接受 home health | practical matter 不满足 | `ADVERSE_RECOMMENDATION` 或 `PEND_INFO` |
-| 其余：IV 抗生素疗程、从 SNF 入院、认知障碍等 | | |
-
-  - 格式：FHIR 风格 JSON Bundle（Patient、Encounter、Condition、MedicationRequest、ServiceRequest、Observation；出院小结放在 DocumentReference）。
-  - 生成：用 Claude Code / Codex 按场景写，人工审校临床合理性；可参考 MIMIC 出院小结的写法；人口学可用 Synthea 生成。
-  - 刻意放入缺失信息、矛盾记录和长病历，避免 demo 效果好于真实情况。
-- **完成标准**：全部病例通过 FHIR 适配器；预期结论写成 pytest 回归测试。
-
-#### Step 5 — 政策检索（RAG）（3 天）
-- **目标**：判定时能检索并引用到具体条款。
-- **语料分级**：
-  - Tier 1（有约束力）：42 CFR 409.30–36、409.60–61、424.20；422.101(b)(c)、422.566、422.568、422.570–572、422.138。
-  - Tier 2（官方指导）：BPM Ch.8（重点 §20、§30）；CMS 2024-02-06 MA coverage criteria FAQ；Jimmo 和解说明；Parts C&D 申诉指南；NDMC 要求。
-  - Tier 3（只作背景，判定时不得引用）：CMS-0057-F；TEAM 3 天豁免；WISeR（只适用 TM、不含 SNF）；州法；OIG / 参议院报告。
-- **做法**：以 `tests/check_rag.py` 已有的切块、bge-m3、BM25、RRF 为基础；按 § 切块，§409.33 和 §30.2–30.4 的举例列表整段保留；metadata 含 tier、生效日期、URL。以标准卡片直接绑定条文为主、检索为辅；recall@5 < 0.9 时再加 reranker。
-- **完成标准**：约 40 条"问题 → 应命中的条款"测试集 recall@5 ≥ 0.9；Tier 3 不被引用的测试通过。
-
-#### Step 6 — 审核引擎（LangGraph）（5–7 天）
-- **目标**：实现 3.1 节的 Part 1 流程。
-- **做法**：
-
-```
-START → load_case          [代码：读取 CaseBundle，按 view 限定输入范围]
-      → intake_rules       [代码：C0–C2、时间线、T_pa；读 plan profile]
-      → abstractor         [LLM：按 §409.33 类别抽证据 {span_id, anchor_phrase, claim, assertion}]
-      → citation_resolver  [代码：校验锚点、回填原文；失败的证据作废]
-      → criteria_reviewer  [LLM：输入证据 + C3–C6 卡片 + 政策检索；
-                            每条输出 {MET | NOT_MET | INSUFFICIENT, evidence_ids, policy_refs, rationale}]
-      → aggregator         [代码：按 profile 汇总总体结论；可同时算多个 profile]
-      → critic             [LLM：所有非 APPROVE + 随机 20% APPROVE；最多退回 criteria_reviewer 1 次
-                            检查：缺证据 ≠ 反面证据；Jimmo；custodial；证据与结论矛盾；漏看的 skilled 信号；拒绝理由是否具体]
-      → explain            [模板：结论说明 + 理由码 + 补材料清单]
-      → view=provider → Step 7（Part 2）
-        view=payer    → 审核员队列（ADVERSE_RECOMMENDATION 用 interrupt 等人工签字）
+```mermaid
+flowchart TD
+  D{"① Part 1 结论"} -- APPROVE --> A["② 组装材料"]
+  D -- PEND_INFO --> R["③ 补材料清单"]
+  D -- 其他 --> N["不生成，显示理由"]
+  R --> U["④ 医院补充文档"]
+  U --> RE["重跑 Part 1"] --> D
+  A --> S["⑤ 叙述摘要 LLM"]
+  S --> V["⑥ 渲染 PDF + FHIR"]
+  V --> SC["⑦ 自检：材料包 → CaseBundle → 保险视图重审"]
+  SC --> OK{"结论一致?"}
+  OK -- 是 --> REL(["可提交"])
+  OK -- 否 --> GAP["⑧ 标出缺口，回到 ②"]
 ```
 
-  - State：`CaseState{case_id, view, profile, eligibility, evidence[], criteria{cid: 逐条结果}, decision{profile: 总体结论}, critic_findings, human_review, cost}`。
-  - 解析失败最多重试 2 次；批量运行加限速和断点续跑（checkpointer）。
-  - FastAPI 接口：提交病例、查结果、人工复核、补材料后重审。
-- **完成标准**：全部合成病例跑出预期结论；schema 100% 合法；span ID 100% 可解析。
+**附注**
+1. 其他结论默认不生成；case manager 可以人工覆盖，覆盖原因写进审计记录。
+2. **组装（代码）**，内容：
+   - 病人与住院概要；
+   - 时间线（住院医嘱、午夜数、拟入住 SNF 日期）；
+   - 逐条标准：结果 + 证据原文 + 条款；
+   - 拟在 SNF 提供的 skilled 服务和频率（对应 C4 / C5）；
+   - 功能状态与照护环境（C6）；
+   - 医师认证占位；
+   - 附件清单。
+3. **补材料清单**：按 `INSUFFICIENT` 的标准生成，写明需要什么、建议找谁（主治、PT、社工）。
+4. 补充的文档进入 `CaseBundle` 的新版本（新 hash），整例重跑。
+5. **叙述摘要**：LLM 只能改写已引用的 span，不能引入新事实；生成后同样走引用校验。
+6. **渲染**：PDF 给人看；FHIR 为 Da Vinci PAS 风格的 Claim Bundle（证据放 `supportingInfo`，病历节选放 DocumentReference），只做格式示意。
+7. **自检**：把材料包当作保险方收到的东西，经材料包 adapter 转成 `CaseBundle`，用 `view=payer` 重跑 Part 1。结论应与医院侧一致。
+8. 不一致说明材料包漏了关键证据；把差异的标准和证据列出来，补进材料包后重新渲染。
 
-### 5.4 阶段 C：Part 2 申请材料包
+**要考虑的点**
+- 材料包带版本号和生成时用的 CaseBundle hash、profile、模型版本。
+- 自检一致率本身是一个评估指标（第 10 节）。
 
-#### Step 7 — 申请材料包生成（4–6 天）
-- **目标**：对 `APPROVE` 的病例生成可提交的材料；对 `PEND_INFO` 的病例生成补材料清单。触发规则见 1.2 节。
-- **材料包内容**：
-  1. 病人与住院概要（诊断、手术、住院经过要点）。
-  2. 时间线：入院、住院医嘱、午夜数、拟出院和入住 SNF 日期。
-  3. 逐条标准：结果 + 病历原文证据（由 span ID 回填）+ 条款引用。
-  4. 拟在 SNF 提供的 skilled 服务：项目和频率（对应 C4 / C5，如"每日 PT 60 分钟、每周 5 天"）。
-  5. 功能状态与照护环境（对应 C6）。
-  6. 医师认证占位（待签字）。
-  7. 附件清单：相关病历节选、影像报告、用药记录。
-- **格式**：
-  - PDF（给人看）。
-  - FHIR Bundle（Da Vinci PAS 风格的 Claim，支持材料放在 supportingInfo），只做格式示意，不追求通过官方校验。
-- **补材料清单**：按 `INSUFFICIENT` 的标准列出具体需要什么、建议找谁（主治医生、PT、社工）；补齐后一键重审。
-- **自检**：把生成的材料包转成 `CaseBundle`，用 `view=payer` 重跑 Part 1，结论应与医院侧一致；不一致说明材料包漏了关键证据。
-- **完成标准**：合成病例中所有 `APPROVE` 都生成材料包且自检一致；`PEND_INFO` 病例补材料后能变 `APPROVE` 并生成材料包；MIMIC 测试集上报告自检一致率（Step 13）。
-- **后续扩展**（不在本期）：保险拒绝后自动起草申诉信。
+---
 
-### 5.5 阶段 D：用 MIMIC 真实数据验证 Part 1
+## 8. 模型层
 
-#### Step 8 — 一次性抽取 Parquet（2–3 天）
-- **目标**：之后的步骤不再读原始 CSV。
-- **做法**：
-  - DuckDB：`memory_limit=16GB`，临时目录放 SSD，8 线程；不用 pandas。
-  - 先建候选池 `cohort_hadm.parquet`（约 4 万个住院），再把每张大表按候选池过滤、只取需要的列，存成 zstd Parquet（按 hadm_id 排序）。
-  - hosp：admissions、patients、transfers、services、diagnoses_icd、procedures_icd、prescriptions、pharmacy、emar（与 pharmacy 关联取给药途径；只计 Administered / Started / Delayed Administered）、poe + poe_detail、labevents（白名单：WBC、Hb、Cr、INR、白蛋白、血糖、乳酸）。
-  - icu：icustays、chartevents（单次扫描，itemid 白名单：Braden Activity / Mobility 224056 / 224057、Gait / Transferring 227345、Ambulatory aid 227343、Risk for Falls 223754、压疮系列、OT Notes 227848 等）。
-  - ED：edstays、triage、diagnosis。note：discharge、radiology、radiology_detail。
-  - drgcodes 不作为输入（出院后编码），只用于分析。
-- **注意**：`read_csv` 调大 `max_line_size`；`*_detail` 表显式指定类型；写 manifest（行数、源文件 mtime / sha）。
-- **完成标准**：Parquet 总量 <5GB；manifest 能复现附录 A 的计数。
+```mermaid
+flowchart TD
+  AG["agent 调用"] --> GW["① 模型网关"]
+  GW --> RT["② 按角色路由"]
+  RT --> P1["Ollama 本地"]
+  RT --> P2["Claude Code 订阅"]
+  RT --> P3["OpenAI Codex 订阅"]
+  RT --> P4["AWS Bedrock（后续）"]
+  P1 --> VL["③ schema 校验"]
+  P2 --> VL
+  P3 --> VL
+  P4 --> VL
+  VL -- 失败 --> RTY["重试 ≤ 2"] --> RT
+  VL -- 通过 --> CA[("④ 缓存 + 成本记录")]
+```
 
-#### Step 9 — MIMIC 时间线（2–3 天）
-- **目标**：从 MIMIC 表里取出时间点，填进 `CaseBundle`。C1 的计算在引擎的 intake_rules 里。
-- **做法**：
-  - 住院医嘱时间：最早、未撤销（`transaction_type='New'`）的 "Admit to inpatient"；观察医嘱："Place in observation"；观察病房时段来自 transfers；ED 时段来自 edstays 或 admissions.edregtime / edouttime。
-  - 前序住院：同一病人 30 天内有 ≥3 午夜的出院。
-  - 标记：从 SNF 入院、60 天内曾从 SNF 出院。
-  - 入院年龄：anchor_age + （入院年 − anchor_year）。
-- **注意**：真实年份由 anchor 年份桶推算，有 ±2 年误差；院外住院看不到，走补材料询问，不直接判不符；所有数据按 T_pa 截断，在适配器层强制。
-- **完成标准**：每条规则有单元测试；能复现"38,828 → 37,337"（附录 A）。
+**附注**
+1. **统一接口**：`call(role, prompt, schema) -> dict`。agent 代码不知道背后是哪个 provider。
+2. **路由配置**（`models.yaml`）：每个角色指定 provider 和模型，例如 abstractor 用 A、critic 用 B。
+3. **schema 校验**：所有输出先过 JSON schema 和 Pydantic；失败重试，仍失败记为错误。
+4. **缓存**：键 = prompt hash + 模型 + 解码参数。用于重放、调试和省额度。
 
-#### Step 10 — 队列与抽样（2 天）
-- **目标**：按审核难度分层抽样，并冻结测试集。纳入条件见 D16，规模见 D17。
-- **分层**：
-  - 临床场景：骨科术后（髋骨折 / 关节置换）、卒中、内科病后体能下降（非手术主诊断 + 有 PT 会诊 + 非骨科非卒中；MA 拒绝最集中，加大权重）、心衰、伤口 / IV 抗生素 / 新鼻饲管。
-  - 出院去向：SNF；home health（难负例，多抽）；HOME（分有无 PT / OT 会诊）；REHAB / IRF 小层（dev 20 / test 20，按 SNF 标准评估，预期 C4 / C5 多为 `MET`，不当负例）。
-  - 边界层（多抽）：先观察后住院；<3 午夜去 SNF（分有无前序住院）；从 SNF 入院；ICU / 非 ICU。
-  - 髋骨折几乎都去 SNF（1,017 去 SNF，9 回家，46 home health）→ 单独报告，不计入总体。
-- **注意**：每人只取一次住院；主结果按层不加权，加权推算到总体只作次要；测试集冻结后开发中不能看。
-- **完成标准**：manifest 写清每层候选数和抽样数；`test_sample.py` 按新设计更新并通过。
+**各 provider 的接法**
+- **Ollama**：qwen3:14b，`format` 传 JSON schema，`num_ctx=16384`，非思考模式。作为"可私有化部署"的对照。
+- **Claude Code 订阅**：`claude -p "<prompt>" --output-format json --json-schema '<schema>'`，结果在返回 JSON 的 `structured_output`（缺失则重试）；返回里有 `total_cost_usd` 和 usage，写进成本记录。不要加 `--bare`（它不读订阅登录）。用 `--permission-mode dontAsk`、最少工具，在干净的空目录调用，避免加载项目的 hooks 和 CLAUDE.md。
+- **OpenAI Codex 订阅**：`codex exec "<prompt>" --output-schema schema.json -o out.json --ephemeral`。
+- **AWS Bedrock（后续）**：`langchain-aws` 已在依赖里。切换验收：同一测试集上对比结果。
 
-#### Step 11 — 病历处理与去泄漏（4–5 天）
-- **目标**：生成 MIMIC 病例的 `CaseBundle` 内容，并确保不泄露出院去向。
-- **做法**：
-  1. 出院小结按标题切段、保留字符偏移，再切到句子，分配 span ID；按 D7 保留和删除段落。
-  2. 遮蔽去向句：rehab、extended care、SNF、nursing facility、"___ facility"、discharge to、placement、screened、accepted at、bed offer、case management arranged、PT recommends [去向] 等。
-  3. 影像报告：只取 T_pa 之前的，按 FINDINGS / IMPRESSION 切块。
-  4. 事实卡：每条标准一个 SQL 模板，输出一句话 + 主键。要量化（天数、是否仍在用），不只是有 / 无。用药以 prescriptions 为主，emar 作补充（卡片标 `emar_available`）。
-  5. 记录每例缺了哪些真实申请材料会有的内容（PT / OT 评估、家庭支持、医师认证等）。
-- **泄漏检测**：
-  - TF-IDF + 逻辑回归预测出院去向（SNF vs home health），整体和逐段各做一次；Discharge Medications 单段 AUC > 0.70 即确认删除；统计 "RX … Disp … Refills" 行在各去向的出现率。
-  - 让 LLM 直接猜去向，看命中率。
-  - 人工抽查 50 篇。
-- **注意**：MIMIC 没有逐日病程记录，"PA 提交时刻"的模拟不完全真实，写进局限。
-- **完成标准**：残余去向词为 0；主设定和 realistic 设定两套输入可复现；每张事实卡能按主键回查。
+**解码**
+- 默认温度 0（可复现、便于审计）。注意本地 Ollama 在温度 0 下也不是逐位确定，记录 seed。
+- 自一致性（同一判定采样 3 次看一致率）只作为实验：dev 上证明"一致率能预测对错"才启用。
 
-#### Step 12 — Gold 标注（2–4 周，可与 Step 13 前半并行）
-- **目标**：得到逐条标准的人工"标准答案"。
-- **做法**：
-  - 标注手册就是 Step 2 的标准卡片。
-  - 每例逐条标注 `MET` / `NOT_MET` / `INSUFFICIENT` + 证据 span，再分别按 `strict_tm` 和 `ma_waiver` 给出总体结论。
-  - 先标 30 例 dev-gold；test-gold 120 例在有时间或找到临床标注者后补，其中 30 例双人独立标注，算 Cohen's κ（目标 C4–C6 κ ≥ 0.6）。
-  - 标注者看同一份处理后的输入，不看系统输出。
-  - 标注工具：一个简单页面，逐条点选 + 选中 span。
-  - 在 MIMIC dev 上调 prompt 要在 dev-gold 标完之后进行。
-- **完成标准**：gold 文件冻结；κ 有报告。test-gold 完成前，Step 13 的数字标为"初步"。
+**要考虑的点**
+- 订阅有速率和额度限制：网关做限速（令牌桶）、指数退避；批量运行靠编排层断点续跑。
+- 两家订阅可以互为备份：一家限流时切另一家（需要在评估里确认两家结果差异可接受）。
 
-#### Step 13 — Part 1 评估（1–2 周，主要是机器时间）
-- **目标**：给出 Validation 页和技术报告需要的数字。
-- **指标**（每项按 profile 分别报告，带 95% 置信区间）：
-  - 错误拒绝率：系统给 `ADVERSE_RECOMMENDATION`，gold 为 `APPROVE`。
-  - 错误批准率：系统给 `APPROVE`，gold 有核心标准为 `NOT_MET` 或 `INSUFFICIENT`。
-  - 过度补材料率：系统给 `PEND_INFO`，gold 为 `APPROVE`。
-  - 逐条准确率 / macro-F1：约 480 个判定，按病例做 bootstrap。
-  - 反事实安全测试：删掉 skilled 证据 → 应变 `PEND_INFO` 或 `ADVERSE_RECOMMENDATION`；午夜数改为 2 → 应判 `TECHNICAL_NOT_MET`；加一句"no rehab potential" → 不得转为拒绝（Jimmo）；删掉 Activity Status → 看敏感性。
-  - 引用：可解析率；支持率（LLM 评审 + 30 例人工）；遗漏率（用 gold span 召回测）。
-  - 公平性：按种族、语言、性别、年龄段比较 `ADVERSE_RECOMMENDATION` 率和 `PEND_INFO` 率。
-  - Part 2 自检一致率（Step 7）。
-  - 次要：以出院去向为标签的 AUROC（分层）；每例耗时和成本。
-- **对照实验**（必做；编号沿用完整设计，A2–A4 为可选）：
+---
+
+## 9. 人机协同、审计与可复现
+
+### 9.1 人工队列
+
+| 队列 | 进入条件 | 处理人 |
+|---|---|---|
+| 临床审核 | `ADVERSE_RECOMMENDATION` | 有执照的临床审核员 |
+| 技术确认 | `TECHNICAL_NOT_MET` | 非医师人员 |
+| 补材料 | `PEND_INFO` | case manager |
+| 异常 | 解析失败、critic 两次不通过 | 工程 / 临床 |
+
+- 每个队列项展示：逐条结果、证据原文、条款、critic 意见。
+- 人工决定（同意 / 推翻 / 覆盖）连同理由写入审计记录，并作为后续评估和改进 prompt 的数据。
+
+### 9.2 审计记录（每次运行）
+- `case_id`、CaseBundle `content_hash`
+- profile 名 + hash
+- 每个 LLM 节点：prompt 版本、模型、provider、解码参数、输入引用、输出、耗时、成本
+- 政策索引构建 ID、criterion cards 版本
+- 最终结论、人工决定
+- 存本地 JSONL（`traces/`），不进 git
+
+### 9.3 可复现
+- 同一 CaseBundle hash + prompt 版本 + 模型 + profile → 从缓存重放应得到同样结果。
+- 任何版本变化（prompt、卡片、索引、模型）都会出现在审计记录里，评估报告按版本分组。
+
+---
+
+## 10. 评估体系
+
+```mermaid
+flowchart TD
+  DS1[("① 合成回归集")] --> RN["④ 批量 runner"]
+  DS2[("② MIMIC dev + dev-gold")] --> RN
+  DS3[("③ MIMIC test + test-gold")] --> RN
+  CFG["⑤ 实验配置矩阵"] --> RN
+  RN --> TR[("trace")]
+  TR --> SC["⑥ 评分器"]
+  CF["⑦ 反事实生成器"] --> RN
+  SC --> RP["⑧ 报告"]
+```
+
+**附注**
+1. **合成回归集**：12–15 个手写病例（FHIR），每个对应一项能力，带预期结论。改 prompt、换模型后先跑它。例子：
+   - 髋骨折术后每日 PT → `APPROVE`
+   - 肺炎后体能下降、无 PT 评估 → `PEND_INFO`
+   - 只需生活照料 → `ADVERSE_RECOMMENDATION`
+   - 住院 2 个午夜 → `TECHNICAL_NOT_MET`
+   - 帕金森"已到平台期"但需维持治疗 → 绝不 `ADVERSE_RECOMMENDATION`（Jimmo）
+   - 先观察后住院卡在 3 午夜边界
+2. **MIMIC dev**：100 例，其中 20–30 例 dev-gold，用于调 prompt。
+3. **MIMIC test**：200 例冻结，其中 120 例 test-gold（30 例双人标注算 κ）。开发中不看。
+4. **runner**：读实验配置，批量跑，限速，断点续跑。
+5. **配置矩阵**：模型 × profile × 病历设定（主 / realistic）× T_pa（−24h / −48h）× 架构变体。
+6. **评分器**：见下方指标。
+7. **反事实生成器**：直接改 `CaseBundle`，检查系统反应是否符合规则：
+   - 删掉 skilled 证据 → 应变 `PEND_INFO` 或 `ADVERSE_RECOMMENDATION`
+   - 午夜数改为 2 → 应变 `TECHNICAL_NOT_MET`（strict_tm）
+   - 加一句"no rehab potential" → **不得**转为拒绝
+   - 删掉 Activity Status → 看敏感性
+8. **报告**：按 profile、诊断类别、版本分组。
+
+**指标**
+- 逐条准确率 / macro-F1（对 gold）。
+- 错误拒绝率：系统 `ADVERSE_RECOMMENDATION`，gold `APPROVE`。
+- 错误批准率：系统 `APPROVE`，gold 有核心标准 `NOT_MET` 或 `INSUFFICIENT`。
+- 过度补材料率：系统 `PEND_INFO`，gold `APPROVE`。
+- 引用：可解析率、支持率（LLM 评审 + 人工抽查）、遗漏率（gold span 召回）。
+- Part 2 自检一致率。
+- 公平性：按种族、语言、性别、年龄段比较建议拒绝率和补材料率。
+- 成本与耗时：每例 token、费用、秒数。
+- 次要：以出院去向为标签的 AUROC。出院去向 ≠ 是否符合覆盖，只作参考。
+
+**对照实验（作为配置项）**
 
 | ID | 配置 | 回答的问题 |
 |---|---|---|
-| A0 | 结构化特征 + TF-IDF 逻辑回归 | 到底需不需要 LLM；去向标签测的是不是资格 |
-| A1 | 单次 LLM 调用，整份病历，不给政策 | 模型凭常识能做到多少 |
-| A5 | 完整系统，本地 qwen3:14b | 私有化部署版本的水平 |
-| A6 | 完整系统，订阅强模型（Claude、OpenAI 各一次） | 上限，以及两家比较 |
+| A0 | 结构化特征 + TF-IDF LR | 需不需要 LLM |
+| A1 | 单次 LLM，无政策 | 模型常识的水平 |
+| A2 | A1 + 全部 cards | 政策文本的价值 |
+| A4 | 每条标准单独调用 | 拆分的价值 |
+| A5 | 完整系统，本地模型 | 私有化部署水平 |
+| A6 | 完整系统，订阅模型 | 上限 |
 
-  - 可选（以后写论文时做）：A2（A1 + 全部标准卡片）、A3（单 agent + 检索工具）、A3+SC（与完整系统算力对齐的自一致性）、A4（每条标准单独抽取和判定）、检索方式对照、完整公平性分析。
-- **统计**：配对 McNemar、配对 bootstrap；决策级 n=120 只能检出约 10–12 个百分点以上的差异。
-- **完成标准**：Validation 页所需数字全部来自冻结的测试集。
+另外：政策侧（无 / 只卡片 / 只检索 / 两者）、病历侧（整份 / 检索）、引用方式（字符串匹配 / span ID）。
 
-### 5.6 阶段 E：Demo 与投资人材料
-
-#### Step 14 — 产品 demo（2–3 周）
-- **目标**：一个能现场跑、5–8 分钟讲完的 demo，演示病例用 Step 4 的合成病例。
-- **技术栈**：后端 FastAPI 包住引擎和材料包生成；前端先用 Streamlit，需要更像产品时换 React / Next.js；POC 本地运行，之后部署到 AWS（模型换 Bedrock）。
-- **页面**：
-  1. 病例队列：待出院病人列表，每行显示总体结论和"还缺什么"。
-  2. 审核详情（Part 1）：
-     - 逐条标准清单 C0–C8（C2、C7、C8 显示为"假定"），绿 / 黄 / 红；
-     - 点任一条，右侧高亮病历原文，并弹出条款原文；
-     - 时间线：入院、住院医嘱、午夜数、T_pa；
-     - profile 下拉框（`strict_tm` ↔ `ma_waiver`），切换后结论即时变化。
-  3. 补材料清单：`PEND_INFO` 时显示，补齐后重审。
-  4. 申请材料包（Part 2）：预览、下载 PDF 和 FHIR Bundle。
-  5. 保险视图：同一病例在保险侧的审核结果 + 待审核员签字；与医院侧对比。
-  6. 审计轨迹：每一步用了哪个模型、哪个 profile、耗时、引用了哪些 span 和条款。
-  7. Validation 页：Step 13 的指标与安全测试结果。
-- **Demo 脚本（5–8 分钟）**：
-  1. 问题（30 秒）：SNF 拒绝在申诉后 95% 被推翻；CMS 要求 7 天内决定，2027 年起要电子 API。
-  2. 审核髋骨折病例：逐条结果、证据和条款，结论 `APPROVE`（1.5 分钟）。
-  3. 一键生成申请材料包，预览 PDF 和 FHIR（45 秒）。
-  4. 肺炎体能下降病例：结论 `PEND_INFO`，指出缺 PT 评估；补上后重审变 `APPROVE`（1 分钟）。
-  5. Jimmo 陷阱病例：病历写了"无改善潜力"，系统没有拒绝，并解释原因（45 秒）。
-  6. 切换 profile：2 个午夜的病例在两种规则下的不同结论（30 秒）。
-  7. 保险视图：同一份材料包在保险侧得到一致结论；建议拒绝只能由审核员签字（1 分钟）。
-  8. Validation 页：真实数据上的准确率与安全测试（1 分钟）。
-  9. 下一步：医院试点、FHIR 对接、迁移到 AWS Bedrock。
-- **投资人材料**：约 10 页 pitch deck（问题、为什么是现在、产品、demo 截图、验证结果、竞品、商业模式假设、里程碑）；一页技术报告摘要（验证方法与局限）；竞品对比表。
-- **完成标准**：合成病例回归测试全过；完整走一遍 demo 脚本不出错；Validation 页数字来自冻结测试集。
+**要考虑的点**
+- 统计：配对 McNemar、配对 bootstrap；决策级 n=120 只能检出约 10–12 个百分点以上的差异，逐条（约 480 个判定）更敏感。
+- gold 标注手册就是 criterion cards；标注者看同一份处理后的输入，不看系统输出。
+- 抽样分层：临床场景（骨科术后、卒中、内科病后体能下降、心衰、伤口 / 静脉用药）× 去向（SNF、home health、HOME、REHAB）× 边界（先观察后住院、<3 午夜、从 SNF 入院）。髋骨折几乎都去 SNF，单独报告。
 
 ---
 
-## 6. 风险与局限
+## 11. 工程结构
 
-| 风险 / 局限 | 应对 |
-|---|---|
-| 没有真实 PA 标签；出院去向 ≠ 是否符合覆盖 | gold 逐条标注为主；A0 基线揭示去向标签测的是什么 |
-| 出院小结写于出院后，没有逐日病程记录 | 结构化数据按 T_pa 截断；删 Discharge Medications；写进局限 |
-| 缺 PT / OT 评估 | Activity Status 作代理；缺失时给 `PEND_INFO`，不转拒绝 |
-| 标签泄漏 | 三种泄漏检测 + 主设定 / realistic 两套输入 |
-| 订阅额度和速率限制 | 限速 + 重试 + 断点续跑；两家 provider 互为备份 |
-| 订阅模型与 Bedrock 模型结果不一致 | M5 在同一测试集上对比，差异过大先调 prompt 再切换 |
-| 本地算力和 Arc 驱动不稳定 | 主力用订阅模型；本地只作对照 |
-| gold 标注人力 | 先 dev-gold；test-gold 后补；没有临床人员时降级表述 |
-| 政策版本变化 | 语料带生效日期，固定版本 |
-| "AI 拒保"的舆论风险 | 医院为主线；永不自动拒绝；Jimmo 测试放进 Validation 页 |
-| 合成病例太"干净" | 刻意放入缺失、矛盾和长病历；验证数字只用 MIMIC |
-| 其他局限 | TM / MA 不可区分；院外住院看不到；anchor 年份有误差；ROI 需要试点 |
+### 11.1 目录
+
+```
+src/snf_pa/
+  adapters/
+    mimic/      # Parquet → CaseBundle
+    fhir/       # FHIR → CaseBundle
+    packet/     # 材料包 → CaseBundle
+  engine/
+    graph.py    # LangGraph 编排
+    nodes/      # 各节点
+    rules/      # C0–C2、aggregator
+    schemas.py
+  knowledge/
+    policy_index/
+    cards/      # criterion cards
+  llm/
+    gateway.py
+    providers/  # ollama, claude, codex, bedrock
+  packet/       # Part 2
+  api/          # FastAPI
+profiles/       # plan profile YAML
+prompts/        # 带版本号
+research/       # MIMIC 抽取、评估脚本
+tests/
+derived/        # 不进 git
+traces/         # 不进 git
+```
+
+### 11.2 接口（FastAPI）
+- `POST /cases`：提交 CaseBundle 或 FHIR Bundle
+- `POST /cases/{id}/review?view=&profile=`：运行 Part 1
+- `GET /cases/{id}/result`
+- `POST /cases/{id}/documents`：补材料
+- `POST /cases/{id}/packet`：生成 Part 2
+- `GET /queues/{name}`、`POST /queues/{name}/{item}/decision`：人工队列
+
+### 11.3 配置
+- `profiles/*.yaml`：保险计划规则。
+- `models.yaml`：角色 → provider / 模型 / 解码参数。
+- `prompts/<role>/v<N>.md`：prompt 版本。
+- `knowledge/cards/*.yaml`：criterion cards（带版本）。
+
+### 11.4 测试分层
+- 单元：规则（C1 计算、aggregator）、adapter 字段映射、引用解析。
+- 契约：所有 schema 的序列化 / 反序列化。
+- 回归：合成病例的预期结论。
+- 评估：MIMIC dev / test（不在 CI 里跑）。
+
+### 11.5 现有仓库需要先修的问题
+- `.gitignore` 的 `data/` 会把 `src/snf_pa/data/` 一起忽略，抽样代码目前不在仓库里 → 改为 `/data/`。
+- 原始数据是未压缩 `.csv`，不是 `.csv.gz`。
+- `tests/test_sample.py` 期望 300 例，旧文档写 50 → 按第 10 节统一。
 
 ---
 
-## 7. 决策状态
+## 12. 关键取舍
 
-| 事项 | 决定 | 状态 | 日期 |
-|---|---|---|---|
-| 项目目标 | 两部分：Part 1 审核是否符合 PA（医院、保险都用）；Part 2 为医院准备申请材料包 | 已确认 | 2026-11-01 |
-| 交付形式 | side project，做一个投资人视角的 demo 成品 | 已确认 | 2026-10-26 |
-| 主线用户 | 医院为主线，保险视图为第二视图，共用引擎 | 已确认（暂定主线） | 2026-10-26 |
-| 模型 | POC 用 Claude Code / OpenAI 订阅，后续换 AWS Bedrock | 已确认 | 2026-10-26 |
-| 3 天规则默认值 | 默认 `strict_tm`（要求 3 天），可通过 profile 切换 | **待定**：先按此执行，以后定了只改 profile | 2026-10-26 |
-| gold 标注 | 后面会做；先 dev-gold，test-gold 后补 | 已确认 | 2026-10-26 |
-| 算力 | 不是限制；测试集保持 200 | 已确认 | 2026-10-26 |
-| PhysioNet | 不联系 | 已确认 | 2026-10-26 |
-
----
-
-## 附录 A：数据核查结果
-
-只取汇总计数，DuckDB 实测。
-
-| 事实 | 数字 | 对计划的影响 |
+| 决定 | 替代方案 | 理由 |
 |---|---|---|
-| Medicare 住院 / 去 SNF | 244,576 / 42,312 | 候选池充足 |
-| 去 SNF 且有出院小结 | 34,298（再加 ≥65、存活：30,613） | 约 20% SNF 病例没有出院小结 |
-| 出院小结覆盖（按 anchor 年份桶） | 2007–2018 各桶 68–75%；2019 桶 8.7%；2020–2022：0% | 排除 2020–22（D16） |
-| SNF 中 `OBSERVATION ADMIT` | 9,696（23%） | 不能排除，是 3 午夜规则的核心边界 |
-| POE "Admit to inpatient" 医嘱 | 有出院小结的 SNF 病例中 78% 有；2010–12 约 92%，2013 后约 99% | 可以精确算住院起点（D3） |
-| 先观察后住院的 SNF 住院 | 14,384，其中只有 8.5% 进过观察病房 | 只看 transfers 会漏掉约 91% 的观察期（D3） |
-| ≥3 午夜：按入院时间 → 按住院医嘱 | 38,828 → 37,337（约 3.8% 被高估） | C1 必须按住院医嘱算（D3） |
-| <3 午夜却去了 SNF | 3,484；其中 940（27%）30 天内有 ≥3 午夜的前序住院 | 不能简单判不符（D4） |
-| 从 SNF 入院 | 2,693 | 边界层（Step 10） |
-| 出院小结长度 | 中位约 9.8k 字符（约 2.5k tokens），P99 约 7k tokens | 整份可放进上下文（D11） |
-| 出院小结写成时间 | 相对出院时间：中位 −0.3h，P75 +3.6h，P95 +202h | 不完全是"决策时可得"，只能当代理（D6、D7） |
-| ED 关联 | ED 数据约覆盖 2011–2019；17,147 例 SNF 病例能连上 | ED 特征可选 |
-| ICU | SNF 病例中 28% 有 ICU 记录 | ICU 功能评分只覆盖少数 |
-| omr 表 | 只有血压、体重、BMI、身高、eGFR | 没有功能评分 |
-| emar 覆盖 | 2007–09：0%；2010–12：4.8%；2013–15：79%；2016–18：99%；prescriptions 约 100% | 用药证据以 prescriptions 为主 |
-| PT / OT / 静脉补液医嘱出现率（SNF / home health / HOME / REHAB） | PT 89/73/32/97%；OT 25/15/6/61%；静脉补液 84/76/72/90% | 结构化信号区分度弱，以文本为主 |
-| discharge_detail 表 | 只有 `author` 字段 | 不是泄漏源 |
-
-注："2020–22 没有出院小结"是根据计数得出的经验结论，官方文档未写明覆盖年份。
+| 固定流程 | LLM 自由调度 | 可复现、调用次数可控 |
+| 3 个 LLM 角色 | 每条标准一个 agent | C4–C6 相互依赖；调用少几倍 |
+| span ID 引用 | 模型写原文再匹配 | 结构上杜绝编造 |
+| 整份病历进上下文 | 切块检索 | 病历不长；不漏跨段信息 |
+| 卡片为主、检索为辅 | 纯检索 | 语料小、标准固定 |
+| 规则写成 profile | 写在代码里 | 换计划不改代码 |
+| C3–C6 全部都跑 | 技术不符就停 | 切换 profile 不重跑 LLM |
+| 先要材料再建议拒绝 | 直接建议拒绝 | 错误拒绝代价高 |
+| POE 医嘱算住院起点 | transfers 观察病房 | transfers 漏掉约 91% |
+| 删 Discharge Medications | 正则清理后保留 | 格式本身泄露去向 |
 
 ---
 
-## 附录 B：规划过程与辩论摘要
+## 13. 风险与开放问题
 
-三位规划者独立出方案：A（保险 UM 审核 / Medicare 政策）、B（MIMIC 数据工程）、C（多智能体 / RAG / 评估）。交叉辩论一轮后，剩余分歧交由 Fable 仲裁并核查事实，最后三方全部签字同意。
+**开放问题**
+- 3 天规则默认值：目前默认 `strict_tm`，以后定了只改 profile。
 
-| 议题 | 初始分歧 | 结果 |
-|---|---|---|
-| 观察期 / 午夜数 | A、C：用 transfers；B：用 POE 住院医嘱 | B 用数据证明 transfers 会漏掉约 91% 的观察期 → 采用 POE |
-| 技术性不符 | B：<3 午夜直接拒；C：可自动；A：一律不终审 | 三个条件齐备才判 `TECHNICAL_NOT_MET`，交非医师确认并询问前序住院 |
-| 引用 | A、B：生成原文 + 字符串匹配；C：span ID | 采用 span ID + 锚点短语 |
-| 流程 | C：每条标准单独调用，约 25 次 / 例；A：3 个 LLM 角色 | 采用 3 个角色；逐条调用作为对照实验 |
-| 病历检索 | B：单病例 BM25；C：整份放进上下文 | 实测长度后整份放进上下文 |
-| 主指标 | A：错误拒绝率；B：去向 F1；C：gold + 反事实 | gold 逐条准确率 + 错误拒绝 / 批准率 + 过度补材料率 |
-| Discharge Medications | A、B：保留；C：删除 | 仲裁：删除（格式本身泄露去向），用药改用事实卡 |
-| 解码 | C：criteria_reviewer 采样 3 次；A、B：温度 0 | 温度 0 为主，自一致性需先证明有用 |
-| 3 天规则 / TEAM | 三种呈现方式 | 多个 profile 并列报告；TEAM 不进实验 |
-| 州法 | A 原列为约束 | A 更正：MA 优先于州法，只作背景 |
-| 仲裁追加 | — | critic 抽审 20% `APPROVE`；改称"licensed clinical reviewer"；dev 也限 2011–2018 |
+**风险**
+- **没有真实 PA 标签**：出院去向 ≠ 是否符合覆盖 → 以 gold 逐条标注为主；A0 基线揭示去向标签测的是什么。
+- **出院小结写于出院后**，没有逐日病程记录 → 按 T_pa 截断结构化数据；写进局限。
+- **缺 PT / OT 评估** → Activity Status 作代理；缺失时给 `PEND_INFO`，不转拒绝。
+- **标签泄漏** → 泄漏检查作为数据关卡；主 / realistic 两套设定。
+- **订阅限流、额度** → 限速、断点续跑、两家互备。
+- **订阅模型与 Bedrock 结果不一致** → 切换前同一测试集对比。
+- **政策版本变化** → 语料带生效日期，判定时固定版本。
+- **其他局限**：TM / MA 不可区分；院外住院看不到；anchor 年份有 ±2 年误差。
 
 ---
 
-## 附录 C：与旧计划（`plan/snf_pa_multi_agent_rag_plan.md`）的主要差异
-1. 目标明确为两部分（审核 + 申请材料包），审核同时服务医院和保险。
-2. 不再排除观察期住院（旧计划会丢掉约 23% 的 SNF 病例，并造成偏倚）。
-3. 午夜数按 POE 住院医嘱计算；引入 T_pa；限定 2011–2018。
-4. 6 个 agent → 3 个 LLM 角色 + 代码 / 工具 / 模板；总体结论由代码汇总。
-5. 引用从"生成原文 + 字符串匹配"改为 span ID。
-6. 主评估从去向 F1 改为 gold 逐条准确率 + 错误率 + 反事实测试。
-7. 规模从 2,000 + 300 改为 300。
-8. 模型可插拔：订阅 → Bedrock。
-9. 政策语料补充 §422.101(c)、§422.566(d)、CMS 2024-02 FAQ、CMS-0057-F，并分 Tier 1–3。
-10. 工程问题：`.gitignore` 误伤源码、`.csv.gz` 路径、样本量 50 / 300 不一致。
+## 14. 附录
 
----
+### A. 数据核查结果
+DuckDB 汇总计数，只读。
 
-## 附录 D：修订记录
+- **Medicare 住院 / 去 SNF**：244,576 / 42,312。
+- **去 SNF 且有出院小结**：34,298（再加 ≥65 岁、存活：30,613）。
+- **出院小结覆盖**：2007–2018 各年份桶 68–75%；2019 桶 8.7%；2020–22 为 0% → 只用 2011–2018。
+- **OBSERVATION ADMIT**：占 SNF 出院的 23%（9,696）→ 不能排除。
+- **POE 住院医嘱**：有出院小结的 SNF 病例中 78% 有；2013 年后约 99%。
+- **先观察后住院**：14,384 例，只有 8.5% 进过观察病房 → transfers 会漏约 91%。
+- **≥3 午夜**：按入院时间 38,828 → 按住院医嘱 37,337。
+- **<3 午夜却去 SNF**：3,484；其中 27% 在 30 天内有合格前序住院。
+- **出院小结长度**：中位约 2.5k tokens，P99 约 7k。
+- **出院小结写成时间**：相对出院中位 −0.3h，P95 +202h → 只能作代理。
+- **ICU**：SNF 病例中 28%；omr 表没有功能评分。
+- **emar 覆盖**：2007–09 为 0%，2016–18 为 99%；prescriptions 约 100%。
+- **PT 会诊出现率**（SNF / home health / HOME / REHAB）：89 / 73 / 32 / 97%。
 
-| 版本 | 日期 | 内容 |
-|---|---|---|
-| v1 | 2026-10-25 | 三方独立方案 → 辩论 → 仲裁 → 共识计划 |
-| v2 | 2026-10-26 | 定位改为投资人视角的 demo；新增合成病例、适配器、产品 demo；3 天规则改为 profile 配置 |
-| v3 | 2026-10-26 | 模型路线定为订阅 → Bedrock；医院为主线、保险为第二视图 |
-| v4 | 2026-11-01 | 目标重构为两部分（Part 1 审核、Part 2 申请材料包）；全文结构重排并经独立排版审阅；步骤按执行顺序重新编号；新增术语表；引擎输入改名 `CaseBundle` |
+### B. 规划过程
+三位规划者（Medicare 政策、MIMIC 数据、多智能体 / RAG / 评估）各自独立出方案，交叉辩论一轮，剩余分歧交给 Fable 仲裁并核查事实，三方签字后形成共识。第 12 节的取舍大多来自这个过程。
 
-文件名中的 `1025` 是首次创建日期，保留不改，方便已有链接。
-
----
-
-## 附录 E：来源
-
-**法规与政策**
-- 42 CFR 409 Subpart D（本地 `policy_docs/42cfr409_subpartD.xml`）；BPM Ch.8（本地 `policy_docs/bp102c08.pdf`）
-- 42 CFR 422.566：https://www.law.cornell.edu/cfr/text/42/422.566 ；422.101：https://ecfr.io/Title-42/Section-422.101
-- CMS-0057-F：https://www.cms.gov/priorities/burden-reduction/overview/interoperability/policies-and-regulations/cms-interoperability-and-prior-authorization-final-rule-cms-0057-f/cms-interoperability-and-prior-authorization-final-rule-cms-0057-f ；fact sheet：https://www.cms.gov/files/document/fact-sheet-cms-interoperability-and-prior-authorization-final-rule-cms-0057-f.pdf ；时间线：https://digitalhealth.folio3.com/blog/?p=15546 ；https://connextglobal.com/ms-prior-authorization-mandate-2027/
+### C. 来源
+- 42 CFR 409 Subpart D：本地 `policy_docs/42cfr409_subpartD.xml`
+- BPM Ch.8：本地 `policy_docs/bp102c08.pdf`
+- 42 CFR 422.566：https://www.law.cornell.edu/cfr/text/42/422.566
+- 42 CFR 422.101：https://ecfr.io/Title-42/Section-422.101
+- CMS-0057-F：https://www.cms.gov/files/document/fact-sheet-cms-interoperability-and-prior-authorization-final-rule-cms-0057-f.pdf
 - CMS-4201-F：https://www.cms.gov/newsroom/fact-sheets/2024-medicare-advantage-and-part-d-final-rule-cms-4201-f
-- TEAM 3 天豁免：https://www.cms.gov/files/document/mm14098-implementing-transforming-episode-accountability-model-skilled-nursing-facility-3-day-rule.pdf
-- WISeR：https://www.kff.org/medicare/examining-the-potential-impact-of-medicares-new-wiser-model/
-
-**行业与市场**
-- OIG OEI-09-24-00331（SNF PA 拒绝在申诉后 95% 被推翻）：https://oig.hhs.gov/reports/all/2026/medicare-advantage-organizations-overturned-nearly-all-appealed-prior-authorization-denials-for-skilled-nursing-facility-admission-raising-concerns-about-initial-denials/
-- 参议院 PSI 关于 post-acute AI 拒绝：https://www.hcam.org/?p=15342
-- WellSky 管理部分 MA 计划 post-acute PA：https://providerinfo.bcbsm.com/documents/alerts/2026/202602/alert-20260210-change-auth-snf-interrupted-stays.pdf
-- Cohere Health C 轮：https://www.fiercehealthcare.com/ai-and-machine-learning/cohere-health-lands-90m-series-c-round-expand-ai-use-cases
-
-**数据**
-- MIMIC-IV 3.1：https://physionet.org/content/mimiciv/3.1/ ；MIMIC-IV-ED 2.2：https://physionet.org/content/mimic-iv-ed/2.2/ ；MIMIC-IV-Note 2.2：https://physionet.org/content/mimic-iv-note/2.2/
-
-**技术**
-- Claude Code headless 模式：https://code.claude.com/docs/en/headless
+- MIMIC-IV 3.1：https://physionet.org/content/mimiciv/3.1/
+- MIMIC-IV-Note 2.2：https://physionet.org/content/mimic-iv-note/2.2/
+- MIMIC-IV-ED 2.2：https://physionet.org/content/mimic-iv-ed/2.2/
+- Claude Code headless：https://code.claude.com/docs/en/headless
 - Codex 非交互模式：https://developers.openai.com/codex/noninteractive
 - Qwen3 采样建议：https://qwen.readthedocs.io/en/latest/getting_started/quickstart.html
-- llama.cpp Arc 140V 问题：https://github.com/ggml-org/llama.cpp/issues/18946
-
-**研究文献**
 - 多智能体医疗必要性判定（BioNLP 2024）：https://arxiv.org/html/2404.17977v2
-- 多智能体 vs 单智能体系统综述：https://pmc.ncbi.nlm.nih.gov/articles/PMC12407621/
 - ArchEHR-QA 2025（逐字引用）：https://preview.aclanthology.org/setup/2025.bionlp-share.8
+
+### D. 修订记录
+- **v1（10-25）**：三方方案 → 辩论 → 仲裁 → 共识计划。
+- **v2（10-26）**：加入合成病例、适配器；3 天规则改为 profile。
+- **v3（10-26）**：模型路线：订阅 → Bedrock。
+- **v4（11-01）**：目标改为两部分（审核 + 申请材料包）；结构重排。
+- **v5（11-01）**：改写为系统设计文档：去掉投资人和排期内容；加入架构图、数据层、RAG、multi-agent、规则引擎、Part 2、模型层、审计、评估、工程结构的设计；改为适合手机阅读的格式。

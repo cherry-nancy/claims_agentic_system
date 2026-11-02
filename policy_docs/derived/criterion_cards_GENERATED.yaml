@@ -1,0 +1,750 @@
+# criterion_cards_GENERATED.yaml
+# AI-GENERATED DRAFT. Not an original policy source.
+# Claude (Anthropic, model claude-opus-5-5) wrote this file through Claude Code on 2026-11-02.
+# A person has not reviewed it yet.
+#
+# Purpose: the full card set in one file.
+#   - A1, A7, A8, A11-A17 are copied from policy_docs/criterion_cards.YAML (branch origin/snf-criterion-cards,
+#     commit e279503). Their text is unchanged; only `source_file` and `provenance` were added.
+#   - A2-A6, A9, A10, A18-A22, G1-G5 are Claude drafts (provenance: "Claude draft 2026-11-02").
+# Each card's `provenance` field says which group it is in.
+# Text fields marked "verbatim" are copied from the source file named in `source_file`; summary_zh and all
+# comments are written by Claude, so cite the English text.
+#
+# Card IDs: the original cards follow CFR order (A1 = 409.30(a)(1), A7 = 409.31(a), A8 = 409.31(b)(1),
+# A11 = 409.32(a) ... A17 = 409.33(d)). The draft IDs fill the gaps in that order. This numbering is
+# Claude's guess, not taken from the original author; confirm before merging. Card IDs A1-A6 also clash with
+# the plan's ablation IDs A0-A6 (plan/snf_pa_consensus_work_plan_1025.md @ e279503, lines 393-400).
+
+meta:
+  sources:
+    CFR:
+      citation: 42 CFR Part 409, Subpart D
+      source_file: policy_docs/42cfr409_subpartD.xml  # same blob (4efb22b) on cfeng and snf-criterion-cards
+      version: >-
+        not stated in the file (hierarchy_metadata has a _SUBSTITUTE_DATE_ placeholder); criterion_cards.YAML
+        meta says eCFR version dated 2026-10-01, retrieved 2026-10-31
+    BPM:
+      citation: Medicare Benefit Policy Manual, Pub. 100-02, Chapter 8
+      source_file: policy_docs/bp102c08.pdf  # same blob (13d413f) on both branches
+      version: Rev. 12283, issued 2023-10-05
+      note: referenced in see_also only; no BPM text is quoted in this file
+    FAQ:
+      citation: >-
+        CMS HPMS memo, "Frequently Asked Questions related to Coverage Criteria and Utilization Management
+        Requirements in CMS Final Rule (CMS-4201-F)"
+      source_file: policy_docs/cms_hpms_faq_coverage_criteria_um_2024-02-06.pdf  # only on snf-criterion-cards @ e279503
+      version: dated 2024-02-06
+      authority: Tier 2 guidance (plan/snf_pa_consensus_work_plan_1025.md @ e279503, line 291); the binding rules are the 42 CFR 422.x sections it cites
+    CFR_424_20:
+      citation: 42 CFR 424.20
+      source_file: policy_docs/42cfr424_20_ecfr_2026-10-29.xml
+      version: eCFR, Title 42 up to date as of 2026-10-29
+      official_pdf: policy_docs/42cfr424_20_cfr_2025-10-01.pdf  # CFR 10-1-25 Edition, Title 42 Vol. 3, pp. 1078-1080; text identical to the XML
+    CFR_409_61:
+      citation: 42 CFR 409.61
+      source_file: policy_docs/42cfr409_61_ecfr_2026-10-29.xml
+      version: eCFR, Title 42 up to date as of 2026-10-29
+      official_pdf: policy_docs/42cfr409_61_cfr_2025-10-01.pdf  # CFR 10-1-25 Edition, Title 42 Vol. 2, pp. 414-415; text identical to the XML
+    CFR_412_622:
+      citation: 42 CFR 412.622
+      source_file: policy_docs/42cfr412_622_ecfr_2026-10-29.xml
+      version: eCFR, Title 42 up to date as of 2026-10-29 (substantive versions dated 2026-08-03 and 2026-10-01)
+      official_pdf: >-
+        policy_docs/42cfr412_622_cfr_2025-10-01.pdf  # CFR 10-1-25 Edition, Title 42 Vol. 2; OUTDATED in places
+        (2026 adds an interdisciplinary team meeting within 4 days and changes the definition of "week");
+        the (a)(3) thresholds are the same in both
+      authority: Tier 3 background for this project; never a basis for a SNF decision
+  card_types:
+    # from criterion_cards.YAML @ e279503
+    requirement: a condition the beneficiary / request must satisfy
+    definition: defines a term used by a requirement
+    interpretive_rule: tells the reviewer how to judge a requirement
+    examples: non-exhaustive illustrations (the regulation heading says "Examples")
+    exclusion: services that do not count as skilled
+    # added in the Claude drafts
+    presumption: a rule under which a requirement is treated as met without case-by-case review
+    procedural_guardrail: a rule about how a decision may be made, not about whether the patient qualifies
+    benefit_limit: a limit on how many days are paid, not a test of whether the patient qualifies
+    out_of_scope_reference: another benefit's rule, kept so reviewers can recognise it; never a basis for a SNF decision
+  plan_criterion: mapping to the C0-C8 criteria in plan/snf_pa_consensus_work_plan_1025.md @ e279503 (assigned by Claude, not by the regulation)
+
+cards:
+  # ---------------------------------------------------------------- 409.30 Basic requirements
+  - id: A1
+    cfr: 42 CFR 409.30(a)(1)
+    source_file: policy_docs/42cfr409_subpartD.xml
+    provenance: criterion_cards.YAML @ origin/snf-criterion-cards e279503 (text unchanged)
+    type: requirement
+    plan_criterion: C1
+    title: Qualifying inpatient hospital stay
+    lead_in_verbatim: The beneficiary must—
+    text_verbatim: >-
+      Have been hospitalized in a participating or qualified hospital or participating CAH, for medically
+      necessary inpatient hospital or inpatient CAH care, for at least 3 consecutive calendar days, not
+      counting the date of discharge; and
+    summary_zh: 病人须因医学必要的住院照护连续住院至少 3 个日历日，不含出院当天。
+    see_also:
+      - 42 CFR 409.30(b)(2)(ii)  # enrollee of an MA plan offering the 422.101(c) benefit is deemed to meet (a) and (b)
+      - 42 CFR 422.101(c)(2)     # MA plans may elect to waive the prior qualifying hospital stay
+
+  - id: A2
+    cfr: 42 CFR 409.30(a)(2)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr409_subpartD.xml
+    type: requirement
+    plan_criterion: C0
+    title: Medicare entitlement at hospital discharge (age 65, disability, or ESRD)
+    lead_in_verbatim: The beneficiary must—
+    text_verbatim: >-
+      Have been discharged from the hospital or CAH in or after the month he or she attained age 65, or in a
+      month for which he or she was entitled to hospital insurance benefits on the basis of disability or
+      end-stage renal disease, in accordance with part 406 of this chapter.
+    summary_zh: 出院当月病人须已满 65 岁，或因残障或终末期肾病（ESRD）已有住院保险（Part A）资格；具体资格规则见 Part 406。
+    data_proxy:  # Claude's notes on the plan's C0 proxy (plan @ e279503, lines 194, 278); not regulation wording
+      proxy: admissions.insurance = Medicare and age >= 65 at admission
+      gaps:
+        - The regulation tests the month of hospital discharge; the cohort (plan D13) tests age at admission.
+        - Disability and ESRD entitlement under 65 is out of scope by cohort design, not by the regulation.
+        - The insurance field does not show Part A entitlement and does not separate FFS from MA.
+        - MIMIC age at admission is derived from anchor_age / anchor_year, so it is a range near the 65 cutoff.
+    see_also:
+      - 42 CFR Part 406  # entitlement rules; not in policy_docs/
+      - BPM Ch. 8 §20.1  # bp102c08.pdf Rev. 12283
+
+  - id: A3
+    cfr: 42 CFR 409.30(b)(1)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr409_subpartD.xml
+    type: requirement
+    plan_criterion: C2
+    title: SNF admission and needed care within 30 days of hospital discharge
+    text_verbatim: >-
+      Except as specified in paragraph (b)(2) of this section, the beneficiary must be in need of posthospital
+      SNF care, be admitted to the facility, and receive the needed care within 30 calendar days after the date
+      of discharge from a hospital or CAH.
+    summary_zh: 除 (b)(2) 的例外外，病人须在出院后 30 个日历日内需要 SNF 照护、入住 SNF 并接受所需照护。
+    note: >-
+      Three conditions must all fall inside the 30 days: need, admission, and receipt of care. Being admitted
+      in time is not enough (BPM Ch. 8 §20.2.1, bp102c08.pdf Rev. 12283).
+    see_also:
+      - BPM Ch. 8 §20.2.1  # day of discharge is not counted; bp102c08.pdf Rev. 12283
+
+  - id: A4
+    cfr: 42 CFR 409.30(b)(2)(i)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr409_subpartD.xml
+    type: requirement
+    plan_criterion: C2
+    title: Exception to the 30-day rule - deferred care that is medically appropriate later
+    lead_in_verbatim: The following exceptions apply—
+    text_verbatim: >-
+      A beneficiary for whom posthospital SNF care would not be medically appropriate within 30 days after
+      discharge from the hospital or CAH, or a beneficiary enrolled in a Medicare + Choice (M + C) plan, may be
+      admitted at the time it would be medically appropriate to begin an active course of treatment.
+    summary_zh: 若出院后 30 天内不适合开始 SNF 照护，或病人参加 M+C（现称 MA）计划，可在医学上适合开始积极治疗时再入住。
+    see_also:
+      - BPM Ch. 8 §20.2.2.1  # need must be medically predictable at discharge; bp102c08.pdf Rev. 12283
+      - BPM Ch. 8 §20.2.2.2  # not justified when needs were not predictable; bp102c08.pdf Rev. 12283
+
+  - id: A5
+    cfr: 42 CFR 409.30(b)(2)(ii)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr409_subpartD.xml
+    type: presumption
+    plan_criterion: [C1, C2, C3]
+    title: MA enrollees deemed to meet the pre-admission, timing, and related-condition rules
+    text_verbatim: >-
+      If, upon admission to the SNF, the beneficiary was enrolled in an M + C plan, as defined in § 422.4 of
+      this chapter, offering the benefits described in § 422.101(c) of this chapter, the beneficiary will be
+      considered to have met the requirements described in paragraphs (a) and (b) of this section, and also in
+      § 409.31(b)(2), for the duration of the SNF stay.
+    summary_zh: 入住 SNF 时参加提供 §422.101(c) 福利的 M+C（MA）计划的病人，视为满足 (a)、(b) 和 §409.31(b)(2)，整个 SNF 住院期间有效。
+    note: >-
+      Paragraph (a) includes (a)(2), so read literally this also deems C0 met for such enrollees. The
+      level-of-care rules (A7, A8, A10-A20) still apply.
+    see_also:
+      - 42 CFR 422.101(c)  # not in policy_docs/
+
+  - id: A6
+    cfr: 42 CFR 409.30 (introductory text)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr409_subpartD.xml
+    type: presumption
+    plan_criterion: [C4, C5, C6]
+    title: Administrative level-of-care presumption through the initial assessment
+    text_verbatim: >-
+      A beneficiary in an SNF is also considered to meet the level of care requirements of § 409.31 up to and
+      including the assessment reference date for the initial Medicare assessment prescribed in § 413.343(b) of
+      this chapter, when correctly assigned one of the case-mix classifiers that CMS designates for this
+      purpose as representing the required level of care. For the purposes of this section, the assessment
+      reference date is defined in accordance with § 483.315(d) of this chapter, and must be set for no later
+      than the eighth day of posthospital SNF care.
+    summary_zh: 若正确归入 CMS 指定的 case-mix 分类，病人在首次 Medicare 评估的评估参考日（不晚于 SNF 第 8 天）之前视为满足 §409.31 的照护级别要求。
+    note: >-
+      This applies after admission, so a prior-auth review made before admission cannot rely on it. BPM Ch. 8
+      §30.1 (bp102c08.pdf Rev. 12283) adds that it does not apply unless the patient is admitted directly
+      after a qualifying stay.
+    see_also:
+      - BPM Ch. 8 §30.1
+
+  # ---------------------------------------------------------------- 409.31 Level of care requirement
+  - id: A7
+    cfr: 42 CFR 409.31(a)
+    source_file: policy_docs/42cfr409_subpartD.xml
+    provenance: criterion_cards.YAML @ origin/snf-criterion-cards e279503 (text unchanged)
+    type: definition
+    plan_criterion: C4
+    title: Definition of skilled nursing and skilled rehabilitation services
+    text_verbatim: >-
+      As used in this section, skilled nursing and skilled rehabilitation services means services that:
+    conditions_verbatim:
+      - Are ordered by a physician;
+      - >-
+        Require the skills of technical or professional personnel such as registered nurses, licensed
+        practical (vocational) nurses, physical therapists, occupational therapists, and speech
+        pathologists or audiologists; and
+      - Are furnished directly by, or under the supervision of, such personnel.
+    summary_zh: skilled 服务必须同时满足：有医师医嘱；需要 RN、LPN、PT、OT、言语治疗师或听力师等人员的技能；由这些人员直接提供或在其监督下提供。
+
+  - id: A8
+    cfr: 42 CFR 409.31(b)(1)
+    source_file: policy_docs/42cfr409_subpartD.xml
+    provenance: criterion_cards.YAML @ origin/snf-criterion-cards e279503 (text unchanged)
+    type: requirement
+    plan_criterion: C4
+    title: Daily skilled need
+    text_verbatim: >-
+      The beneficiary must require skilled nursing or skilled rehabilitation services, or both, on a daily
+      basis.
+    summary_zh: 病人必须每天需要 skilled nursing 或 skilled rehab，或两者。
+    see_also:
+      - 42 CFR 409.34(a)  # defines "daily basis": 7 days a week; rehab at least 5 days a week if not available 7 days
+
+  - id: A9
+    cfr: 42 CFR 409.31(b)(2)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr409_subpartD.xml
+    type: requirement
+    plan_criterion: C3
+    title: Skilled services are for a condition related to the hospital stay
+    lead_in_verbatim: Those services must be furnished for a condition—
+    conditions_verbatim:
+      - For which the beneficiary received inpatient hospital or inpatient CAH services; or
+      - >-
+        Which arose while the beneficiary was receiving care in a SNF or swing-bed hospital for a condition for
+        which he or she received inpatient hospital or inpatient CAH services; or
+      - >-
+        For which, for an M + C enrollee described in § 409.20(c)(4), a physician has determined that a direct
+        admission to a SNF without an inpatient hospital or inpatient CAH stay would be medically appropriate.
+    summary_zh: skilled 服务须针对：住院期间治疗过的病情；或在 SNF 治疗该病情期间新出现的病情；或 M+C 病人经医师判断可不经住院直接入住 SNF 的病情。
+    note: >-
+      The condition need not be the principal diagnosis; any condition present during the stay counts
+      (BPM Ch. 8 §20.1, bp102c08.pdf Rev. 12283). Item (iii) lets an MA enrollee be admitted to a SNF
+      directly, without a hospital stay.
+    see_also:
+      - BPM Ch. 8 §20.1
+
+  - id: A10
+    cfr: 42 CFR 409.31(b)(3)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr409_subpartD.xml
+    type: requirement
+    plan_criterion: C6
+    title: Practical matter - daily skilled services can only be provided inpatient in a SNF
+    text_verbatim: >-
+      The daily skilled services must be ones that, as a practical matter, can only be provided in a SNF, on an
+      inpatient basis.
+    summary_zh: 所需的每日 skilled 服务，从实际情况看只能在 SNF 住院提供。
+    see_also:
+      - 42 CFR 409.35  # see card A19
+      - BPM Ch. 8 §30.7
+
+  # ---------------------------------------------------------------- 409.32 Criteria for skilled services and the need for skilled services
+  - id: A11
+    cfr: 42 CFR 409.32(a)
+    source_file: policy_docs/42cfr409_subpartD.xml
+    provenance: criterion_cards.YAML @ origin/snf-criterion-cards e279503 (text unchanged)
+    type: definition
+    plan_criterion: C4
+    title: What makes a service skilled (complexity)
+    text_verbatim: >-
+      To be considered a skilled service, the service must be so inherently complex that it can be safely
+      and effectively performed only by, or under the supervision of, professional or technical personnel.
+    summary_zh: 服务要复杂到只能由专业或技术人员安全有效地做，或在其监督下做，才算 skilled。
+
+  - id: A12
+    cfr: 42 CFR 409.32(b)
+    source_file: policy_docs/42cfr409_subpartD.xml
+    provenance: criterion_cards.YAML @ origin/snf-criterion-cards e279503 (text unchanged)
+    type: interpretive_rule
+    plan_criterion: C4
+    title: Special medical complications can make a usually non-skilled service skilled
+    text_verbatim: >-
+      A condition that does not ordinarily require skilled services may require them because of special
+      medical complications. Under those circumstances, a service that is usually nonskilled (such as those
+      listed in § 409.33(d)) may be considered skilled because it must be performed or supervised by skilled
+      nursing or rehabilitation personnel. For example, a plaster cast on a leg does not usually require
+      skilled care. However, if the patient has a preexisting acute skin condition or needs traction, skilled
+      personnel may be needed to adjust traction or watch for complications. In situations of this type, the
+      complications, and the skilled services they require, must be documented by physicians' orders and
+      nursing or therapy notes.
+    documentation_required_verbatim: >-
+      the complications, and the skilled services they require, must be documented by physicians' orders and
+      nursing or therapy notes
+    summary_zh: 通常不需要技能的病情，因特殊并发症可能需要；此时通常非技能的服务（如 §409.33(d) 所列）可算 skilled。并发症和所需技能服务必须有医嘱和护理或治疗记录。
+
+  - id: A13
+    cfr: 42 CFR 409.32(c)
+    source_file: policy_docs/42cfr409_subpartD.xml
+    provenance: criterion_cards.YAML @ origin/snf-criterion-cards e279503 (text unchanged)
+    type: interpretive_rule
+    plan_criterion: C4
+    title: Restoration potential is not the deciding factor
+    text_verbatim: >-
+      The restoration potential of a patient is not the deciding factor in determining whether skilled
+      services are needed. Even if full recovery or medical improvement is not possible, a patient may need
+      skilled services to prevent further deterioration or preserve current capabilities. For example, a
+      terminal cancer patient may need some of the skilled services described in § 409.33.
+    summary_zh: 恢复潜力不是判断是否需要 skilled 服务的决定因素；即使无法完全恢复或改善，为防止恶化或保持现有能力也可需要 skilled 服务。
+    guardrail: A denial must not rest on "no improvement potential" alone.  # reading of the text above, not regulation wording
+
+  # ---------------------------------------------------------------- 409.33 Examples of skilled nursing and rehabilitation services
+  - id: A14
+    cfr: 42 CFR 409.33(a)
+    source_file: policy_docs/42cfr409_subpartD.xml
+    provenance: criterion_cards.YAML @ origin/snf-criterion-cards e279503 (text unchanged)
+    type: examples
+    plan_criterion: C4
+    title: Services that could qualify as either skilled nursing or skilled rehabilitation
+    parts:
+      - id: A14.1
+        cfr: 42 CFR 409.33(a)(1)
+        title: Overall management and evaluation of care plan
+        text_verbatim: >-
+          The development, management, and evaluation of a patient care plan based on the physician's orders
+          constitute skilled services when, because of the patient's physical or mental condition, those
+          activities require the involvement of technical or professional personnel in order to meet the
+          patient's needs, promote recovery, and ensure medical safety. Those activities include the
+          management of a plan involving a variety of personal care services only when, in light of the
+          patient's condition, the aggregate of those services requires the involvement of technical or
+          professional personnel.
+        example_verbatim: >-
+          An aged patient with a history of diabetes mellitus and angina pectoris who is recovering from an
+          open reduction of a fracture of the neck of the femur requires, among other services, careful skin
+          care, appropriate oral medications, a diabetic diet, an exercise program to preserve muscle tone
+          and body condition, and observation to detect signs of deterioration in his or her condition or
+          complications resulting from restricted, but increasing, mobility. Although any of the required
+          services could be performed by a properly instructed person, such a person would not have the
+          ability to understand the relationship between the services and evaluate the ultimate effect of one
+          service on the other. Since the nature of the patient's condition, age, and immobility create a
+          high potential for serious complications, such an understanding is essential to ensure the
+          patient's recovery and safety. Under these circumstances, the management of the plan of care would
+          require the skills of a nurse even though the individual services are not skilled. Skilled
+          planning and management activities are not always specifically identified in the patient's
+          clinical record. Therefore, if the patient's overall condition supports a finding that recovery and
+          safety can be ensured only if the total care is planned, managed, and evaluated by technical or
+          professional personnel, it is appropriate to infer that skilled services are being provided.
+        inference_allowed: true  # the last sentence of the example permits inferring skilled management
+        summary_zh: 照护计划的管理与评估，当病人状况使其必须有专业人员参与时即为 skilled；病历不一定明写，可从整体状况推断。
+      - id: A14.2
+        cfr: 42 CFR 409.33(a)(2)
+        title: Observation and assessment of the patient's changing condition
+        text_verbatim: >-
+          Observation and assessment constitute skilled services when the skills of a technical or
+          professional person are required to identify and evaluate the patient's need for modification of
+          treatment or for additional medical procedures until his or her condition is stabilized.
+        example_verbatim: >-
+          A patient with congestive heart failure may require continuous close observation to detect signs
+          of decompensation, abnormal fluid balance, or adverse effects resulting from prescribed
+          medication(s) that serve as indicators for adjusting therapeutic measures. Similarly, surgical
+          patients transferred from a hospital to an SNF while in the complicated, unstabilized
+          postoperative period, for example, after hip prosthesis or cataract surgery, may need continued
+          close skilled monitoring for postoperative complications and adverse reaction. Patients who, in
+          addition to their physical problems, exhibit acute psychological symptoms such as depression,
+          anxiety, or agitation, may also require skilled observation and assessment by technical or
+          professional personnel to ensure their safety or the safety of others, that is, to observe for
+          indications of suicidal or hostile behavior. The need for services of this type must be documented
+          by physicians' orders or nursing or therapy notes.
+        documentation_required_verbatim: >-
+          The need for services of this type must be documented by physicians' orders or nursing or therapy
+          notes.
+        summary_zh: 当需要专业人员识别并评估是否要调整治疗或增加医疗程序、直到病情稳定时，观察与评估即为 skilled；需有医嘱或护理、治疗记录。
+      - id: A14.3
+        cfr: 42 CFR 409.33(a)(3)
+        title: Patient education services
+        text_verbatim: >-
+          Patient education services are skilled services if the use of technical or professional personnel
+          is necessary to teach a patient self-maintenance.
+        example_verbatim: >-
+          A patient who has had a recent leg amputation needs skilled rehabilitation services provided by
+          technical or professional personnel to provide gait training and to teach prosthesis care.
+          Similarly, a patient newly diagnosed with diabetes requires instruction from technical or
+          professional personnel to learn the self-administration of insulin or foot-care precautions.
+        summary_zh: 若必须由专业人员来教病人自我维护，病人教育即为 skilled。
+
+  - id: A15
+    cfr: 42 CFR 409.33(b)
+    source_file: policy_docs/42cfr409_subpartD.xml
+    provenance: criterion_cards.YAML @ origin/snf-criterion-cards e279503 (text unchanged)
+    type: examples
+    plan_criterion: C4
+    title: Services that qualify as skilled nursing services
+    items_verbatim:
+      - Intravenous or intramuscular injections and intravenous feeding.
+      - Enteral feeding that comprises at least 26 per cent of daily calorie requirements and provides at least 501 milliliters of fluid per day.
+      - Nasopharyngeal and tracheostomy aspiration;
+      - Insertion and sterile irrigation and replacement of suprapubic catheters;
+      - Application of dressings involving prescription medications and aseptic techniques;
+      - Treatment of extensive decubitus ulcers or other widespread skin disorder;
+      - Heat treatments which have been specifically ordered by a physician as part of active treatment and which require observation by nurses to adequately evaluate the patient's progress;
+      - Initial phases of a regimen involving administration of medical gases;
+      - Rehabilitation nursing procedures, including the related teaching and adaptive aspects of nursing, that are part of active treatment, e.g., the institution and supervision of bowel and bladder training programs.
+    summary_zh: 静脉或肌肉注射与静脉营养；肠内营养（≥26% 每日热量且 ≥501 ml 液体）；气道吸引；耻骨上导尿管；含处方药的无菌敷料；广泛褥疮；医嘱热疗；医疗气体初始阶段；康复护理（膀胱、肠道训练）。
+
+  - id: A16
+    cfr: 42 CFR 409.33(c)
+    source_file: policy_docs/42cfr409_subpartD.xml
+    provenance: criterion_cards.YAML @ origin/snf-criterion-cards e279503 (text unchanged)
+    type: examples
+    plan_criterion: C4
+    title: Services which would qualify as skilled rehabilitation services
+    items_verbatim:
+      - "Ongoing assessment of rehabilitation needs and potential: Services concurrent with the management of a patient care plan, including tests and measurements of range of motion, strength, balance, coordination, endurance, functional ability, activities of daily living, perceptual deficits, speech and language or hearing disorders;"
+      - "Therapeutic exercises or activities: Therapeutic exercises or activities which, because of the type of exercises employed or the condition of the patient, must be performed by or under the supervision of a qualified physical therapist or occupational therapist to ensure the safety of the patient and the effectiveness of the treatment;"
+      - "Gait evaluation and training: Gait evaluation and training furnished to restore function in a patient whose ability to walk has been impaired by neurological, muscular, or skeletal abnormality;"
+      - "Range of motion exercises: Range of motion exercises which are part of the active treatment of a specific disease state which has resulted in a loss of, or restriction of, mobility (as evidenced by a therapist's notes showing the degree of motion lost and the degree to be restored);"
+      - "Maintenance therapy; Maintenance therapy, when the specialized knowledge and judgment of a qualified therapist is required to design and establish a maintenance program based on an initial evaluation and periodic reassessment of the patient's needs, and consistent with the patient's capacity and tolerance. For example, a patient with Parkinson's disease who has not been under a rehabilitation regimen may require the services of a qualified therapist to determine what type of exercises will contribute the most to the maintenance of his present level of functioning."
+      - Ultrasound, short-wave, and microwave therapy treatment by a qualified physical therapist;
+      - "Hot pack, hydrocollator, infrared treatments, paraffin baths, and whirlpool; Hot pack hydrocollator, infrared treatments, paraffin baths, and whirlpool in particular cases where the patient's condition is complicated by circulatory deficiency, areas of desensitization, open wounds, fractures, or other complications, and the skills, knowledge, and judgment of a qualified physical therapist are required; and"
+      - Services of a speech pathologist or audiologist when necessary for the restoration of function in speech or hearing.
+    note: Item 5 (maintenance therapy) means maintenance programs designed by a therapist can be skilled rehab.
+    summary_zh: 康复需求评估；治疗性运动；步态训练；关节活动度训练；维持性治疗（需治疗师设计方案）；超声、短波、微波；有并发症时的热敷等理疗；言语或听力治疗。
+
+  - id: A17
+    cfr: 42 CFR 409.33(d)
+    source_file: policy_docs/42cfr409_subpartD.xml
+    provenance: criterion_cards.YAML @ origin/snf-criterion-cards e279503 (text unchanged)
+    type: exclusion
+    plan_criterion: C4
+    title: Personal care services (not skilled)
+    text_verbatim: >-
+      Personal care services which do not require the skills of qualified technical or professional
+      personnel are not skilled services except under the circumstances specified in § 409.32(b). Personal
+      care services include, but are not limited to, the following:
+    exception: 42 CFR 409.32(b)  # see card A12
+    items_verbatim:
+      - Administration of routine oral medications, eye drops, and ointments;
+      - General maintenance care of colostomy and ileostomy;
+      - Routine services to maintain satisfactory functioning of indwelling bladder catheters;
+      - Changes of dressings for noninfected postoperative or chronic conditions;
+      - Prophylactic and palliative skin care, including bathing and application of creams, or treatment of minor skin problems;
+      - Routine care of the incontinent patient, including use of diapers and protective sheets;
+      - General maintenance care in connection with a plaster cast;
+      - Routine care in connection with braces and similar devices;
+      - Use of heat as a palliative and comfort measure, such as whirlpool and hydrocollator;
+      - Routine administration of medical gases after a regimen of therapy has been established;
+      - Assistance in dressing, eating, and going to the toilet;
+      - Periodic turning and positioning in bed; and
+      - "General supervision of exercises which have been taught to the patient; including the actual carrying out of maintenance programs, i.e., the performance of the repetitive exercises required to maintain function do not require the skills of a therapist and would not constitute skilled rehabilitation services (see paragraph (c) of this section). Similarly, repetitious exercises to improve gait, maintain strength, or endurance; passive exercises to maintain range of motion in paralyzed extremities, which are not related to a specific loss of function; and assistive walking do not constitute skilled rehabilitation services."
+    summary_zh: 不需要专业人员技能的个人护理不是 skilled（A12 的特殊并发症情形除外），如常规口服药、协助穿衣进食如厕、翻身摆体位、一般监督已教会的运动等。
+
+  # ---------------------------------------------------------------- 409.34 - 409.36
+  - id: A18
+    cfr: 42 CFR 409.34
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr409_subpartD.xml
+    type: definition
+    plan_criterion: C5
+    title: Criteria for "daily basis"
+    lead_in_verbatim: >-
+      To meet the daily basis requirement specified in § 409.31(b)(1), the following frequency is required:
+    conditions_verbatim:
+      - Skilled nursing services or skilled rehabilitation services must be needed and provided 7 days a week; or
+      - >-
+        As an exception, if skilled rehabilitation services are not available 7 days a week those services must
+        be needed and provided at least 5 days a week.
+    break_rule_verbatim: >-  # 409.34(b)
+      A break of one or two days in the furnishing of rehabilitation services will not preclude coverage if
+      discharge would not be practical for the one or two days during which, for instance, the physician has
+      suspended the therapy sessions because the patient exhibited extreme fatigue.
+    summary_zh: 每日需求指 skilled nursing 或 rehab 每周 7 天需要并提供；若 rehab 无法每周 7 天提供，则至少每周 5 天。rehab 中断一两天、且这期间出院不现实（如因极度疲劳医师暂停治疗），不影响覆盖。
+    see_also:
+      - BPM Ch. 8 §30.6  # <5 days/week rehab fails; restorative nursing expected 6 days/week
+
+  - id: A19
+    cfr: 42 CFR 409.35
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr409_subpartD.xml
+    type: interpretive_rule
+    plan_criterion: C6
+    title: Criteria for "practical matter"
+    text_verbatim: >-  # 409.35(a)
+      In making a "practical matter" determination, as required by § 409.31(b)(3), consideration must be given
+      to the patient's condition and to the availability and feasibility of using more economical alternative
+      facilities and services. However, in making that determination, the availability of Medicare payment for
+      those services may not be a factor. For example, if a beneficiary can obtain daily physical therapy
+      services on an outpatient basis, the unavailability of Medicare payment for those alternative services due
+      to the beneficiary's non-enrollment in Part B may not be a basis for finding that the needed care can only
+      be provided in a SNF.
+    examples_verbatim:  # 409.35(b)
+      - >-
+        Beneficiary's condition. Inpatient care would be required "as a practical matter" if transporting the
+        beneficiary to and from the nearest facility that furnishes the required daily skilled services would be
+        an excessive physical hardship.
+      - >-
+        Economy and efficiency. Even if the beneficiary's condition does not preclude transportation, inpatient
+        care might be more efficient and less costly if, for instance, the only alternative is daily
+        transportation by ambulance.
+    summary_zh: 判断 practical matter 时要考虑病人病情，以及更经济的替代机构或服务是否可用、可行；但不能考虑替代服务能否由 Medicare 支付。往返交通对病人负担过重，或唯一替代是每天救护车接送时，可认定只能住院提供。
+    guardrail: Whether Medicare pays for an alternative must not be a reason to approve or deny.  # reading of 409.35(a), not regulation wording
+    see_also:
+      - BPM Ch. 8 §30.7  # adds home support / caregiver availability
+      - BPM Ch. 8 §30.7.3  # nonambulatory status alone is not enough
+
+  - id: A20
+    cfr: 42 CFR 409.36
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr409_subpartD.xml
+    type: requirement
+    plan_criterion: null  # no matching C criterion; acts like C1/C2 for SNF readmissions in the same benefit period
+    title: SNF readmission in the same benefit period
+    lead_in_verbatim: >-
+      If a beneficiary is discharged from a facility after receiving posthospital SNF care, he or she is not
+      entitled to additional services of this kind in the same benefit period unless—
+    conditions_verbatim:
+      - >-
+        He or she is readmitted to the same or another facility within 30 calendar days following the day of
+        discharge (or, before December 5, 1980, within 14 calendar days after discharge); or
+      - He or she is again hospitalized for at least 3 consecutive calendar days.
+    summary_zh: SNF 出院后，同一 benefit period 内要再获 SNF 覆盖，须在出院后 30 个日历日内再入住，或重新住院至少连续 3 个日历日。
+    see_also:
+      - BPM Ch. 8 §20.2.3
+
+  # ---------------------------------------------------------------- Outside Subpart D: 409.61, 424.20
+  - id: A21
+    cfr: 42 CFR 409.61(b), (c)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr409_61_ecfr_2026-10-29.xml
+    type: benefit_limit
+    plan_criterion: C8
+    title: SNF benefit days per benefit period
+    text_verbatim: >-  # 409.61(b)
+      Up to 100 days are available in each benefit period after discharge from a hospital or CAH. For the first
+      20 days, Medicare pays for all covered services. For the 21st through 100th day, Medicare pays for all
+      covered services except for a daily coinsurance amount that is the beneficiary's responsibility.
+    renewal_verbatim: >-  # 409.61(c)
+      The beneficiary's full entitlement to the 90 inpatient hospital or inpatient CAH regular benefit days, and
+      the 100 SNF benefit days, is renewed each time he or she begins a benefit period. However, once lifetime
+      reserve days are used, they can never be renewed.
+    summary_zh: 每个 benefit period 最多 100 个 SNF 天；前 20 天 Medicare 全付，第 21–100 天病人每天自付共同保险。每开始新的 benefit period，100 天重新计算。
+    note: >-
+      This decides how many days are paid, not whether the patient qualifies. The plan treats C8 as assumed
+      met because MIMIC only shows one hospital (plan @ e279503, line 202); use it as an intake/configuration
+      check, not a reviewer criterion. MA plans may set their own day limits and cost sharing. The daily
+      coinsurance amount is published yearly by CMS and is not in this section.
+    see_also:
+      - 42 CFR 409.60  # defines "benefit period"; not in policy_docs/
+      - 42 CFR 409.85  # SNF coinsurance; not in policy_docs/
+      - BPM Chapter 3  # not in policy_docs/
+
+  - id: A22
+    cfr: 42 CFR 424.20
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source_file: policy_docs/42cfr424_20_ecfr_2026-10-29.xml
+    type: requirement
+    plan_criterion: C7
+    title: Physician certification and recertification of the need for SNF care
+    lead_in_verbatim: >-
+      Medicare Part A pays for posthospital SNF care furnished by an SNF, or a hospital or CAH with a swing-bed
+      approval, only if the certification and recertification for services are consistent with the content of
+      paragraph (a) or (c) of this section, as appropriate.
+    content_verbatim:  # 424.20(a)(1); lead-in: "Posthospital SNF care is or was required because—"
+      - >-
+        The individual needs or needed on a daily basis skilled nursing care (furnished directly by or requiring
+        the supervision of skilled nursing personnel) or other skilled rehabilitation services that, as a
+        practical matter, can only be provided in an SNF or a swing-bed hospital on an inpatient basis, and the
+        SNF care is or was needed for a condition for which the individual received inpatient care in a
+        participating hospital or a qualified hospital, as defined in § 409.3 of this chapter, or for a new
+        condition that arose while the individual was receiving care in the SNF or swing-bed hospital for a
+        condition for which he or she received inpatient care in a participating or qualified hospital; or
+      - >-
+        The individual has been correctly assigned one of the case-mix classifiers that CMS designates as
+        representing the required level of care, as provided in § 409.30 of this chapter.
+    timing_verbatim: >-  # 424.20(b)(1)
+      The certification must be obtained at the time of admission or as soon thereafter as is reasonable and
+      practicable.
+    recertification_timing_verbatim:  # 424.20(d)
+      - The first recertification is required no later than the 14th day of posthospital SNF care.
+      - Subsequent recertifications are required at least every 30 days after the first recertification.
+    signature_verbatim:  # 424.20(e)(1), (e)(2) first sentence; (e)(2)(i)-(ii) define collaboration and employment
+      - >-
+        The physician responsible for the case or, with his or her authorization, by a physician on the SNF staff
+        or a physician who is available in case of an emergency and has knowledge of the case; or
+      - >-
+        A physician extender (that is, a nurse practitioner, a clinical nurse specialist, or a physician
+        assistant as those terms are defined in section 1861(aa)(5) of the Act) who does not have a direct or
+        indirect employment relationship with the facility but who is working in collaboration with a physician.
+    summary_zh: Part A 只在有医师认证时支付 SNF 照护。认证须说明病人每日需要只能在 SNF 住院提供的 skilled 服务、且针对住院相关病情（或已正确归入 CMS 指定的 case-mix 分类）；入院时或之后尽快取得；第 14 天前首次再认证，之后至少每 30 天一次；由负责医师等签署，或由与机构无雇佣关系、与医师协作的 NP、CNS、PA 签署。
+    note: >-
+      The certification content restates C3-C6 (cards A9, A10, A18, A19), so C7 is a documentation check that a
+      clinician attested to them, not a separate clinical test. A missing certification should lead to PEND / RFI,
+      not a clinical denial. MIMIC has no certification data, so the plan configures it as assumed submitted
+      (plan @ e279503, line 285). Recertification (424.20(c), (d)) applies to continued-stay review, not the
+      initial prior-auth request.
+    see_also:
+      - BPM Ch. 8 §40  # "The routine admission order established by a physician is not a certification"; bp102c08.pdf Rev. 12283
+      - BPM Ch. 8 §40.1  # who may sign
+
+  # ---------------------------------------------------------------- Out of scope: reference only (Tier 3)
+  - id: X1
+    cfr: 42 CFR 412.622(a)(3)
+    source_file: policy_docs/42cfr412_622_ecfr_2026-10-29.xml
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    type: out_of_scope_reference
+    plan_criterion: null  # IRF-level determination is out of scope (plan @ e279503, line 248)
+    title: IRF coverage criteria (inpatient rehabilitation facility)
+    lead_in_verbatim: >-
+      In order for an IRF claim to be considered reasonable and necessary under section 1862(a)(1) of the Act,
+      there must be a reasonable expectation that the patient meets all of the following requirements at the
+      time of the patient's admission to the IRF—
+    conditions_verbatim:
+      - >-
+        Except for care furnished to patients in a freestanding IRF hospital solely to relieve acute care hospital
+        capacity in a state (or region, as applicable) that is experiencing a surge during the Public Health
+        Emergency, as defined in § 400.200 of this chapter, requires the active and ongoing therapeutic
+        intervention of multiple therapy disciplines (physical therapy, occupational therapy, speech-language
+        pathology, or prosthetics/orthotics therapy), one of which must be physical or occupational therapy.
+      - >-
+        Except during the emergency period described in section 1135(g)(1)(B) of the Act, patients generally
+        require and can reasonably be expected to actively participate in, and benefit from, an intensive
+        rehabilitation therapy program. Under current industry standards, this intensive rehabilitation therapy
+        program generally consists of at least 3 hours of therapy (physical therapy, occupational therapy,
+        speech-language pathology, or prosthetics/orthotics therapy) per day at least 5 days per week. In certain
+        well-documented cases, this intensive rehabilitation therapy program might instead consist of at least 15
+        hours of intensive rehabilitation therapy per week. Benefit from this intensive rehabilitation therapy
+        program is demonstrated by measurable improvement that will be of practical value to the patient in
+        improving the patient's functional capacity or adaptation to impairments. All required therapy treatments
+        and/or therapy evaluations ordered must begin no later than 36 hours from midnight on the day of admission
+        to the IRF.
+      - >-
+        Except for care furnished to patients in a freestanding IRF hospital solely to relieve acute care hospital
+        capacity in a state (or region, as applicable) that is experiencing a surge during the Public Health
+        Emergency, as defined in § 400.200 of this chapter, is sufficiently stable at the time of admission to the
+        IRF to be able to actively participate in the intensive rehabilitation therapy program that is described
+        in paragraph (a)(3)(ii) of this section.
+    physician_supervision_summary: >-  # 412.622(a)(3)(iv), paraphrased by Claude
+      Requires supervision by a rehabilitation physician, with face-to-face visits at least 3 days per week.
+    summary_zh: IRF 覆盖要求入院时合理预期病人：需要多学科治疗（含 PT 或 OT）；能参与并受益于高强度康复（通常每天至少 3 小时、每周至少 5 天，或特定情况下每周 15 小时），且受益表现为可测量的功能改善；病情足够稳定；需康复科医师监督（每周至少 3 天面诊）。
+    use: >-
+      Background only. (1) Explains why the plan's REHAB/IRF sample stratum is expected to meet SNF C4/C5:
+      >=3 h/day on >=5 days/week exceeds SNF's >=5 days/week (card A18). (2) Lets the Critic recognise IRF rules
+      wrongly applied to SNF cases (card G6). Never cite it to approve, deny or redirect a SNF request.
+
+  # ---------------------------------------------------------------- CMS FAQ 2024-02-06 (Tier 2)
+  # Quotes from the FAQ use straight apostrophes in place of the PDF's curly ones.
+  - id: G1
+    cfr: 42 CFR 422.101(c)  # binding rule the FAQ explains
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source: CMS HPMS FAQ 2024-02-06, Q2
+    source_file: policy_docs/cms_hpms_faq_coverage_criteria_um_2024-02-06.pdf
+    type: procedural_guardrail
+    plan_criterion: all
+    title: Decisions must rest on the individual patient, not population predictions
+    text_verbatim: >-
+      an algorithm that determines coverage based on a larger data set instead of the individual patient's
+      medical history, the physician's recommendations, or clinical notes would not be compliant with
+      § 422.101(c).
+    los_rule_verbatim: >-
+      an algorithm or software tool can be used to assist providers or MA plans in predicting a potential
+      length of stay, but that prediction alone cannot be used as the basis to terminate post-acute care
+      services.
+    summary_zh: 不能用基于大数据集而非个人病史、医师建议和临床记录的算法决定覆盖；住院时长预测本身不能作为终止 post-acute 照护的依据。
+    applies_to: Critic rule; the plan's ablation baseline A0 (not a card) may be compared against but must not decide cases
+
+  - id: G2
+    cfr: 42 CFR 422.101(b), (c)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source: CMS HPMS FAQ 2024-02-06, Q7
+    source_file: policy_docs/cms_hpms_faq_coverage_criteria_um_2024-02-06.pdf
+    type: procedural_guardrail
+    plan_criterion: C6
+    title: No denial or redirection when the SNF criteria are met
+    text_verbatim: >-
+      if a patient is being discharged from an acute care hospital to a post-acute care facility that would be
+      covered under Traditional Medicare and the patient's attending physician orders post-acute care in the
+      specific type of facility (i.e., Skilled Nursing Facility (SNF), Long Term Care Hospital (LTCH)) and the
+      patient meets all applicable Medicare coverage criteria for admission into that facility type, the MA
+      organization cannot deny admission to that post-acute setting and/or redirect the care to a different
+      setting.
+    summary_zh: 医师已开具 SNF 医嘱且病人满足所有 Medicare 覆盖标准时，MA 计划不能拒绝入住，也不能改到其他场所（如居家护理）。
+    applies_to: '"Home health would suffice" is not a valid denial reason once A1-A20 are met'
+
+  - id: G3
+    cfr: 42 CFR 422.566(d)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source: CMS HPMS FAQ 2024-02-06, Q9
+    source_file: policy_docs/cms_hpms_faq_coverage_criteria_um_2024-02-06.pdf
+    type: procedural_guardrail
+    plan_criterion: all
+    title: Adverse medical-necessity decisions need professional review
+    text_verbatim: >-
+      if the MA organization expects to issue a partially or fully adverse decision about whether the services
+      are or were medically necessary, that decision – meaning that organization determination - must be
+      reviewed by a physician or other appropriate health care professional with expertise in the field of
+      medicine or health care that is appropriate for the services at issue, including knowledge of Medicare
+      coverage criteria, before the MA organization issues the organization determination decision.
+    summary_zh: 部分或完全不利的医学必要性决定，在发出前必须由具相应专业知识（包括 Medicare 覆盖标准）的医师或其他合适的医疗专业人员审核。
+    applies_to: System output is ADVERSE_RECOMMENDATION routed to a human; it never issues a denial
+
+  - id: G4
+    cfr: 42 CFR 422.112(b)(8)(i)(A)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source: CMS HPMS FAQ 2024-02-06, Q10
+    source_file: policy_docs/cms_hpms_faq_coverage_criteria_um_2024-02-06.pdf
+    type: procedural_guardrail
+    plan_criterion: null  # intake rule, before any criterion is reviewed
+    title: Interrupted SNF stay - no new prior authorization within 3 days
+    text_verbatim: >-
+      MA organizations that offer coordinated care plans must not require another prior authorization when a
+      patient returns no more than three consecutive calendar days after having been discharged and the patient
+      is still undergoing the same course of treatment that was previously approved.
+    summary_zh: 病人从 SNF 出院后不超过连续 3 个日历日返回、且仍在接受已批准的同一疗程时，协调照护型 MA 计划不得要求重新事前授权。
+    applies_to: Intake should route such cases to "no PA required", not to review
+
+  - id: G5
+    cfr: 42 CFR 422.626(c), (e)
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    source: CMS HPMS FAQ 2024-02-06, Q7
+    source_file: policy_docs/cms_hpms_faq_coverage_criteria_um_2024-02-06.pdf
+    type: procedural_guardrail
+    plan_criterion: all
+    title: Termination notices must explain the criteria in detail
+    text_verbatim: >-
+      the MA organization must supply a specific and detailed explanation why services are either no longer
+      reasonable and necessary or are no longer covered, including a description of the applicable coverage
+      criteria and rules.
+    summary_zh: 终止服务时，MA 计划须具体详细说明为何服务不再合理必要或不再覆盖，并说明适用的覆盖标准和规则。
+    note: The FAQ states this for terminations (expedited appeals); applying it to initial PA decision letters is a project choice, not FAQ wording.
+
+  - id: G6
+    cfr: 42 CFR 409.32(c), 409.34(a)(2); contrast with 42 CFR 412.622(a)(3)
+    source_file: policy_docs/42cfr409_subpartD.xml
+    provenance: Claude draft 2026-11-02, not yet reviewed
+    type: procedural_guardrail
+    plan_criterion: [C4, C5]
+    title: IRF criteria are not SNF criteria
+    rule: >-  # project rule written by Claude; the regulation has no sentence saying this
+      Do not deny or pend a SNF request because the patient cannot tolerate 3 hours of therapy a day, needs
+      only one therapy discipline, lacks a rehabilitation physician, or is not expected to show measurable
+      improvement. Those are IRF requirements (card X1). SNF needs skilled rehab at least 5 days a week (card
+      A18), and improvement is not required (card A13).
+    basis_verbatim:
+      - >-  # 409.32(c)
+        The restoration potential of a patient is not the deciding factor in determining whether skilled
+        services are needed.
+      - >-  # 409.34(a)(2)
+        As an exception, if skilled rehabilitation services are not available 7 days a week those services must
+        be needed and provided at least 5 days a week.
+    summary_zh: 不得以"耐受不了每天 3 小时治疗""只需一种治疗""无康复科医师""预期无可测量改善"为由拒绝或暂缓 SNF 申请；这些是 IRF 标准。SNF 只要求每周至少 5 天 skilled rehab，且不要求改善。
+    applies_to: Critic rule, and a negative retrieval test (a SNF decision must never cite 42 CFR 412.622)

@@ -78,9 +78,26 @@ Deny 或低置信度 → 进入 **human-in-the-loop**（模拟 medical director 
 ### Step 1 — 队列构建（Cohort）
 - **做法**：DuckDB SQL：
   - 纳入：`insurance='Medicare'`，年龄≥65（`patients.anchor_age` + anchor_year 换算），出院存活，有 discharge note，hosp 时间可用。
-  - 正例：`discharge_location='SKILLED NURSING FACILITY'`；负例：`HOME`/`HOME HEALTH CARE`（且 LOS≥3，作为"难负例"）；REHAB(IRF)/LTACH 可作为第三类或排除。
+  - 正例：`discharge_location='SKILLED NURSING FACILITY'`；负例：`HOME`/`HOME HEALTH CARE`（且 LOS≥3，作为"难负例"）；LTACH 可作为第三类或排除。
+  - **REHAB(IRF) 作为独立小层纳入**（40 例：dev 24 / test 16），**按 SNF 标准评估**：IRF 要求多学科、通常每天 ≥3 小时、每周 ≥5 天的治疗（42 CFR 412.622(a)(3)），高于 SNF 的每周 ≥5 天 skilled rehab（42 CFR 409.34(a)(2)），所以预期 C4/C5 多为满足。这一层不当正例也不当负例；不判断病人是否该去 IRF（42 CFR 412.622 只作背景，不得作为 SNF 决定的依据）。这一层在补充样本里（`scenario = irf`，40 例），不在主样本的 300 例里。
   - 计算 **inpatient midnights**：用 `transfers`/`admission_type` 排除 observation 时段，统计跨过的午夜数（Medicare 要求 ≥3 个 inpatient midnights，出院当天不算）。
-  - 抽样：先做 ~2,000 例开发集 + 300 例测试集，按诊断类型分层（髋骨折、卒中、心衰、肺炎/脓毒症、关节置换等）。
+  - 抽样：以 `data/sample/sample_cases1.csv` 为准，共 300 例，每人一次住院：
+    - 5 个诊断类别（髋骨折、卒中、心衰、肺炎/脓毒症、关节置换）各 60 例；每类 SNF 30 / HOME HEALTH CARE 18 / HOME 12（髋骨折 HOME 不够，为 30 / 23 / 7）。
+    - **dev 171 / 冻结 test 129**（每个格子内按 hash 排序，约 40% 进 test）；batch 1 = 最初的 50 例。
+    - **补充样本** `data/sample/sample_cases1_supp.csv`（160 例，batch 3，`src/snf_pa/data/build_supplement.py` 生成）：补上主样本按设计抽不到、但 MIMIC 里有的场景；不与主样本重复病人，同样约 40% 进 test（dev 88 / test 72）。`scenario` 列标明场景：
+
+      | scenario | 例数（去向） | 补的是 |
+      |---|---|---|
+      | `c1_short_prior_stay` / `c1_short_no_prior_stay` | 10 / 10（SNF） | 不足 3 午夜去 SNF，30 天内有 / 无合格前序住院（C1、TECHNICAL_NOT_MET 路径） |
+      | `obs_to_inpatient` | 20（SNF） | 先观察后住院（C1 边界） |
+      | `admitted_from_snf` | 10（SNF） | 从 SNF 入院（§409.36 再入院） |
+      | `irf` | 40（REHAB） | IRF 对照层（见下一条） |
+      | `deconditioning` | 40（SNF 20 / HHC 12 / HOME 8） | 内科病后体能下降：非手术、不属 5 个类别、有 PT 会诊 |
+      | `skilled_nursing` | 20（SNF 12 / HHC 8） | 伤口护理 / 鼻饲 / TPN 医嘱，或静脉抗生素 ≥5 天（C4 skilled nursing） |
+      | `dx_gap_hemorrhagic_stroke` / `dx_gap_hypertensive_hf` | 5 / 5（SNF 3 + HHC 2） | 主样本诊断码漏掉的出血性卒中、高血压性心衰 |
+
+      格子很小（2–3 例）时 test 比例会偏离 40%。MIMIC 里不存在的场景（C2 入住 SNF 时间、C7 认证、C8 天数、FFS vs MA、TEAM/WISeR）不抽。
+    - 人工标注量按一人约 80–90 例设计（见 Step 6），不再做 ~2,000 例开发集。
 - **注意**：同一 `subject_id` 的多次住院要放在同一个 split，防止泄漏；不要只挑"简单例子"；记录 `admission_type` 中 observation 的比例。
 
 ### Step 2 — 病历预处理与去泄漏（最关键的一步）
@@ -110,8 +127,11 @@ Deny 或低置信度 → 进入 **human-in-the-loop**（模拟 medical director 
 
 ### Step 6 — 标注与评估
 - **做法**：
-  - **Silver 评估**：在 300 例测试集上对比系统决定 vs `discharge_location`，报告 precision/recall/F1、按诊断分层的结果、pend 比例。
-  - **Gold 评估**：人工（最好有临床背景）按 checklist 标注 100–150 例，评估逐条判定准确率。
+  - **Silver 评估**：在主样本 129 例 test 上对比系统决定 vs `discharge_location`，报告 precision/recall/F1、按诊断分层的结果、pend 比例；补充样本按 `scenario` 单独报告。REHAB(IRF) 层不计入 precision/recall/F1，单独报告：预期多为 approve；若系统建议拒绝或补材料，检查是否误用了 IRF 标准（如"耐受不了每天 3 小时""只需一种治疗""无可测量改善"）。
+  - **Gold 评估**：人工按 checklist 逐条标注（MET / NOT_MET / INSUFFICIENT + 证据），评估逐条判定准确率。每例约 15–25 分钟，所以：
+    - **dev-gold 20–30 例**（自己标，从 dev 171 例中抽，用于调 prompt）；
+    - **test-gold 60 例**（自己标）：约 45 例从主样本 test 129 例中按诊断 × 去向分层抽，约 15 例从补充样本 test 72 例中按 `scenario` 抽（每个场景 1–3 例，含 IRF）；决策级差异约能检出 ±12–13 个百分点；
+    - 以后有临床背景的标注者时再补 60 例到 120，并双人标注一部分算 κ。
   - **Faithfulness**：quote 命中率、policy citation 是否真的支持结论（LLM-as-judge + 人工抽查）。
   - **Baseline 对照**：(a) 规则 baseline，(b) 单 agent + 无 RAG，(c) 单 agent + RAG，(d) 完整 multi-agent + RAG——用 ablation 证明 multi-agent 和 RAG 的价值。
   - 公平性：按 race、language、性别分层看 deny 率差异。

@@ -12,6 +12,7 @@ dependencies = [
     "langchain-ollama>=1.1.0",
     "langgraph>=1.2.16",
     "polars>=2.0.0",
+    "pyarrow>=26.0.0",
     "pydantic>=2.14.1",
     "pypdf>=6.21.2",
     "python-dotenv>=1.2.4",
@@ -22,6 +23,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "ipykernel>=7.4.0",
     "pytest>=9.1.1",
     "ruff>=0.17.2",
 ]

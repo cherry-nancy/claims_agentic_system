@@ -1,5 +1,5 @@
-﻿data/
-derived/
+/data/
+/derived/
 .venv/
 .env
 traces/
@@ -8,3 +8,9 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 chroma_db/
+
+# PhysioNet / MIMIC downloads (credentialed data, never commit)
+physionet.org/
+
+# macOS Finder metadata
+.DS_Store

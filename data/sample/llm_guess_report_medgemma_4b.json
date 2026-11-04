@@ -1,0 +1,17 @@
+{
+  "model": "medgemma:4b",
+  "strict": {
+    "n": 60,
+    "failed": 0,
+    "accuracy": 0.5,
+    "auc": 0.441,
+    "mean_sec_per_case": 69.9
+  },
+  "raw": {
+    "n": 20,
+    "failed": 0,
+    "accuracy": 0.5,
+    "auc": 0.26,
+    "mean_sec_per_case": 83.0
+  }
+}

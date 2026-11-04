@@ -1,11 +1,8 @@
 # Raw / derived MIMIC data stays local (PhysioNet DUA): ignore everything under the top-level data/ ...
 /data/*
-# ... except the sample folder, whose contents are ignored again below
+# ... except the study sample folder. It holds MIMIC note text and is tracked only because this repo
+# is private and every collaborator is PhysioNet-credentialed with a signed DUA. Do not make the repo public.
 !/data/sample/
-/data/sample/*
-# only aggregate (non patient-level) files from data/sample are tracked
-!/data/sample/manifest.json
-!/data/sample/candidate_counts.csv
 
 derived/
 .venv/

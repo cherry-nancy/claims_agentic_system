@@ -1,0 +1,619 @@
+{
+  "n": 300,
+  "n_snf": 150,
+  "whole_note_auc": {
+    "raw": {
+      "auc": 0.689,
+      "sd": 0.07
+    },
+    "strict": {
+      "auc": 0.537,
+      "sd": 0.078
+    },
+    "realistic": {
+      "auc": 0.615,
+      "sd": 0.072
+    }
+  },
+  "section_auc_raw": {
+    "CC": {
+      "auc": 0.567,
+      "sd": 0.079
+    },
+    "COND": {
+      "auc": 0.695,
+      "sd": 0.08
+    },
+    "DCI": {
+      "auc": 0.491,
+      "sd": 0.069
+    },
+    "DISPO": {
+      "auc": 0.947,
+      "sd": 0.026
+    },
+    "DXDC": {
+      "auc": 0.461,
+      "sd": 0.059
+    },
+    "FAC": {
+      "auc": 0.544,
+      "sd": 0.027
+    },
+    "FH": {
+      "auc": 0.529,
+      "sd": 0.069
+    },
+    "FU": {
+      "auc": null,
+      "sd": null
+    },
+    "HC": {
+      "auc": 0.635,
+      "sd": 0.068
+    },
+    "HDR": {
+      "auc": 0.462,
+      "sd": 0.064
+    },
+    "HPI": {
+      "auc": 0.581,
+      "sd": 0.061
+    },
+    "MEDADM": {
+      "auc": 0.538,
+      "sd": 0.048
+    },
+    "MEDDC": {
+      "auc": 0.785,
+      "sd": 0.054
+    },
+    "PE": {
+      "auc": 0.481,
+      "sd": 0.075
+    },
+    "PMH": {
+      "auc": 0.567,
+      "sd": 0.05
+    },
+    "PR": {
+      "auc": 0.533,
+      "sd": 0.057
+    },
+    "PROC": {
+      "auc": 0.499,
+      "sd": 0.071
+    },
+    "SH": {
+      "auc": null,
+      "sd": null
+    }
+  },
+  "section_auc_strict": {
+    "CC": {
+      "auc": 0.567,
+      "sd": 0.079
+    },
+    "COND": {
+      "auc": 0.695,
+      "sd": 0.08
+    },
+    "FH": {
+      "auc": 0.529,
+      "sd": 0.069
+    },
+    "HC": {
+      "auc": 0.536,
+      "sd": 0.065
+    },
+    "HDR": {
+      "auc": 0.462,
+      "sd": 0.064
+    },
+    "HPI": {
+      "auc": 0.581,
+      "sd": 0.061
+    },
+    "MEDADM": {
+      "auc": 0.538,
+      "sd": 0.048
+    },
+    "PE": {
+      "auc": 0.481,
+      "sd": 0.075
+    },
+    "PMH": {
+      "auc": 0.567,
+      "sd": 0.05
+    },
+    "PR": {
+      "auc": 0.535,
+      "sd": 0.057
+    },
+    "PROC": {
+      "auc": 0.499,
+      "sd": 0.071
+    },
+    "SH": {
+      "auc": null,
+      "sd": null
+    }
+  },
+  "top_features_raw": {
+    "toward_snf": [
+      "extended care",
+      "extended",
+      "rehab",
+      "to rehab",
+      "daily extended",
+      "ml po",
+      "care",
+      "care primary",
+      "bid times",
+      "dementia",
+      "facility",
+      "ml",
+      "care left",
+      "nursing",
+      "every hours",
+      "agitation",
+      "bisacodyl",
+      "sig two",
+      "delayed release",
+      "as needed",
+      "uti",
+      "at rehab",
+      "rehab in",
+      "needed for",
+      "two tablet"
+    ],
+    "toward_home": [
+      "home with",
+      "with service",
+      "disp",
+      "refills",
+      "disp tablet",
+      "tablet refills",
+      "to home",
+      "rx",
+      "refills home",
+      "with services",
+      "daily disp",
+      "services",
+      "tablet by",
+      "by mouth",
+      "daily rx",
+      "daily home",
+      "home",
+      "service left",
+      "day disp",
+      "services in",
+      "ambulatory independent",
+      "mouth daily",
+      "independent",
+      "mouth",
+      "service right"
+    ]
+  },
+  "top_features_strict": {
+    "toward_snf": [
+      "rehab",
+      "dementia",
+      "knee oa",
+      "need to",
+      "hemiarthroplasty",
+      "tablet",
+      "wheelchair",
+      "with assistance",
+      "chronic",
+      "prbcs",
+      "uti",
+      "knee",
+      "will need",
+      "goal",
+      "left knee",
+      "hypoxia",
+      "care",
+      "not on",
+      "oa",
+      "confused",
+      "mg tablet",
+      "facility",
+      "of bed",
+      "chair or",
+      "or wheelchair"
+    ],
+    "toward_home": [
+      "independent",
+      "ambulatory independent",
+      "hip pain",
+      "right",
+      "total hip",
+      "he",
+      "male",
+      "cath",
+      "right hip",
+      "inpatient",
+      "with posterior",
+      "posterior",
+      "blood plt",
+      "he was",
+      "with normal",
+      "mg po",
+      "minimal",
+      "with physical",
+      "ventricular",
+      "symptoms",
+      "pancreatic",
+      "of breath",
+      "cardiac cath",
+      "outpatient",
+      "tha"
+    ]
+  },
+  "pool": {
+    "n": 2655,
+    "n_snf": 1483
+  },
+  "heldout_whole_note_auc": {
+    "raw": {
+      "auc": 0.793,
+      "ci95": [
+        0.743,
+        0.841
+      ]
+    },
+    "strict": {
+      "auc": 0.652,
+      "ci95": [
+        0.596,
+        0.71
+      ]
+    },
+    "realistic": {
+      "auc": 0.707,
+      "ci95": [
+        0.65,
+        0.76
+      ]
+    }
+  },
+  "heldout_section_auc_strict": {
+    "CC": {
+      "auc": 0.559,
+      "ci95": [
+        0.496,
+        0.621
+      ]
+    },
+    "COND": {
+      "auc": 0.685,
+      "ci95": [
+        0.631,
+        0.742
+      ]
+    },
+    "FH": {
+      "auc": 0.548,
+      "ci95": [
+        0.48,
+        0.615
+      ]
+    },
+    "HC": {
+      "auc": 0.648,
+      "ci95": [
+        0.59,
+        0.707
+      ]
+    },
+    "HDR": {
+      "auc": 0.464,
+      "ci95": [
+        0.398,
+        0.528
+      ]
+    },
+    "HPI": {
+      "auc": 0.612,
+      "ci95": [
+        0.551,
+        0.673
+      ]
+    },
+    "MEDADM": {
+      "auc": 0.62,
+      "ci95": [
+        0.553,
+        0.676
+      ]
+    },
+    "PE": {
+      "auc": 0.616,
+      "ci95": [
+        0.554,
+        0.679
+      ]
+    },
+    "PMH": {
+      "auc": 0.575,
+      "ci95": [
+        0.513,
+        0.642
+      ]
+    },
+    "PR": {
+      "auc": 0.607,
+      "ci95": [
+        0.546,
+        0.666
+      ]
+    },
+    "PROC": {
+      "auc": 0.568,
+      "ci95": [
+        0.502,
+        0.631
+      ]
+    },
+    "SH": {
+      "auc": 0.497,
+      "ci95": [
+        0.485,
+        0.507
+      ]
+    }
+  },
+  "heldout_section_auc_raw_dropped": {
+    "DISPO": {
+      "auc": 0.952,
+      "ci95": [
+        0.927,
+        0.975
+      ]
+    },
+    "MEDDC": {
+      "auc": 0.85,
+      "ci95": [
+        0.808,
+        0.889
+      ]
+    },
+    "DXDC": {
+      "auc": 0.571,
+      "ci95": [
+        0.511,
+        0.637
+      ]
+    },
+    "DCI": {
+      "auc": 0.606,
+      "ci95": [
+        0.547,
+        0.671
+      ]
+    },
+    "FU": {
+      "auc": null,
+      "ci95": null
+    },
+    "FAC": {
+      "auc": 0.544,
+      "ci95": [
+        0.516,
+        0.574
+      ]
+    }
+  },
+  "top_features_strict_pool": {
+    "toward_snf": [
+      "fracture",
+      "fall",
+      "dementia",
+      "hip",
+      "delirium",
+      "wheelchair",
+      "confused",
+      "her",
+      "hip fracture",
+      "with assistance",
+      "femur",
+      "rehab",
+      "to chair",
+      "assistance to",
+      "status out",
+      "bed with",
+      "chair or",
+      "or wheelchair",
+      "chair",
+      "she",
+      "nursing",
+      "senna",
+      "of bed",
+      "out of",
+      "should"
+    ],
+    "toward_home": [
+      "ambulatory independent",
+      "independent",
+      "pcp",
+      "he",
+      "his",
+      "outpatient",
+      "ambulatory",
+      "dyspnea",
+      "instructed",
+      "status ambulatory",
+      "mg po",
+      "instructed to",
+      "was discharged",
+      "he was",
+      "cough",
+      "symptoms",
+      "ercp",
+      "status clear",
+      "his pcp",
+      "and coherent",
+      "follow up",
+      "discharged",
+      "headaches",
+      "posterior precautions",
+      "coherent level"
+    ]
+  },
+  "section_presence_raw": {
+    "CC": {
+      "snf=0": 0.947,
+      "snf=1": 0.913
+    },
+    "COND": {
+      "snf=0": 1.0,
+      "snf=1": 1.0
+    },
+    "DCI": {
+      "snf=0": 0.987,
+      "snf=1": 1.0
+    },
+    "DISPO": {
+      "snf=0": 0.993,
+      "snf=1": 0.987
+    },
+    "DXDC": {
+      "snf=0": 0.967,
+      "snf=1": 0.9
+    },
+    "FAC": {
+      "snf=0": 0.72,
+      "snf=1": 1.0
+    },
+    "FH": {
+      "snf=0": 0.993,
+      "snf=1": 0.993
+    },
+    "FU": {
+      "snf=0": 0.987,
+      "snf=1": 0.987
+    },
+    "HC": {
+      "snf=0": 0.92,
+      "snf=1": 0.873
+    },
+    "HDR": {
+      "snf=0": 1.0,
+      "snf=1": 1.0
+    },
+    "HPI": {
+      "snf=0": 0.987,
+      "snf=1": 0.987
+    },
+    "MEDADM": {
+      "snf=0": 0.947,
+      "snf=1": 0.96
+    },
+    "MEDDC": {
+      "snf=0": 0.98,
+      "snf=1": 0.98
+    },
+    "PE": {
+      "snf=0": 0.98,
+      "snf=1": 0.987
+    },
+    "PMH": {
+      "snf=0": 1.0,
+      "snf=1": 0.993
+    },
+    "PR": {
+      "snf=0": 0.92,
+      "snf=1": 0.94
+    },
+    "PROC": {
+      "snf=0": 1.0,
+      "snf=1": 1.0
+    },
+    "SH": {
+      "snf=0": 0.993,
+      "snf=1": 1.0
+    }
+  },
+  "section_presence_strict": {
+    "CC": {
+      "snf=1": 0.913,
+      "snf=0": 0.947
+    },
+    "COND": {
+      "snf=1": 1.0,
+      "snf=0": 1.0
+    },
+    "FH": {
+      "snf=1": 0.993,
+      "snf=0": 0.993
+    },
+    "HC": {
+      "snf=1": 0.873,
+      "snf=0": 0.92
+    },
+    "HDR": {
+      "snf=1": 1.0,
+      "snf=0": 1.0
+    },
+    "HPI": {
+      "snf=1": 0.987,
+      "snf=0": 0.987
+    },
+    "MEDADM": {
+      "snf=1": 0.96,
+      "snf=0": 0.947
+    },
+    "PE": {
+      "snf=1": 0.987,
+      "snf=0": 0.98
+    },
+    "PMH": {
+      "snf=1": 0.993,
+      "snf=0": 1.0
+    },
+    "PR": {
+      "snf=1": 0.94,
+      "snf=0": 0.92
+    },
+    "PROC": {
+      "snf=1": 1.0,
+      "snf=0": 1.0
+    },
+    "SH": {
+      "snf=1": 1.0,
+      "snf=0": 0.993
+    }
+  },
+  "residue_strict": {
+    "place_snf": {
+      "CC|snf=1": 1,
+      "HPI|snf=0": 5,
+      "HPI|snf=1": 40,
+      "MEDADM|snf=1": 1,
+      "PE|snf=1": 2,
+      "PMH|snf=1": 1,
+      "PR|snf=0": 1,
+      "PROC|snf=0": 1
+    },
+    "place_home": {
+      "HPI|snf=0": 9,
+      "HPI|snf=1": 9
+    },
+    "dispo_strong": {
+      "HPI|snf=0": 2,
+      "PMH|snf=0": 1,
+      "PR|snf=0": 1
+    }
+  },
+  "masks_strict": {
+    "snf=0": {
+      "mean_masks_per_note": 0.15,
+      "share_notes_with_mask": 0.127
+    },
+    "snf=1": {
+      "mean_masks_per_note": 0.07,
+      "share_notes_with_mask": 0.073
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "model": "gemma4:latest",
+  "raw": {
+    "n": 10,
+    "failed": 0,
+    "accuracy": 0.6,
+    "auc": 0.52,
+    "mean_sec_per_case": 256.8
+  }
+}

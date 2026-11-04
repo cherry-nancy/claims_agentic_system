@@ -1,0 +1,719 @@
+[p1]
+DEPARTMENT OF HEALTH & HUMAN SERVICES 
+Centers for Medicare & Medicaid Services 
+7500 Security Boulevard, Mail Stop C4-21-26 
+Baltimore, Maryland 21244-1850 
+ 
+ 
+ 
+ 
+1 
+ 
+ 
+ 
+ 
+DATE: February 6, 2024 
+ 
+TO: All Medicare Advantage Organizations and Medicare-Medicaid Plans 
+ 
+SUBJECT: Frequently Asked Questions related to Coverage Criteria and Utilization 
+Management Requirements in CMS Final Rule (CMS-4201-F) 
+ 
+On April 5, 2023, CMS issued the “Medicare Program; Contract Year 2024 Policy and Technical 
+Changes to the Medicare Advantage Program, Medicare Prescription Drug Benefit Program, 
+Medicare Cost Plan Program, and Programs of All-Inclusive Care for the Elderly” final rule 
+which included requirements and clarifications relating to Medicare Advantage (MA) coverage 
+criteria for basic benefits, use of prior authorization, and the annual review of utilization 
+management tools. The new regulatory provisions are applicable to coverage beginning January 
+1, 2024. Since the issuance of this rule, CMS has received questions about the application of 
+these rules once they are effective. In this memo, we provide clarification about how we expect 
+MA plans to comply with these new rules. 
+ 
+1. Question: When are MA organizations able to use internal coverage criteria when 
+making medical necessity determinations for basic Medicare benefits? 
+ 
+Answer: For Medicare basic benefits, MA organizations must make medical necessity 
+determinations in accordance with all medical necessity determination requirements, 
+outlined at § 422.101(c)1; based on the circumstances of each specific individual, 
+including the patient’s medical history, physician recommendations, and clinical notes; 
+and in line with all fully established Traditional Medicare coverage criteria. This includes 
+established criteria in applicable Medicare statutes, regulations, National Coverage 
+Determinations (NCDs) or Local Coverage Determinations (LCDs). When Medicare 
+coverage criteria are not fully established, MA organizations may create publicly 
+accessible internal coverage criteria that are based on current evidence in widely used 
+treatment guidelines or clinical literature, as permitted in § 422.101(b)(6). 
+ 
+ 
+1 MA organizations must make medical necessity determinations based on all of the following: 
+(A) Coverage and benefit criteria as specified at § 422.101(b) and (c) and may not deny coverage for basic 
+benefits based on coverage criteria not specified in § 422.101(b) or (c). 
+(B) Whether the provision of items or services is reasonable and necessary under section 1862(a)(1) of the 
+Act. 
+(C) The enrollee's medical history (for example, diagnoses, conditions, functional status), physician 
+recommendations, and clinical notes. 
+(D) Where appropriate, involvement of the organization's medical director as required at § 422.562(a)(4). 
+[p2]
+ 
+ 
+ 
+ 
+2 
+ 
+ 
+ 
+ 
+2. Question: Do the new rules on clinical coverage criteria for basic Medicare benefits 
+mean that MA organizations cannot use algorithms or artificial intelligence to make 
+coverage decisions? 
+Answer: There are many overlapping terms used in the context of rapidly developing 
+software tools. Algorithms can imply a decisional flow chart of a series of if-then 
+statements (i.e., if the patient has a certain diagnosis, they should be able to receive a 
+test), as well as predictive algorithms (predicting the likelihood of a future admission, for 
+example). Artificial intelligence has been defined as a machine-based system that can, for 
+a given set of human-defined objectives, make predictions, recommendations, or 
+decisions influencing real or virtual environments2. Artificial intelligence systems use 
+machine- and human-based inputs to perceive real and virtual environments; abstract 
+such perceptions into models through analysis in an automated manner; and use model 
+inference to formulate options for information or action3. 
+ 
+An algorithm or software tool can be used to assist MA plans in making coverage 
+determinations, but it is the responsibility of the MA organization to ensure that the 
+algorithm or artificial intelligence complies with all applicable rules for how coverage 
+determinations by MA organizations are made. For example, compliance is required with 
+all of the rules at § 422.101(c) for making a determination of medical necessity, including 
+that the MA organization base the decision on the individual patient’s circumstances, so 
+an algorithm that determines coverage based on a larger data set instead of the individual 
+patient's medical history, the physician’s recommendations, or clinical notes would not be 
+compliant with § 422.101(c). In an example involving a decision to terminate post-acute 
+care services, an algorithm or software tool can be used to assist providers or MA plans 
+in predicting a potential length of stay, but that prediction alone cannot be used as the 
+basis to terminate post-acute care services. For those services to be terminated in 
+accordance with § 422.101(c), the patient must no longer meet the level of care 
+requirements needed for the post-acute care at the time the services are being terminated, 
+which can only be determined by re-assessing the individual patient’s condition prior to 
+issuing the notice of termination of services. Additionally, for inpatient admissions, 
+algorithms or artificial intelligence alone cannot be used as the basis to deny admission or 
+downgrade to an observation stay; the patient’s individual circumstances must be 
+considered against the permissible applicable coverage criteria under § 422.101(c). 
+ 
+MA organizations may only deny coverage for basic benefits based on coverage criteria 
+that are specified in § 422.101(b) or (c) or for other expressly permissible bases, such as 
+network limitations or failure to comply with prior authorization requirements. Therefore, 
+the algorithm or software tool should only be used to ensure fidelity with the posted 
+ 
+2 15 U.S.C. 9401(3) 
+3 Id. See also Executive Order (E.O.) 14110 on Safe, Secure, and Trustworthy Development and Use of Artificial 
+Intelligence (88 FR 75191 (11/1/2023), https://www.federalregister.gov/documents/2023/11/01/2023-24283/safe-
+secure-and-trustworthy-development-and-use-of-artificial-intelligence; 
+[p3]
+ 
+ 
+ 
+ 
+3 
+ 
+ 
+ 
+ 
+internal coverage criteria which has been made public under § 422.101(b)(6)(ii). Because 
+publicly posted coverage criteria are static and unchanging, artificial intelligence cannot 
+be used to shift the coverage criteria over time. And, predictive algorithms or software 
+tools cannot apply other internal coverage criteria that have not been explicitly made 
+public and adopted in compliance with the evidentiary standard in § 422.101(b)(6). 
+ 
+Furthermore, we are concerned that algorithms and many new artificial intelligence 
+technologies can exacerbate discrimination and bias. We remind MA organizations of the 
+nondiscrimination requirements of Section 1557 of the Affordable Care Act, which 
+prohibits discrimination on the basis of race, color, national origin, sex, age, or disability 
+in certain health programs and activities. MA organizations should, prior to implementing 
+an algorithm or software tool, ensure that the tool is not perpetuating or exacerbating 
+existing bias, or introducing new biases. 
+ 
+3. Question: For purposes of § 422.101(b)(6)(ii), which states that MA organizations 
+must provide internal coverage criteria in a publicly accessible way, what does 
+“publicly accessible” mean? 
+Answer: In the 2024 MA and Part D final rule, CMS did not specify how compliant MA 
+plan internal coverage criteria and related information must be made publicly available. 
+We recommended that MA organizations refer to the coverage criteria and summary of 
+evidence presented by Medicare Administrative Contractors (MACs) as a guide and best 
+practice for how to present this information publicly. However, in response to additional 
+questions about what would meet the standard to be “publicly accessible,” we are further 
+elaborating here that the internal coverage criteria used by plans must be accessible via a 
+website and cannot be behind a paywall or require a subscription for access. The 
+information must be available to all in the public (not just enrollees and/or contracted 
+providers of the MA plan) and may be hosted on the MA plan’s website or a delegated 
+vendor’s website that is accessible from the MA plan’s website. MA organizations are 
+required to have a website under § 422.111(h)(2); therefore, use of that website is 
+appropriate. At this time, we do not believe that requiring one or two pieces of basic 
+information to gain access to the internal coverage criteria information required by § 
+422.101(b)(6)(ii) necessarily undermines public access. However, we have concerns that 
+in cases where plans contract with multiple utilization management vendors and place a 
+link to each vendor’s website on the plan website to comply with this provision, the 
+burden of accessing and reviewing the collective internal coverage criteria used by the 
+plan could compromise the public accessibility required by § 422.101(b)(6)(ii).. We will 
+continue to monitor access and transparency limitations and may revisit this issue if we 
+see overly burdensome information collection in order to gain access to and analyze 
+internal coverage criteria that should be accessible and transparent to all in the public. 
+The final rule clearly explained that the information required by § 422.101(b)(6) must be 
+publicly accessible, which means generally accessible to CMS, enrollees, providers, 
+researchers, and other stakeholders and that CMS believes that this transparency provides 
+[p4]
+ 
+ 
+ 
+ 
+4 
+ 
+ 
+ 
+ 
+a measure of protection for enrollees and assurances that the coverage criteria are rational 
+and supportable by current, widely used treatment guidelines and clinical literature. 
+ 
+4. Question: What does the internal coverage criteria standard “based on current 
+evidence in widely used treatment guidelines or clinical literature” mean as used in 
+§ 422.101(b)(6)? 
+Answer: In circumstances when Medicare Part A and B coverage criteria are not fully 
+established and MA plan internal coverage criteria are permitted, CMS elaborated on the 
+meaning of current, widely used treatment guidelines and clinical literature in the 
+preamble of the final rule on pages 22189, 22196, and 22197. Current, widely used 
+treatment guidelines are those developed by organizations representing clinical medical 
+specialties and refers to guidelines for the treatment of specific diseases or conditions. 
+Acceptable clinical literature includes large, randomized controlled trials or prospective 
+cohort studies with clear results, published in a peer-reviewed journal, and specifically 
+designed to answer the relevant clinical question, or large systematic reviews or meta-
+analyses summarizing the literature of the specific clinical question. MA organizations 
+may not add coverage criteria that are not supported in such guidelines or literature, or 
+change the substantive recommendations contained in such guidelines or literature to 
+support coverage criteria. If the internal coverage criteria cannot be supported by current 
+evidence in widely used treatment guidelines or clinical literature, publicly and in a way 
+that meets the evidentiary standard in the final rule, plans should not develop internal 
+coverage criteria even if the Traditional Medicare coverage criteria are not fully 
+established. Referencing information, such as a book, website, or third-party criteria, 
+without directly describing and referencing the requisite source citations from primary 
+literature that are widely used treatment guidelines or clinical literature, would not 
+comply with § 422.101(b)(6)(ii). These transparency measures will protect beneficiaries 
+by ensuring that coverage criteria are rational and supportable by current, widely used 
+treatment guidelines and clinical literature. This requirement provides further 
+transparency into MA organizations' medical necessity decision making and is consistent 
+with CMS's expectation that MA organizations develop and use coverage criteria in a 
+way that aligns with Traditional Medicare. 
+ 
+5. Question: What does it mean for internal coverage criteria to have clinical benefits 
+that are highly likely to outweigh any clinical harms? 
+Answer: Section 422.101(b)(6)(i)(A) requires that when additional, unspecified criteria 
+are needed to interpret or supplement general provisions, the MA organization must 
+demonstrate in a publicly accessible way how the additional criteria provide clinical 
+benefits that are highly likely to outweigh any clinical harms, including (but not limited 
+to) from delayed or decreased access to services. CMS expects that, in order to 
+demonstrate in its public explanation of the rationale support for establishing the internal 
+coverage criteria, the MA organization would compare the clinical benefits of the policy 
+[p5]
+ 
+ 
+ 
+ 
+5 
+ 
+ 
+ 
+ 
+to the harms that patients may experience as a result of the coverage criteria. For 
+example, take the hypothetical example of an MA organization that establishes internal 
+coverage criteria for Magnetic Resonance Imaging (MRIs) with contrast for patients with 
+a history of established hypersensitivity to Gadolinium-based contrast media (a type of 
+contrast often used in MRIs). NCD 220.2 Magnetic Resonance Imaging states that 
+physicians elect to use a specific Magnetic Resonance Angiography or Contrast-enhanced 
+technique based upon clinical information from each patient. Here, the MA organization 
+may adopt an internal policy to not allow contrast-enhanced MRIs with Gadolinium-
+based contrast media when the patient has a history of hypersensitivity to Gadolinium 
+unless the patient receives appropriate pretreatment. In its rationale, the clinical benefit of 
+avoiding MRIs in patients with established hypersensitivity to Gadolinium-based contrast 
+media may be avoidance of hypersensitivity reaction, which for some patients can be life 
+threatening and cause significant morbidity and mortality. However, omitting contrast 
+when it is indicated can lead to diagnostic and treatment errors, or repeated tests and 
+delayed diagnoses. Additionally, the coverage criteria in and of itself could cause a 
+dangerous delay in an important diagnosis. In order to compare the relative clinical harm 
+and benefit, factors such as prevalence of expected clinical benefits and harms, relative 
+morbidity and mortality, and frequency of delayed diagnoses for specific conditions that 
+result from delayed or decreased access to MRIs, and relative outcomes, including 
+through pretreatment, could be weighed in the public rationale. 
+ 
+Demonstrating that the additional coverage criterion (or criteria) meets the regulatory 
+standard in § 422.101(b)(6)(i)(A) would involve a discussion of the relative clinical 
+benefits and harms to the patient population. The clinical coverage criteria should be 
+narrowly tailored to the patient population that stands to benefit in the public rationale 
+and justification (i.e. the internal coverage criteria could be created for patients with a 
+history of gadolinium hypersensitivity who have been ordered an MRI with Gadolinium 
+contrast in this example—not all patients who have been ordered an MRI). Because the 
+MA organization must demonstrate the comparative benefit of the additional coverage 
+criteria, a public explanation that assumes that clinical coverage criteria in general offers 
+clinical benefits to patients that are highly likely to outweigh clinical costs is not 
+sufficient. The public explanation should systematically explain the harms and benefits 
+and use appropriate clinical evidence and citation of current, widely used treatment 
+guideline or clinical literature. (See also § 422.101(b)(6)(ii)(C).) 
+ 
+Further, if the standards in § 422.101(b)(6) and 422.101(b)(6)(i)(A) cannot be met 
+because there are no widely used treatment guidelines or high-quality clinical literature to 
+suggest that the clinical benefit of the internal coverage criteria is highly likely to 
+outweigh the clinical harm, the MA organization is not permitted to adopt that internal 
+coverage criteria even if the Traditional Medicare coverage criteria are not fully 
+established. Stated succinctly, we believe that all internal coverage criteria should clearly 
+and explicitly support patient safety before the criteria are used by an MA plan, even 
+[p6]
+ 
+ 
+ 
+ 
+6 
+ 
+ 
+ 
+ 
+where other minimum requirements in the regulation (that is, where Traditional Medicare 
+coverage policies are not fully established) are met. 
+ 
+We will continue to monitor the rationales made public under § 422.101(b)(6) to ensure 
+compliance. We may issue additional guidance as needed to ensure that internal coverage 
+criteria are being developed only in those situations where clinical benefit is highly likely 
+to outweigh clinical harm, including from delayed or decreased access to items or 
+services. 
+ 
+6. Question: Can MA organizations apply coverage criteria from a Traditional 
+Medicare Local Coverage Determination (LCD) that is not applicable to the service 
+area where the MA plan is available? 
+Answer: If the LCD is not from the applicable service area, use of the LCD is use of 
+internal coverage criteria and all associated requirements would still apply; an MA 
+organization is not exempted from the requirements of § 422.101(b)(6) by using an LCD 
+adopted in a geographic area that is not the MA plan’s service area. MA organizations 
+must follow all Traditional Medicare NCDs, LCDs applicable to the MA plan’s service 
+area, and general coverage and benefit conditions included in Traditional Medicare per 
+42 CFR § 422.101. In situations where Traditional Medicare coverage criteria are not 
+fully established in applicable Medicare statutes, regulations, NCDs or LCDs (applicable 
+to the applicable service area), MA organizations may create internal coverage criteria as 
+long as they comply with rules at § 422.101(b)(6). An MA plan’s internal coverage 
+criteria may be similar or the same as criteria found in LCDs that are applicable outside 
+of the MA plan’s service area, but the MA organization must still ensure that the criteria 
+are based on current evidence in widely used treatment guidelines or clinical literature 
+and is made publicly available, as required by § 422.101(b)(6). 
+ 
+7. Question: Can an MA organization deny admission of a patient to a post-acute care 
+facility from an acute care hospital if it’s ordered by their physician and the patient 
+meets the coverage criteria for admission into that facility? 
+ 
+Answer: No, if a patient is being discharged from an acute care hospital to a post-acute 
+care facility that would be covered under Traditional Medicare and the patient’s attending 
+physician orders post-acute care in the specific type of facility (i.e., Skilled Nursing 
+Facility (SNF), Long Term Care Hospital (LTCH)) and the patient meets all applicable 
+Medicare coverage criteria for admission into that facility type, the MA organization 
+cannot deny admission to that post-acute setting and/or redirect the care to a different 
+setting. In the context of post-acute care services furnished in a particular setting, MA 
+organizations may only deny a request for Medicare covered post-acute care services if 
+the MA organization determines that the Traditional Medicare coverage criteria (e.g., for 
+SNF care in §§ 409.30-409.36) or internal coverage criteria when applicable and 
+[p7]
+ 
+ 
+ 
+ 
+7 
+ 
+ 
+ 
+ 
+authorized by § 422.101(b) for the services cannot be satisfied in that particular setting. 
+We explained this clearly as part of the proposal that we adopted in the final rule. 88 FR 
+22189. We reiterate here that MA organizations may only deny a request for Medicare 
+covered post-acute care services in a particular setting if the MA organization determines 
+that the Traditional Medicare coverage criteria or internal coverage criteria (when 
+applicable and authorized by § 422.101(b)) for the services cannot be satisfied in that 
+particular setting. However, MA plans are permitted to offer coverage of alternatives to 
+Medicare covered post-acute care services in a particular setting and an enrollee is 
+permitted to elect different treatment. The requirement for MA plans to cover all basic 
+benefits consistent with Traditional Medicare coverage criteria does not prohibit 
+discussions with the enrollee of other treatment options that are covered by the MA plan. 
+However, the flexibility for MA plans to cover and deliver care in cost-effective 
+approaches does not replace the obligation for MA plans to cover all basic benefits 
+consistent with the established coverage criteria for Traditional Medicare. 
+ 
+MA organizations may only terminate coverage for post-acute care services based on 
+coverage criteria that are specified in § 422.101(b) or (c), which include medical 
+necessity. An algorithm or software tool may be used to assist MA plans in predicting a 
+length of stay, but that prediction alone must not be used as the basis to terminate post-
+acute care services; the patient must no longer meet the level of care requirements needed 
+for the post-acute care at the time the services are being terminated, which can only be 
+determined by re-assessing the individual patient’s condition prior to issuing the notice of 
+termination of services. An MA organization’s decision to terminate post-acute care 
+services and discharge a patient from a home health agency (HHA), skilled nursing 
+facility (SNF), or comprehensive outpatient rehabilitation facilities (CORF) is an 
+organization determination and is appealable in accordance with rules in §§ 422.624 and 
+422.626.4 The specific expedited appeal process applicable to such terminations of 
+provider services provides that the burden of proof rests with the MA organization to 
+demonstrate that termination of coverage is the correct decision, either on the basis of 
+medical necessity, or based on other Medicare coverage policies, and that the MA 
+organization must supply a specific and detailed explanation why services are either no 
+longer reasonable and necessary or are no longer covered, including a description of the 
+applicable coverage criteria and rules. 42 CFR § 422.626(c) and (e). 
+ 
+8. Question: Does the CY 2024 final rule mean that MA organizations must follow the 
+Medicare “two-midnight rule”? 
+ 
+4 Discharge from an inpatient hospital is appealable in accordance with §§ 422.620 and 422.622. In these expedited 
+reviews by the QIO, the MA organization also bears the burden of proof that the discharge “is the correct decision, 
+either on the basis of medical necessity, or based on other Medicare coverage policies.” § 422.622(c). 
+[p8]
+ 
+ 
+ 
+ 
+8 
+ 
+ 
+ 
+ 
+Answer: The term ‘two-midnight rule’ is sometimes used to describe different things: 
+either the “two-midnight presumption” or the “two-midnight benchmark” admission 
+criteria. As explained further below, MA plans do not have to follow the “two-midnight 
+presumption,” which relates to medical review instructions for contractors in Traditional 
+Medicare. However, another colloquial use of the term “two-midnight rule” is to 
+describe the inpatient admission criteria in 42 C.F.R. § 412.3, which include a “two-
+midnight benchmark;” MA plans are required to follow these inpatient admission criteria. 
+ 
+In regard to the two-midnight presumption, we explained in the preamble of the CY 2024 
+final rule that the “two-midnight presumption” (the presumption that all inpatient claims 
+that cross two midnights following the inpatient admission order are “presumed” 
+appropriate for payment under Medicare Part A and are not the focus of medical review 
+absent other evidence) does not apply to MA plans’ decision about when and how to 
+engage in review of a particular inpatient stay. The two-midnight presumption is a 
+medical review instruction given to Medicare post-payment audit and compliance 
+contractors (for example, Recovery Audit Contractors, or Quality Improvement 
+Organizations) to help them in the selection of claims for post-payment medical necessity 
+reviews in Traditional Medicare, which are conducted to ensure that claims have been 
+appropriately paid under Medicare rules. Any sub-regulatory guidance issued by these 
+contractors does not directly apply to MA plans but likely contain useful explanations 
+and interpretations of Traditional Medicare policies. As clarified in the CY 2024 final 
+rule,5 MA organizations are not required to use the two midnight presumption to decide 
+which claims to review, but may instead decide which claims are subject to review in 
+accordance with procedures for making determinations as provided by Section 
+1852(g)(1)(A) of the Act. MA plans may still use prior authorization or concurrent case 
+management review of inpatient admissions to determine whether the complex medical 
+factors documented in the medical record support medical necessity of the inpatient 
+admission under 42 C.F.R. 412.3. MA medical necessity reviews may be conducted 
+before the service is provided (i.e., prior authorization), during (i.e., concurrent case 
+review), or after the service is provided (i.e., claim review). In all of these circumstances, 
+MA organizations must comply with § 422.101(c). 
+ 
+The two-midnight benchmark is part of the inpatient admission criteria outlined in 42 
+C.F.R. § 412.3. MA plans must follow these criteria, in line with the requirement that 
+they must follow general coverage and benefit conditions included in Traditional 
+Medicare when making a decision about coverage of an inpatient stay. In the CY 2024 
+final rule, CMS updated and clarified requirements affecting MA plan coverage 
+guidelines and the relation of such guidelines to Traditional Medicare coverage policies. 
+The updated regulations explain that MA plans must follow all NCDs, LCDs applicable 
+to the plan’s service area, and general coverage and benefit conditions included in 
+Traditional Medicare laws. We directly cited the inpatient admission criteria at 42 CFR § 
+ 
+5 88 FR 22191-22192. 
+[p9]
+ 
+ 
+ 
+ 
+9 
+ 
+ 
+ 
+ 
+412.3 as an example of Traditional Medicare rules that apply in MA (42 CFR § 
+422.101(b)(2)) to establish coverage. More specifically, under 42 CFR § 412.3, MA plans 
+must provide coverage, by furnishing, arranging for, or paying for an inpatient admission 
+when, based on consideration of complex medical factors documented in the medical 
+record: 
+• the admitting physician expects the patient to require hospital care that crosses 
+two-midnights (§ 412.3(d)(1) (the “two midnight benchmark”); 
+• when the admitting physician does not expect the patient to require care that 
+crosses two-midnights, but determines, based on complex medical factors 
+documented in the medical record that inpatient hospital care is nonetheless 
+necessary (§ 412.3(d)(3), (the “case-by-case exception”); or 
+• when inpatient admission is for a surgical procedure specified by Medicare as 
+inpatient only (§ 412.3(d)(2)). 
+We note that inpatient admission criteria at § 412.3(d)(1) and (3) are both based on the 
+expectation of the admitting physician at the time of admission, as supported by the 
+medical record. Whether the admission actually crossed two midnights is not a factor in 
+the inpatient admission criteria at § 412.3. An MA organization may evaluate whether the 
+admitting physician’s expectation that the patient would require hospital care that crosses 
+two-midnights was reasonable based on complex medical factors documented in the 
+medical record. Consistent with § 412.3, that evaluation should defer to the judgment of 
+the physician as long as that judgment was reasonable based upon the complex medical 
+factors documented in the medical record. 
+ 
+CMS will continue to monitor inpatient coverage criteria, in addition to all other clinical 
+areas, to evaluate areas where there may need to be more well-established criteria 
+implemented to best support beneficiary access to the timely care they need. 
+ 
+9. Question: Are plans able to do post-claim audits and deny payment and still be 
+compliant with the effect of a prior authorization or pre-service approval rule at 
+422.138(c)? 
+ 
+Answer: Plans can conduct post-claim reviews, but it must be compliant with reopening 
+rules and only revised within specific parameters. Subject to the limitation in § 
+422.138(c), discussed below, a plan is permitted to conduct post-payment review on a 
+selected claim, consistent with the reopening rules in § 422.616 and other applicable rules 
+in Part 422, Subpart M. 
+ 
+If an organization determination is reopened and revised, the plan must notify the parties 
+of its revised determination. If the revised determination is adverse, the notice to the 
+parties must state the rationale and basis for the reopening and revision and any 
+applicable right to appeal. However, the final rule codified at § 422.138(c) states that if an 
+[p10]
+ 
+ 
+ 
+ 
+10 
+ 
+ 
+ 
+ 
+MA organization approved the furnishing of a covered item or service through a prior 
+authorization or pre-service determination of coverage or payment, it may not deny 
+coverage later on the basis of lack of medical necessity and may not reopen such a 
+decision for any reason except for good cause (as provided at 42 CFR § 405.986) or if 
+there is reliable evidence of fraud or similar fault per the reopening provisions at § 
+422.616. This means that if the MA organization pre-authorized the inpatient admission, 
+it would be a violation of § 422.138(c) to later deny payment based on a determination 
+that the level of care was not medically necessary. 
+ 
+We have heard frequently that MA organizations utilize post-claim review audits and 
+examinations that routinely result in the denial of payment for the inpatient care that was 
+provided to the enrollee. Further, we have heard that MA organizations characterize 
+these reviews as “payment” reviews and that these reviews are “not organization 
+determinations” or “level of care or medical necessity reviews.” We disagree with those 
+characterizations of decisions that are denials of coverage or otherwise a refusal to 
+provide or pay for services, in whole or in part, including the type or level of services, 
+that the enrollee believes should be furnished or arranged for by the MA organization. 
+We reiterate here that the refusal to provide or pay for services, in whole or in part, 
+including the type or level of services (e.g., inpatient services versus outpatient services) 
+is an organization determination by the MA plan under § 422.566(b)(3). Therefore, if the 
+MA organization expects to issue a partially or fully adverse decision about whether the 
+services are or were medically necessary, that decision – meaning that organization 
+determination - must be reviewed by a physician or other appropriate health care 
+professional with expertise in the field of medicine or health care that is appropriate for 
+the services at issue, including knowledge of Medicare coverage criteria, before the MA 
+organization issues the organization determination decision. See 42 CFR § 422.566(d). 
+ 
+10. Question: Does the Medicare “Interrupted Stay” policy apply in MA? 
+ 
+Answer: Traditional Medicare pays SNFs using the SNF Prospective Payment System 
+(PPS). The SNF PPS includes an “interrupted stay” policy that if a patient in a covered 
+Part A SNF stay is discharged from the SNF but returns to the same SNF no more than 
+three consecutive calendar days after having been discharged, then this would be 
+considered a continuation of the same SNF stay (see 83 FR 39162, 39243). In such cases, 
+no new patient assessments are required and the variable per diem adjustment is not reset. 
+This policy of not resetting the variable per diem adjustment is not applicable in MA 
+when MA organizations provide benefits through their contracted network of providers. 
+The contract between MA organizations and their contracted providers governs the rates 
+and payment policies for the delivery of services. 
+ 
+[p11]
+ 
+ 
+ 
+ 
+11 
+ 
+ 
+ 
+ 
+However, in the final rule, we strengthened policies related to prior authorization at § 
+422.112(b)(8)(i)(A), by requiring that approval of a prior authorization request for a 
+course of treatment must be valid for as long as medically necessary to avoid disruptions 
+in care, in accordance with applicable coverage criteria, the individual patient’s medical 
+history, and the treating provider’s recommendation. This requirement applies in the 
+context of an interrupted stay in a SNF: a new prior authorization for admission is not 
+required when the patient returns no more than three consecutive calendar days after 
+having been discharged. Therefore, if the MA plan uses prior authorization for a stay in a 
+SNF, an interruption in the stay within the scope of the SNF PPS interrupted stay policy 
+does not change or alter the scope of that prior authorization approval. Under § 
+422.112(b)(8)(i)(A), MA organizations that offer coordinated care plans must not require 
+another prior authorization when a patient returns no more than three consecutive 
+calendar days after having been discharged and the patient is still undergoing the same 
+course of treatment that was previously approved. This policy is meant to avoid 
+disruptions in care for the patient and does not impact or change payment or rates set 
+between the MA organization and the provider. 
+ 
+When an MA plan covers out of network services (that is, services furnished by a non-
+contracted provider), the MA plan must pay the provider the amount that the provider 
+would have received as payment in the Traditional Medicare program. See section 1852 
+of the Act and 42 CFR § 422.100(b)(2) and 422.214. Therefore, MA organizations must 
+follow payment rates in the SNF PPS for services delivered by non-contracted SNF 
+providers. 
+ 
+11. Question: Can MA plans still use prior authorization and how does the CY 2024 
+final rule impact the use of prior authorization? 
+ 
+Answer: Yes, use of prior authorization (also called pre-certification) to ensure the 
+patient meets the applicable guidelines is still allowed except for emergency, urgently 
+needed, and stabilization services (§ 422.113(a)), and out-of-network services covered by 
+MA PPO plans. In addition, MA Private Fee For Service and MA Medical Savings 
+Account plans are not permitted to use prior authorization policies or “prior notification” 
+policies that reduce cost sharing for enrollees based on whether the enrollee or provider 
+notifies the plan in advance that services will be furnished. 
+ 
+That said, the CY 2024 final rule adopted several provisions applicable beginning 
+January 1, 2024, on the use of prior authorization: 
+• Prior authorization may only be used by MA coordinated care plans to confirm 
+the presence of diagnoses or other medical criteria, to ensure that the furnishing of 
+a service or benefit is medically necessary or, for supplemental benefits, clinically 
+[p12]
+ 
+ 
+ 
+ 
+12 
+ 
+ 
+ 
+ 
+appropriate (§ 422.138(b)). Therefore, prior authorization should not function to 
+delay or discourage care. 
+• For MA coordinated care plans, approval of a prior authorization request for a 
+course of treatment must be valid for as long as medically reasonable and 
+necessary to avoid disruptions in care in accordance with applicable coverage 
+criteria, the patient’s medical history, and the treating provider’s recommendation. 
+Further, MA coordinated care plans must provide a minimum 90-day transition 
+period for new enrollees, during which the new MA plan may not require prior 
+authorization for any active course of treatment, even if the course of treatment 
+was for a service that commenced with an out-of-network provider 
+(§ 422.112(b)(8)). 
+• To ensure prior authorization is being used appropriately, all MA plans must 
+establish a Utilization Management Committee to annually review utilization 
+management policies and ensure consistency with Traditional Medicare’s national 
+and local coverage decisions and guidelines (§ 422.137). 
+In addition, prior authorization decisions must be made as expeditiously as the enrollee's 
+health condition requires, but no later than the deadlines established in §§ 422.568 (for 
+non-expedited requests) and 422.572 (for expedited requests). 
+ 
+12. Question: Can MA organizations that share a common parent organization use 
+personnel that serve on multiple Utilization Management (UM) committees? 
+Answer: CMS required that an MA organization that uses utilization management (UM) 
+policies and procedures, including prior authorization (PA), must establish a UM 
+committee that is led by a plan’s medical director (described in § 422.562(a)(4)). The 
+final rule provides that MA organizations may elect to establish UM committees at the 
+MA organization or plan level, but does not permit the UM committee to be established 
+at the parent organization level for all MA plans offered under that parent organization 
+and its subsidiaries. In some cases, it may be appropriate for parent organizations that 
+operate multiple MA organizations to establish UM committees with substantially the 
+same membership. If all regulatory requirements, including UM committee membership, 
+scope of work, and documentation requirements, are satisfied, then it may be appropriate 
+for the same group of members to serve on the UM committees for multiple MA 
+organizations. Since there are no requirements regarding how many individuals may 
+serve on the UM committee, MA organizations and parent organizations have sufficient 
+flexibility to establish UM committees, while also complying with all regulatory 
+requirements. For example, a parent organization may choose to have one core group of 
+UM committee members that serve across multiple committees under the subsidiary MA 
+organizations, while also supplementing those committees with additional personnel 
+based on which UM policies or procedures the UM committee must review, the 
+geographic area served by the particular MA organization, or other factors relevant to the 
+development, review and use of UM policies. Further, as outlined in the CY2024 final 
+[p13]
+ 
+ 
+ 
+ 
+13 
+ 
+ 
+ 
+ 
+rule, MA organizations are permitted to leverage existing committees to satisfy the new 
+regulatory requirement. MA organizations may adapt or alter existing committees, 
+including committees required by accrediting bodies and existing P&T committees, to 
+conform with the regulatory requirements of § 422.137. 
+ 
+For additional information on this topic, please see the HPMS memo titled “Additional 
+Operational Instruction on the Utilization Management Committee Structure,” issued on 
+November 15, 2023. Also, please see the proposed rule Medicare Program; Contract Year 
+2025 Policy and Technical Changes to the Medicare Advantage Program, Medicare 
+Prescription Drug Benefit Program, Medicare Cost Plan Program, and Programs of All-
+Inclusive Care for the Elderly; Health Information Technology Standards and 
+Implementation Specifications (88 FR 78476), in which CMS proposed additional 
+changes to the UM committee: 
+https://www.federalregister.gov/documents/2023/11/15/2023-24118/medicare- program-
+contract-year-2025-policy-and-technical-changes-to-the-medicare-advantage-program. 
+ 
+13. Question: How do the new CY 2024 utilization management requirements apply to 
+MA supplemental benefits? 
+Answer: As stated in the CY 2024 final rule, MA organizations may use prior 
+authorization to ensure that the furnishing of supplemental benefits is clinically 
+appropriate. The regulation text uses the term “clinically appropriate” as opposed to 
+“medically necessary.” While supplemental benefits must be medically necessary based 
+on long standing guidance, certain supplemental benefits (that is, SSBCI) may be non-
+primarily health related and must have a reasonable expectation of improving or 
+maintaining the health or overall function of the enrollee. Thus, a standard based on 
+medical necessity may not always be appropriate and using the term “clinically 
+appropriate” is more inclusive of SSBCI. In line with these standards, prior authorization 
+for supplemental benefits may only be used to ensure the furnishing of a service or 
+benefit is clinically appropriate. As it relates to coverage criteria, Medicare does not have 
+coverage criteria for supplemental benefits because, by their nature, they are not 
+Medicare Part A or Part B benefits. 
+ 
+14. Question: How will CMS enforce the CY 2024 changes in coverage criteria and 
+utilization management requirements? 
+Answer: As we first announced on October 24, 2023, in the HPMS memo titled, “2024 
+Oversight Activities” and subsequently on December 19, 2023, in the HPMS memo 
+titled, “2024 Program Audit Updates” CMS will conduct both routine and focused 
+program audits of organizations in 2024 to assess compliance with the coverage and UM 
+requirements finalized in the CY 2024 final rule. For MA organizations that have routine 
+program audits scheduled for 2024, these audits will follow our standard process similar 
+to prior years, covering all applicable program areas, but will target the new UM 
+[p14]
+ 
+ 
+ 
+ 
+14 
+ 
+ 
+ 
+ 
+requirements during the Part C Organization Determinations, Appeals, and Grievances 
+(ODAG) review, as well as the Compliance Program Effectiveness (CPE) review. In 
+addition, CMS is also adding new focused audits for plans that don’t have routine 
+scheduled audits, which are limited to ODAG and CPE, and are designed specifically to 
+target compliance with the coverage and UM policies in the CY 2024 final rule. Through 
+this combination of routine and focused audits in 2024, CMS expects to evaluate the UM-
+related performance of plans serving approximately 88% of people with MA. This 
+expansion of our audit activity will help make sure that MA beneficiaries get the care 
+they need without excessive burden or delays and have access to the benefits and services 
+to which they are entitled. During both the routine and focused program audits, CMS will 
+utilize physician reviewers to review denied requests to assess whether MAOs are 
+meeting new clinical coverage requirements, such as following coverage and benefit 
+conditions included in Medicare laws, NCDs, or LCDs, , and when permissible, applying 
+internal coverage criteria only when coverage criteria are not fully established in statute, 
+regulation, National Coverage Decisions, and Local Coverage Decisions. CMS program 
+audits will also ensure that internal coverage criteria are publicly available and otherwise 
+meet regulatory requirements, MAOs are only using physicians (or other appropriate 
+health care professionals) with appropriate expertise in the field of medicine for the 
+service at issue when issuing adverse medical necessity decisions, and MAOs have 
+established UM committees in accordance with regulatory requirements, including who 
+the members of the committee are and the responsibilities they are required to complete. 
+ 
+CMS has increased its scheduled program audit activities to help make sure that MA 
+beneficiaries get the care they need without excessive burden or delays and have access 
+to the benefits and services to which they are entitled. 
+ 
+We will be monitoring closely whether MA plans are utilizing and applying internal 
+coverage criteria that are not found in Medicare laws, NCDs, or LCDs, and whether the 
+internal coverage criteria are publicly accessible and coverage policies meet the 
+regulatory requirements. 
+ 
+CMS has a number of tools it can use to address non-compliance with the new 
+requirements, including issuing compliance and enforcement actions. 
+• Compliance actions include Notices of Non-Compliance, Warning Letters, and 
+Requiring Corrective Action Plans. 
+• Enforcement actions include civil money penalties and enrollment and/or 
+marketing sanctions. 
+ 
+If you have any questions, please submit an inquiry to the Part C Policy portal at: dpap.lmi.org 
+ 

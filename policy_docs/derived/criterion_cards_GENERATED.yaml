@@ -480,7 +480,7 @@ cards:
     plan_criterion: C6
     title: Criteria for "practical matter"
     text_verbatim: >-  # 409.35(a)
-      In making a "practical matter" determination, as required by § 409.31(b)(3), consideration must be given
+      In making a “practical matter” determination, as required by § 409.31(b)(3), consideration must be given
       to the patient's condition and to the availability and feasibility of using more economical alternative
       facilities and services. However, in making that determination, the availability of Medicare payment for
       those services may not be a factor. For example, if a beneficiary can obtain daily physical therapy
@@ -489,7 +489,7 @@ cards:
       be provided in a SNF.
     examples_verbatim:  # 409.35(b)
       - >-
-        Beneficiary's condition. Inpatient care would be required "as a practical matter" if transporting the
+        Beneficiary's condition. Inpatient care would be required “as a practical matter” if transporting the
         beneficiary to and from the nearest facility that furnishes the required daily skilled services would be
         an excessive physical hardship.
       - >-

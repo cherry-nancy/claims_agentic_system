@@ -7,7 +7,11 @@ For each case the page shows the redacted note exactly as the model sees it. The
 and notes what gave it away, then reveals: the original note with every removal marked (red = removed by a rule,
 grey = section dropped), the true destination, and the local LLM's guess and quotes if leakage_llm has been run
 (leak-candidate quotes are flagged). The reviewer then records whether anything left in the note leaks.
-Cases come in seeded random order, so the destination cannot be read from their position.
+Cases come in seeded random order, so the destination cannot be read from their position, except that cases with a
+leak candidate (up to MAX_FLAGGED) are put last, so a short review still reads them.
+
+Leak candidates are recomputed here against the current notes and rules: a quote is one if it is still in the note
+the page shows and matches a disposition rule. A quote of text a later rule removed is no longer flagged.
 
 Writes data/sample/review/blind_review_{mode}.html (gitignored). The page holds note text: open it locally only,
 never upload or publish it. Answers stay in the browser (localStorage) until "Download answers" saves them as JSON.
@@ -19,10 +23,11 @@ import json
 import polars as pl
 
 from snf_pa.data import config as C
-from snf_pa.data.leakage_llm import DEST
-from snf_pa.data.redact import FILES, MODES, VERSION
+from snf_pa.data.leakage_llm import DEST, squash
+from snf_pa.data.redact import FILES, MODES, TRIGGERS, VERSION
 
 OUT_DIR = C.SAMPLE_DIR / "review"
+MAX_FLAGGED = 10
 
 
 def marked(original: str, spans: list[dict]) -> str:
@@ -56,7 +61,7 @@ def marked(original: str, spans: list[dict]) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=list(MODES), default="strict")
-    ap.add_argument("--n", type=int, default=0, help="cases (0 = all dev cases)")
+    ap.add_argument("--n", type=int, default=50, help="cases (0 = all dev cases)")
     args = ap.parse_args()
 
     cases = pl.concat([pl.read_csv(C.SAMPLE_DIR / f"{f}.csv", infer_schema_length=0)
@@ -70,10 +75,21 @@ def main() -> None:
          .join(raw.select("note_id", "text"), on="note_id").with_columns(pl.col("hadm_id").cast(pl.String))
          .join(cases, on="hadm_id").filter(pl.col("split") == "dev")
          .with_columns(k=pl.col("hadm_id").hash(C.SEED)).sort("k"))
-    if args.n:
-        d = d.head(args.n)
     llm_file = C.SAMPLE_DIR / f"leakage_llm_{args.mode}.parquet"
-    llm = pl.read_parquet(llm_file) if llm_file.exists() else None
+    llm = None
+    if llm_file.exists():
+        packets = {r["hadm_id"]: squash(r["packet"]) for r in d.iter_rows(named=True)}
+        llm = pl.read_parquet(llm_file).filter(pl.col("hadm_id").is_in(list(packets))).with_columns(
+            verbatim=pl.struct("hadm_id", "quote").map_elements(
+                lambda x: bool(x["quote"]) and squash(x["quote"]) in packets[x["hadm_id"]], return_dtype=pl.Boolean),
+            rule=pl.col("quote").map_elements(lambda q: [k for k, rx in TRIGGERS.items() if rx.search(q)],
+                                              return_dtype=pl.List(pl.String)))
+        llm = llm.with_columns(leak_candidate=pl.col("verbatim") & (pl.col("rule").list.len() > 0))
+        flagged = set(llm.filter("leak_candidate")["hadm_id"].unique().sort().head(MAX_FLAGGED))
+        d = pl.concat([d.filter(~pl.col("hadm_id").is_in(list(flagged))), d.filter(pl.col("hadm_id").is_in(list(flagged)))])
+    if args.n:
+        n_flag = len(flagged) if llm is not None else 0
+        d = pl.concat([d.head(d.height - n_flag).head(args.n - n_flag), d.tail(n_flag)]) if n_flag else d.head(args.n)
 
     by_note = {k[0]: g.to_dicts() for k, g in spans.group_by("note_id")}
     data = []
@@ -90,7 +106,9 @@ def main() -> None:
     out = OUT_DIR / f"blind_review_{args.mode}.html"
     page = PAGE.replace("__DATA__", json.dumps(data).replace("</", "<\\/")).replace("__MODE__", args.mode)
     out.write_text(page.replace("__VERSION__", VERSION), encoding="utf-8")
-    print(f"{len(data)} dev cases ({args.mode}, {VERSION}); LLM results {'included' if llm is not None else 'absent'}")
+    n_flag = sum(any(q["leak_candidate"] for q in x["llm"]["quotes"]) for x in data if x["llm"])
+    print(f"{len(data)} dev cases ({args.mode}, {VERSION}); LLM results {'included' if llm is not None else 'absent'}; "
+          f"{n_flag} with a leak candidate (last on the page)")
     print(f"-> {out.relative_to(C.ROOT)}  (local only: contains note text)")
 
 

@@ -1,7 +1,15 @@
 """Disposition redaction on synthetic notes (no MIMIC text here)."""
 import re
 
-from snf_pa.data.redact import MODES, Stats, check_spans, is_deletion_of, redact, redact_sentence
+from snf_pa.data.redact import (
+    MODES,
+    Stats,
+    check_spans,
+    is_deletion_of,
+    is_redaction_of,
+    redact,
+    redact_sentence,
+)
 
 NOTE = """Name: ___  Unit No: ___
 
@@ -90,7 +98,7 @@ def test_keeps_clinical_facts_in_the_same_sentences():
 
 def test_deletion_only():
     out, _ = redact(NOTE)
-    assert is_deletion_of(out, NOTE)
+    assert is_redaction_of(out, NOTE)
 
 
 def test_clause_not_sentence():
@@ -118,7 +126,7 @@ def test_strict_mode_drops_discharge_medications_only():
     strict, st = redact(NOTE, "strict")
     assert "Discharge Medications:" in realistic and "Discharge Medications:" not in strict
     assert "Discharge Medications" not in st.sections_kept
-    assert "Lovenox 40 mg SC daily x 4 weeks" in strict and is_deletion_of(strict, NOTE)
+    assert "Lovenox 40 mg SC daily x 4 weeks" in strict and is_redaction_of(strict, NOTE)
 
 
 def test_spans_point_at_the_original_note():
@@ -162,6 +170,52 @@ def test_review_marks_every_removal_and_nothing_shown():
         page = marked(NOTE, st.spans)
         assert html.unescape(re.sub(r"<[^>]+>", "", page)) == NOTE  # the whole original, in order
         unmarked = html.unescape(re.sub(r'<span class="(cut|drop)">[^<]*</span>', "", page))
-        assert re.sub(r"\s+", "", out) == re.sub(r"\s+", "", unmarked), mode  # shown = unmarked text
+        def flat(s):
+            return re.sub(r"\s+", "", re.sub(r"(?m)^([ \t]*)\d+([.)])", r"\1#\2", s))
+        assert flat(out) == flat(unmarked), mode  # shown = unmarked text, list numbers aside
         assert '<span class="cut">' in page and '<span class="drop">' in page
         assert "recommended for acute rehab" not in unmarked and "Extended Care" not in unmarked
+
+
+LIST = """Brief Hospital Course:
+Admitted for atrial fibrillation with RVR, rate controlled on metoprolol.
+
+TRANSITIONAL ISSUES:
+1. Follow up with PCP in 1 week.
+2. Patient will be discharged to rehab.
+3. Recheck potassium in 3 days.
+4. Continued counseling regarding alcohol use.
+5. Ambulatory cardiac monitoring for atrial fibrillation.
+"""
+
+
+def test_list_items_go_whole_and_the_rest_is_renumbered():
+    out, st = redact(LIST)
+    items = re.findall(r"(?m)^(\d+)\. (.*)$", out)
+    assert [n for n, _ in items] == ["1", "2", "3"]
+    assert [x for _, x in items] == ["Recheck potassium in 3 days.", "Continued counseling regarding alcohol use.",
+                                     "Ambulatory cardiac monitoring for atrial fibrillation."]
+    assert not re.search(r"(?m)^\s*\d+\.\s*$", out)  # no empty items
+    assert is_redaction_of(out, LIST) and not is_deletion_of(out, LIST)
+    check_spans(st.spans, LIST)
+    assert all(not re.match(r"\d+\.", sp["text"]) for sp in st.spans if sp["packet_id"])  # markers are not sentences
+
+
+def test_a_new_list_restarts_numbering():
+    from snf_pa.data.redact import renumber
+    assert renumber("1. a\n3. b\n1. c\n4. d\n") == "1. a\n2. b\n1. c\n2. d\n"
+
+
+def test_an_item_whose_text_starts_on_the_next_line_goes_with_its_number():
+    out, _ = redact("Brief Hospital Course:\nTreated for pneumonia with ceftriaxone.\n\nTRANSITIONAL ISSUES:\n"
+                    "1.\nPatient will be discharged to rehab.\n2.\nRepeat chest x-ray in 6 weeks.\n")
+    assert "1.\nRepeat chest x-ray in 6 weeks." in out and "2." not in out
+
+
+def test_discharge_teaching_boilerplate_goes_and_the_clinical_status_stays():
+    st = Stats()
+    status = "On the day of discharge she was afebrile, walking, with a foley in place, and pain was controlled."
+    teaching = "She was given discharge teaching and follow-up instructions with understanding verbalized."
+    assert redact_sentence(status, st) == status
+    assert redact_sentence(teaching, st) == ""
+    assert redact_sentence("Discharge plan reviewed with her daughter, who agrees.", st) == ""

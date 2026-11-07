@@ -14,7 +14,9 @@ Layers (the local-LLM span detector is added later as a third layer):
   3. Clause rules. A sentence with a disposition phrase loses only the clause that carries it, together with its
      connector ("..., and recommended for acute rehab"). A parenthetical with one is removed whole. A sentence left
      as a stub ("Patient was screened by.") is removed whole. Nothing is ever rewritten or inserted, and no marker is
-     left where text was removed, since a count of markers would itself reveal the destination.
+     left where text was removed, since a count of markers would itself reveal the destination. For the same reason a
+     numbered list that lost items is renumbered (1, 2, 4 -> 1, 2, 3); that is the one rewrite, and the only digits
+     that change are list numbers.
 
 Two modes:
   realistic - as above.
@@ -38,7 +40,7 @@ import polars as pl
 
 from snf_pa.data import config as C
 
-VERSION = "rules-v2"
+VERSION = "rules-v3"
 MODES = {"realistic": set(), "strict": {"Discharge Medications"}}  # mode -> extra sections dropped
 FILES = {"notes_raw1": "notes_redacted1", "notes_raw1_supp": "notes_redacted1_supp"}
 
@@ -90,7 +92,11 @@ RULES = {
                 r"|(?:go|going|sent|return\w*|went|back)\s+(?:back\s+)?(?:to\s+(?:his|her|their)\s+)?home",
     "plan_process": r"\bdispo(?:sition)?\b|(?:awaiting|pending|await|needs?|for|rehab|SNF|facility)\W+placement"
                     r"|bed (?:offer|availability|search|available)|\baccepted (?:at|to|by)\b|case manag\w*"
-                    r"|insurance (?:auth\w*|approval|denial)|(?:safe|cleared|ready|stable) for (?:discharge|d/c|dc)\b",
+                    r"|insurance (?:auth\w*|approval|denial)|(?:safe|cleared|ready|stable) for (?:discharge|d/c|dc)\b"
+                    # Discharge teaching boilerplate ("received discharge teaching and follow-up instructions with
+                    # understanding verbalized and agreement with the discharge plan").
+                    r"|discharge (?:teaching|instructions|plan)|follow[- ]?up instructions"
+                    r"|verbali[sz]ed (?:good )?understanding|understanding (?:was )?verbali[sz]ed",
     # Follow-up arrangements are post-discharge plans and differ by destination ("PCP" as a source of history,
     # e.g. "per PCP", is kept).
     "followup": r"\boutpatient\b|(?:with|by|to|see|call|contact) (?:(?:her|his|their|your|the) )?PCP"
@@ -103,6 +109,10 @@ UNIT_BREAK = re.compile(r"\n[ \t]*\n|\n(?=[ \t]*(?:[-*•#]|\d+[.)]\s|[A-Z][A-Za
 SENTENCE_BREAK = re.compile(r"(?<=[.!?])\s+(?=[A-Z0-9#*(\-])")
 CLAUSE_BREAK = re.compile(r",\s*|;\s*|:\s+|\s+-\s+|\s+(?:and|but|then|so|with plan for|plan for)\s+", re.IGNORECASE)
 PAREN = re.compile(r"\s*\([^()]*\)")
+# Marker of a list item ("4. ", "- "). It belongs to the item: shown with it, removed with it, never a sentence.
+# The item's text may start on the next line ("1.\nFoo").
+LIST_MARK = re.compile(r"[ \t]*(?:\d+[.)]|[-*\u2022])(?:[ \t]+|[ \t]*\n[ \t]*)")
+ITEM_NUMBER = re.compile(r"(?m)^([ \t]*)(\d+)([.)])(?=\s)")
 DANGLING = {"to", "for", "at", "with", "and", "or", "by", "of", "the", "a", "an", "his", "her", "their", "will",
             "be", "is", "was", "plan", "recommended", "recommends", "accepted", "screened", "pending", "awaiting"}
 
@@ -220,7 +230,11 @@ def redact_text(body: str, st: Stats, section: str, idx: list[int]) -> str:
     for ub in list(UNIT_BREAK.finditer(body)) + [None]:
         unit_end = ub.start() if ub else len(body)
         unit, sep = body[pos:unit_end], body[unit_end:ub.end()] if ub else ""
-        sents, layout, spos = [], [], 0
+        mark = LIST_MARK.match(unit)
+        m_end = mark.end() if mark else 0
+        sents, layout, spos = [unit[:m_end]], [], m_end
+        if mark:
+            layout.append((pos + len(mark[0]) - len(mark[0].lstrip()), pos + len(mark[0].rstrip())))
         for sb in list(SENTENCE_BREAK.finditer(unit)) + [None]:
             send = sb.end() if sb else len(unit)
             sent = unit[spos:send]
@@ -236,13 +250,26 @@ def redact_text(body: str, st: Stats, section: str, idx: list[int]) -> str:
                 layout.append((a, b))
             spos = send
         new = "".join(sents)
-        shown = bool(re.search(r"[A-Za-z0-9]", new))
+        shown = bool(re.search(r"[A-Za-z0-9]", new[m_end:]))
         for a, b in layout:
             st.span(section, *orig(idx, a, b), "layout" if shown else "removed", body[a:b] if shown else "")
         if shown or not unit.strip():
             out += [new, sep]  # a unit removed whole takes its line break with it
         pos = ub.end() if ub else len(body)
     return head + "".join(out)
+
+
+def renumber(text: str) -> str:
+    """Number the items of each list 1, 2, 3 ... A list restarts where the original numbering does not increase."""
+    last, k = 0, 0
+
+    def number(m: re.Match) -> str:
+        nonlocal last, k
+        n = int(m[2])
+        k = 1 if n <= last else k + 1
+        last = n
+        return f"{m[1]}{k}{m[3]}"
+    return ITEM_NUMBER.sub(number, text)
 
 
 def tidy(text: str) -> str:
@@ -278,7 +305,7 @@ def redact(text: str, mode: str = "realistic") -> tuple[str, Stats]:
             st.span(heading, a, b, "section_dropped")
     # A section or block with nothing left under its heading is dropped, heading included.
     shown = {h for h, p in parts if h == "Sex" or re.search(r"[A-Za-z0-9]", p.split(":", 1)[1])}
-    parts = [(h, p) for h, p in parts if h in shown]
+    parts = [(h, renumber(p)) for h, p in parts if h in shown]
     for sp in st.spans:
         if sp["status"] == "heading" and sp["section"] not in shown:
             sp["status"] = "removed"
@@ -297,6 +324,13 @@ def is_deletion_of(out: str, original: str) -> bool:
     """True if `out` can be made from `original` by deleting characters only."""
     it = iter(original)
     return all(ch in it for ch in out)
+
+
+def is_redaction_of(out: str, original: str) -> bool:
+    """True if `out` can be made from `original` by deleting characters and renumbering list items."""
+    def mask(s: str) -> str:
+        return ITEM_NUMBER.sub(r"\1#\3", s)
+    return is_deletion_of(mask(out), mask(original))
 
 
 def check_spans(spans: list[dict], original: str) -> None:
@@ -319,7 +353,7 @@ def main() -> None:
         for r in notes.iter_rows(named=True):
             for mode in MODES:
                 out, st = redact(r["text"], mode)
-                assert is_deletion_of(out, r["text"]), "redaction must only delete"
+                assert is_redaction_of(out, r["text"]), "redaction must only delete (and renumber lists)"
                 check_spans(st.spans, r["text"])
                 rows.append({"note_id": r["note_id"], "subject_id": r["subject_id"], "hadm_id": r["hadm_id"],
                              "mode": mode, "text": out, "redaction_version": VERSION,

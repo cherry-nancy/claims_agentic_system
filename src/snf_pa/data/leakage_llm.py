@@ -8,7 +8,8 @@ is the evidence. Each quote is checked three ways:
   verbatim - found in the note (whitespace ignored); a quote that is not is discounted
   rule     - matches a disposition rule of snf_pa.data.redact, i.e. a phrase the redactor should have removed
   process  - the model itself calls it discharge planning / destination / services rather than a clinical fact
-A verbatim quote flagged by rule or process is a leak candidate; those rows are what to read in the dev review.
+A verbatim quote that matches a rule is a leak candidate. The model's own "process" label is reported but does not
+flag a quote: in the first full run it labelled 47% of quotes "process", and those cases were guessed no better.
 
 Dev split only (the test split stays unseen). Writes data/sample/leakage_llm_{mode}.parquet (gitignored; it holds
 quotes, i.e. note text, so it stays local) and prints aggregate counts only.
@@ -96,7 +97,7 @@ def main() -> None:
         print(f"\r{len({x['hadm_id'] for x in rows})}/{d.height} cases, {time.time() - t0:.0f}s", end="", flush=True)
     print()
     out = pl.DataFrame(rows).with_columns(
-        leak_candidate=pl.col("verbatim") & ((pl.col("kind") == "process") | (pl.col("rule").list.len() > 0)))
+        leak_candidate=pl.col("verbatim") & (pl.col("rule").list.len() > 0))
     out.write_parquet(C.SAMPLE_DIR / f"leakage_llm_{args.mode}.parquet")
 
     per_case = out.group_by("hadm_id").agg(pl.col("truth", "guess").first(), pl.col("leak_candidate").any())

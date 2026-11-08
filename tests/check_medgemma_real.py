@@ -14,15 +14,18 @@ import duckdb
 from langchain_ollama import ChatOllama
 from pydantic import BaseModel, Field
 
-H = "data/mimiciv-3.1/hosp"
-NOTE_FILE = "data/mimic-iv-note/note/discharge.csv.gz"
+from snf_pa.paths import raw_table, sql_path
+
+ADMISSIONS = sql_path(raw_table("mimiciv-3.1/hosp/admissions"))
+DIAGNOSES = sql_path(raw_table("mimiciv-3.1/hosp/diagnoses_icd"))
+NOTE_FILE = sql_path(raw_table("mimic-iv-note/note/discharge"))
 OUT = Path("traces/real_case_medgemma.json")
 
 # 1. pick one Medicare, hip-fracture (ICD-10 S72), SNF-discharged case; deterministic
 HADM = duckdb.sql(f"""
     select a.hadm_id
-    from read_csv_auto('{H}/admissions.csv.gz') a
-    join (select distinct hadm_id from read_csv_auto('{H}/diagnoses_icd.csv.gz')
+    from read_csv_auto('{ADMISSIONS}') a
+    join (select distinct hadm_id from read_csv_auto('{DIAGNOSES}')
           where icd_version = 10 and icd_code like 'S72%') d using (hadm_id)
     where a.insurance = 'Medicare' and a.discharge_location = 'SKILLED NURSING FACILITY'
       and date_diff('day', a.admittime::date, a.dischtime::date) between 4 and 10
@@ -32,7 +35,7 @@ HADM = duckdb.sql(f"""
 adm = duckdb.sql(f"""
     select admission_type, admission_location,
            date_diff('day', admittime::date, dischtime::date) as midnights
-    from read_csv_auto('{H}/admissions.csv.gz') where hadm_id = {HADM}
+    from read_csv_auto('{ADMISSIONS}') where hadm_id = {HADM}
 """).fetchall()[0]
 
 t = time.time()

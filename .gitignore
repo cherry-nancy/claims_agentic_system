@@ -9,3 +9,5 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 chroma_db/
+.claude/settings.local.json
+.claude/.stop_pytest_pass

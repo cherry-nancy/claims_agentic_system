@@ -154,7 +154,7 @@ flowchart TD
 ```
 
 **附注**
-1. **原始 CSV**：MIMIC-IV 3.1 hosp / icu、ED、Note，未压缩；目录只读。labevents 18GB、chartevents 42GB，不能整表读进内存。
+1. **原始 CSV**：MIMIC-IV 3.1 hosp / icu、ED、Note；未压缩的 `.csv` 或 PhysioNet 原样的 `.csv.gz` 都支持（各台电脑不同）；目录只读。labevents 18GB、chartevents 42GB（未压缩），不能整表读进内存。
 2. **Parquet 子集**：DuckDB 按 3.2 节的条件建候选池，再把大表按候选池和列白名单过滤，存 Parquet。之后只读 Parquet。
 3. **时间线**：入院、住院医嘱（`poe_detail` 的 "Admit to inpatient"）、ED 时段、出院；同一病人 30 天内的前序住院。C1 的计算在规则引擎里，这里只抽时间点。
 4. **病历处理**：出院小结按标题切段 → 切句 → 分配 span ID；按 3.5 节规则保留、删除和遮蔽。影像报告只取 IMPRESSION。
@@ -697,7 +697,7 @@ HTTP API 以后在 CLI 外面包一层即可，引擎不变。
 - 评估：MIMIC dev / test（不在 CI 里跑）。
 
 ### 11.5 现有仓库需要先修的问题
-- 现有检查脚本从 `data/mimiciv-3.1/...` 读原始表（旧的仓库内位置），而且按 `.csv.gz` 读 → 改为从 `MIMIC_RAW_DIR` 读，文件是未压缩的 `.csv`。
+- 现有检查脚本从 `data/mimiciv-3.1/...` 读原始表（旧的仓库内位置）→ 改为从 `MIMIC_RAW_DIR` 读；文件是未压缩的 `.csv` 或 `.csv.gz`，两种都支持（优先 `.csv`）。
 - `tests/test_sample.py` 期望 300 例，旧文档写 50 → 按第 10 节统一为 300。
 - `chromadb` 用不上（索引在内存里），可以从依赖里去掉。
 

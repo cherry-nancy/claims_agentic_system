@@ -1,0 +1,2 @@
+# sha256 (CRLF->LF normalized) of frozen files; update only via tools/freeze.py
+ab69a2fb9c6c68839983103e0dc341ec8036086a9f01e7bb8ec984403c2d5bea  plan/snf_pa_consensus_work_plan_1025.md

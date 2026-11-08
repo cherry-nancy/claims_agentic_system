@@ -1,17 +1,18 @@
-"""Chunk real policy docs, index in Chroma (bge-m3) + BM25, compare retrieval modes."""
+"""Chunk real policy docs, index in memory (bge-m3 via Ollama, optional) + BM25, compare retrieval modes.
+
+Without a running Ollama the vector and hybrid modes are skipped and only BM25 runs.
+"""
+import math
 import re
-import shutil
 import time
 from pathlib import Path
 
-import chromadb
 from bs4 import BeautifulSoup
 from langchain_ollama import OllamaEmbeddings
 from pypdf import PdfReader
 from rank_bm25 import BM25Okapi
 
 DOCS = Path("policy_docs")
-DB = Path("chroma_db/check_rag")
 MAX_CHARS = 2400
 
 
@@ -70,26 +71,27 @@ print(f"chunks: {len(chunks)}  (cfr={sum(c['source']=='42 CFR 409' for c in chun
       f"avg chars={sum(len(c['text']) for c in chunks)//len(chunks)}")
 
 emb = OllamaEmbeddings(model="bge-m3")
-shutil.rmtree(DB, ignore_errors=True)
-col = chromadb.PersistentClient(path=str(DB)).create_collection("policy", metadata={"hnsw:space": "cosine"})
 t = time.time()
-vecs = []
-for i in range(0, len(chunks), 16):
-    vecs += emb.embed_documents([c["text"] for c in chunks[i:i + 16]])
-col.add(
-    ids=[str(i) for i in range(len(chunks))],
-    embeddings=vecs,
-    documents=[c["text"] for c in chunks],
-    metadatas=[{"source": c["source"], "section": c["section"]} for c in chunks],
-)
-print(f"indexed in {time.time() - t:.1f}s, persisted -> {DB}")
+try:
+    vecs = []
+    for i in range(0, len(chunks), 16):
+        vecs += emb.embed_documents([c["text"] for c in chunks[i:i + 16]])
+    print(f"embedded in memory in {time.time() - t:.1f}s")
+except Exception as e:  # Ollama not running
+    vecs = None
+    print(f"embeddings unavailable ({type(e).__name__}); running BM25 only")
 
 bm25 = BM25Okapi([tok(c["text"]) for c in chunks])
 
 
+def cosine(a: list[float], b: list[float]) -> float:
+    return sum(x * y for x, y in zip(a, b)) / (math.sqrt(sum(x * x for x in a)) * math.sqrt(sum(y * y for y in b)))
+
+
 def vector_rank(q: str, k: int = 10) -> list[int]:
-    r = col.query(query_embeddings=[emb.embed_query(q)], n_results=k)
-    return [int(i) for i in r["ids"][0]]
+    qv = emb.embed_query(q)
+    s = [cosine(qv, v) for v in vecs]
+    return sorted(range(len(chunks)), key=lambda i: -s[i])[:k]
 
 
 def bm25_rank(q: str, k: int = 10) -> list[int]:
@@ -115,7 +117,7 @@ QUERIES = [
     ("409.33 examples of skilled nursing and rehabilitation services", r"409\.33"),
 ]
 
-modes = {"vector": vector_rank, "bm25": bm25_rank, "hybrid": hybrid_rank}
+modes = {"bm25": bm25_rank} if vecs is None else {"vector": vector_rank, "bm25": bm25_rank, "hybrid": hybrid_rank}
 hits = {m: 0 for m in modes}
 for q, pat in QUERIES:
     print(f"\nQ: {q}")

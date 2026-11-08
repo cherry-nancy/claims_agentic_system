@@ -1,0 +1,71 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv sync)",
+      "Bash(uv run pytest *)",
+      "Bash(git status)",
+      "Bash(git status *)",
+      "Bash(git diff)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git fetch *)",
+      "Bash(git branch --show-current)"
+    ],
+    "deny": [
+      "Read(data/gold/test/**)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Edit(plan/snf_pa_consensus_work_plan_1025.md)",
+      "Edit(data/splits/**)",
+      "Edit(data/synthetic/**)",
+      "Edit(data/gold/**)",
+      "Edit(knowledge/retrieval_eval/**)",
+      "Edit(tests/expected/**)",
+      "Edit(data/PROTECTED.sha256)",
+      "Edit(tools/freeze.py)",
+      "Edit(.claude/**)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|Bash|PowerShell|Grep|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "h=\"$CLAUDE_PROJECT_DIR/.claude/hooks/guard.py\"; p=\"$CLAUDE_PROJECT_DIR/.venv/Scripts/python.exe\"; [ -f \"$p\" ] || p=\"$CLAUDE_PROJECT_DIR/.venv/bin/python\"; if [ -f \"$p\" ]; then \"$p\" \"$h\"; else uv run --no-project --quiet python \"$h\"; fi",
+            "timeout": 30,
+            "onFailure": "block"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "h=\"$CLAUDE_PROJECT_DIR/.claude/hooks/stop_pytest.py\"; p=\"$CLAUDE_PROJECT_DIR/.venv/Scripts/python.exe\"; [ -f \"$p\" ] || p=\"$CLAUDE_PROJECT_DIR/.venv/bin/python\"; if [ -f \"$p\" ]; then \"$p\" \"$h\"; else uv run --no-project --quiet python \"$h\"; fi",
+            "timeout": 300,
+            "statusMessage": "Running pytest (Stop hook)"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "h=\"$CLAUDE_PROJECT_DIR/.claude/hooks/session_start.py\"; p=\"$CLAUDE_PROJECT_DIR/.venv/Scripts/python.exe\"; [ -f \"$p\" ] || p=\"$CLAUDE_PROJECT_DIR/.venv/bin/python\"; if [ -f \"$p\" ]; then \"$p\" \"$h\"; else uv run --no-project --quiet python \"$h\"; fi",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

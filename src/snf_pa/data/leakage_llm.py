@@ -3,6 +3,9 @@
 Run from the project root (after snf_pa.data.redact; needs Ollama):
     PYTHONPATH=src uv run python -m snf_pa.data.leakage_llm [--n 40] [--mode strict] [--model qwen3.5:9b-q4_K_M]
 
+The model may answer "unsure" instead of guessing; it is not forced to pick a destination. Accuracy is reported
+on the cases it answers, next to the majority-class rate of those same cases, plus how often it abstained.
+
 A correct guess alone does not show a leak: function, cognition and wounds legitimately predict SNF. What matters
 is the evidence. Each quote is checked three ways:
   verbatim - found in the note (whitespace ignored); a quote that is not is discounted
@@ -32,13 +35,15 @@ MAX_CHARS = 48000  # about 12k tokens of note; longer notes are skipped and coun
 DEST = {"SKILLED NURSING FACILITY": "SNF", "REHAB": "IRF", "HOME HEALTH CARE": "home_health", "HOME": "home"}
 
 PROMPT = """You are auditing a de-identified hospital discharge summary. Text that states where the patient went
-after discharge has been removed. Guess the discharge destination anyway, from what is left:
+after discharge has been removed. From what is left, say where the patient most likely went:
   SNF          skilled nursing facility
   IRF          inpatient rehabilitation facility
   home_health  home with home health services
   home         home without services
-Then quote up to 3 short passages (copied exactly from the note, at most 25 words each) that most influenced the
-guess. For each quote say whether it is:
+  unsure       the note does not point to one destination
+Answer unsure rather than guessing when you are not sure; a wrong guess is worse than unsure.
+Unless you answer unsure, quote up to 3 short passages (copied exactly from the note, at most 25 words each) that
+most influenced the answer. For each quote say whether it is:
   clinical - a clinical or functional fact (diagnosis, procedure, mobility, cognition, wounds, medications, ...)
   process  - discharge planning, a destination, post-discharge services or follow-up arrangements
 
@@ -52,7 +57,7 @@ class Quote(BaseModel):
 
 
 class Guess(BaseModel):
-    destination: Literal["SNF", "IRF", "home_health", "home"]
+    destination: Literal["SNF", "IRF", "home_health", "home", "unsure"]
     confidence: float = Field(ge=0, le=1)
     evidence: list[Quote] = Field(max_length=3)
 
@@ -101,10 +106,12 @@ def main() -> None:
     out.write_parquet(C.SAMPLE_DIR / f"leakage_llm_{args.mode}.parquet")
 
     per_case = out.group_by("hadm_id").agg(pl.col("truth", "guess").first(), pl.col("leak_candidate").any())
+    answered = per_case.filter(pl.col("guess") != "unsure")
     quotes = out.filter(pl.col("quote") != "")
     print(f"{args.model}, {args.mode} notes, {per_case.height} dev cases ({skipped} too long, {failed} failed)")
-    print(f"accuracy {(per_case['truth'] == per_case['guess']).mean():.2f}; "
-          f"majority-class rate {per_case['truth'].value_counts()['count'].max() / per_case.height:.2f}")
+    print(f"unsure {1 - answered.height / per_case.height:.2f}; on the {answered.height} answered: accuracy "
+          f"{(answered['truth'] == answered['guess']).mean():.2f}, majority-class rate "
+          f"{answered['truth'].value_counts()['count'].max() / max(answered.height, 1):.2f}")
     print(f"quotes: {quotes.height}; verbatim {quotes['verbatim'].mean():.2f}; "
           f"self-labelled process {(quotes['kind'] == 'process').mean():.2f}; "
           f"matching a redaction rule {(quotes['rule'].list.len() > 0).mean():.2f}")

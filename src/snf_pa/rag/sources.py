@@ -40,3 +40,13 @@ CFR = {
     "42cfr412_622_ecfr_2026-10-29.xml": {"version": "eCFR, Title 42 up to date as of 2026-10-29",
                                          "program": "IRF", "tier": 3},
 }
+
+# PDFs that are indexed (the older CFR PDFs, superseded by the eCFR XML above, are not).
+PDF = {
+    "bp102c08.pdf": {"version": "Medicare Benefit Policy Manual, Chapter 8, Rev. 12283, issued 2023-10-05 "
+                                "(each chunk also carries its own section's revision line)",
+                     "program": "SNF", "tier": 2},
+    "cms_hpms_faq_coverage_criteria_um_2024-02-06.pdf": {
+        "version": "CMS HPMS memo, FAQs on coverage criteria and utilization management (CMS-4201-F), 2024-02-06",
+        "program": "MA", "tier": 2},
+}

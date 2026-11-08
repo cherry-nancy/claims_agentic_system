@@ -104,12 +104,53 @@ Deny 或低置信度 → 进入 **human-in-the-loop**（模拟 medical director 
 - **做法**：
   - 解析出院小结为 section（Chief Complaint, HPI, Hospital Course, Discharge Condition, Medications…）。
   - **删除/屏蔽**：`Discharge Disposition`、`Facility:`、`Discharge Instructions`、`Followup Instructions` 整段；正则清除 "rehab / extended care / SNF / nursing facility / ___ rehab / discharge to" 等句子。
-  - 模拟"PA 提交时刻"：只保留出院前可获得的信息（结构化数据截取到 dischtime 前）。
-  - 结构化特征：DRG、主要诊断、手术、ICU 天数、IV 抗生素天数（emar/prescriptions）、伤口/压疮相关、最近化验、年龄、既往从 SNF 入院（`admission_location`）。
+  - **PA 提交时刻 T_pa = `dischtime` − 24h**（主规则；敏感性分析用 −48h）。模型只能看到 T_pa 之前已存在的信息。
+    - 依据：病例经理通常在计划出院前 1–3 天提交 PA；−24h 是这个区间里较晚、证据最多的一端，隐含假设是计划在 1 天内作出决定（加急决定最长 72 小时，42 CFR 422.572(a)，`policy_docs/42cfr422_572_ecfr_2026-10-30.xml`，eCFR up to date as of 2026-10-30）。所以 −24h 的结果是偏乐观的估计，必须同时报 −48h。
+    - 带时间戳的数据（`labevents`、`emar`、`prescriptions`、`poe`、`transfers`、ICU、radiology 报告）只取 ≤ T_pa 的记录；radiology 按**签署时间** `storetime`（缺失时用 `charttime`）判断，因为检查做了但报告没签就还不存在。
+    - 出院小结写于 T_pa 之后：strict 模式删掉 Discharge Medications；Hospital Course、Discharge Condition 仍含 T_pa 之后的内容，作为已知局限。只用时间戳数据拼成的 timed packet 才完全符合 T_pa。
+    - 不用事件规则（如"首个 PT 医嘱"）：MIMIC 只有医嘱时间、看不到 PT 何时建议 SNF；而且截点会随结局变化（去 SNF 的病人 PT 可能更早），截点本身就会泄漏去向。固定偏移对所有病例一样。
+    - 已做的敏感性检查（影像测试，`src/snf_pa/data/imaging.py --cutoff-hours`）：timed 影像 AUC −24h 0.651 / −48h 0.648，结构化基线 0.651，结论不随截点改变；主评估（Step 6 的 P/R/F1）两个截点都要报。
+  - 结构化特征（均截取到 T_pa）：主要诊断、手术、ICU 天数、IV 抗生素天数（emar/prescriptions）、伤口/压疮相关、最近化验、年龄、既往从 SNF 入院（`admission_location`）。**不用 DRG**：DRG 在出院后编码，属于泄漏。
 - **注意**：写一个**泄漏检测器**——用简单关键词模型/TF-IDF 预测标签，若 AUC 异常高，说明还有泄漏；人工抽查 50 篇。`___` 是 MIMIC 去标识占位符，保留即可。
 
 ### Step 3 — 政策知识库（Policy RAG）
-- **做法**：下载 Step 4 列出的公开文档 → 按**条款层级切块**（§ 编号为单位，300–800 tokens，带 metadata：source、section、effective date、URL）→ embedding（Bedrock Titan/Cohere 或本地 `bge`/`e5`）→ **hybrid 检索（BM25 + 向量）+ rerank**。
+- **做法**：下载 Step 4 列出的公开文档 → 按**条款层级切块**（§ 编号为单位，300–800 tokens，带 metadata：source、section、effective date、URL）→ embedding（本地 `qwen3-embedding:0.6b`，经 Ollama；选型见下）→ **hybrid 检索（BM25 + 向量，RRF 融合）**，不加 rerank（见下）。
+- **索引发布（仿生产数据产品）**：`python -m snf_pa.rag.build` 切块、embedding、跑检索评测，写出带版本的 release `derived/rag/index/<version>/`：`chunks.parquet`（切块 + 文本 sha256 + 向量）、`manifest.json`（embedding 模型名、Ollama digest、维度；每个源文件的 sha256 和版本；git commit；构建时间）、`eval.json`（各模式 recall@k / MRR，评测集 sha256）。版本号 = 日期 + (模型 digest + 全部切块文本) 的哈希，输入相同则版本相同。hybrid recall@5 ≥ 0.9 才移动 `LATEST`，否则构建失败。查询端 `PolicyIndex.load()` 只读 release、只 embed 查询；release 不存在、切块哈希不符、或 Ollama 当前的模型 digest 与 manifest 不一致时直接报错，不会自己重建。
+- **检索评测结果**（45 题，`policy_docs/derived/retrieval_eval_GENERATED.yaml`；157 块：CFR XML、BPM Ch.8 Rev. 12283、HPMS FAQ 2024-02-06；release 20261107-23b6d817）：
+
+  | 模式 | recall@1 | recall@3 | recall@5 | MRR | 未命中@5 |
+  |---|---|---|---|---|---|
+  | BM25 | 0.62 | 0.89 | 0.89 | 0.74 | 5 |
+  | 向量（bge-m3） | 0.80 | 0.91 | 0.91 | 0.85 | 4 |
+  | **hybrid（采用）** | **0.84** | **0.96** | **0.96** | **0.90** | 2（q08、q43） |
+  | hybrid + rerank（不采用） | 0.78 | 0.91 | 0.91 | 0.84 | 4（q06、q08、q19、q43） |
+
+  上表用的是最初的答案键。之后核对原文发现 q08 的答案键不全：BPM §30、§30.3、§30.4 都写明 coverage "does not turn on the presence or absence of … potential for improvement"，已补入（评测集里有注释；同时加了 `=` 写法表示只算该节自身正文，不算子节，q05/q27 也改用它）。新答案键下（release 20261108-23b6d817）：hybrid recall@1 0.82、recall@5 0.98、MRR 0.89，只剩 q43 未命中。
+- **也试过、不采用**（2026-11-08）：BM25 加词干化（snowball），以及 hybrid 里加大 BM25 权重（1.5:1、2:1）。recall@5 没有提高（0.96–0.98），recall@1 和 MRR 下降；q43 在所有 hybrid 变体里仍未命中。原因：q43 的 42 CFR 422.626 在 BM25 排第 1，但向量检索排第 73，等权融合后掉到第 12。向量检索还有"热门块"问题：§30.6 出现在 45 题中 10 题的向量 top 5，块之间平均余弦相似度 0.63。只为一道题调权重是对 45 题过拟合，等评测集扩大后再处理。
+- **评测集扩到 153 题、换 embedding 模型**（2026-11-08）。45 题时 embeddinggemma 和 qwen3-embedding:0.6b 的 recall@5 都到 1.00，分不出好坏，所以新增 108 题（q46–q153）：个案经理口吻的改写、规则只在某个 CFR 小段里、需要两条规则同时命中（`expect_all`）、MA 规则、相邻项目（IRF、swing bed、hospice、payment ban）。每题带 `kind`、`author` 和 `evidence`（从应命中的块里原文复制，测试检查它确实在那里；还检查同一句话是否出现在答案键之外的块里，发现 4 处已补全）。新题都是 Claude 写的，评测集末尾留了 reviewer 写题的位置，结果按作者分开报。
+
+  153 题上的 hybrid 结果（`policy_docs/derived/retrieval_eval_GENERATED.yaml`，2026-11-08）：
+
+  | embedding 模型 | recall@1 | recall@5 | MRR | 未命中 | CFR 小段 | MA | 两条规则 | 每次查询 |
+  |---|---|---|---|---|---|---|---|---|
+  | bge-m3（原来） | 0.68 | 0.88 | 0.76 | 19 | 0.68 | 0.85 | 0.17 | 29 ms |
+  | embeddinggemma | 0.67 | 0.88 | 0.76 | 19 | 0.68 | 0.69 | 0.33 | 60 ms |
+  | **qwen3-embedding:0.6b（采用）** | 0.65 | **0.92** | 0.76 | **13** | 0.79 | **0.92** | 0.33 | 30 ms |
+  | qwen3-embedding:4b | 0.67 | 0.90 | 0.76 | 15 | 0.84 | 0.85 | 0.33 | 371 ms |
+
+  选 qwen3-embedding:0.6b：recall@5 最高、未命中最少，在 PA 审核最依赖的 CFR 小段和 MA 规则上明显更好，速度和 bge-m3 一样、体积一半。逐题对比 bge-m3：它多命中 7 题、少命中 1 题（p ≈ 0.07），差距真实但不大。4b 慢 12 倍且不更准；8b-q8_0（8 GB）在 16 GB 机器上会把内存挤爆，没测。查询前缀（qwen3 的 instruction）记在 manifest 里，查询端按 release 使用。现 release `20261108-e0f73935`。
+  所有模型的共同弱点不在模型：两条规则的题最多只命中 0.33（前 5 里很难同时放下两条规则，后续考虑把问题拆成子查询），以及 q60、q62、q64、q67、q90、q107、q144 这几道所有模型都没命中。
+- **两条规则的题：按规则拆查询**（2026-11-08，`src/snf_pa/rag/decompose.py`）。一次检索时，最匹配的规则排第一，前 5 被同一主题的相近块占满，第二条规则被挤出去。做法：本地 LLM（qwen3.5:9b）从 checklist 规则表里选出问题涉及的规则（最多 3 条），每条写一个短查询；各自做 hybrid 检索，结果交错合并（各取第 1，再各取第 2…）去重取前 5。不强迫拆：LLM 只找到一条规则、或输出失败时，用原问题检索，单规则题不会被改写。为让结果可信，把两条规则的题从 6 道扩到 24 道（q154–q171，同样带 evidence）。171 题结果：
+
+  | 方法 | recall@1 | recall@5 | MRR | 两条规则 | MA | CFR 小段 | 修好 | 弄坏 |
+  |---|---|---|---|---|---|---|---|---|
+  | hybrid | 0.59 | 0.87 | 0.70 | 0.46 | 0.92 | 0.79 | – | – |
+  | **拆查询（采用）** | 0.60 | **0.90** | 0.72 | **0.62** | 1.00 | 0.79 | 8 | 3 |
+  | MMR λ=0.7（不采用） | 0.59 | 0.88 | 0.71 | 0.46 | 1.00 | 0.84 | 3 | 2 |
+  | MMR λ=0.5（不采用） | 0.59 | 0.82 | 0.68 | 0.46 | 0.92 | 0.68 | 4 | 13 |
+
+  LLM 拆了 24 道两条规则题中的 23 道，其余 147 道只拆了 9 道。8 修好对 3 弄坏（p ≈ 0.23），方向对但样本仍小；两条规则题 0.62 仍不够好，7 道仍未命中。`PolicyIndex.search` 不变。release 门槛改为：hybrid 在**单规则题**上 recall@5 ≥ 0.9（构建时不调 LLM）；两条规则的题照常报告但不设门槛，因为它们靠拆查询（2026-11-08 决定）。接收自由文本问题的调用方用 `splitter()` + `search_split()`。Agent 按 criterion 逐条检索时本来就是一条规则一个查询，不需要拆。每个问题多一次 LLM 调用。第一版提示词（只说"每条规则一个查询"）生成的查询都以同样的泛泛词开头、不点名规则；第二版列出 checklist 规则名但让 LLM 自由写，结果把两条规则的题改写成一条错误规则——所以改成结构化输出：从固定规则表里选。
+- **决定：不做 rerank**（2026-11-07）。试过 `BAAI/bge-reranker-v2-m3` cross-encoder（sentence-transformers，本地）对 hybrid 前 20 重排，所有指标都下降：没修好 hybrid 的两个未命中（q08 "无改善潜力"、q43 MA 终止 SNF 服务的申诉），还新弄丢两题——q06（SNF 出院后 10 天再入院）把泛泛的 §20.2.1 排在 30 天再入院规则前面；q19（卒中后吞咽治疗）把罗列服务的 §50.1–§50.3 排在 §30.4.2（skilled 言语治疗）前面。推测原因：该模型在通用网页问答上训练，偏好"看起来相关"的段落而非具体规则。已删除代码和 `sentence-transformers` 依赖（连带 torch 约 1 GB）。以后若评测集变大、hybrid 掉到目标以下，再考虑用 LLM（如 qwen3.5:9b）重排，或只在 hybrid 前几名分数接近时重排。
 - 另外人工整理一份 **criteria checklist**（结构化 YAML）：3-midnight stay、30 天内入 SNF、与住院相关的病情、需要 daily skilled nursing（7天/周）或 skilled rehab（5天/周）、practical matter 只能在 SNF 提供、physician certification。Reviewer 逐条判定，每条都要检索到支撑条文。
 - **注意**：条文切块别切断 "examples" 列表（Ch.8 §30.2–30.4 举例很重要）；保留版本/日期；建一个 30–50 条的检索评测集（问题→应命中的 §），测 recall@5。
 
@@ -122,6 +163,7 @@ Deny 或低置信度 → 进入 **human-in-the-loop**（模拟 medical director 
   - 每个 agent 定义 **Pydantic 输出 schema**（例如 Evidence: `{criterion, finding, source_section, quote}`；Decision: `{criterion_results[], overall: approve|deny|pend, confidence, rationale, policy_citations[]}`）。
   - Orchestrator 用状态图：Eligibility 不通过 → 直接 deny/不适用（不用调用 LLM）；通过 → Evidence → Policy RAG → Reviewer → QA；QA 不通过可回退一次让 Reviewer 修正（限制循环次数）。
   - 低置信度或 deny → `human_review` 队列。
+  - **不强迫 LLM 作答**：每个判定的 schema 都有"不确定 / 证据不足"选项（逐条 criterion 用 `insufficient_evidence`，总体用 `pend`），prompt 明确"不确定时选它，错判比不确定更糟"；评估时分开报覆盖率（作答比例）和作答部分的准确率。泄漏检查 `snf_pa.data.leakage_llm` 已按此改为可答 `unsure`。
   - 模型分配：Evidence/Reviewer 用强模型（Opus/Sonnet），QA/格式化用 Haiku 降成本。
 - **注意**：要求所有结论**引用原文 quote**，QA 用字符串匹配验证 quote 真实存在于 note 中（防幻觉）；prompt 中明确 Jimmo 原则（"无改善潜力"不是拒绝理由）；用 prompt caching 缓存政策条款和 system prompt；温度设 0；记录完整 trace（LangSmith / 本地 JSONL）便于审计。
 

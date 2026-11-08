@@ -659,12 +659,21 @@ src/snf_pa/
 knowledge/cards/  # criterion cards
 profiles/         # plan profile YAML
 prompts/          # 带版本号
-cases/synthetic/  # 回归集 JSON
+policy_docs/      # 政策检索语料
+data/
+  sample/         # 抽样与处理后的病例
+  splits/         # dev / test 划分
+  synthetic/      # 回归集 JSON
+  gold/           # 人工标注
+  derived/        # 大表子集，不进 git
+reference/        # 参考资料，不参与运行
+reports/          # 每一步的报告
 research/         # 抽样、评估脚本
 tests/
-derived/          # 不进 git
 traces/           # 不进 git
 ```
+
+原始 MIMIC 数据在仓库外，路径由 `.env` 的 `MIMIC_RAW_DIR` 指定，只读。
 
 ### 11.2 命令行
 - `snf-pa build-cases --split dev`：MIMIC → `CaseBundle`
@@ -688,8 +697,7 @@ HTTP API 以后在 CLI 外面包一层即可，引擎不变。
 - 评估：MIMIC dev / test（不在 CI 里跑）。
 
 ### 11.5 现有仓库需要先修的问题
-- `.gitignore` 的 `data/` 会把 `src/snf_pa/data/` 一起忽略，抽样代码目前不在仓库里 → 改为 `/data/`。
-- 原始数据是未压缩 `.csv`，不是 `.csv.gz`。
+- 现有检查脚本从 `data/mimiciv-3.1/...` 读原始表（旧的仓库内位置），而且按 `.csv.gz` 读 → 改为从 `MIMIC_RAW_DIR` 读，文件是未压缩的 `.csv`。
 - `tests/test_sample.py` 期望 300 例，旧文档写 50 → 按第 10 节统一为 300。
 - `chromadb` 用不上（索引在内存里），可以从依赖里去掉。
 
@@ -715,7 +723,7 @@ flowchart TD
 ```
 
 **附注**
-1. **环境与仓库修复**（11.5 节）。完成标准：`pytest` 通过；`.gitignore` 不再误伤 `src/snf_pa/data/`。
+1. **环境与仓库修复**（11.5 节）。完成标准：`pytest` 通过；检查脚本从 `MIMIC_RAW_DIR` 读到原始表。
 2. **队列 + Parquet 子集**（3.1–3.2 节）。完成标准：队列计数与附录 A 一致；按 `subject_id` 生成 dev / test 划分文件，test 冻结。
 3. **MIMIC adapter**（3.3–3.6 节）。完成标准：残余去向词为 0；人工抽查 50 篇通过；遮蔽后文本探针的 AUC 明显下降；同一病例重跑 span ID 不变。
 4. **规则引擎**（第 6 节）。完成标准：C1 和 aggregator 的单元测试覆盖边界（无住院医嘱、有前序住院、午夜数正好 3）。

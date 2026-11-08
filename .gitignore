@@ -1,5 +1,6 @@
-﻿data/
-derived/
+﻿/data/derived/
+# legacy local copies of raw MIMIC tables; raw data lives outside the repo (MIMIC_RAW_DIR)
+/data/mimic*/
 .venv/
 .env
 traces/

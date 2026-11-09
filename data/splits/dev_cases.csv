@@ -1,0 +1,101 @@
+hadm_id,subject_id,split,scenario,discharge_location,boundary,observation_admit_type,naive_midnights,from_snf,hip_fracture,needs,slot
+20102879,14220242,dev,ortho_postop,SKILLED NURSING FACILITY,False,False,4,False,True,dementia;hip_fracture;iv_therapy;rehab_therapy;respiratory;wound_care,open
+20121646,14328331,dev,wound_iv,HOME HEALTH CARE,False,False,5,False,False,iv_therapy;rehab_therapy;respiratory;wound_care,open
+20149372,19330161,dev,ortho_postop,REHAB,True,True,5,False,True,hip_fracture;iv_therapy;rehab_therapy;respiratory,boundary
+20280864,12393285,dev,ortho_postop,HOME HEALTH CARE,False,False,3,False,False,iv_therapy;rehab_therapy;respiratory,open
+20345631,12252602,dev,stroke,HOME,True,False,2,False,False,acute_stroke;rehab_therapy,open
+20383644,13719241,dev,heart_failure,SKILLED NURSING FACILITY,False,False,3,False,False,rehab_therapy,open
+20558686,12305504,dev,ortho_postop,SKILLED NURSING FACILITY,True,True,6,False,True,hip_fracture;rehab_therapy;respiratory;wound_care,boundary
+20562419,10049897,dev,ortho_postop,HOME,False,False,4,False,True,hip_fracture;iv_therapy;rehab_therapy;respiratory;wound_care,open
+20819002,16820491,dev,heart_failure,HOME,True,True,1,False,False,,open
+20933464,12940904,dev,medical_decond,REHAB,True,False,5,True,False,rehab_therapy;speech_therapy,boundary
+20991076,10200169,dev,medical_decond,REHAB,False,False,5,False,False,rehab_therapy,open
+21005175,14558830,dev,wound_iv,SKILLED NURSING FACILITY,True,False,1,False,False,pressure_ulcer;wound_care,boundary
+21038528,15653234,dev,heart_failure,SKILLED NURSING FACILITY,False,False,6,False,False,rehab_therapy;respiratory,open
+21105636,10278097,dev,ortho_postop,HOME HEALTH CARE,False,False,5,False,False,rehab_therapy;respiratory;wound_care,open
+21178517,17304820,dev,ortho_postop,HOME,False,False,3,False,False,iv_therapy,open
+21310760,10401212,dev,wound_iv,HOME HEALTH CARE,True,False,1,False,False,iv_therapy,open
+21353639,12637733,dev,heart_failure,HOME,True,True,9,False,False,rehab_therapy,open
+21440892,17568397,dev,medical_decond,REHAB,False,False,3,False,False,dementia;rehab_therapy,open
+21452103,14239401,dev,stroke,HOME,True,False,2,False,False,acute_stroke;rehab_therapy,open
+21467247,18832012,dev,wound_iv,REHAB,False,False,6,False,False,iv_therapy;rehab_therapy;respiratory;wound_care,open
+21595610,15377618,dev,heart_failure,HOME HEALTH CARE,True,False,1,False,False,,open
+21704086,17120667,dev,wound_iv,SKILLED NURSING FACILITY,True,True,19,False,False,iv_therapy;rehab_therapy;respiratory;wound_care,boundary
+21824200,19159928,dev,heart_failure,REHAB,False,False,8,False,False,rehab_therapy;respiratory,open
+21890777,14296529,dev,wound_iv,HOME HEALTH CARE,False,False,5,False,False,iv_therapy;rehab_therapy;speech_therapy,open
+22017470,12331672,dev,stroke,SKILLED NURSING FACILITY,True,False,2,False,False,acute_stroke;speech_therapy,open
+22308760,19454512,dev,medical_decond,HOME HEALTH CARE,True,False,1,False,False,,boundary
+22325175,12689441,dev,ortho_postop,SKILLED NURSING FACILITY,False,False,4,False,False,rehab_therapy;respiratory;wound_care,open
+22388958,10053782,dev,stroke,SKILLED NURSING FACILITY,False,False,6,False,False,acute_stroke;parkinson;pressure_ulcer;rehab_therapy;speech_therapy;wound_care,open
+22406755,14301746,dev,wound_iv,REHAB,False,False,10,False,False,rehab_therapy;respiratory;wound_care,open
+22717251,17118056,dev,ortho_postop,SKILLED NURSING FACILITY,False,False,4,False,True,hip_fracture;wound_care,open
+22726863,18102308,dev,heart_failure,HOME HEALTH CARE,False,False,8,False,False,,open
+23023605,19064718,dev,ortho_postop,HOME HEALTH CARE,False,False,5,False,False,iv_therapy;pressure_ulcer;rehab_therapy;respiratory;wound_care,open
+23033128,11740863,dev,stroke,HOME HEALTH CARE,False,False,6,False,False,acute_stroke;rehab_therapy;speech_therapy,open
+23051996,10998936,dev,wound_iv,HOME HEALTH CARE,True,True,5,False,False,iv_therapy,boundary
+23245406,16460565,dev,medical_decond,SKILLED NURSING FACILITY,False,False,7,False,False,rehab_therapy,open
+23246616,16411820,dev,stroke,REHAB,True,True,7,False,False,acute_stroke;iv_therapy;parkinson;rehab_therapy;speech_therapy,boundary
+23248695,15977115,dev,wound_iv,SKILLED NURSING FACILITY,False,False,8,False,False,rehab_therapy;respiratory;wound_care,open
+23255771,19641456,dev,wound_iv,REHAB,True,False,2,False,False,iv_therapy;respiratory;speech_therapy,boundary
+23263330,19346611,dev,ortho_postop,SKILLED NURSING FACILITY,False,False,3,False,False,iv_therapy,open
+23267394,15974128,dev,heart_failure,SKILLED NURSING FACILITY,True,False,3,True,False,dementia;respiratory,boundary
+23273750,13932530,dev,medical_decond,SKILLED NURSING FACILITY,False,False,8,False,False,rehab_therapy,open
+23355965,12522208,dev,medical_decond,HOME HEALTH CARE,False,False,4,False,False,,open
+24107464,19792891,dev,stroke,HOME,True,True,2,False,False,acute_stroke,open
+24122669,19344719,dev,heart_failure,SKILLED NURSING FACILITY,False,False,6,False,False,rehab_therapy;respiratory;speech_therapy,open
+24157102,14081670,dev,wound_iv,SKILLED NURSING FACILITY,False,False,7,False,False,dementia;rehab_therapy;respiratory;wound_care,open
+24228893,13953303,dev,medical_decond,SKILLED NURSING FACILITY,True,False,2,False,False,dementia;rehab_therapy,boundary
+24289315,15182529,dev,wound_iv,HOME,True,False,2,False,False,iv_therapy;rehab_therapy,open
+24335369,14388050,dev,heart_failure,HOME HEALTH CARE,True,False,2,False,False,respiratory,boundary
+24628313,10912224,dev,heart_failure,SKILLED NURSING FACILITY,False,False,4,False,False,rehab_therapy,open
+24947775,15553237,dev,ortho_postop,SKILLED NURSING FACILITY,True,True,5,False,True,hip_fracture;rehab_therapy;respiratory,boundary
+24973217,19296173,dev,medical_decond,SKILLED NURSING FACILITY,False,False,10,False,False,rehab_therapy;respiratory,open
+25070908,14541551,dev,stroke,REHAB,False,False,27,False,False,acute_stroke;nutrition_support;rehab_therapy;speech_therapy,open
+25142361,15415376,dev,medical_decond,SKILLED NURSING FACILITY,False,False,3,False,False,rehab_therapy;respiratory,open
+25207621,13074701,dev,stroke,SKILLED NURSING FACILITY,False,False,7,False,False,acute_stroke;dementia;nutrition_support;rehab_therapy;speech_therapy,open
+25667636,16917373,dev,stroke,SKILLED NURSING FACILITY,True,True,4,False,False,acute_stroke;rehab_therapy;speech_therapy,boundary
+25690906,14808791,dev,wound_iv,SKILLED NURSING FACILITY,False,False,4,False,False,iv_therapy;respiratory;wound_care,open
+25702257,17782789,dev,heart_failure,HOME HEALTH CARE,False,False,6,False,False,rehab_therapy;respiratory,open
+25888776,18644268,dev,stroke,HOME HEALTH CARE,False,False,3,False,False,acute_stroke;rehab_therapy,open
+25889039,10416061,dev,heart_failure,HOME,False,False,3,False,False,,open
+25995511,17850903,dev,medical_decond,HOME,False,False,4,False,False,,open
+26027027,17795151,dev,stroke,HOME,True,False,2,False,False,acute_stroke;rehab_therapy,boundary
+26123190,13399504,dev,ortho_postop,HOME,True,True,8,False,True,hip_fracture;rehab_therapy;respiratory;speech_therapy;wound_care,boundary
+26232714,12433158,dev,heart_failure,REHAB,False,False,3,False,False,dementia;rehab_therapy,open
+26294300,13261572,dev,medical_decond,HOME,True,True,1,False,False,,boundary
+26373686,14924546,dev,ortho_postop,HOME HEALTH CARE,True,False,2,False,False,iv_therapy;rehab_therapy;respiratory;wound_care,boundary
+26495644,15783649,dev,stroke,REHAB,False,False,5,False,False,acute_stroke;rehab_therapy;speech_therapy,open
+26540726,17573108,dev,stroke,SKILLED NURSING FACILITY,False,False,4,False,False,acute_stroke;rehab_therapy;speech_therapy,open
+26551355,11189105,dev,medical_decond,HOME HEALTH CARE,False,False,7,False,False,rehab_therapy;respiratory,open
+26573003,12048354,dev,stroke,HOME HEALTH CARE,False,False,3,False,False,acute_stroke;debility;rehab_therapy;speech_therapy,open
+26668730,19339025,dev,stroke,HOME HEALTH CARE,False,False,5,False,False,acute_stroke;iv_therapy;rehab_therapy;respiratory;wound_care,open
+26684494,12434754,dev,heart_failure,SKILLED NURSING FACILITY,True,False,2,False,False,rehab_therapy;respiratory,boundary
+26783580,15101598,dev,stroke,SKILLED NURSING FACILITY,True,False,1,False,False,acute_stroke;parkinson,open
+26822134,18338216,dev,medical_decond,SKILLED NURSING FACILITY,False,False,9,False,False,dementia;rehab_therapy,open
+26943779,11591785,dev,stroke,HOME HEALTH CARE,True,True,1,False,False,acute_stroke,boundary
+26949811,18057037,dev,heart_failure,SKILLED NURSING FACILITY,False,False,5,False,False,rehab_therapy;respiratory,open
+26982359,13907138,dev,heart_failure,REHAB,True,True,8,False,False,rehab_therapy,boundary
+27094477,11508810,dev,ortho_postop,HOME,False,False,4,False,True,hip_fracture;iv_therapy;rehab_therapy;respiratory;wound_care,open
+27120843,14282277,dev,ortho_postop,HOME HEALTH CARE,False,False,4,False,False,iv_therapy;respiratory,open
+27376675,11471752,dev,ortho_postop,REHAB,False,False,6,False,True,hip_fracture;iv_therapy;rehab_therapy;respiratory;speech_therapy,open
+27404406,17021161,dev,medical_decond,HOME,True,False,1,False,False,respiratory,open
+27746474,18552995,dev,ortho_postop,SKILLED NURSING FACILITY,False,False,3,False,True,hip_fracture;iv_therapy;rehab_therapy;respiratory;wound_care,open
+27757692,13557705,dev,wound_iv,SKILLED NURSING FACILITY,False,False,3,False,False,iv_therapy;rehab_therapy,open
+27969316,13699859,dev,wound_iv,HOME,False,False,4,False,False,respiratory;wound_care,open
+28181405,11255297,dev,wound_iv,HOME,True,False,2,False,False,iv_therapy;nutrition_support,boundary
+28236506,13446700,dev,medical_decond,HOME HEALTH CARE,False,False,5,False,False,rehab_therapy;respiratory,open
+28324983,18460084,dev,ortho_postop,SKILLED NURSING FACILITY,False,False,4,False,True,hip_fracture;iv_therapy;rehab_therapy;respiratory,open
+28441945,16709596,dev,medical_decond,HOME,True,False,0,False,False,,open
+28491874,15315282,dev,wound_iv,SKILLED NURSING FACILITY,False,False,6,False,False,iv_therapy;pressure_ulcer;rehab_therapy;wound_care,open
+28665066,11959746,dev,heart_failure,HOME,True,False,2,False,False,,boundary
+28696100,17470135,dev,heart_failure,SKILLED NURSING FACILITY,False,False,6,False,False,rehab_therapy,open
+28850824,11208359,dev,heart_failure,HOME HEALTH CARE,False,False,5,False,False,rehab_therapy,open
+29086039,19220526,dev,ortho_postop,REHAB,False,False,3,False,False,iv_therapy;rehab_therapy;respiratory;wound_care,open
+29115327,12420225,dev,medical_decond,HOME HEALTH CARE,False,False,3,False,False,,open
+29228219,10762853,dev,medical_decond,SKILLED NURSING FACILITY,False,False,31,False,False,dementia;rehab_therapy;speech_therapy,open
+29283065,14836998,dev,stroke,SKILLED NURSING FACILITY,False,False,15,False,False,acute_stroke;iv_therapy;nutrition_support;rehab_therapy;respiratory;speech_therapy,open
+29433932,13585463,dev,medical_decond,SKILLED NURSING FACILITY,True,False,2,False,False,,boundary
+29535261,10706489,dev,stroke,SKILLED NURSING FACILITY,True,True,4,False,False,acute_stroke;rehab_therapy;speech_therapy,boundary
+29632558,14877188,dev,wound_iv,HOME HEALTH CARE,False,False,6,False,False,iv_therapy;rehab_therapy,open
+29732168,18260092,dev,wound_iv,HOME,True,True,4,False,False,iv_therapy,open
+29781888,16981362,dev,wound_iv,SKILLED NURSING FACILITY,False,False,5,False,False,iv_therapy;rehab_therapy;respiratory;wound_care,open

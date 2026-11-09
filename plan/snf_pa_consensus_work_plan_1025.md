@@ -2,10 +2,11 @@
 
 | 项 | 内容 |
 |---|---|
-| 版本 | v7（2026-11-08） |
-| 分支 | `zhijie-plan-1025` |
+| 版本 | v8（2026-11-08） |
+| 分支 | 设计 `zhijie-plan-1025`；实现 `zhijie-20261108` |
 | 读者 | lead architect / platform scientist |
-| 状态 | 设计阶段，尚未写代码 |
+| 状态 | 实施中 |
+| 决策记录 | `plan/decision_log.md`：每次修改改了什么、为什么 |
 
 本文讲系统怎么设计：分哪些部分、每部分用什么、要考虑什么，以及组件之间的实施顺序。不含排期。
 流程图用 mermaid（GitHub 网页和手机浏览器都能渲染）；每张图下面的编号附注与图中编号对应，图不显示时也能看懂。
@@ -80,8 +81,9 @@
 | C7 | 医师认证 | §424.20 |
 | C8 | benefit period 剩余天数 | §409.61 |
 
-- C0–C2、C7、C8：代码判定。
+- C0–C2、C7、C8：代码判定（技术条件）。
 - C3–C6：LLM 判定（医疗必要性）。
+- 这张表在覆盖条款登记表（2.1 节）里维护；新增条款只改登记表，不改引擎。
 
 依据：MA 计划须沿用 Traditional Medicare 覆盖标准（CMS-4201-F，§422.101(b)(c)），所以标准统一为 42 CFR 409.30–409.36 + Medicare Benefit Policy Manual（BPM）Ch.8。
 
@@ -92,7 +94,7 @@
 3. **能用代码的不用 LLM。** 日期、计数、规则汇总全部是确定性代码。
 4. **流程由代码编排。** LLM 只做"读 → 结构化判断"，不自己决定下一步。
 5. **每个组件都要有理由才加。** 先做最简单能用的版本；复杂方案只在评估显示不够时才加（第 14 节）。
-6. **规则、模型、prompt 都是配置。** 换计划规则、换模型、改 prompt 都不改引擎代码。
+6. **规则、模型、prompt 都是配置；覆盖条款、需求理由、数据来源都是登记表。** 换计划规则、换模型、改 prompt，或者新增一条覆盖条款、一种 skilled 需求理由、一个数据来源，都只改配置或加一个模块，不改引擎代码（2.1 节）。
 7. **病历文本是数据，不是指令。** prompt 里用分隔符包住病历。
 
 ### 1.5 不在范围内
@@ -107,12 +109,12 @@
 
 ```mermaid
 flowchart TD
-  A1["① MIMIC Parquet"] --> AD["② MIMIC adapter"]
+  A1["① MIMIC Parquet"] --> AD["② 数据来源 adapter"]
   AD --> CB[("③ CaseBundle")]
   A2["① 合成病例 JSON"] --> CB
   CB --> VW["④ view 过滤"]
   VW --> WF["⑤ 审核流程"]
-  KB[("⑥ 政策索引 + criterion cards")] --> WF
+  KB[("⑥ 知识层：登记表 / 卡片 / 政策索引")] --> WF
   WF <--> GW["⑦ 模型网关"]
   WF --> RS["⑧ 结论 + 证据"]
   RS --> P2["⑨ Part 2 材料包"]
@@ -123,17 +125,56 @@ flowchart TD
 
 **附注**
 1. **数据源**：MIMIC 用于开发和验证；合成病例直接手写成 `CaseBundle` JSON，用于回归测试。
-2. **MIMIC adapter**：字段映射、按 T_pa 截断、切 span、生成事实卡、去泄漏。数据源的差异全部在这里消化。
+2. **数据来源 adapter**：每个数据来源一个模块（出院小结、影像、处方、医嘱……），在数据来源登记表里登记。负责字段映射、按 T_pa 截断、切 span、生成事实卡、去泄漏，输出统一格式的证据条目。数据源的差异全部在这里消化。
 3. **CaseBundle**：一个病例一个 JSON（带内容 hash），是审核流程唯一的输入。
 4. **view 过滤**：`provider` 看完整 `CaseBundle`；`payer` 只看材料包里包含的 ID。两者之后的逻辑完全相同。
 5. **审核流程**：LangGraph 固定拓扑，5 个代码 / 模板节点 + 2 个 LLM 角色（第 5 节）。
-6. **知识层**：政策索引、criterion cards、plan profile。全部带版本号。
+6. **知识层**：覆盖条款登记表、需求理由目录、数据来源登记表、criterion cards、政策索引、plan profile。全部带版本号。
 7. **模型网关**：统一的 LLM 调用接口，按角色路由（第 8 节）。
 8. **结论 + 证据**：逐条结果、证据原文、条款、每个 profile 的总体结论、结论说明。
 9. **Part 2**：医院视图下生成材料包或补材料清单。
 10. **人工审核队列**：一个队列，按原因分类（第 9 节）。
 11. **trace**：每个节点的输入引用、输出、模型、版本写入 JSONL。
 12. **评估**：读 trace 和 gold 标签计算指标。
+
+### 2.1 扩展点：三张登记表 + 统一的证据格式
+
+覆盖标准和可用数据都会变：
+- 政策更新或某个 MA 计划可能多一条要求；
+- BPM 的举例、新的 skilled 服务类型会增加"需要 skilled 照护"的理由；
+- 以后可能接入 PT/OT 记录、护理记录、真实 EHR。
+
+系统用三张登记表和一种统一的证据格式把这些变化隔离开，审核引擎本身不随之改动。
+
+```mermaid
+flowchart LR
+  S[("① 数据来源登记表")] --> A["数据来源 adapter"]
+  A --> E[("② 证据条目")]
+  N[("③ 需求理由目录")] -. 打标签 .-> E
+  E --> J["审核：逐条判定"]
+  C[("④ 覆盖条款登记表")] --> J
+  J --> AG["⑤ 按角色汇总"]
+```
+
+**附注**
+1. **数据来源登记表**（`knowledge/sources.yaml`）：每个来源一条，写明 ID、读哪些原始表、用哪个时间字段判断 T_pa 之前是否可得、去泄漏规则、产出的证据类型、实现模块。
+2. **证据条目**：所有来源都产出同一种格式（3.3 节 `EvidenceItem`）。下游只认这个格式，不认来源。
+3. **需求理由目录**（`knowledge/needs.yaml`）：每种 skilled 需求理由一条，写明 ID、定义、政策条款（如 §409.33(a)(1)）、识别规则（用哪些数据、什么阈值）、检索同义词。事实卡类别、证据的需求类别、抽样标签、材料包里的服务清单都从这里读。
+4. **覆盖条款登记表**（`knowledge/criteria.yaml`）：每条条款一条，写明 ID、政策条款、判定方式（代码 / LLM）、汇总角色、criterion card、判定组、适用的 profile。代码判定的条款按 ID 注册一个函数；LLM 判定的条款，reviewer 的 prompt 和输出 schema 由登记表拼出。
+5. **按角色汇总**：汇总规则只看条款的角色（6.3 节），不看条款 ID。
+
+**新增时要做的事**
+
+| 新增 | 改动 | 验收（结构省不掉的部分） |
+|---|---|---|
+| 一种需求理由 | `needs.yaml` 加一条；需要新事实时，在对应来源模块加识别规则 | 识别规则的单元测试；抽查命中的病例 |
+| 一条覆盖条款 | `criteria.yaml` 加一条；代码条款写一个函数，LLM 条款写一张 criterion card | 卡片人工确认（同第 ⑤ 步）；补 gold 标注和回归病例；重跑评估 |
+| 一个数据来源 | `sources.yaml` 加一条；写一个 adapter 模块 | T_pa 可得性分析；3.5 节的三道去泄漏检查；ID 稳定性测试 |
+
+**要考虑的点**
+- 每次新增都会改变登记表的版本号。trace 记录版本，评估按版本分组（9.2 节）。
+- adapter 是确定性代码，不用 LLM。它的产物是审核流程唯一的输入，ID 稳定、T_pa 截断、出处回查都必须可证明（3.3–3.5 节）。
+- 登记表用 YAML 加 Python 字典实现，不做插件自动发现（第 14 节）。
 
 ---
 
@@ -155,7 +196,7 @@ flowchart TD
 
 **附注**
 1. **原始 CSV**：MIMIC-IV 3.1 hosp / icu、ED、Note；未压缩的 `.csv` 或 PhysioNet 原样的 `.csv.gz` 都支持（各台电脑不同）；目录只读。labevents 18GB、chartevents 42GB（未压缩），不能整表读进内存。
-2. **Parquet 子集**：DuckDB 按 3.2 节的条件建候选池，再把大表按候选池和列白名单过滤，存 Parquet。之后只读 Parquet。
+2. **Parquet 子集**：DuckDB 按 3.2 节的条件建候选池，再把数据来源登记表用到的原始表按候选池病人过滤，存 Parquet。保留这些病人的全部住院，供前序住院判断（6.2 节）。之后只读 Parquet。实验室、chartevents 等大表目前没有来源用到，不建；以后有来源登记时再加。
 3. **时间线**：入院、住院医嘱（`poe_detail` 的 "Admit to inpatient"）、ED 时段、出院；同一病人 30 天内的前序住院。C1 的计算在规则引擎里，这里只抽时间点。
 4. **病历处理**：出院小结按标题切段 → 切句 → 分配 span ID；按 3.5 节规则保留、删除和遮蔽。影像报告只取 IMPRESSION。
 5. **事实卡**：把结构化数据变成一句话证据（3.6 节）。
@@ -168,10 +209,10 @@ flowchart TD
 - 年龄 ≥65（由 `anchor_age` 和 `anchor_year` 换算到入院年份）。
 - 存活出院。
 - 有出院小结。
-- 入院年份 2011–2018（2019 年后出院小结覆盖率很低，2020–22 为 0）。
+- 入院年份 2011–2018（2019 年后出院小结覆盖率很低，2020–22 为 0）。MIMIC 日期经过平移，按严格规则判定：设年份偏移 = `year(admittime) − anchor_year`，要求 `anchor_year_group` 起点 + 偏移 ≥ 2011 且终点 + 偏移 ≤ 2018，即真实年份一定落在 2011–2018。
 
 **按出院去向分组**
-- `SKILLED NURSING FACILITY`：主要对象（满足上述条件的约 3 万例）。
+- `SKILLED NURSING FACILITY`：主要对象（满足上述条件的 15,795 例住院 / 10,483 人；不限年份时为 30,613 例）。
 - `HOME HEALTH CARE`、`HOME`、`REHAB`（IRF）：对照组。用于抽样里的难例（如住院 ≥3 午夜却回家），以及 A0 基线的负例。
 - LTACH、hospice、院内死亡等其他去向：排除。
 
@@ -190,26 +231,27 @@ class CaseBundle:
     case_id: str
     content_hash: str
     demographics: Demographics
-    timeline: Timeline       # 时间点 + T_pa
-    note_spans: list[Span]   # 出院小结
-    radiology: list[Span]    # 影像 IMPRESSION
-    facts: list[FactCard]
-    assumed: dict[str, str]  # 数据源无法提供的项
-    missing: list[str]       # 缺的材料类型
+    timeline: Timeline            # 时间点 + T_pa
+    evidence: list[EvidenceItem]  # 所有来源的证据，统一格式
+    sources: dict[str, str]       # 数据来源 ID → 版本
+    assumed: dict[str, str]       # 数据源无法提供的项
+    missing: list[str]            # 缺的材料类型
 
-class Span:
-    span_id: str      # 如 "DS:HC:s14"
-    section: str
+class EvidenceItem:
+    ref_id: str        # 如 "DS:HC:s14"（病历句子）、"RX:<pk>"（事实卡）
+    source: str        # 数据来源 ID，如 "discharge_note"、"radiology"、"prescriptions"
+    kind: Literal["span", "fact"]  # span = 原文句子；fact = 由结构化数据生成的一句话
+    section: str | None            # span 所在段落
+    available_at: datetime | None  # 可得时间，必须 ≤ T_pa
     text: str
-
-class FactCard:
-    fact_id: str      # 如 "RX:<pk>"
-    text: str         # 一句话
-    provenance: str   # 表名 + 主键
+    provenance: str    # 表名 + 主键
+    needs: list[str]   # 需求理由目录里的 ID，由识别规则打上
 ```
 
 **要考虑的点**
 - span ID 必须稳定：同一份病历重跑，ID 不变。按 section 缩写 + 句序编号。
+- 按来源和类型取证据：病历 = 出院小结来源的 span，影像 = 影像来源的 span，事实卡 = `kind == "fact"`。新增来源不改这个结构（2.1 节）。
+- `needs` 只是识别规则打的提示标签，供检索、抽样和材料包使用；是否真的构成 skilled 需求，由 reviewer 判（5.3 节）。
 - `content_hash` 用于缓存和审计：hash 不变就复用之前的 LLM 结果。
 - `assumed`：MIMIC 里拿不到的 C2、C7、C8 在这里声明（如 `C7: "assume_submitted"`）。数据源的假设放在数据层，不放进保险计划规则。
 - `missing`：这一例缺什么（PT 评估、家庭支持等），给补材料清单用。
@@ -234,19 +276,22 @@ class FactCard:
 
 ### 3.6 事实卡
 
-| 类别 | 来源 | 例子 |
+事实卡的类别就是需求理由目录（2.1 节）里的条目。下表是第一版：
+
+| 需求理由（`needs.yaml` 的 ID） | 来源 | 例子 |
 |---|---|---|
-| 静脉用药 | prescriptions | 出院前 48h 静脉万古霉素 4 次 |
-| 管路 / 营养 | poe | PICC 在位；鼻饲进行中 |
-| 伤口 | poe | 伤口护理医嘱 |
-| 康复 | poe 会诊 | PT 会诊 3 次；OT 会诊 1 次 |
-| 呼吸 | poe | 氧疗 / BiPAP 医嘱 |
+| 静脉用药 `iv_therapy` | prescriptions | 出院前 48h 静脉万古霉素 4 次 |
+| 营养支持 `nutrition_support` | poe | 鼻饲医嘱；TPN 医嘱 |
+| 伤口 `wound_care` | poe | 伤口护理医嘱 |
+| 康复 `rehab_therapy` | poe 会诊 | PT 会诊 3 次；OT 会诊 1 次 |
+| 呼吸 `respiratory` | poe | 氧疗 / BiPAP 医嘱 |
 
 **要考虑的点**
 - 要量化（天数、次数、是否仍在执行），不要只给有 / 无。PT 会诊在 SNF 和 home health 病人里都很常见，只看有无区分不开。
 - 用药以 prescriptions 为主（emar 在 2013 年前覆盖很低）。
 - 每张卡带 `provenance`，审计时能回查原表主键。
 - 每例通常几十张，全部放进 prompt，不做检索。
+- 新增一种理由：在 `needs.yaml` 加一条，在对应来源模块加识别规则（2.1 节）。PICC / 中心静脉管路需要医嘱明细（`poe_detail`）才能和外周静脉区分，第 ③ 步生成事实卡时再加。
 
 ---
 
@@ -277,8 +322,8 @@ flowchart TD
    - Tier 3（CMS-0057-F、TEAM、WISeR、州法、OIG 报告）**不进索引**，所以判定时不可能引用到。
 2. **切块**：以 § 为单位，300–800 tokens；§409.33 和 BPM §30.2–30.4 的举例列表整段保留。每块带 `section_id`、`tier`、`effective_date`。共约 100–150 块。
 3. **BM25**：条文用词规范，关键词检索够用。内存索引，几毫秒。
-4. **criterion cards**：每条标准一张卡：定义、条文原文、正反例、查询词表（含同义词，如 "PICC"、"wound vac"、"assist x1"）。卡片是主力，固定放进 prompt。
-5. **查询由代码生成**：卡片的查询词 + 病例里出现的事实卡类别 + 主诊断。不让 LLM 自己发起检索，保持固定流程。
+4. **criterion cards**：每条由 LLM 判定的条款一张卡，在覆盖条款登记表里登记：定义、条文原文、正反例、查询词表（含同义词，如 "PICC"、"wound vac"、"assist x1"）。卡片是主力，固定放进 prompt。
+5. **查询由代码生成**：卡片的查询词 + 病例证据上的需求理由标签（及其在 `needs.yaml` 里的同义词）+ 主诊断。不让 LLM 自己发起检索，保持固定流程。
 6. **输出**：条款原文 + section ID。reviewer 只能引用这里和卡片里出现过的 ID。
 7. **prompt 组成**：卡片（固定）+ 检索结果（随病例变化）。
 
@@ -296,7 +341,7 @@ flowchart TD
 
 | 角色 | 类型 | 职责 |
 |---|---|---|
-| `reviewer` | LLM | 读病历，判定 C3–C6，给证据 |
+| `reviewer` | LLM | 读病例证据，判定登记表里由 LLM 判的条款（目前 C3–C6），给证据 |
 | `critic` | LLM（另一家模型） | 独立复核 reviewer |
 | `narrator` | LLM | Part 2 叙述摘要 |
 | 其余节点 | 代码 / 模板 | 规则、检索、校验、汇总 |
@@ -328,7 +373,7 @@ flowchart TD
 ```
 
 **附注**
-1. **intake_rules**：C0–C2、C7、C8 和时间线（第 6 节）。技术性不符时 **C3–C6 仍然要跑**，这样切换 profile 只需重新汇总，不必重跑 LLM。
+1. **intake_rules**：登记表里由代码判定的条款（目前 C0–C2、C7、C8）和时间线（第 6 节）。技术性不符时，**医疗必要性条款仍然要跑**，这样切换 profile 只需重新汇总，不必重跑 LLM。
 2. **policy_retrieve**：第 4 节。
 3. **reviewer**：见 5.3。退回重判时，critic 的意见作为附加输入。
 4. **citation_check**：见 5.5。
@@ -344,8 +389,8 @@ flowchart TD
 ### 5.3 reviewer 与 critic
 
 **reviewer**
-- 输入：病历 span + 事实卡 + 影像 + C3–C6 卡片 + 检索到的条款。
-- 输出：C3–C6 每条一个 `CriterionResult`（5.4 节）。每条证据带 §409.33 类别（观察评估、照护计划管理、教学培训、直接 skilled 护理、PT / OT / ST），Part 2 直接用。
+- 输入：病例的全部证据条目（病历 span、影像、事实卡）+ 登记表里由 LLM 判定的条款（目前 C3–C6；同一判定组一次判完，因为 C4–C6 相互依赖）及其卡片 + 检索到的条款。
+- 输出：每条 LLM 条款一个 `CriterionResult`（5.4 节）。每条证据带需求理由 ID，取自 `needs.yaml`，与 §409.33 的类别对应（观察评估、照护计划管理、教学培训、直接 skilled 护理、PT / OT / ST 等），Part 2 直接用。
 - 要考虑：
   - "没有证据"不等于"有反面证据"：前者是 `INSUFFICIENT`，后者才是 `NOT_MET`。prompt 和 schema 都要区分。
   - 否定和不确定表述（"no pressure ulcer"、"possible pneumonia"）：每条证据带 `assertion`。
@@ -371,10 +416,10 @@ class Evidence:
     anchor: str      # 不超过 8 个词
     assertion: Literal["present",
                        "absent", "possible"]
-    category: str    # §409.33 类别
+    need: str        # 需求理由 ID（needs.yaml）
 
 class CriterionResult:
-    criterion: str   # C0..C8
+    criterion: str   # 条款 ID（criteria.yaml），目前 C0..C8
     status: Literal["MET", "NOT_MET",
                     "INSUFFICIENT"]
     evidence: list[Evidence]
@@ -439,6 +484,7 @@ assume_no_other_qualifying_stay: true
 - profile 只放保险计划规则。数据源假设在 `CaseBundle.assumed`，系统参数（如 critic 抽样率）在 `config.yaml`。
 - 默认 `strict_tm`；`ma_waiver` 并列计算。**默认值待定**（第 15 节）。
 - 新增某个 MA 计划 = 新增一个 YAML。profile 名和 hash 写进 trace。
+- profile 还可以指定适用哪些条款（默认是登记表里的全部条款）。某个计划多一条要求 = 登记表加一条，profile 引用它（2.1 节）。
 
 ### 6.2 C1 计算
 
@@ -468,12 +514,19 @@ flowchart TD
 
 ### 6.3 汇总规则（aggregator）
 
+每条条款在登记表里有一个汇总角色，汇总只看角色，不看条款 ID：
+
+| 角色 | 目前的条款 | 不符时谁确认 |
+|---|---|---|
+| `technical` 技术条件 | C0、C1、C2、C7、C8（代码判定） | 非医师人员 |
+| `medical` 医疗必要性 | C3–C6（LLM 判定） | 有执照的临床审核员 |
+
 ```mermaid
 flowchart TD
-  A{"① C0 或 C1 为 NOT_MET?"} -- 是 --> T["TECHNICAL_NOT_MET"]
-  A -- 否 --> B{"② 任一标准 INSUFFICIENT?"}
+  A{"① 技术条件类条款有 NOT_MET?"} -- 是 --> T["TECHNICAL_NOT_MET"]
+  A -- 否 --> B{"② 任一条款 INSUFFICIENT?"}
   B -- 是 --> P["PEND_INFO"]
-  B -- 否 --> C{"③ C3–C6 有 NOT_MET?"}
+  B -- 否 --> C{"③ 医疗必要性类条款有 NOT_MET?"}
   C -- 是 --> AD["ADVERSE_RECOMMENDATION"]
   C -- 否 --> AP["APPROVE"]
 ```
@@ -509,7 +562,7 @@ flowchart TD
    - 病人与住院概要；
    - 时间线（住院医嘱、午夜数、拟入住 SNF 日期）；
    - 逐条标准：结果 + 证据原文 + 条款；
-   - 拟在 SNF 提供的 skilled 服务和频率（来自证据的 §409.33 类别，对应 C4 / C5）；
+   - 拟在 SNF 提供的 skilled 服务和频率（按证据上的需求理由 ID，用 `needs.yaml` 里的名称和条款列出，对应 C4 / C5）；
    - 功能状态与照护环境（C6）；
    - 医师认证占位。
 3. **补材料清单**：按 `INSUFFICIENT` 的标准生成，写明需要什么、建议找谁（主治、PT、社工）。补来的文档生成新版本 `CaseBundle`（新 hash），整例重跑。
@@ -569,8 +622,8 @@ flowchart TD
 
 ### 9.2 审计记录
 - 每次运行一条，存本地 JSONL（`traces/`，不进 git）。
-- 内容：`case_id`、`bundle_hash`、profile 名和 hash、每个 LLM 调用的 prompt 版本 / 模型 / 输出 / 耗时、政策索引构建 ID、卡片版本、最终结论、人工决定。
-- 任何版本变化（prompt、卡片、索引、模型）都能在记录里看到，评估报告按版本分组。
+- 内容：`case_id`、`bundle_hash`、profile 名和 hash、三张登记表（条款、需求理由、数据来源）的版本、每个 LLM 调用的 prompt 版本 / 模型 / 输出 / 耗时、政策索引构建 ID、卡片版本、最终结论、人工决定。
+- 任何版本变化（prompt、卡片、索引、模型、登记表）都能在记录里看到，评估报告按版本分组。
 
 ---
 
@@ -585,8 +638,15 @@ flowchart TD
 3. **MIMIC test**：200 例冻结，其中 120 例 test-gold（30 例双人标注算 κ）。开发中不看。
 
 **抽样**
-- 先按 `subject_id` 划分 dev / test（3.2 节），再在各自范围内抽样。
-- 分层：临床场景（骨科术后、卒中、内科病后体能下降、心衰、伤口 / 静脉用药）× 去向（SNF、home health、HOME、REHAB）× 边界（先观察后住院、不足 3 午夜、从 SNF 入院）。
+- 先按 `subject_id` 划分 dev / test（3.2 节）：病人按 50 / 50 分，划分文件冻结。再在各自范围内抽样，每个病人最多一次住院。
+- 每个病例有两类标签：
+  - **住院原因**（一个）：由第一诊断和手术码决定，回答"这次为什么住院"。
+  - **SNF 需求标签**（可以有多个）：来自需求理由目录（2.1 节），回答"为什么可能需要 SNF"。依据是任意诊断位置上与照护需求直接相关的诊断（髋骨折、急性卒中、压疮、痴呆、帕金森、体能下降等），以及实际接受的服务（静脉用药、伤口护理、PT/OT 等）。
+  - 只看第一诊断会漏掉大部分压疮、痴呆、帕金森病人；任意位置都算也不行，慢性心衰会占掉三分之一（附录 A）。
+- 分层：临床场景（骨科术后、卒中、伤口 / 静脉用药、心衰、内科病后体能下降）× 去向（SNF、home health、HOME、REHAB）× 边界（先观察后住院、不足 3 午夜、从 SNF 入院）。
+  - 每个病例只落一个场景，按优先级从两类标签中取：骨科术后 > 卒中 > 伤口 / 静脉用药 > 心衰 > 内科病后体能下降。心衰只认住院原因。
+  - 不属于任何场景的病例不抽。
+- 报告：除按场景外，每个需求标签单独报告，一个病例有几个标签就计入几组。
 - 髋骨折几乎都去 SNF，单独报告，避免拉高整体指标。
 
 **标注**
@@ -638,8 +698,12 @@ A0 的结构化特征：DRG、主诊断、手术、ICU 天数、静脉用药天�
 ```
 src/snf_pa/
   schemas.py      # CaseBundle、State
+  registry.py     # 读三张登记表
   adapters/
-    mimic.py      # Parquet → CaseBundle
+    cohort.py     # 候选池（3.2）
+    subset.py     # Parquet 子集（3.1）
+    sources/      # 每个数据来源一个模块（出院小结、影像、处方、医嘱……）
+    mimic.py      # 组装 CaseBundle
   rules/
     intake.py     # C0–C2、C7、C8
     aggregator.py
@@ -656,7 +720,11 @@ src/snf_pa/
     providers/    # claude, codex, ollama
   packet/         # Part 2
   cli.py
-knowledge/cards/  # criterion cards
+knowledge/
+  criteria.yaml   # 覆盖条款登记表
+  needs.yaml      # 需求理由目录
+  sources.yaml    # 数据来源登记表
+  cards/          # criterion cards
 profiles/         # plan profile YAML
 prompts/          # 带版本号
 policy_docs/      # 政策检索语料
@@ -689,9 +757,10 @@ HTTP API 以后在 CLI 外面包一层即可，引擎不变。
 - `models.yaml`：角色 → provider / 模型。
 - `config.yaml`：系统参数（critic 抽样率、并发数、token 预算）。
 - `prompts/<role>/v<N>.md`、`knowledge/cards/*.yaml`：带版本。
+- `knowledge/criteria.yaml`、`needs.yaml`、`sources.yaml`：三张登记表，带版本（2.1 节）。
 
 ### 11.4 测试
-- 单元：C1 计算、aggregator、span 切分、引用校验、残余去向词、队列 SQL 计数（与附录 A 一致）。
+- 单元：C1 计算、aggregator、span 切分、引用校验、残余去向词、队列 SQL 计数（与附录 A 一致）、登记表一致性（每条条款有函数或卡片、每个需求理由有识别规则、每个来源有 T_pa 时间字段）。
 - 冒烟：20 个 MIMIC 病例（10 SNF / 10 回家）端到端跑通，schema 合法、引用全部可解析。
 - 回归：合成病例和反事实病例的预期结论。
 - 评估：MIMIC dev / test（不在 CI 里跑）。
@@ -724,9 +793,9 @@ flowchart TD
 
 **附注**
 1. **环境与仓库修复**（11.5 节）。完成标准：`pytest` 通过；检查脚本从 `MIMIC_RAW_DIR` 读到原始表。
-2. **队列 + Parquet 子集**（3.1–3.2 节）。完成标准：队列计数与附录 A 一致；按 `subject_id` 生成 dev / test 划分文件，test 冻结。
-3. **MIMIC adapter**（3.3–3.6 节）。完成标准：残余去向词为 0；人工抽查 50 篇通过；遮蔽后文本探针的 AUC 明显下降；同一病例重跑 span ID 不变。
-4. **规则引擎**（第 6 节）。完成标准：C1 和 aggregator 的单元测试覆盖边界（无住院医嘱、有前序住院、午夜数正好 3）。
+2. **队列 + Parquet 子集**（3.1–3.2 节）。完成标准：队列计数与附录 A 一致；按 `subject_id` 生成 dev / test 划分文件，test 冻结；需求理由目录第一版（供抽样标签用）；dev 100 / test 200 抽样文件冻结（10.1 节）。
+3. **数据来源 adapter**（3.3–3.6 节）。完成标准：残余去向词为 0；人工抽查 50 篇通过；遮蔽后文本探针的 AUC 明显下降；同一病例重跑 span ID 不变；每条证据都符合统一格式、可得时间 ≤ T_pa；数据来源登记表就绪。
+4. **规则引擎**（第 6 节）。完成标准：C1 和 aggregator 的单元测试覆盖边界（无住院医嘱、有前序住院、午夜数正好 3）；汇总只按条款角色；覆盖条款登记表就绪。
 5. **criterion cards + 政策索引**（第 4 节）。可以和 ②–④ 同时做。完成标准：检索评测 recall@5 ≥ 0.9。卡片同时是标注手册的初稿。
 6. **模型网关 + reviewer + critic**（第 5、8 节）。完成标准：合成回归集全部通过，包括 Jimmo 病例。
 7. **冒烟 + silver 评估**（10.3 节）。20 个病例端到端跑通后，在 dev 100 上算 silver 指标，开始迭代 prompt。
@@ -754,6 +823,10 @@ flowchart TD
 | 按 `subject_id` 划分 | 按住院划分 | 防同一病人跨 split |
 | 缓存续跑 | checkpointer | 少一套状态存储 |
 | 先 CLI | HTTP API | 先把引擎做对 |
+| 条款、需求理由、数据来源用登记表 | 写死在代码和 schema 里 | 标准和数据都会增加；新增只改登记表或加模块 |
+| 汇总按条款角色 | 按条款 ID | 新增条款不改汇总代码 |
+| adapter 用确定性代码 | 用 agent 处理数据 | ID 稳定、T_pa 截断、出处回查必须可证明 |
+| 场景 = 住院原因 + 多个需求标签 | 只看第一诊断 | 第一诊断漏掉大部分压疮、痴呆等 SNF 典型病人 |
 
 ---
 
@@ -771,6 +844,8 @@ flowchart TD
 | LangGraph 状态存档 / 中断 | 需要在流程内等待人工签字 |
 | 补材料环节的 agent | 接入真实系统，需要自动找缺失文档 |
 | AWS Bedrock | POC 完成后 |
+| 登记表的插件自动发现 / 动态加载 | 登记项多到手工维护出错时 |
+| "新增数据来源"的开发 skill（固化 T_pa 可得性分析、去泄漏检查、抽查页） | 要接入第二个新数据来源时 |
 
 ---
 
@@ -799,7 +874,7 @@ DuckDB 汇总计数，只读。
 
 - **Medicare 住院 / 去 SNF**：244,576 / 42,312。
 - **去 SNF 且有出院小结**：34,298（再加 ≥65 岁、存活：30,613）。
-- **出院小结覆盖**：2007–2018 各年份桶 68–75%；2019 桶 8.7%；2020–22 为 0% → 只用 2011–2018。
+- **出院小结覆盖**（全部住院，有出院小结的比例）：按 `anchor_year_group`，2008–10 65.7%、2011–13 67.5%、2014–16 67.5%、2017–19 61.6%、2020–22 0%；按估算年份（组起点 + 年份偏移），2017 74.1%、2018 56.9%、2019 32.1%、2020 2.2%、2021 起 0% → 只用 2011–2018。
 - **OBSERVATION ADMIT**：占 SNF 出院的 23%（9,696）→ 不能排除。
 - **POE 住院医嘱**：有出院小结的 SNF 病例中 78% 有；2013 年后约 99%。
 - **先观察后住院**：14,384 例，只有 8.5% 进过观察病房 → transfers 会漏约 91%。
@@ -808,6 +883,7 @@ DuckDB 汇总计数，只读。
 - **出院小结长度**：中位约 2.5k tokens，P99 约 7k。
 - **出院小结写成时间**：相对出院中位 −0.3h，P95 +202h → 只能作代理。
 - **ICU**：SNF 病例中 28%；omr 表没有功能评分。
+- **第一诊断 vs 任意位置**（候选池中去 SNF 的住院；每例诊断数中位 15）：压疮 24 / 857，痴呆 79 / 3,002，帕金森 27 / 464，肺炎 365 / 1,592，急性卒中 395 / 542，脓毒症 1,022 / 1,386，髋骨折 709 / 771。任意位置出现心衰的占整个候选池的 29%（15,136 / 52,095）→ 场景不能只看第一诊断，也不能任意位置都算（10.1 节）。
 - **emar 覆盖**：2007–09 为 0%，2016–18 为 99%；prescriptions 约 100%。
 - **PT 会诊出现率**（SNF / home health / HOME / REHAB）：89 / 73 / 32 / 97%。
 - **政策语料**：BPM Ch.8 共 58 页、约 2.2 万词；42 CFR 409 Subpart D XML 约 21KB。

@@ -1,0 +1,11 @@
+{
+  "_source": "plan/snf_pa_consensus_work_plan_1025.md Appendix A; snf_from_snf from the same table in commit 8560e4b section 1. Protected (CLAUDE.md hard rule 7): do not edit to make tests pass.",
+  "medicare_admissions": 244576,
+  "medicare_snf": 42312,
+  "snf_with_note": 34298,
+  "snf_note_age65_alive": 30613,
+  "snf_observation_admit": 9696,
+  "snf_naive_midnights_ge3": 38828,
+  "snf_naive_midnights_lt3": 3484,
+  "snf_from_snf": 2693
+}

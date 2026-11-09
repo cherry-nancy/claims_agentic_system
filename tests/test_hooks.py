@@ -21,7 +21,9 @@ def repo(tmp_path):
     (raw / "mimiciv-3.1" / "hosp").mkdir(parents=True)
     (raw / "mimiciv-3.1" / "hosp" / "admissions.csv.gz").write_bytes(b"x")
     (root / "data" / "splits").mkdir(parents=True)
-    (root / "data" / "splits" / "test.csv").write_text("subject_id\n1\n")
+    (root / "data" / "splits" / "test.csv").write_text("subject_id\n1\n")        # frozen
+    (root / "data" / "splits" / "draft_cases.csv").write_text("hadm_id\n1\n")    # protected, not frozen
+    (root / "data" / "PROTECTED.sha256").write_text("# manifest\n" + "0" * 64 + "  data/splits/test.csv\n")
     (root / "plan").mkdir()
     (root / "plan" / "snf_pa_consensus_work_plan_1025.md").write_text("doc\n")
     (root / ".env").write_text(f"MIMIC_RAW_DIR={raw.as_posix()}\n")
@@ -109,6 +111,18 @@ def test_protected_existing_file_denied(repo):
     assert run(root, bash("git checkout -- data/splits/test.csv")) == "deny"
 
 
+def test_unfrozen_protected_file_asks(repo):
+    root, _ = repo
+    assert run(root, edit(root / "data/splits/draft_cases.csv")) == "ask"
+    assert run(root, edit(root / "data/splits/draft_cases.csv", "Write")) == "ask"
+    assert run(root, bash("rm data/splits/draft_cases.csv")) == "ask"
+    # one frozen file in the same command is enough to deny
+    assert run(root, bash("rm data/splits/draft_cases.csv data/splits/test.csv")) == "deny"
+    assert run(root, bash("rm data/splits/*")) == "deny"
+    # the manifest itself is always frozen
+    assert run(root, edit(root / "data/PROTECTED.sha256")) == "deny"
+
+
 def test_protected_new_file_and_reads_allowed(repo):
     root, _ = repo
     assert run(root, edit(root / "data/splits/dev.csv", "Write")) == "allow"
@@ -128,16 +142,19 @@ def test_design_doc_asks(repo):
     assert run(root, bash("cat plan/snf_pa_consensus_work_plan_1025.md")) == "allow"
 
 
-def test_freeze_only_by_user(repo):
+def test_freeze_needs_user_approval(repo):
     root, _ = repo
-    assert run(root, bash("uv run python tools/freeze.py data/splits/test.csv")) == "deny"
-    assert run(root, bash(".venv/Scripts/python.exe tools/freeze.py x")) == "deny"
-    # reading, staging, diffing the tool is fine
+    # running the freeze tool always goes to the user's permission prompt
+    assert run(root, bash("uv run python tools/freeze.py data/splits/test.csv")) == "ask"
+    assert run(root, bash(".venv/Scripts/python.exe tools/freeze.py x")) == "ask"
+    assert run(root, bash("uv run tools/freeze.py x")) == "ask"
+    assert run(root, bash("./tools/freeze.py x")) == "ask"
+    # reading, staging, diffing the tool needs no approval
     assert run(root, bash("cat tools/freeze.py")) == "allow"
     assert run(root, bash("git add tools/freeze.py tests/test_hooks.py")) == "allow"
     assert run(root, bash("git add src/snf_pa/paths.py tools/freeze.py data/PROTECTED.sha256")) == "allow"
-    assert run(root, bash("uv run tools/freeze.py x")) == "deny"
-    assert run(root, bash("./tools/freeze.py x")) == "deny"
+    # other rules still win: a forbidden push in the same command is denied, not asked
+    assert run(root, bash("uv run python tools/freeze.py x && git push origin cfeng")) == "deny"
     assert run(root, bash("git diff -- tools/freeze.py")) == "allow"
 
 
@@ -219,6 +236,10 @@ def test_git_push_targets(repo):
     assert run(root, bash("git push origin HEAD:snf-criterion-cards")) == "deny"
     assert run(root, bash("git push --force origin zhijie-test")) == "deny"
     assert run(root, bash("git push origin +zhijie-test")) == "deny"
+    # shell redirections are not push targets
+    assert run(root, bash("git push -u origin zhijie-test 2>&1 | tail -5")) == "allow"
+    assert run(root, bash("git push origin zhijie-test > push.log")) == "allow"
+    assert run(root, bash("git push origin cfeng 2>&1")) == "deny"
 
 
 def test_unrelated_commands_allowed(repo):

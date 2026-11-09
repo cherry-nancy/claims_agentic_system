@@ -73,9 +73,9 @@ def main() -> None:
         # A frozen file changed. If the user approved the change (e.g. a design-doc edit), the fix is a
         # re-freeze by the user, never reverting the approved edit.
         reason = ("A frozen protected file changed (tests/test_protected_files.py). Do NOT revert a change "
-                  "the user approved and do not touch data/PROTECTED.sha256. If the user approved it, stop "
-                  "and ask the user to re-run tools/freeze.py on that file; if nobody approved it, report "
-                  f"it to the user.\n{tail}")
+                  "the user approved and do not edit data/PROTECTED.sha256 by hand. If the user approved the "
+                  "change, run `uv run python tools/freeze.py <file>` (the user must approve it in the "
+                  f"permission prompt); if nobody approved it, report it to the user.\n{tail}")
     else:
         reason = (f"pytest failed (exit {code}). Fix the root cause before finishing "
                   f"(do not edit expected values).\n{tail}")

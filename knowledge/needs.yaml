@@ -1,0 +1,155 @@
+# Need-reason catalog (design §2.1 note 3): why a patient may need skilled care in a SNF.
+# Used by: sampling tags (§10.1), fact cards (§3.6), evidence `need` field (§5.4), packet services (§7).
+#
+# kind:
+#   service   - a skilled service the patient actually received; detected from orders / prescriptions.
+#   condition - a diagnosis that commonly drives skilled needs; detected from ICD codes (any position).
+# available_before_t_pa:
+#   true  - the source rows carry a timestamp and the rule only uses rows <= T_pa; may become evidence.
+#   false - ICD codes are assigned after discharge; usable ONLY for sampling and reporting, never as
+#           reviewer evidence (CLAUDE.md hard rule 2).
+# A tag is a hint, not a finding: whether a service is skilled is decided by the reviewer against policy.
+# E.g. 42 CFR 409.33(d)(4) lists changes of dressings for noninfected wounds as personal (non-skilled) care.
+#
+# Rule types (implemented in src/snf_pa/needs.py):
+#   poe_order:  orders in `poe` with (order_type, order_subtype) in `orders`, transaction_type = 'New',
+#               ordertime between admission and T_pa.
+#   iv_drug:    `prescriptions` rows with route in `routes` and drug matching `drug_regex` (case-insensitive),
+#               starttime <= T_pa and coalesce(stoptime, dischtime) >= T_pa - `active_within_hours`.
+#   diagnosis:  any `diagnoses_icd` row of the admission whose code starts with one of the prefixes.
+
+version: 2   # v2: hip fracture initial-encounter filter; PB route added (step-2 review)
+
+needs:
+  - id: iv_therapy
+    name: IV antimicrobial therapy still active near discharge
+    kind: service
+    policy_refs: ["42 CFR 409.33(b)(1)"]
+    available_before_t_pa: true
+    rule:
+      type: iv_drug
+      routes: ["IV", "IV DRIP", "IV BOLUS", "PB"]   # PB = IV piggyback
+      active_within_hours: 48
+      drug_regex: "vancomycin|cefazolin|ceftriaxone|cefepime|ceftazidime|ceftaroline|cefoxitin|cefuroxime|piperacillin|meropenem|ertapenem|imipenem|ampicillin|nafcillin|oxacillin|penicillin|daptomycin|linezolid|levofloxacin|ciprofloxacin|moxifloxacin|metronidazole|gentamicin|tobramycin|amikacin|aztreonam|clindamycin|doxycycline|tigecycline|micafungin|caspofungin|fluconazole|voriconazole|acyclovir|ganciclovir|colistin|polymyxin|azithromycin|sulfamethoxazole|rifampin"
+    synonyms: ["IV antibiotics", "PICC", "vancomycin", "OPAT"]
+
+  - id: nutrition_support
+    name: Enteral tube feeding or parenteral nutrition
+    kind: service
+    policy_refs: ["42 CFR 409.33(b)(2)", "42 CFR 409.33(b)(1)"]
+    available_before_t_pa: true
+    rule:
+      type: poe_order
+      orders:
+        - ["Nutrition", "Tubefeeding Order"]
+        - ["TPN", "Central TPN"]
+        - ["TPN", "Premixed Central Standard"]
+    synonyms: ["tube feeding", "PEG", "NG tube", "TPN", "enteral"]
+
+  - id: wound_care
+    name: Wound care orders or wound/ostomy consult
+    kind: service
+    policy_refs: ["42 CFR 409.33(b)(5)", "42 CFR 409.33(b)(6)"]
+    available_before_t_pa: true
+    rule:
+      type: poe_order
+      orders:
+        - ["General Care", "Wound Care"]
+        - ["Consults", "Wound/Ostomy"]
+    synonyms: ["wound vac", "dressing change", "decubitus", "pressure injury", "debridement"]
+
+  - id: rehab_therapy
+    name: Physical or occupational therapy consult
+    kind: service
+    policy_refs: ["42 CFR 409.33(c)(1)", "42 CFR 409.33(c)(2)", "42 CFR 409.33(c)(3)", "42 CFR 409.33(c)(4)"]
+    available_before_t_pa: true
+    rule:
+      type: poe_order
+      orders:
+        - ["Consults", "Physical Therapy"]
+        - ["Consults", "Occupational Therapy"]
+    synonyms: ["PT", "OT", "gait training", "assist x1", "assist x2", "walker"]
+
+  - id: speech_therapy
+    name: Speech / swallowing consult
+    kind: service
+    policy_refs: ["42 CFR 409.33(c)(8)"]
+    available_before_t_pa: true
+    rule:
+      type: poe_order
+      orders:
+        - ["Consults", "Speech/Swallowing"]
+    synonyms: ["speech therapy", "dysphagia", "swallow evaluation"]
+
+  - id: respiratory
+    name: Oxygen therapy or BiPAP ordered during the stay
+    kind: service
+    policy_refs: ["42 CFR 409.33(b)(8)"]
+    available_before_t_pa: true
+    rule:
+      type: poe_order
+      orders:
+        - ["Respiratory", "Oxygen Therapy"]
+        - ["Respiratory", "BiPAP"]
+    synonyms: ["oxygen", "nasal cannula", "BiPAP", "home O2"]
+
+  - id: hip_fracture
+    name: Hip fracture, initial encounter (any diagnosis position)
+    kind: condition
+    policy_refs: []
+    available_before_t_pa: false
+    rule:
+      type: diagnosis
+      icd10: ["S720", "S721", "S722"]
+      icd10_seventh: ["A", "B", "C"]   # initial encounter; excludes subsequent (D/G/K...) and sequela (S)
+      icd9: ["820"]
+
+  - id: acute_stroke
+    name: Acute ischemic stroke or intracerebral hemorrhage (any position)
+    kind: condition
+    policy_refs: []
+    available_before_t_pa: false
+    rule:
+      type: diagnosis
+      icd10: ["I61", "I63"]
+      icd9: ["431", "43301", "43311", "43321", "43331", "43381", "43391", "43401", "43411", "43491", "436"]
+
+  - id: pressure_ulcer
+    name: Pressure ulcer (any position)
+    kind: condition
+    policy_refs: ["42 CFR 409.33(b)(6)"]
+    available_before_t_pa: false
+    rule:
+      type: diagnosis
+      icd10: ["L89"]
+      icd9: ["7070"]
+
+  - id: dementia
+    name: Dementia (any position)
+    kind: condition
+    policy_refs: []
+    available_before_t_pa: false
+    rule:
+      type: diagnosis
+      icd10: ["F01", "F02", "F03", "G30"]
+      icd9: ["290", "2941", "2942", "3310"]
+
+  - id: parkinson
+    name: Parkinson disease (any position)
+    kind: condition
+    policy_refs: []
+    available_before_t_pa: false
+    rule:
+      type: diagnosis
+      icd10: ["G20"]
+      icd9: ["3320"]
+
+  - id: debility
+    name: Debility, generalized weakness or reduced mobility (any position)
+    kind: condition
+    policy_refs: []
+    available_before_t_pa: false
+    rule:
+      type: diagnosis
+      icd10: ["R5381", "R54", "M6281", "Z7409"]
+      icd9: ["7993", "72887"]

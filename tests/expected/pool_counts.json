@@ -1,0 +1,7 @@
+{
+  "_source": "SNF numbers from design v8 section 3.2 (strict year rule 2011-2018); totals from the step-2 plan probe (an independent query written before cohort.py). Protected (CLAUDE.md hard rule 7): do not edit to make tests pass.",
+  "snf_admissions": 15795,
+  "snf_patients": 10483,
+  "total_admissions": 52095,
+  "total_patients": 26661
+}

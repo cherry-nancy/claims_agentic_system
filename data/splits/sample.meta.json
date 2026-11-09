@@ -1,0 +1,551 @@
+{
+  "salt": "snf-pa-sample-v1",
+  "dev_quota_per_scenario": {
+    "SKILLED NURSING FACILITY": 8,
+    "HOME HEALTH CARE": 5,
+    "HOME": 4,
+    "REHAB": 3
+  },
+  "test_multiplier": 2,
+  "boundary_share": 0.25,
+  "fallback_order": [
+    "HOME HEALTH CARE",
+    "SKILLED NURSING FACILITY"
+  ],
+  "scenarios": [
+    "ortho_postop",
+    "stroke",
+    "wound_iv",
+    "heart_failure",
+    "medical_decond"
+  ],
+  "needs_catalog": {
+    "version": 2,
+    "hash": "288cc9628a16"
+  },
+  "split_file_sha256": "68a002484615bef2eabf834422b2ddb3e9d654bae4743871bebae073459bcb23",
+  "splits": {
+    "dev": {
+      "n": 100,
+      "cells": [
+        {
+          "cell": [
+            "ortho_postop",
+            "SKILLED NURSING FACILITY"
+          ],
+          "target": 8,
+          "selected": 8,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "ortho_postop",
+            "HOME HEALTH CARE"
+          ],
+          "target": 5,
+          "selected": 5,
+          "boundary": 1,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "ortho_postop",
+            "HOME"
+          ],
+          "target": 4,
+          "selected": 4,
+          "boundary": 1,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "ortho_postop",
+            "REHAB"
+          ],
+          "target": 3,
+          "selected": 3,
+          "boundary": 1,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "stroke",
+            "SKILLED NURSING FACILITY"
+          ],
+          "target": 8,
+          "selected": 8,
+          "boundary": 4,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "stroke",
+            "HOME HEALTH CARE"
+          ],
+          "target": 5,
+          "selected": 5,
+          "boundary": 1,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "stroke",
+            "HOME"
+          ],
+          "target": 4,
+          "selected": 4,
+          "boundary": 4,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "stroke",
+            "REHAB"
+          ],
+          "target": 3,
+          "selected": 3,
+          "boundary": 1,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "wound_iv",
+            "SKILLED NURSING FACILITY"
+          ],
+          "target": 8,
+          "selected": 8,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "wound_iv",
+            "HOME HEALTH CARE"
+          ],
+          "target": 5,
+          "selected": 5,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "wound_iv",
+            "HOME"
+          ],
+          "target": 4,
+          "selected": 4,
+          "boundary": 3,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "wound_iv",
+            "REHAB"
+          ],
+          "target": 3,
+          "selected": 3,
+          "boundary": 1,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "heart_failure",
+            "SKILLED NURSING FACILITY"
+          ],
+          "target": 8,
+          "selected": 8,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "heart_failure",
+            "HOME HEALTH CARE"
+          ],
+          "target": 5,
+          "selected": 5,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "heart_failure",
+            "HOME"
+          ],
+          "target": 4,
+          "selected": 4,
+          "boundary": 3,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "heart_failure",
+            "REHAB"
+          ],
+          "target": 3,
+          "selected": 3,
+          "boundary": 1,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "medical_decond",
+            "SKILLED NURSING FACILITY"
+          ],
+          "target": 8,
+          "selected": 8,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "medical_decond",
+            "HOME HEALTH CARE"
+          ],
+          "target": 5,
+          "selected": 5,
+          "boundary": 1,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "medical_decond",
+            "HOME"
+          ],
+          "target": 4,
+          "selected": 4,
+          "boundary": 3,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "medical_decond",
+            "REHAB"
+          ],
+          "target": 3,
+          "selected": 3,
+          "boundary": 1,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        }
+      ],
+      "need_tag_counts": {
+        "acute_stroke": 20,
+        "debility": 1,
+        "dementia": 9,
+        "hip_fracture": 11,
+        "iv_therapy": 32,
+        "nutrition_support": 4,
+        "parkinson": 3,
+        "pressure_ulcer": 4,
+        "rehab_therapy": 69,
+        "respiratory": 42,
+        "speech_therapy": 19,
+        "wound_care": 25
+      },
+      "hip_fracture": 11,
+      "boundary": 38
+    },
+    "test": {
+      "n": 200,
+      "cells": [
+        {
+          "cell": [
+            "ortho_postop",
+            "SKILLED NURSING FACILITY"
+          ],
+          "target": 16,
+          "selected": 16,
+          "boundary": 4,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "ortho_postop",
+            "HOME HEALTH CARE"
+          ],
+          "target": 10,
+          "selected": 10,
+          "boundary": 3,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "ortho_postop",
+            "HOME"
+          ],
+          "target": 8,
+          "selected": 8,
+          "boundary": 1,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "ortho_postop",
+            "REHAB"
+          ],
+          "target": 6,
+          "selected": 6,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "stroke",
+            "SKILLED NURSING FACILITY"
+          ],
+          "target": 16,
+          "selected": 16,
+          "boundary": 4,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "stroke",
+            "HOME HEALTH CARE"
+          ],
+          "target": 10,
+          "selected": 10,
+          "boundary": 4,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "stroke",
+            "HOME"
+          ],
+          "target": 8,
+          "selected": 8,
+          "boundary": 6,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "stroke",
+            "REHAB"
+          ],
+          "target": 6,
+          "selected": 6,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "wound_iv",
+            "SKILLED NURSING FACILITY"
+          ],
+          "target": 16,
+          "selected": 16,
+          "boundary": 4,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "wound_iv",
+            "HOME HEALTH CARE"
+          ],
+          "target": 10,
+          "selected": 10,
+          "boundary": 3,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "wound_iv",
+            "HOME"
+          ],
+          "target": 8,
+          "selected": 8,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "wound_iv",
+            "REHAB"
+          ],
+          "target": 6,
+          "selected": 6,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "heart_failure",
+            "SKILLED NURSING FACILITY"
+          ],
+          "target": 16,
+          "selected": 16,
+          "boundary": 6,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "heart_failure",
+            "HOME HEALTH CARE"
+          ],
+          "target": 10,
+          "selected": 10,
+          "boundary": 3,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "heart_failure",
+            "HOME"
+          ],
+          "target": 8,
+          "selected": 8,
+          "boundary": 6,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "heart_failure",
+            "REHAB"
+          ],
+          "target": 6,
+          "selected": 6,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "medical_decond",
+            "SKILLED NURSING FACILITY"
+          ],
+          "target": 16,
+          "selected": 16,
+          "boundary": 5,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "medical_decond",
+            "HOME HEALTH CARE"
+          ],
+          "target": 10,
+          "selected": 10,
+          "boundary": 5,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "medical_decond",
+            "HOME"
+          ],
+          "target": 8,
+          "selected": 8,
+          "boundary": 5,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        },
+        {
+          "cell": [
+            "medical_decond",
+            "REHAB"
+          ],
+          "target": 6,
+          "selected": 6,
+          "boundary": 2,
+          "received_from_shortfall": 0,
+          "shortfall": 0,
+          "shortfall_moved_to": null
+        }
+      ],
+      "need_tag_counts": {
+        "acute_stroke": 40,
+        "debility": 1,
+        "dementia": 34,
+        "hip_fracture": 19,
+        "iv_therapy": 67,
+        "nutrition_support": 15,
+        "parkinson": 10,
+        "pressure_ulcer": 2,
+        "rehab_therapy": 147,
+        "respiratory": 72,
+        "speech_therapy": 38,
+        "wound_care": 46
+      },
+      "hip_fracture": 19,
+      "boundary": 71
+    }
+  }
+}

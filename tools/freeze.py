@@ -1,6 +1,7 @@
 """Freeze protected files: record their sha256 in data/PROTECTED.sha256 (CLAUDE.md hard rule 7).
 
-Run by the USER after signing off a file (a split, gold labels, expected results, the design doc):
+Run only with the user's sign-off on the file (a split, gold labels, expected results, the design doc).
+Claude may start it, but the guard hook routes every run to the user's permission prompt:
 
     uv run python tools/freeze.py data/splits/test.csv [more paths ...]
 

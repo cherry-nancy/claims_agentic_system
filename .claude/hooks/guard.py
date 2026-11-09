@@ -93,6 +93,30 @@ def is_protected(rel: str) -> bool:
     return rel.startswith(PROTECTED_DIRS) or rel in PROTECTED_FILES
 
 
+MANIFEST = ROOT / "data" / "PROTECTED.sha256"
+
+
+def frozen_files() -> set[str]:
+    """Repo-relative lower-case paths listed in data/PROTECTED.sha256, plus the manifest itself."""
+    out = set(PROTECTED_FILES)
+    if MANIFEST.exists():
+        for line in MANIFEST.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#"):
+                out.add(line.split(None, 1)[1].strip().replace("\\", "/").lower())
+    return out
+
+
+def touches_frozen(rels: list[str]) -> bool:
+    """True if any path (file, folder or glob) is, or contains, a frozen file."""
+    fz = frozen_files()
+    for r in rels:
+        r = r.split("*")[0].rstrip("/")
+        if r in ("", ".") or r in fz or any(f.startswith(r + "/") for f in fz):
+            return True
+    return False
+
+
 def deny(msg: str) -> None:
     print(f"[guard] BLOCKED: {msg}", file=sys.stderr)
     sys.exit(2)
@@ -126,9 +150,12 @@ def check_file_tool(tool: str, ti: dict) -> None:
             # existence on the real (case-preserved) path, not the lower-cased one
             real = Path(path) if Path(path).is_absolute() else ROOT / path
             if real.exists() and os.environ.get(ALLOW_ENV) != "1":
-                deny(f"{rel} is a protected file (CLAUDE.md hard rule 7) and already exists. "
-                     "Stop and explain to the user why it needs to change; the user edits it, or starts "
-                     f"the session with {ALLOW_ENV}=1.")
+                if touches_frozen([rel]):
+                    deny(f"{rel} is a frozen protected file (CLAUDE.md hard rule 7). Stop and explain to the "
+                         "user why it needs to change; the user edits it, or starts the session with "
+                         f"{ALLOW_ENV}=1.")
+                ask(f"{rel} is a protected file that is not frozen yet. Approve only if you agreed to "
+                    "change it.")
     else:  # Read / Grep / Glob
         for val in (path, ti.get("pattern", ""), ti.get("glob", "")):
             rel = rel_to_root(val) if val else None
@@ -208,6 +235,11 @@ def check_git(cmd: str) -> None:
         if not rest:
             continue
         sub, args = rest[0], rest[1:]
+        # shell redirections end the git arguments: `git push origin x 2>&1`, `... > log.txt`
+        for k, a in enumerate(args):
+            if re.match(r"^(\d*[<>]|&)", a):
+                args = args[:k]
+                break
         if sub == "commit":
             br = current_branch()
             if not br.startswith("zhijie-"):
@@ -254,6 +286,7 @@ def check_shell(cmd: str) -> None:
     cmd_norm = norm(cmd)  # whole command, normalized for path matching
     allow_prot = os.environ.get(ALLOW_ENV) == "1"
     in_raw = False  # a previous `cd` in this command moved into the raw folder
+    asks: list[str] = []  # collected, emitted only after every deny check has run
     for seg in SEG_SPLIT.split(cmd):
         seg_n = norm(seg)
         w = words(seg)
@@ -276,23 +309,35 @@ def check_shell(cmd: str) -> None:
                 targets = [rel_to_root(t) or "" for t in redirect_targets(seg)]
                 if (r in seg_n and writes) or any(t.startswith(r) for t in targets):
                     # step-2 scripts write splits from Python, which this guard does not see.
-                    deny(f"this command would change protected path {r} (CLAUDE.md hard rule 7).")
+                    hit = [x for x in (rel_to_root(t) for t in toks) if x and x.startswith(r)]
+                    hit += [t for t in targets if t.startswith(r)]
+                    if touches_frozen(hit or [r]):
+                        deny(f"this command would change frozen protected path {r} (CLAUDE.md hard rule 7).")
+                    asks.append(f"this command changes protected path(s) {', '.join(sorted(set(hit))) or r} "
+                                "that are not frozen yet; approve only if you agreed to change them.")
                 if tree and protected_has_files(rel):
                     for t in toks:
                         if is_parent_of(t, rel):
-                            deny(f"'{t}' contains the protected path {r}, which has files; this command "
-                                 "could overwrite or delete them (CLAUDE.md hard rule 7). Name the paths "
-                                 "you mean explicitly.")
+                            if touches_frozen([rel_to_root(t) or ""]):
+                                deny(f"'{t}' contains frozen protected files; this command could overwrite or "
+                                     "delete them (CLAUDE.md hard rule 7). Name the paths you mean explicitly.")
+                            asks.append(f"'{t}' contains protected path {r} (not frozen); approve only if "
+                                        "you agreed.")
         for rel in ASK_FILES:
             if mentions(seg_n, rel) and writes:
-                ask(f"this command changes the design document {rel}; needs the user's approval.")
+                asks.append(f"this command changes the design document {rel}; needs the user's approval.")
     if TEST_GOLD in cmd_norm:
         deny("test-gold may not be read during development (CLAUDE.md hard rule 3).")
     if re.search(r"--split[= ]+test\b", cmd_norm) or re.search(r"snf-pa\s+eval\b.*\btest\b", cmd_norm):
         deny("runs on the test split are started by the user only (CLAUDE.md hard rule 3).")
-    if runs_freeze(cmd_norm):
-        deny("only the user freezes protected files (the user runs tools/freeze.py).")
     check_git(cmd)
+    # Freezing records new hashes for protected files: Claude may run it, but only after the user approves
+    # this exact command in the permission prompt (user decision 2026-11-08).
+    if runs_freeze(cmd_norm):
+        asks.append("tools/freeze.py records new hashes for protected files. Approve only if you agreed to "
+                    "the current content of every file listed in this command.")
+    if asks:
+        ask(" | ".join(dict.fromkeys(asks)))
 
 
 def runs_freeze(cmd_norm: str) -> bool:

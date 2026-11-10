@@ -1,0 +1,841 @@
+{
+ "case_id": "21297383",
+ "content_hash": "2d646f8018bcb2e4eaba76da78a9f3ae8ccfe73ff12c3141450eecfa994ad405",
+ "demographics": {
+  "age_at_admit": 72,
+  "sex": "F",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2156-04-13T00:00:00",
+  "dischtime": "2156-04-20T18:00:00",
+  "ed_intime": null,
+  "ed_outtime": null,
+  "observation_order_time": null,
+  "inpatient_order_time": "2156-04-13T07:13:00",
+  "inpatient_start": "2156-04-13T07:13:00",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2156-04-19T18:00:00",
+  "prior_stays_30d": [
+   {
+    "hadm_id": 25550848,
+    "admittime": "2156-03-27T00:41:00",
+    "dischtime": "2156-03-28T16:50:00",
+    "inpatient_start": "2156-03-27T02:22:11",
+    "inpatient_start_source": "poe_admit_inpatient",
+    "midnights": 1
+   }
+  ]
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: NEUROSURGERY",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=151-172",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: No Known Allergies / Adverse Drug Reactions",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=175-231",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "Suprasellar mass",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=267-283",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "___: Endoscopic endonasal resection of suprasellar mass",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=324-379",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Ms. ___ is ___ year old female who initially presented to ___",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=410-471",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "___ on ___ with 2 days of headache, dizziness, nausea \nand vomiting.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=473-541",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "A ___ revealed a 2.1 x 1.2cm pituitary lesion.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=542-588",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She was \ntransferred to ___ ED for further evaluation.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=589-643",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She remained \ninpatient until ___.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=644-678",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "After discharge, she was seen by \nendocrinology and otolaryngology for pre-operative planning.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=680-774",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She presents today for elective endoscopic endonasal resection \nof suprasellar lesion.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=777-863",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "HTN",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=888-891",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "HLD",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=892-895",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "T2DM",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=896-900",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Chronic cough",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=901-914",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "COPD\ndysphonia\narthritis",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=915-939",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "R hip replacement ___",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=940-961",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "L hip replacement ___",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=962-983",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Mother: Died of breast cancer age ___.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1022-1060",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Mother's sisters with various forms of cancer.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1062-1108",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Father: No cancer history.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1110-1136",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Exam on Discharge",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1154-1171",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "The patient is alert and oriented to person, place and time.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1172-1232",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Face symmetrical, tongue midline.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1234-1267",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "PERRL, ___, Extra-ocular eye \nmovement intact.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1268-1314",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "No pronator drift and MAE ___ with sensation intact to light \ntouch.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1315-1383",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Abdominal incision is clean, dry and intact.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1384-1428",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Lumbar incision has \nsuture in place and is clean, dry and intact.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1429-1495",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "No active nasal drainage.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1496-1521",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "CT HEAD W/O CONTRAST Study Date of ___ 4:02 ___",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1544-1591",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "IMPRESSION:",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1593-1604",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Expected postsurgical changes after transsphenoidal resection of \na suprasellar mass, small amount of blood products in the \nsuprasellar region.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1607-1751",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "No other hemorrhage or parenchymal edema \nseen.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1753-1800",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "CT L-SPINE W/O CONTRAST Study Date of ___ 6:50 ___",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1803-1853",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "IMPRESSION:",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1855-1866",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "1. Lumbar drain entering the spinal canal at the L2-3 level and \ncoursing \nsuperiorly in the left aspect of the spinal canal to the T11-12 \nlevel.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=1868-2014",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "At L2, the drain appears to be within the thecal sac.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=2016-2069",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "More superiorly, it is not clear whether the drain remains \nwithin the thecal sac, or whether it exits into the posterior \nepidural space.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=2072-2210",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "2. Scoliosis and multilevel degenerative disease of the included \nlower \nthoracic spine and lumbar spine.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=2212-2317",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "3. Partially visualized large hiatal hernia.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=2319-2363",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "On ___, Ms. ___ was admitted and taken to the OR for \nelective endoscopic endonasal resection of pituitary mass.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=2450-2562",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "#Endoscopic endonasal resection of suprasellar mass- Taken to \nthe OR for resection of suprasellar mass.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=2564-2668",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The case was \nuncomplicated and a lumbar drain was left in place and was not \ndraining in the immediate post operative period although it was \ndraining appropriately but not more than 10cc/hr.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=2669-2861",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Placement was \nconfirmed with a CT of the L spine.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=2862-2912",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Serum sodium, urine \nelectrolytes and urine output were monitored closely.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=2913-2987",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The \npatient required treatment with DDAVP for high urine outputs.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=2988-3054",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She remained on ceftriaxone while nasal packing was in place.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3056-3117",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "A \nroutine post operative MRI was performed on ___ and \ndemonstrated expected postsurgical changes with fat packing and \nblood products seen in the surgical cavity with some residual \nsurrounding enhancement.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3118-3326",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "#Lumbar Drain - During an attempt for MRI the lumbar drain was \ndisconnected.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3330-3407",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Neurosurgery staff reconnected the drain and CSF \nwas sent to ensure no contamination.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3408-3494",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Cultures were negative for \nany growth.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3495-3534",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The lumbar drain was clamped on ___ after the fat \npacking was removed and the patient demonstrated no obvious \nnasal drip.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3535-3658",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "After ___ hours, the drain was removed and \nsuture was placed at the opening.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3659-3736",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was evaluated by nursing on ___ and she demonstrated \nthe ability to ambulate independently.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3739-3843",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "-Tylenol ___ q6h PRN",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3902-3922",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "-Magnesium 250mg with dinner",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3923-3951",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "-Vitamin D 1000mg qam",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3952-3973",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "-Omeprazole 20mg qam",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3974-3994",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "-Atorvastatin 40mg qhs",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=3995-4017",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "-lisinopril 20mg BID",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=4018-4038",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "-Amlodipine 5mg daily",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=4039-4060",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "-metformin 500mg with dinner",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=4061-4089",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=4825-4859",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=4860-4906",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - Independent.",
+   "provenance": "discharge:note_id=10308232-DS-17:chars=4907-4949",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-18:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-13T17:46:00",
+   "text": "Expected postsurgical changes after transsphenoidal resection of a suprasellar mass, small amount of blood products in the suprasellar region.",
+   "provenance": "radiology:note_id=10308232-RR-18:chars=1803-1945",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-18:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-13T17:46:00",
+   "text": "No other hemorrhage or parenchymal edema seen.",
+   "provenance": "radiology:note_id=10308232-RR-18:chars=1947-1993",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-19:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-13T21:21:00",
+   "text": "1. Lumbar drain entering the spinal canal at the L2-3 level and coursing superiorly in the left aspect of the spinal canal to the T11-12 level.",
+   "provenance": "radiology:note_id=10308232-RR-19:chars=2405-2548",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-19:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-13T21:21:00",
+   "text": "At L2, the drain appears to be within the thecal sac.",
+   "provenance": "radiology:note_id=10308232-RR-19:chars=2550-2603",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-19:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-13T21:21:00",
+   "text": "More superiorly, it is not clear whether the drain remains within the thecal sac, or whether it exits into the posterior epidural space.",
+   "provenance": "radiology:note_id=10308232-RR-19:chars=2605-2741",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-19:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-13T21:21:00",
+   "text": "2. Scoliosis and multilevel degenerative disease of the included lower thoracic spine and lumbar spine.",
+   "provenance": "radiology:note_id=10308232-RR-19:chars=2742-2845",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-19:s5",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-13T21:21:00",
+   "text": "3. Partially visualized large hiatal hernia.",
+   "provenance": "radiology:note_id=10308232-RR-19:chars=2846-2890",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-19:s6",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-13T21:21:00",
+   "text": "4. Two left adrenal adenomas measuring 1.6 cm and 1.5 cm.",
+   "provenance": "radiology:note_id=10308232-RR-19:chars=2891-2948",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-17:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-16T07:33:00",
+   "text": "Successful fluoro-guided drain placement",
+   "provenance": "radiology:note_id=10308232-RR-17:chars=1342-1382",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-20:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-17T10:31:00",
+   "text": "1. Postsurgical changes with fat packing and blood products are seen in the surgical cavity with some residual surrounding enhancement.",
+   "provenance": "radiology:note_id=10308232-RR-20:chars=1341-1476",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-20:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-17T10:31:00",
+   "text": "This may be due to postoperative change and followup examination can be performed to assess for residual lesion.",
+   "provenance": "radiology:note_id=10308232-RR-20:chars=1478-1590",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10308232-RR-20:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2156-04-17T10:31:00",
+   "text": "2. Chronic microangiopathy",
+   "provenance": "radiology:note_id=10308232-RR-20:chars=1591-1617",
+   "needs": []
+  },
+  {
+   "ref_id": "POE:rehab_therapy",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2156-04-19T07:43:16",
+   "text": "Physical Therapy: 1 order(s) before T_pa; first on hospital day 7, most recent 10.3 h before T_pa.",
+   "provenance": "poe:poe_id=10308232-290",
+   "needs": [
+    "rehab_therapy"
+   ]
+  },
+  {
+   "ref_id": "RX:iv_therapy:ceftriaxone",
+   "source": "prescriptions",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2156-04-14T00:00:00",
+   "text": "IV ceftriaxone: 1 order(s) running at some point in the 48 h before T_pa; stopped at T_pa; most recent start 138.0 h before T_pa.",
+   "provenance": "prescriptions:drug=ceftriaxone;pharmacy_id=58550816",
+   "needs": [
+    "iv_therapy"
+   ]
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

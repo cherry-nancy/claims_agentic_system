@@ -1,0 +1,38 @@
+# Data-source registry (design v8 §2.1 note 1). Each source turns raw rows into EvidenceItems.
+# t_pa_field: the timestamp that decides whether a row existed at T_pa. "none" means the whole document is
+# written after T_pa and is accepted as a documented limitation (design §15), with leakage removal instead.
+
+version: 1
+
+sources:
+  - id: discharge_note
+    tables: ["mimic-iv-note/note/discharge"]
+    t_pa_field: none   # written at/after discharge; sections per design §3.5, disposition redaction
+    leakage: "drop sections DISPO/FAC/DCI/FU/DXDC/MEDDC; keep header Service/Allergies only; redact disposition sentences (two-tier rules)"
+    evidence_kind: span
+    id_format: "DS:<SECTION>:s<n>"
+    module: snf_pa.adapters.sources.discharge_note
+
+  - id: radiology
+    tables: ["mimic-iv-note/note/radiology"]
+    t_pa_field: storetime   # report exists once signed
+    leakage: "IMPRESSION section only; reports signed after T_pa are excluded"
+    evidence_kind: span
+    id_format: "RAD:<note_id>:s<n>"
+    module: snf_pa.adapters.sources.radiology
+
+  - id: prescriptions
+    tables: ["mimiciv-3.1/hosp/prescriptions"]
+    t_pa_field: starttime
+    leakage: "rows starting after T_pa are excluded; discharge prescriptions are not used"
+    evidence_kind: fact
+    id_format: "RX:<need_id>:<drug>"
+    module: snf_pa.adapters.sources.facts
+
+  - id: poe
+    tables: ["mimiciv-3.1/hosp/poe", "mimiciv-3.1/hosp/poe_detail"]
+    t_pa_field: ordertime
+    leakage: "orders placed after T_pa are excluded; ADT discharge orders are not used"
+    evidence_kind: fact
+    id_format: "POE:<need_id>"
+    module: snf_pa.adapters.sources.facts

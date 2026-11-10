@@ -326,3 +326,48 @@ guard 同时做了一处调整（用户此前的方向："不需要我决定的�
 - 本步的独立审查还没做（等 2e 完成后连同全部 diff 一起审）。
 - 原始数据目录在系统层面仍然可写（L0 ACL 未设）。
 - `tests/test_sample.py` 的去留（旧抽样方案的测试）还没定，见 `reports/teammate_diff_raw_data_access.md` 第 4 条。
+
+## 11. 评审后重做（2026-11-09）
+
+团队评审结论见 `reports/teammate_diff_cohort.md` 末尾、`plan/decision_log.md` D-008；计划修订见 `reports/step2_plan.md`「评审后修订」。上面第 1–10 节是第一次的记录，保留不删。
+
+### 11.1 改了什么
+| 项 | 原来 | 现在 |
+|---|---|---|
+| 去向 | SNF / HHC / HOME / REHAB | SNF / HHC / HOME（`cohort.py` 的 `DISPOSITIONS`） |
+| 划分 | 按病人，`subjects.csv`（salt v1） | **按住院**，`data/splits/admissions.csv` + `.meta.json`（salt `snf-pa-split-v2`） |
+| 抽样 | 每场景 SNF 8 / HHC 5 / HOME 4 / REHAB 3；每人一次 | 每场景 **SNF 8 / HHC 7 / HOME 5**（test 加倍）；**以住院为单位**（salt `snf-pa-sample-v2`） |
+| 冻结 | 只能冻结 | 新增 `tools/freeze.py --unfreeze`，经确认框允许 |
+
+旧文件（`subjects.csv`、`subjects.meta.json`、旧的 `dev_cases.csv` / `test_cases.csv` / `sample.meta.json`）先经确认框解冻，再删除；git 历史 `d5fab9d` 中保留。
+
+### 11.2 原始输出
+```
+$ uv run python -m snf_pa.adapters.cohort
+HOME HEALTH CARE 17308 / 10937;  HOME 16335 / 11053;  SKILLED NURSING FACILITY 15795 / 10483
+total_admissions 49438   total_patients 25375
+$ （独立查询，不经过 cohort.py，直接从原始表重算）
+[(49438, 25375, 15795, 10483)]
+$ uv run python tools/freeze.py --unfreeze data/splits/subjects.csv data/splits/subjects.meta.json data/splits/dev_cases.csv data/splits/test_cases.csv data/splits/sample.meta.json tests/expected/pool_counts.json
+（用户在确认框中允许）unfrozen × 6
+$ uv run python research/make_split.py
+wrote ...\data\splits\admissions.csv: 49438 admissions, dev 24778, test 24660; patients in both splits 6991
+$ uv run pytest tests/test_split.py tests/test_cohort_counts.py -q -m "slow or not slow"
+8 passed
+$ cd research && uv run python sample.py
+dev: 100 cases;  test: 200 cases
+dev  n=100 boundary=33 hip_fx=8
+test n=200 boundary=71 hip_fx=12
+  test 骨科术后 × HOME：目标 10，只有 6 例可选，差 4 例按规则移到骨科术后 × HHC（目标 14 → 18）
+dev 100 例 = 100 个病人；test 200 例 = 198 个病人；同时出现在 dev 样本和 test 样本里的病人：2 个
+$ uv run pytest tests/test_sample_cases.py tests/test_split.py -q
+9 passed（含独立重抽结果一致）
+$ uv run python tools/freeze.py data/splits/admissions.csv data/splits/admissions.meta.json data/splits/dev_cases.csv data/splits/test_cases.csv data/splits/sample.meta.json tests/expected/pool_counts.json
+（用户在确认框中允许）added × 6
+$ uv run python -m snf_pa.adapters.subset
+admissions 106,051 · patients 25,375 · poe 11,108,661 · prescriptions 4,375,021 · discharge 87,801 · radiology 492,906 …
+```
+
+### 11.3 要知道的影响
+- **同一病人跨 split**：候选池 25,375 个病人里，有 6,991 个（27.5%）的住院同时在 dev 和 test。抽出的样本里，有 2 个病人同时在 dev 100 和 test 200 中。test 结果可能因此偏乐观，按设计 3.2 写进评估报告的局限。
+- 样本标签数（dev / test）：rehab_therapy 72 / 157、respiratory 46 / 82、iv_therapy 34 / 69、wound_care 27 / 52、acute_stroke 20 / 40、speech_therapy 12 / 30、dementia 9 / 17、hip_fracture 8 / 12、nutrition_support 5 / 6、parkinson 1 / 5、pressure_ulcer 2 / 3、debility 0 / 1。

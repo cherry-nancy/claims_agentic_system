@@ -1,0 +1,632 @@
+{
+ "case_id": "29646217",
+ "content_hash": "40aa427c694b05fb62f71a947e626e28d3b281c004007b9162c93a5d819b207a",
+ "demographics": {
+  "age_at_admit": 68,
+  "sex": "F",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2161-02-28T09:00:00",
+  "dischtime": "2161-03-03T18:36:00",
+  "ed_intime": null,
+  "ed_outtime": null,
+  "observation_order_time": null,
+  "inpatient_order_time": "2161-02-28T10:38:44",
+  "inpatient_start": "2161-02-28T10:38:44",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2161-03-02T18:36:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: SURGERY",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=146-162",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: lisinopril / ACE Inhibitors",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=165-205",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "Left colon adenocarcinoma s/p laparoscopic hemicolectomy",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=242-298",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Elective open ileocecectomy",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=340-367",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Mrs. ___ is a ___ year-old female presenting for elective \nsurgery at the ___ Colorectal Surgery Service.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=399-504",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She is s/p \nlaparoscopic partial left colectomy on ___.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=505-560",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She \nhas been doing well since.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=561-592",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Her bowel\nfunction has returned to normal.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=593-635",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She is here for elective open \nileocecectomy.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=636-681",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Invasive left colon adenocarcinoma",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=731-765",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "ESRD (On Nocturnal HD ___, ___ Night)",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=768-805",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "A-fib (paroxysmal, on coumadin, pre-ok EKG NSR)  \ngastroesophageal reflux  \ngastric polyp    \nhypertension  \nhypothyroidism  \nh/o BCC on face and shin",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=808-958",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "PAST SURGICAL HISTORY:",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=962-984",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Failed DCD Renal transplant (___), PD catheter, PD catheter\nremoval, RUE AV Fistula",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=987-1070",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Noncontributory",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1110-1125",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Exam at discharge:",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1143-1161",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "VS: AVSS",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1163-1171",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "GEN: AOx3, NAD",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1172-1186",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "ABD: soft, NT/ND, no rebound tenderness or guarding, incision \nc/d/i",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1187-1255",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:30PM BLOOD WBC-9.2 RBC-2.81* Hgb-10.2* Hct-28.7*",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1277-1332",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCV-102* MCH-36.2* MCHC-35.5* RDW-13.6 Plt ___",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1334-1380",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:35AM BLOOD WBC-10.1 RBC-2.93* Hgb-10.7* Hct-31.3*",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1381-1437",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCV-107* MCH-36.6* MCHC-34.3 RDW-14.2 Plt ___",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1439-1484",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:30PM BLOOD Glucose-107* UreaN-31* Creat-7.4*#",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1485-1537",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Na-131* K-3.5 Cl-89* HCO3-31 AnGap-15",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1539-1576",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:35AM BLOOD Glucose-89 UreaN-22* Creat-4.9*# Na-139",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1577-1634",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "K-4.3 Cl-94* HCO3-37* AnGap-12",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1636-1666",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:30PM BLOOD Calcium-8.6 Phos-3.5# Mg-1.8",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1667-1713",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Mrs. ___ presented to ___ holding at ___ on ___ for \nan elective open ileocecectomy.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1739-1823",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She tolerated the procedure well \nwithout complications (Please see operative note for further \ndetails).",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1824-1929",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "After a brief and uneventful stay in the PACU, the \npatient was transferred to the floor for further post-operative \nmanagement.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=1930-2058",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Neuro: Her pain was well controlled on PCA transitioned to PO \npain meds during this admission.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=2061-2156",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "CV: Her CV status was stable during the entire admission.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=2157-2214",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She \nwas placed on telemetry for concern of history of afib, but \ntelemetry was unremarkable during admission.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=2215-2325",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Pulm: She was breathing comfortably at room air.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=2326-2374",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "O2 saturation \nwas normal and she did not have any respiratory distress.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=2375-2447",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "GI: Her diet was advanced from sips to clears to regular without \nany delay.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=2448-2524",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "At discharge, she was tolerating a regular diet \nwithout any problem.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=2525-2594",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "GU: She had dialysis on ___ and ___ during this \nadmission and resume her normal dialysis date and location once \ndischarged.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=2595-2720",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "ID: There was no issue from an ID standpoint during this \nadmission.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=2721-2789",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Heme: There was no issue from a HEME standpoint during this \nadmission.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=2790-2861",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "At discharge, \nshe was tolerating a regular diet, passing flatus, stooling, \nvoiding, and ambulating independently.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=2907-3022",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "This information was communicated to the \npatient directly prior to discharge.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=3071-3149",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Post-Surgical Complications During Inpatient Admission:",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=3152-3207",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Catheter",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=3538-3546",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Social Issues Causing a Delay in Discharge:",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=3591-3634",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "The Preadmission Medication list is accurate and complete.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=4060-4118",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "1. Warfarin 2.5 mg PO TUE, WED, ___, SAT, SUN",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=4119-4164",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "2. Warfarin 5 mg PO 2X/WEEK (MO,FR)",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=4166-4201",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "3. Atorvastatin 40 mg PO HS",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=4203-4230",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "4. Levothyroxine Sodium 150 mcg PO DAILY",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=4232-4272",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "5. esomeprazole magnesium 40 mg oral qd",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=4274-4313",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "6. PredniSONE 5 mg PO DAILY",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=4315-4342",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "7. Valsartan 40 mg PO DAILY",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=4344-4371",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=5393-5427",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=5428-5474",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - Independent.",
+   "provenance": "discharge:note_id=17464265-DS-7:chars=5475-5517",
+   "needs": []
+  },
+  {
+   "ref_id": "POE:wound_care",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2161-02-28T13:27:31",
+   "text": "Wound Care: 1 order(s) before T_pa; first on hospital day 1, most recent 53.1 h before T_pa.",
+   "provenance": "poe:poe_id=17464265-350",
+   "needs": [
+    "wound_care"
+   ]
+  },
+  {
+   "ref_id": "POE:respiratory",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2161-02-28T13:17:36",
+   "text": "Oxygen Therapy: 1 order(s) before T_pa; first on hospital day 1, most recent 53.3 h before T_pa.",
+   "provenance": "poe:poe_id=17464265-346",
+   "needs": [
+    "respiratory"
+   ]
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

@@ -1,0 +1,1532 @@
+{
+ "case_id": "27589258",
+ "content_hash": "ae51fc61138200a5b9b617a8f52a99ff97ef17c90e5387fb173b0384ded8cbc3",
+ "demographics": {
+  "age_at_admit": 91,
+  "sex": "M",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2168-02-29T00:51:00",
+  "dischtime": "2168-03-06T14:30:00",
+  "ed_intime": "2168-02-28T21:04:00",
+  "ed_outtime": "2168-02-29T00:52:22",
+  "observation_order_time": null,
+  "inpatient_order_time": "2168-02-29T02:53:12",
+  "inpatient_start": "2168-02-29T02:53:12",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2168-03-05T14:30:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: MEDICINE",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=150-167",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: ACE Inhibitors / allopurinol / Prazosin / diltiazem / naproxen / Cephalexin",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=170-259",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "Shortness of breath, chest discomfort",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=296-333",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "None",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=374-378",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "___ M with h/o CAD s/p CABG, HTN, HL, PAF who usually receives \nhis care at ___ presents with complaint of dyspnea.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=409-524",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He reports \nthat in the last week or so he has developed progressive SOB \nthat is worse with lyign flat.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=525-629",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He spent all week sitting upright \nin his chair.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=630-678",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He also endorses intermittent chest pain and a",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=679-725",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "\"throat tightness.\"  He says he likes to eat salty foods and has \nnot kept a low-salt diet.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=727-818",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Today the dyspnea got so bad he called \nan ambulance.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=819-872",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "They brougth him to ___ because his new PCP is \naffiliated with BI although Mr. ___ has not yet seen him.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=873-978",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "In the ED: Patient was initially placed on BiPAP, nitro drip and",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=982-1046",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Lasix DT CHF exacerbation.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1048-1074",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Patient's EKG showed lateral ST \ndepression and there is no prior to compare to.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1075-1155",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Patient had good \nurine output after the Lasix and was tried off the BiPAP and \npatient had no further respiratory distress or drop in \noxygenation saturation.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1156-1315",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Cardiology was called due to elevated \ntroponin and EKG showing ST depression.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1316-1394",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "On the floor he is chest pain free and HD stable.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1398-1447",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "CAD:",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1474-1478",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- s/p MI with EF 45% and triple CABG in ___, improvement of",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1479-1538",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "EF to 65%",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1540-1549",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- s/p bare metal stent in ___",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1550-1579",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Hypertension",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1580-1592",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Hyperlipidemia",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1593-1607",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Obesity",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1608-1615",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Gout",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1616-1620",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Chronic ___ edema",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1621-1638",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "OA of the knees s/p R knee replacement in ___",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1641-1686",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Glaucoma",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1688-1696",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Rosacea",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1697-1704",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Peripheral neuropathy",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1705-1726",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "BPH",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1727-1730",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Mother with DM.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1769-1784",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "ADMISSION PHYSICAL EXAM:",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1802-1826",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "========================",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1827-1851",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "VS: T 98  HR 85  BP 120/64  R 26  97% 2LNC",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1852-1894",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "General- Alert, oriented, no acute distress, sitting in chair",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1895-1956",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "HEENT- Sclera anicteric, MMM, oropharynx clear",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=1958-2004",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Neck- supple, JVP elevated to the jaw, no LAD",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2007-2052",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Lungs- bibasilar rales",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2055-2077",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "CV- regular rate with frequent ectopy.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2078-2116",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "No murmurs",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2117-2127",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Abdomen- soft, non-tender, non-distended, bowel sounds present, \nno rebound tenderness or guarding, no organomegaly",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2128-2243",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "GU- foley",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2246-2255",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Ext- 3+ pitting edema to the knees bilaterally",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2256-2302",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "DISCHARGE PHYSICAL EXAM:",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2306-2330",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "========================",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2331-2355",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "VS: 97.8  65  113/68  20  98%RA",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2356-2387",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "General- Alert, oriented, NAD, sitting comfortably in chair",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2390-2449",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "HEENT- Sclera anicteric, MMM, oropharynx clear",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2451-2497",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Neck- supple, no LAD",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2500-2520",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Lungs- clear to auscultation anteriorly",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2523-2562",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "CV- regular rate with frequent ectopy.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2563-2601",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "No murmurs",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2602-2612",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Abdomen- soft, non-distended, non-tender, bowel sounds present, \nno rebound or guarding",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2613-2700",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Ext- trace edema, bilateral ___ with chronic venous stasis \nchanges",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2702-2769",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "ADMISSION LABS:",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2792-2807",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "===============",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2808-2823",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:30PM   WBC-7.0 RBC-3.91* HGB-11.9* HCT-36.4* MCV-93",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2824-2882",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCH-30.4 MCHC-32.7 RDW-14.3",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2884-2911",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:30PM   NEUTS-71.9* ___ MONOS-5.5 EOS-2.6",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2912-2959",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "BASOS-0.5",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2961-2970",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:30PM   PLT COUNT-138*",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=2971-2999",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:30PM   ___ PTT-29.8 ___",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3000-3030",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:30PM   GLUCOSE-119* UREA N-45* CREAT-2.0* SODIUM-139",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3031-3090",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "POTASSIUM-5.7* CHLORIDE-102 TOTAL CO2-24 ANION GAP-19",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3092-3145",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:30PM   CALCIUM-8.4 PHOSPHATE-3.6",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3146-3185",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:30PM   CK-MB-9 cTropnT-0.32* proBNP-6266*",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3186-3234",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:30PM   CK(CPK)-228",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3235-3260",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:36PM   LACTATE-1.6 K+-7.1*",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3261-3294",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:00PM URINE  BLOOD-NEG NITRITE-NEG PROTEIN-TR",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3295-3346",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "GLUCOSE-NEG KETONE-NEG BILIRUBIN-NEG UROBILNGN-NEG PH-5.5",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3348-3405",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "LEUK-NEG",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3407-3415",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:00PM URINE  RBC-1 WBC-0 BACTERIA-NONE YEAST-NONE",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3416-3471",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "EPI-0",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3473-3478",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:00PM URINE  COLOR-Straw APPEAR-Clear SP ___",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3479-3529",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "PERTINENT LABS:",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3531-3546",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "===============",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3547-3562",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:30PM BLOOD CK-MB-9 cTropnT-0.32* proBNP-6266*",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3563-3615",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 03:30AM BLOOD CK-MB-8 cTropnT-0.34*",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3616-3655",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:30AM BLOOD CK-MB-6 cTropnT-0.34*",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3656-3695",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "DISCHARGE LABS:",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3697-3712",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "===============",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3713-3728",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 05:02AM BLOOD Glucose-97 UreaN-66* Creat-2.3* Na-141",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3729-3785",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "K-4.1 Cl-101 HCO3-28 AnGap-16",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3787-3816",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 05:02AM BLOOD Calcium-9.0 Phos-4.3 Mg-1.9",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3817-3862",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "PERTINENT IMAGING:",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3864-3882",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "==================",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3883-3901",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___   Imaging CHEST (PORTABLE AP)",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3902-3935",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Cardiomegaly with pulmonary edema.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3937-3971",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Small right pleural effusion \ncannot be excluded.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=3973-4022",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___   Cardiovascular ECHO",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4025-4050",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s37",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "IMPRESSION: Suboptimal image quality.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4052-4089",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s38",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Mild symmetric left \nventricular hypertrophy with low-normal ejection fraction.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4090-4169",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s39",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Right \nventricle not well-visualized.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4170-4207",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s40",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "At least moderate pulmonary \nartery systolic hypertension.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4208-4266",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s41",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Mild-to-moderate mitral \nregurgitation.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4267-4306",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s42",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "PERTINENT EKGS:",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4309-4324",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s43",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "===============",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4325-4340",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s44",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___   Cardiovascular ECG",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4341-4365",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s45",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Sinus rhythm.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4367-4380",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s46",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Premature atrial contractions.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4381-4411",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s47",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Baseline artifact \nmakes it \ndifficult for clear interpretation.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4412-4476",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s48",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "No previous tracing \navailable for \ncomparison.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4477-4524",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "___ gentleman with CAD s/p CABG in ___, HTN, HL who previously \nreceived all his care at ___ presents in acute on chronic heart \nfailure and volume overload.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4553-4710",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Admission weight 91kg.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=4982-5004",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "TTE showing diastolic \ndysfunction with mild systolic dysfunction and moderate \npulmonary HTN.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=5006-5100",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Troponemia remained stable with flat CK-MB.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=5101-5144",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "This \nwas likely secondary to demand in the setting of impaired renal \nfunction (see below).",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=5145-5237",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Patient received IV diuresis for several \ndays with significant improvement in respiratory status and \nlower extremity edema.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=5238-5363",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Patient was transitioned to 40mg \ntorsemide daily prior to discharge.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=5364-5433",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Discharge weight 86.5kg.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=5557-5581",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Acute on chronic kidney injury: Previous records largely \nunavailable.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=5583-5655",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Labs from ___ in ___ showing Cr ~1.7, however \npatient's true renal function baseline unclear.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=5656-5750",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Initial Cr \nlikely represents acute on chronic kidney injury in the setting \nof CHF exacerbation and poor forward flow.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=5752-5871",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Patient's renal \nfunction remained stable during his course of diuresis.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=5872-5944",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Cr 2.3 \nat the time of discharge.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=5945-5978",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Depression: Continued mirtazipine.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6090-6126",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Gout: Continued colchine/probenicid.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6128-6166",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "The Preadmission Medication list is accurate and complete.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6396-6454",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "1. Aspirin 81 mg PO DAILY",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6455-6480",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "2. Clopidogrel 75 mg PO DAILY",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6482-6511",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "3. Doxazosin 4 mg PO HS",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6513-6536",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "4. Furosemide 40 mg PO DAILY",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6538-6566",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "5. Isosorbide Mononitrate (Extended Release) 30 mg PO BID",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6568-6625",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "6. Latanoprost 0.005% Ophth.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6627-6655",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "Soln. 1 DROP BOTH EYES HS",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6656-6681",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "7. Losartan Potassium 100 mg PO DAILY",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6683-6720",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "8. Metoprolol Succinate XL 50 mg PO BID",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6722-6761",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "9. Mirtazapine 15 mg PO TAKE HALF OF A TABLET FOR 2 NIGHTS THEN",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6763-6826",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "A WHOLE TABLET FOR 1 NIGHT THEN REPEAT",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6828-6866",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "10. Ocuvite (vit C-vit E-lutein-min-om-3) 150-30-6-150 \nmg-unit-mg-mg oral daily",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6868-6948",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "11. Omeprazole 20 mg PO BID",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6950-6977",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "12. Probenecid ___ mg PO HS",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=6979-7006",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "13. Simvastatin 40 mg PO DAILY",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=7008-7038",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "14. Tamsulosin 0.4 mg PO BID",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=7040-7068",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "15. Cyanocobalamin 500 mcg PO DAILY",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=7070-7105",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "16. Acetaminophen 1000 mg PO Q12H:PRN pain",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=7107-7149",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "17. Fluticasone Propionate NASAL 1 SPRY ND BID as needed",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=7151-7207",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "18. ketotifen fumarate 0.025 % ophthalmic twice daily  as needed",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=7209-7273",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "19. Nitroglycerin SL 0.4 mg SL PRN chest pain",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=7276-7321",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "20. colchicine-probenecid 0.5-500 mg oral daily in the morning",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=7323-7385",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "21. Triamcinolone Acetonide 0.1% Ointment 1 Appl TP BID",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=7387-7442",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "22. melatonin 5 mg oral at bedtime",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=7444-7478",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "23. Multivitamins 1 TAB PO DAILY",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=7480-7512",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=8952-8986",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=8987-9033",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - requires assistance or aid (walker \nor cane).",
+   "provenance": "discharge:note_id=16859201-DS-18:chars=9034-9109",
+   "needs": []
+  },
+  {
+   "ref_id": "POE:rehab_therapy",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2168-03-01T09:42:58",
+   "text": "Physical Therapy: 1 order(s) before T_pa; first on hospital day 2, most recent 100.8 h before T_pa.",
+   "provenance": "poe:poe_id=16859201-87",
+   "needs": [
+    "rehab_therapy"
+   ]
+  },
+  {
+   "ref_id": "POE:respiratory",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2168-02-29T02:58:51",
+   "text": "Oxygen Therapy: 1 order(s) before T_pa; first on hospital day 1, most recent 131.5 h before T_pa.",
+   "provenance": "poe:poe_id=16859201-56",
+   "needs": [
+    "respiratory"
+   ]
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

@@ -25,7 +25,7 @@ from snf_pa.paths import ROOT, sql_path
 from snf_pa.registry import NeedCatalog
 
 POOL = ROOT / "data" / "derived" / "cohort" / "pool.parquet"
-SPLIT = ROOT / "data" / "splits" / "subjects.csv"
+SPLIT = ROOT / "data" / "splits" / "admissions.csv"   # split by hadm_id (design v9, D-008)
 PARQUET = ROOT / "data" / "derived" / "parquet"
 
 SCENARIOS = ("ortho_postop", "stroke", "wound_iv", "heart_failure", "medical_decond")
@@ -50,7 +50,7 @@ BOUNDARY = "(observation_admit_type or naive_midnights < 3 or from_snf)"
 def build_candidates(con: duckdb.DuckDBPyConnection) -> NeedCatalog:
     """Temp table `cand`: every pool admission with split, need tags, scenario and boundary flag."""
     con.execute(f"""create or replace temp table adm as
-        select p.*, s.split from '{sql_path(POOL)}' p join read_csv('{sql_path(SPLIT)}') s using (subject_id)""")
+        select p.*, s.split from '{sql_path(POOL)}' p join read_csv('{sql_path(SPLIT)}') s using (hadm_id, subject_id)""")
     cat = tag_admissions(con, "adm")
     proc = sql_path(PARQUET / "procedures_icd.parquet")
     con.execute(f"""create or replace temp table cand as

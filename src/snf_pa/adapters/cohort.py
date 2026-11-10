@@ -1,7 +1,7 @@
 """Study cohort (design §3.2) built from the raw MIMIC tables with DuckDB. Read-only on MIMIC_RAW_DIR.
 
 Candidate pool = Medicare, age >= 65 at admission, discharged alive, has a discharge summary, admission
-year certainly within 2011-2018, discharge location in {SNF, HHC, HOME, REHAB}.
+year certainly within 2011-2018, discharge location in {SNF, HHC, HOME} (REHAB excluded, decision_log D-008).
 
 Not filters (they are stratification variables, design §3.2 / §10.1): observation status, inpatient
 midnights, admission from a SNF. C1 itself is computed later by the rule engine from POE orders (§6.2).
@@ -22,8 +22,7 @@ from snf_pa.paths import raw_table, sql_path
 SNF = "SKILLED NURSING FACILITY"
 HHC = "HOME HEALTH CARE"
 HOME = "HOME"
-REHAB = "REHAB"
-DISPOSITIONS = (SNF, HHC, HOME, REHAB)
+DISPOSITIONS = (SNF, HHC, HOME)   # REHAB (IRF) excluded by team decision 2026-11-09 (decision_log D-008)
 FROM_SNF = "TRANSFER FROM SKILLED NURSING FACILITY"
 MIN_AGE = 65
 YEAR_FIRST, YEAR_LAST = 2011, 2018

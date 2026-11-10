@@ -4,7 +4,10 @@ Run only with the user's sign-off on the file (a split, gold labels, expected re
 Claude may start it, but the guard hook routes every run to the user's permission prompt:
 
     uv run python tools/freeze.py data/splits/test.csv [more paths ...]
+    uv run python tools/freeze.py --unfreeze data/splits/test.csv [...]   # remove from the manifest
 
+Unfreezing (user decision 2026-11-09) also needs the user's approval in the prompt; afterwards the file is a
+protected-but-unfrozen file (changes still ask the user) until it is frozen again.
 tests/test_protected_files.py then fails if any frozen file changes, whatever changed it.
 Line endings are normalized (CRLF -> LF) before hashing so the same git content hashes the same
 on every machine regardless of core.autocrlf.
@@ -36,9 +39,19 @@ def read_manifest() -> dict[str, str]:
 
 
 def main(paths: list[str]) -> None:
+    unfreeze = bool(paths) and paths[0] == "--unfreeze"
+    paths = paths[1:] if unfreeze else paths
     if not paths:
         sys.exit(__doc__)
     entries = read_manifest()
+    if unfreeze:
+        for p in paths:
+            rel = Path(p).as_posix().lstrip("./")
+            if rel == "data/PROTECTED.sha256" or rel not in entries:
+                sys.exit(f"not frozen (or not allowed): {rel}")
+            del entries[rel]
+            print(f"unfrozen  {rel}")
+        paths = []
     for p in paths:
         f = (ROOT / p).resolve()
         if not f.is_file():

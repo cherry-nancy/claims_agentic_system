@@ -1,0 +1,1186 @@
+{
+ "case_id": "22520468",
+ "content_hash": "6dde053acb7bd6d506d925c37611d0eabcf843050d73308c8bd3498beb67daf4",
+ "demographics": {
+  "age_at_admit": 85,
+  "sex": "F",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2160-06-24T07:15:00",
+  "dischtime": "2160-07-01T16:21:00",
+  "ed_intime": null,
+  "ed_outtime": null,
+  "observation_order_time": null,
+  "inpatient_order_time": "2160-06-24T14:29:52",
+  "inpatient_start": "2160-06-24T14:29:52",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2160-06-30T16:21:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: CARDIOTHORACIC",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=149-172",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: No Known Allergies / Adverse Drug Reactions",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=175-231",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "Dyspnea on exertion",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=268-287",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Aortic valve replacement (21mm ___ tissue valve) ___",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=329-381",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "___ year old female with known history of heart murmur.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=413-468",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She was\nrecently referred to Dr. ___ cardiac evaluation.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=469-525",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "An\nechocardiogram in ___ revealed left ventricular hypertrophy \nand\nsevere aortic stenosis.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=526-617",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She is symptomatic with dyspnea on\nexertion and 3 pillow orthopnea however her symptoms vary in the\nsense that she often has days where she is very active without\nlimitation or symptoms.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=618-804",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Given the severity of her disease, she\nhas been referred for surgical management.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=805-886",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Cardiac cath was\nperformed prior to admission.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=888-934",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Coronary arteries are\nwithout significant disease.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=936-986",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Aortic stenosis",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1012-1027",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Hyperlipidemia",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1028-1042",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Hypertension",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1043-1055",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Right renal cyst",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1056-1072",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Asthma",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1073-1079",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Past Surgical History:",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1080-1102",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "s/p Laparoscopic cholecystectomy ___ yrs ago",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1103-1147",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "One sister with CVA in her ___",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1187-1217",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Pulse: 84  Resp: 16  O2 sat: 98%",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1236-1268",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "B/P  Right: 120/70    Left:",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1269-1296",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Height: 5'3.5\"     Weight: 169 lbs",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1298-1332",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "General: Well-developed elderly female appears less than stated\nage",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1334-1401",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Skin: Dry [X] intact [X]",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1402-1426",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "HEENT: PERRLA [X] EOMI [X]",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1427-1453",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Neck: Supple [X] Full ROM [X]",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1454-1483",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Chest: Lungs clear bilaterally [X]",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1484-1518",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Heart: RRR [X] Irregular [] Murmur [X] grade ___ systolic",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1519-1576",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Abdomen: Soft [X] non-distended [X] non-tender [X] bowel sounds",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1577-1640",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "+",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1642-1643",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "[X]",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1644-1647",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Extremities: Warm [X], well-perfused [X] Edema [] _trace__",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1648-1706",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Varicosities: Large varicosities on both legs",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1707-1752",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Neuro: Grossly intact [X]",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1753-1778",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Pulses:",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1779-1786",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Femoral      Right: 2+  Left: 2+",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1787-1819",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "DP           Right: 2+  Left: 2+",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1820-1852",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "___           Right: 2+  Left: 2+",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1853-1886",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Radial       Right: cath site  Left: 2+",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1887-1926",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Carotid Bruit -    Right/Left: transmitted murmur",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=1928-1977",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ Intra-op TEE:",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2000-2017",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Conclusions",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2018-2029",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "PRE-BYPASS: The left atrium is mildly dilated.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2032-2078",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "No spontaneous \necho contrast or thrombus is seen in the body of the left atrium \nor left atrial appendage.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2079-2186",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "No spontaneous echo contrast is seen \nin the body of the right atrium.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2187-2257",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Left ventricular wall \nthicknesses are normal.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2258-2304",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The left ventricular cavity size is \nnormal.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2305-2349",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Overall left ventricular systolic function is low normal",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2350-2406",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "(LVEF 50-55%).",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2408-2422",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The right ventricular cavity is mildly dilated \nwith normal free wall contractility.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2423-2507",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There are simple atheroma \nin the ascending aorta.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2508-2558",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There are complex (>4mm) atheroma in the \ndescending thoracic aorta.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2559-2627",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There is severe aortic valve stenosis",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2628-2665",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "(valve area 0.8-1.0cm2).",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2667-2691",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Mild (1+) aortic regurgitation is seen.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2692-2731",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The mitral valve leaflets are mildly thickened.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2733-2780",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There is \nmoderate thickening of the mitral valve chordae.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2781-2839",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There is no \npericardial effusion.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2840-2874",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "POST CPB:",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2877-2886",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "1.Preserved bi-ventricular systolic function",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2887-2931",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "2. A bioprosthetic valve is identified in aortic position.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2932-2990",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Well \nseated and good leaflet excursion.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=2991-3031",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Np AI.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3032-3038",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Peak transvslvular \ngradient of 45 mm Hg, with carfiac output = 6.5 liters/min.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3039-3118",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "3. MR is now mild.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3119-3137",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "4. No other change",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3138-3156",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 04:53AM BLOOD WBC-8.4 RBC-3.06* Hgb-9.8* Hct-29.3*",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3161-3215",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCV-96 MCH-32.1* MCHC-33.5 RDW-13.5 Plt ___",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3217-3260",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 01:00PM BLOOD WBC-6.5 RBC-4.13* Hgb-13.5 Hct-39.2",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3261-3314",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCV-95 MCH-32.7* MCHC-34.5 RDW-12.8 Plt ___",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3316-3359",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:30PM BLOOD ___ PTT-29.6 ___",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3360-3394",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 01:00PM BLOOD ___",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3395-3416",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 04:53AM BLOOD Glucose-96 UreaN-19 Creat-0.6 Na-141",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3417-3471",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "K-4.4 Cl-99 HCO3-33* AnGap-13",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3473-3502",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 01:00PM BLOOD Glucose-102* UreaN-14 Creat-0.6 Na-140",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3503-3559",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "K-3.4 Cl-102 HCO3-25 AnGap-16",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3561-3590",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was brought to the Operating Room on ___ where \nshe underwent an Aortic Valve Replacement (#21 mm Biocor apical \ntissue valve)with Dr. ___.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3616-3767",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Overall the patient tolerated \nthe procedure well and post-operatively was transferred to the",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3769-3862",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "CVICU in stable condition for recovery and invasive monitoring.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3864-3927",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "POD 1 found the patient extubated, alert and oriented and \nbreathing comfortably.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=3929-4010",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was neurologically intact \nand hemodynamically stable, weaned from inotropic and \nvasopressor support.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=4012-4126",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Beta blocker, Statin, aspirin, and \ndiuresis was initiated and the patient was gently diuresed \ntoward her preoperative weight.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=4128-4255",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "POD#3 ___ was \ntransferred to the telemetry floor for further recovery.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=4256-4327",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Chest \ntubes and pacing wires were discontinued without complication.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=4329-4398",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was evaluated by the physical therapy service for \nassistance with strength and mobility.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=4401-4502",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "___ in good condition.",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=4675-4697",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "amlodipine 10mg daily, advair diskus 100/50 one puff bid,\nsimvastatin 20mg daily, asa 81mg daily",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=4769-4865",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Alert and oriented x3 nonfocal",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=6598-6628",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Ambulating, gait steady",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=6629-6652",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Sternal pain managed with oral analgesics",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=6653-6694",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Sternal Incision - healing well, no erythema or drainage",
+   "provenance": "discharge:note_id=10481729-DS-17:chars=6695-6751",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-13:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-24T10:47:00",
+   "text": "Right ICA <40% stenosis.",
+   "provenance": "radiology:note_id=10481729-RR-13:chars=949-973",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-13:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-24T10:47:00",
+   "text": "Left ICA <40% stenosis.",
+   "provenance": "radiology:note_id=10481729-RR-13:chars=986-1009",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-14:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-24T23:51:00",
+   "text": "No evidence of acute disease.",
+   "provenance": "radiology:note_id=10481729-RR-14:chars=566-595",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-15:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-25T13:43:00",
+   "text": "1. Standard configuration of support tubes and lines.",
+   "provenance": "radiology:note_id=10481729-RR-15:chars=791-845",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-15:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-25T13:43:00",
+   "text": "1. Interval development of mild pulmonary edema.",
+   "provenance": "radiology:note_id=10481729-RR-15:chars=846-895",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-15:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-25T13:43:00",
+   "text": "These findings were discussed with ___ at 1:30 p.m. by phone.",
+   "provenance": "radiology:note_id=10481729-RR-15:chars=897-958",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-16:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-26T15:47:00",
+   "text": "Unchanged mild interstitial edema.",
+   "provenance": "radiology:note_id=10481729-RR-16:chars=649-683",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-18:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-27T17:16:00",
+   "text": "1. No pneumothorax.",
+   "provenance": "radiology:note_id=10481729-RR-18:chars=818-838",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-18:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-27T17:16:00",
+   "text": "2. New or newly apparent left upper lobe opacity.",
+   "provenance": "radiology:note_id=10481729-RR-18:chars=840-890",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-18:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-27T17:16:00",
+   "text": "Recommend close attention on follow up.",
+   "provenance": "radiology:note_id=10481729-RR-18:chars=891-930",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-18:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-27T17:16:00",
+   "text": "3. Unchanged mild pulmonary vascular congestion and cardiomegaly, with small bilateral pleural effusions.",
+   "provenance": "radiology:note_id=10481729-RR-18:chars=932-1038",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-19:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-28T16:12:00",
+   "text": "AP chest compared to ___:",
+   "provenance": "radiology:note_id=10481729-RR-19:chars=76-101",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-19:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-28T16:12:00",
+   "text": "Bilateral pleural effusions are small and only minimally larger today than on",
+   "provenance": "radiology:note_id=10481729-RR-19:chars=103-180",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-19:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-28T16:12:00",
+   "text": "___.",
+   "provenance": "radiology:note_id=10481729-RR-19:chars=181-185",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-19:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-28T16:12:00",
+   "text": "Borderline interstitial edema is stable.",
+   "provenance": "radiology:note_id=10481729-RR-19:chars=187-227",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-19:s5",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-28T16:12:00",
+   "text": "Cardiomediastinal silhouette has a normal post-operative appearance, and the heart is smaller today than it was on ___.",
+   "provenance": "radiology:note_id=10481729-RR-19:chars=229-348",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-19:s6",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-28T16:12:00",
+   "text": "No pneumothorax.",
+   "provenance": "radiology:note_id=10481729-RR-19:chars=350-366",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-19:s7",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-28T16:12:00",
+   "text": "Right jugular sheath ends just above the origin of the right brachiocephalic vein.",
+   "provenance": "radiology:note_id=10481729-RR-19:chars=368-450",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10481729-RR-19:s8",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2160-06-28T16:12:00",
+   "text": "No pneumothorax.",
+   "provenance": "radiology:note_id=10481729-RR-19:chars=452-468",
+   "needs": []
+  },
+  {
+   "ref_id": "POE:wound_care",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2160-06-28T11:57:27",
+   "text": "Wound Care: 2 order(s) before T_pa; first on hospital day 2, most recent 52.4 h before T_pa.",
+   "provenance": "poe:poe_id=10481729-55,10481729-308",
+   "needs": [
+    "wound_care"
+   ]
+  },
+  {
+   "ref_id": "POE:rehab_therapy",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2160-06-28T11:57:27",
+   "text": "Physical Therapy: 2 order(s) before T_pa; first on hospital day 2, most recent 52.4 h before T_pa.",
+   "provenance": "poe:poe_id=10481729-67,10481729-312",
+   "needs": [
+    "rehab_therapy"
+   ]
+  },
+  {
+   "ref_id": "POE:respiratory",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2160-06-28T11:57:27",
+   "text": "BiPAP, Oxygen Therapy: 4 order(s) before T_pa; first on hospital day 2, most recent 52.4 h before T_pa.",
+   "provenance": "poe:poe_id=10481729-60,10481729-127,10481729-199,10481729-310",
+   "needs": [
+    "respiratory"
+   ]
+  },
+  {
+   "ref_id": "RX:iv_therapy:cefazolin",
+   "source": "prescriptions",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2160-06-28T13:00:00",
+   "text": "IV cefazolin: 1 order(s) running at some point in the 48 h before T_pa; stopped at T_pa; most recent start 51.4 h before T_pa.",
+   "provenance": "prescriptions:drug=cefazolin;pharmacy_id=57074080",
+   "needs": [
+    "iv_therapy"
+   ]
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

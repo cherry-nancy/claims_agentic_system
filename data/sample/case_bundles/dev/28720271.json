@@ -1,0 +1,1348 @@
+{
+ "case_id": "28720271",
+ "content_hash": "7a31971ede33d96a0391bbb86dde44242829995b7049ecdd81aeb6edff57132f",
+ "demographics": {
+  "age_at_admit": 74,
+  "sex": "M",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2174-12-22T21:22:00",
+  "dischtime": "2174-12-24T13:00:00",
+  "ed_intime": "2174-12-22T18:57:00",
+  "ed_outtime": "2174-12-22T23:01:00",
+  "observation_order_time": "2174-12-22T23:24:57",
+  "inpatient_order_time": "2174-12-22T23:35:54",
+  "inpatient_start": "2174-12-22T23:35:54",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2174-12-23T13:00:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: MEDICINE",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=146-163",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: No Known Allergies / Adverse Drug Reactions",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=166-222",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "fevers, night sweats, headache, and diarrhea",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=259-303",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "None",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=344-348",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "___ yo M PMH DM, prostate CA s/p brachytherapy, bladder CA s/p \nlaser ablation, hypothyroidism presenting with fevers, night \nsweats, headaches and diarrhea.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=380-537",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Patient originally developed HA, \nnight sweats, lethargy and diarrhea approximately 45 days PTA.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=538-634",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Fevers have been intermittent, more common at night and as high \nas 101.2.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=636-710",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Patient reports frequent night sweats.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=711-749",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Also reports \nsignificant weight loss over this time period (7 lbs over past \nweek, more over the past month but unable to quantify).",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=750-883",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Headache \nis both generalized ache and \"stabbing\" pain (more on right side \nof head).",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=884-969",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "No associated photophobia, phonophobia, nausea, visual \nchanges.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=970-1034",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Does report some neck pain at times, as well as \nincreased sensitivity of top of the head to touch and pain in \nthe earlobes.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1035-1160",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "No jaw pain.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1161-1173",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Watery diarrhea has come and gone, is \nworse over the past few days.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1174-1242",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "No nausea, vomiting or abdominal \npain.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1243-1282",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Patient with chronic leg cramps at night, but notes since \nthis began, he has also had proximal myalgias in the mornings.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1283-1404",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Also with itchy rash on trunk which has worsened over the past 1 \nweek.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1406-1477",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Family reports that patient seems to be getting noticably worse \nover the past week in terms of increased lethargy and \nintermittent confusion.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1480-1623",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Has also had increased frequency of \nsweats and diarrhea over this time period.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1624-1703",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "At first, these symptoms were attributed to increased metformin \ndose, and he was switched to ___ for 1 week with no \nimprovement.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1706-1836",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Then underwent workup at PCP office included normal",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1837-1888",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "CBC, negative Lyme, negative blood cultures.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1890-1934",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "CT chest and \nabdominal ultrasound without clear reason for fevers.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=1935-2002",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "MRI head \nwith probable small vessel disease, otherwise unremarkable.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2003-2072",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Patient has also had recent erythematous rash of trunk, biopsy \ndone earlier this week showed ___ disease.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2074-2180",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "No sick contacts, no recent travel.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2183-2218",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "No known tick or other \ninsect bites.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2219-2256",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "In the ED initial vitals were: 10 99.8 107 160/73 16 100% RA",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2259-2319",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "- Labs were significant for unremarkable CBC, negative malaria \nantigen and thin smear for parasytes",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2322-2422",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "On the floor, patient complained of continued headache.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2425-2480",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- Hurthle Cell Cancer of thyroid",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2508-2540",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- prostate cancer s/p brachytherapy",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2543-2578",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- bladder CA s/p laser ablation",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2581-2612",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- HTN",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2615-2620",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- ___ disease (recent diagnosis)",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2623-2655",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- hypothyroidism",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2658-2674",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "2 brothers with prostate cancer, brother with colon cancer. \nmother had ALS. grandmother with diabetes. history of \npolycythemia ___",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2716-2848",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "___ Exam:",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2854-2863",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Admission Exam:",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2864-2879",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Vitals - T: 98.4 BP: 150/72 HR: 83 RR: 18 02 sat: 94%/RA",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2880-2936",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "GENERAL: NAD",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2939-2951",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "HEENT: PERRL, EOMI, face symmetric. sensitivity to light touch \nover vertex of head, not at temple or jaw.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=2954-3060",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "MMM, oropharynx clear",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3061-3082",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "CARDIAC: RRR, no murmurs appreciated",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3086-3122",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "LUNG: CTAB",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3125-3135",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "ABDOMEN: soft, non-distended. mild tenderness to palpation in \nlower abdomen, no",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3138-3218",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "EXTREMITIES: WWP, no edema",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3221-3247",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "PULSES: 2+",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3250-3260",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "NEURO: CN II-XII intact, strength and sensation grossly intact",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3263-3325",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "SKIN: erythematous papules (blanching) scattered across chest, \nless so on back. no rash on palms, soles.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3328-3433",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Discharge Exam:",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3436-3451",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Vitals: 97.4 Tm 98.2 64 147/71 18 99RA",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3452-3490",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "GENERAL - Alert, interactive, well-appearing in NAD",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3492-3543",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "HEART - RRR, nl S1-S2, no MRG",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3547-3576",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "LUNGS - Clear to auscultation bilaterally without rales or \nwheezes",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3579-3646",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "ABDOMEN - NABS, soft/NT/ND, no masses or HSM",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3648-3692",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "EXTREMITIES - WWP, no c/c/e, 2+ peripheral pulses",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3695-3744",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "SKIN- Along the torso erythematous macular rash present",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3746-3801",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "NEURO - awake, A&Ox3, motor and sensory function grossly intact,",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3803-3867",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "CN ___ intact",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3869-3882",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Admission Labs",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3904-3918",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:10PM BLOOD Glucose-232* UreaN-23* Creat-0.8 Na-143",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3919-3976",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "K-3.7 Cl-105 HCO3-28 AnGap-14",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=3978-4007",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:10PM BLOOD WBC-7.7 RBC-4.70 Hgb-15.1 Hct-44.9 MCV-96",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4008-4067",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCH-32.1* MCHC-33.6 RDW-12.9 Plt ___",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4069-4105",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:10PM BLOOD Neuts-68.6 ___ Monos-6.7 Eos-2.1",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4106-4156",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Baso-0.9",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4158-4166",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:10PM BLOOD Hypochr-NORMAL Anisocy-NORMAL",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4167-4214",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Poiklo-NORMAL Macrocy-2+ Microcy-NORMAL Polychr-NORMAL",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4216-4270",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:10PM BLOOD Plt ___",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4271-4296",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:40AM BLOOD TotProt-5.5* Calcium-8.6 Phos-2.5* Mg-2.0",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4297-4356",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:40AM BLOOD ALT-18 AST-13 LD(LDH)-121 CK(CPK)-43*",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4357-4412",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "AlkPhos-41 TotBili-0.6",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4414-4436",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Fever work up labs:",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4444-4463",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:10PM BLOOD Parst S-NEGATIVE",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4464-4498",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:21PM BLOOD MURINE TYPHUS ANTIBODY-PND",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4499-4543",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:21PM BLOOD ___ SPOTTED FEVER AB IGG,",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4544-4587",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "IGM-PND",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4589-4596",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:40AM BLOOD ANAPLASMA PHAGOCYTOPHILUM AND EHRLICHIA",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4597-4654",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "CHAFFEENSIS ANTIBODY PANEL (IGM AND IGG) -PND",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4656-4701",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:40AM BLOOD PEP-PND",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4702-4727",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:40AM BLOOD CRP-0.5",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4728-4753",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:40AM BLOOD ___",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4754-4775",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:40AM BLOOD TSH-0.033*",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4776-4804",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:40AM BLOOD ESR-10",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4805-4829",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:25AM BLOOD QUANTIFERON-TB GOLD-PND",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4830-4871",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Micro:",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4876-4882",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Urine Cx ___: ___ organisms/mL",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4883-4913",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Malaria antigen ___: negative",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4914-4943",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "C. difficile antigen: negative",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4944-4974",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Blood cx, Lyme serology, EBV, CMV, TB, Typhus, RMSF, Anaplasma,",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=4975-5038",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Erlichia serologies all pending",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5040-5071",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Imaging Results",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5078-5093",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "CXR PA/Lat ___: No acute cardiopulmonary process.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5094-5143",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "CT Abd/Pelv w/Contrast ___:   No acute process identified in \nthe abdomen or pelvis.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5147-5231",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Discharge Labs",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5239-5253",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s37",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:25AM BLOOD WBC-5.1 RBC-4.29* Hgb-13.6* Hct-40.2",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5254-5308",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s38",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCV-94 MCH-31.7 MCHC-33.8 RDW-12.4 Plt ___",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5310-5352",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s39",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:25AM BLOOD Neuts-67.0 ___ Monos-7.1 Eos-4.1*",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5353-5404",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s40",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Baso-0.7",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5406-5414",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s41",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:25AM BLOOD UricAcd-2.7*",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5415-5445",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s42",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:25AM BLOOD VitB12-327 Folate-16.___ with history of remote prostate cancer s/p brachytherapy, \nbladder cancer s/p laser ablation, hypothyroidism, who presented \nwith fevers and night sweats of 45 days duration associated with \nheadaches and diarrhea, etiology unclear despite adequate work \nup.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5446-5747",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s44",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "CXR, CT chest, abdominal ultrasound, Head MRI, and CT",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5886-5939",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s45",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Abd/Pelvis all negative for acute process, infection and without \nlympadenopathy, masses or infectious abscess.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=5941-6052",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s46",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Labs, including",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6053-6068",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s47",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "WBC, chemistries, and LFTs all normal.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6070-6108",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s48",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Blood and Urine cultures \nall negative.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6109-6148",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s49",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "ESR and CRP normal suggesting no evidence of \nongoing inflammation.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6149-6216",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s50",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Stool cultures are still pending though \nnegative growth to date. ___ revealed monoclonal IgG \nkappa spike but other immunoglobulin levels normal.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6217-6363",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s51",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Heme/Onc \nconsulted, who felt spike was MGUS and did not account for \npresentation, ___ reordered and pending on discharge.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6364-6487",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s52",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Blood smear negative for heme malignancy or malaria.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6489-6541",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s53",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Rapid test \nalso negative for malaria.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6542-6580",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s54",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Additional serologies sent and still \npending (see below).",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6581-6639",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s55",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "HIV test declined by patient.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6640-6669",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s57",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "# Headache: Unclear etiology.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6908-6937",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s58",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Prior ___ Head MRI ___ \nnegative for intracranial process.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6938-6996",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s59",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Afebrile and hemodynamically \nstable during admission without focal neurologic signs on exam.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=6997-7090",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s60",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Duration inconsistent with and no fever or meningismus to \nsuggest meningitis as cause of presentation.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=7092-7195",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s61",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Headache improved \nwith naproxen.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=7196-7229",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s62",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "# Diarrhea: Unclear etiology.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=7234-7263",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s63",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Watery diarrhea, nonbloody.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=7264-7291",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s64",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Clostridium difficile antigen negative.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=7293-7332",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s65",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Stool cultures pending \nthough no growth to date.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=7333-7382",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s66",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Treated symptomatically with",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=7383-7411",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s67",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Loperamide",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=7413-7423",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s69",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "# Diabetes Mellitus: Chronic, Type 2, Insulin-dependent, \nwell-controlled, without complications.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=7497-7594",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s70",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Home Lantus 10 units was \ncontinued.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=7595-7631",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=9393-9427",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=9428-9474",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - Independent.",
+   "provenance": "discharge:note_id=14554027-DS-21:chars=9475-9517",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14554027-RR-22:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2174-12-22T21:02:00",
+   "text": "No acute cardiopulmonary process.",
+   "provenance": "radiology:note_id=14554027-RR-22:chars=377-410",
+   "needs": []
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

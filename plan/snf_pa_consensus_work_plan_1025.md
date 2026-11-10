@@ -2,7 +2,7 @@
 
 | 项 | 内容 |
 |---|---|
-| 版本 | v8（2026-11-08） |
+| 版本 | v9（2026-11-09） |
 | 分支 | 设计 `zhijie-plan-1025`；实现 `zhijie-20261108` |
 | 读者 | lead architect / platform scientist |
 | 状态 | 实施中 |
@@ -213,15 +213,15 @@ flowchart TD
 
 **按出院去向分组**
 - `SKILLED NURSING FACILITY`：主要对象（满足上述条件的 15,795 例住院 / 10,483 人；不限年份时为 30,613 例）。
-- `HOME HEALTH CARE`、`HOME`、`REHAB`（IRF）：对照组。用于抽样里的难例（如住院 ≥3 午夜却回家），以及 A0 基线的负例。
-- LTACH、hospice、院内死亡等其他去向：排除。
+- `HOME HEALTH CARE`、`HOME`：对照组。用于抽样里的难例（如住院 ≥3 午夜却回家），以及 A0 基线的负例。
+- `REHAB`（IRF）、LTACH、hospice、院内死亡等其他去向：排除。
 
 **同时记录的分层变量**
 - 入院来源 `admission_location`（是否从 SNF 入院：这类病人回 SNF 的决策逻辑不同）。
 - 是否先观察后住院、住院午夜数、主诊断类别。
 
 **要考虑的点**
-- 数据集按 `subject_id` 划分：同一个病人的所有住院放在同一个 split，否则同一病人的病历风格和病史会同时出现在 dev 和 test 里。
+- 数据集按住院（`hadm_id`）划分，抽样也以住院为单位。同一病人的不同住院可能分别进入 dev 和 test，病历风格和病史会在两边重复，test 结果可能偏乐观；dev 病例的时间线里也可能列出同一病人在 test 中的前序住院（只含时间和午夜数）。这些作为已知局限写进评估报告。
 - 不能只挑"典型"病例；边界病例按 10.1 节的分层抽样保证数量。
 
 ### 3.3 `CaseBundle` 结构
@@ -263,7 +263,7 @@ class EvidenceItem:
 - 只看 `transfers` 会漏掉约 91% 的观察期（附录 A），所以必须用 POE。
 
 ### 3.5 病历文本：保留什么、去掉什么
-- **保留**：CC、HPI、PMH、Social Hx、PE、Pertinent Results、Hospital Course、Discharge Condition（Activity / Mental Status，作功能状态代理）。
+- **保留**：病历头中的 Service 和 Allergies、CC、Major Surgical or Invasive Procedure、HPI、PMH、Social Hx、Family Hx、PE、Pertinent Results、Hospital Course、Medications on Admission、Discharge Condition（Activity / Mental Status，作功能状态代理）。病历头的其余内容（姓名、日期、主治医生等，已去标识）不保留。
 - **删除**：Disposition、Facility、Discharge Instructions、Followup、Discharge Diagnosis、Discharge Medications。
 - **遮蔽**：去向句（rehab、SNF、extended care、placement、bed offer、accepted at 等），以及 PT/OT"建议去 rehab/SNF"的半句（同一句里的功能描述保留）。
 
@@ -638,12 +638,12 @@ flowchart TD
 3. **MIMIC test**：200 例冻结，其中 120 例 test-gold（30 例双人标注算 κ）。开发中不看。
 
 **抽样**
-- 先按 `subject_id` 划分 dev / test（3.2 节）：病人按 50 / 50 分，划分文件冻结。再在各自范围内抽样，每个病人最多一次住院。
+- 先按住院划分 dev / test（3.2 节）：候选池的住院按 50 / 50 分，划分文件冻结。再在各自范围内以住院为单位抽样。
 - 每个病例有两类标签：
   - **住院原因**（一个）：由第一诊断和手术码决定，回答"这次为什么住院"。
   - **SNF 需求标签**（可以有多个）：来自需求理由目录（2.1 节），回答"为什么可能需要 SNF"。依据是任意诊断位置上与照护需求直接相关的诊断（髋骨折、急性卒中、压疮、痴呆、帕金森、体能下降等），以及实际接受的服务（静脉用药、伤口护理、PT/OT 等）。
   - 只看第一诊断会漏掉大部分压疮、痴呆、帕金森病人；任意位置都算也不行，慢性心衰会占掉三分之一（附录 A）。
-- 分层：临床场景（骨科术后、卒中、伤口 / 静脉用药、心衰、内科病后体能下降）× 去向（SNF、home health、HOME、REHAB）× 边界（先观察后住院、不足 3 午夜、从 SNF 入院）。
+- 分层：临床场景（骨科术后、卒中、伤口 / 静脉用药、心衰、内科病后体能下降）× 去向（SNF、home health、HOME）× 边界（先观察后住院、不足 3 午夜、从 SNF 入院）。
   - 每个病例只落一个场景，按优先级从两类标签中取：骨科术后 > 卒中 > 伤口 / 静脉用药 > 心衰 > 内科病后体能下降。心衰只认住院原因。
   - 不属于任何场景的病例不抽。
 - 报告：除按场景外，每个需求标签单独报告，一个病例有几个标签就计入几组。
@@ -685,6 +685,7 @@ A0 的结构化特征：DRG、主诊断、手术、ICU 天数、静脉用药天�
 其他：
 - Part 2 自检一致率。
 - 公平性：按种族、语言、性别、年龄段比较建议拒绝率和补材料率。
+- 出院小结长度与结论：按处理后小结长度分组，比较 `APPROVE` / `PEND_INFO` 比例和逐条准确率。候选池不按长度过滤；如果长度确实影响结论，再考虑加长度限制。
 - 每例调用次数和耗时。
 
 统计：配对 McNemar / bootstrap；决策级 n=120 只能检出约 10 个百分点以上的差异，逐条（约 480 个判定）更敏感。
@@ -793,7 +794,7 @@ flowchart TD
 
 **附注**
 1. **环境与仓库修复**（11.5 节）。完成标准：`pytest` 通过；检查脚本从 `MIMIC_RAW_DIR` 读到原始表。
-2. **队列 + Parquet 子集**（3.1–3.2 节）。完成标准：队列计数与附录 A 一致；按 `subject_id` 生成 dev / test 划分文件，test 冻结；需求理由目录第一版（供抽样标签用）；dev 100 / test 200 抽样文件冻结（10.1 节）。
+2. **队列 + Parquet 子集**（3.1–3.2 节）。完成标准：队列计数与附录 A 一致；按住院生成 dev / test 划分文件，test 冻结；需求理由目录第一版（供抽样标签用）；dev 100 / test 200 抽样文件冻结（10.1 节）。
 3. **数据来源 adapter**（3.3–3.6 节）。完成标准：残余去向词为 0；人工抽查 50 篇通过；遮蔽后文本探针的 AUC 明显下降；同一病例重跑 span ID 不变；每条证据都符合统一格式、可得时间 ≤ T_pa；数据来源登记表就绪。
 4. **规则引擎**（第 6 节）。完成标准：C1 和 aggregator 的单元测试覆盖边界（无住院医嘱、有前序住院、午夜数正好 3）；汇总只按条款角色；覆盖条款登记表就绪。
 5. **criterion cards + 政策索引**（第 4 节）。可以和 ②–④ 同时做。完成标准：检索评测 recall@5 ≥ 0.9。卡片同时是标注手册的初稿。
@@ -820,7 +821,8 @@ flowchart TD
 | 先要材料再建议拒绝 | 直接建议拒绝 | 错误拒绝代价高 |
 | POE 医嘱算住院起点 | transfers | transfers 漏约 91% |
 | 删 Discharge Meds | 正则清理 | 格式本身泄露去向 |
-| 按 `subject_id` 划分 | 按住院划分 | 防同一病人跨 split |
+| 按住院划分和抽样 | 按 `subject_id` 划分 | 团队决定以住院为单位；代价是同一病人可能跨 split（3.2 节） |
+| 对照组不含 REHAB | 含 REHAB（IRF） | 团队决定；IRF 不在本系统判定范围（1.5 节） |
 | 缓存续跑 | checkpointer | 少一套状态存储 |
 | 先 CLI | HTTP API | 先把引擎做对 |
 | 条款、需求理由、数据来源用登记表 | 写死在代码和 schema 里 | 标准和数据都会增加；新增只改登记表或加模块 |

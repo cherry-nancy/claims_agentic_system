@@ -1,0 +1,12 @@
+{
+  "rule": "sha256(f'{salt}:{hadm_id}')[:8] / 16**8 < dev_fraction -> dev, else test",
+  "salt": "snf-pa-split-v2",
+  "dev_fraction": 0.5,
+  "unit": "admission (hadm_id)",
+  "source": "data/derived/cohort/pool.parquet (strict year rule 2011-2018, SNF/HHC/HOME, design v9 \u00a73.2)",
+  "n_admissions": 49438,
+  "n_dev": 24778,
+  "n_test": 24660,
+  "n_patients": 25375,
+  "n_patients_in_both_splits": 6991
+}

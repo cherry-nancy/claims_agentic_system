@@ -1,0 +1,1830 @@
+{
+ "case_id": "20254095",
+ "content_hash": "c209c5cb8f40d395966a989c108a1fefcc586a4c57643a81420071fbc1eb24c3",
+ "demographics": {
+  "age_at_admit": 87,
+  "sex": "F",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2146-06-06T13:02:00",
+  "dischtime": "2146-06-09T15:57:00",
+  "ed_intime": "2146-06-06T09:56:00",
+  "ed_outtime": "2146-06-06T14:40:00",
+  "observation_order_time": null,
+  "inpatient_order_time": "2146-06-06T16:01:57",
+  "inpatient_start": "2146-06-06T16:01:57",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2146-06-08T15:57:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: MEDICINE",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=148-165",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: No Known Allergies / Adverse Drug Reactions",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=168-224",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "hypoNa, s/p fall",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=262-278",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "none",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=320-324",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "The patient is an ___ year old woman w PMH HTN, OA, p/w low back \nand leg pain after a fall 2 weeks ago.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=356-460",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She was walking on a \nsnowbank and fell, she denies any preceding dizziness, \nlightheadedness, palpitations, CP, or SOB.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=461-581",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She denies LOC or \nhead strike.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=582-613",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She fell onto her R hip / upper thigh.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=614-652",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Several days \nafter that she noted pain in her R upper outer part of her \nthigh.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=653-733",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She also noted lower mid back pain.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=734-769",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She had a lesser \ndegree of pain in her L upper outer thigh.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=770-830",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "The pain is not \npresent at rest or with standing, it becomes ___ with leaning \nfar forward or with walking.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=831-939",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "The pain is described as sharp and \ndull, denies any shooting, electrical, tingling, or numb \nsensations.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=940-1045",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She endorsed difficulty walking from pain, denied \nany feeling of true weakness in her legs.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1046-1138",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She has to walk very \nslowly since it hurts to move.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1139-1191",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Ambulates without cane or walker \nat baseline.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1192-1238",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She has chronic issues with urge incontinence, and \nchronic constipation which has been worse in the past week.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1239-1350",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Last",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1351-1355",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "BM was ___.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1357-1368",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She also had a tooth extraction 1 week prior to admission on the",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1370-1434",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "L side of her mouth.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1436-1456",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She was given tylenol and ibuprofen to take \nafter that surgery, and has been taking ibuprofen reguarly since \nthen (mostly for the mouth, although partially for the back).",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1457-1629",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She has had low PO intake since that time.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1631-1673",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "At first she could \nonly eat soft food, she now no longer has pain with chewing.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1674-1754",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She \nhas been drinking 1 quart of water and 2 cups of tea per day, \nand eating barely anything.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1755-1850",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She eats a low salt diet at baseline \nfor her high BP.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1851-1905",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Denies nausea or vomiting, just says she has a \nlack of appetite (although endorsed nausea/vomiting to PCP",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=1906-2012",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "___.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2014-2018",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Denies SOB, CP, cough, URI sx, abd pain.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2021-2061",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "No dysuria or \nsuprapubic discomfort, no blood in the urine.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2062-2122",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "No bloody or black \nstools.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2123-2150",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She endorses a fall onto her R shoulder at the ___ \nshelter the day prior to admission, after which she picked \nherself up and went to see her PCP.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2151-2298",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She was seen by her PCP the day prior to admission, who ordered \na L spine Xray which showed L1 compression fracture of unknown \nduration.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2300-2438",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Labs were drawn which showed hypoNa to 117, so the \npatient was sent to the ED.\ns/p teeth removal 1 week ago.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2439-2548",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "In the ED, initial vitals were 97.8 72 128/69 18 96% ra.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2550-2606",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She was \ninitially hypoNa to 119, which improved to 121 with IVF.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2607-2672",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "WBC",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2673-2676",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "11.5.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2678-2683",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "CXR showed scoliosis but no other abnormality.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2684-2730",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She was \nadmitted to medicine for hypoNa.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2731-2772",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "1.  Hypertension.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2798-2815",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "2.  Osteoarthritis.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2816-2835",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "3.  Hypercholesterolemia.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2836-2861",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Father had prostate surgery at ___ years and\npassed away at ___.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2901-2965",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Mother died at a younger age with MI, a\nbrother had myocardial infarction as well and he was a smoker.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=2967-3069",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "No history of dementia in the family.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3071-3108",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "ADMISSION PHYSICAL EXAM",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3126-3149",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Vitals: 98.1 165/66 77 98% RA",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3150-3179",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "General: Alert, oriented, no acute distress.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3181-3225",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Extremely kyphotic \nwith lordosis of T/L spine area.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3226-3278",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "HEENT: Sclera anicteric, MM mildly dry, oropharynx clear. no \nswelling or erythema on gums near site of tooth extraction",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3279-3399",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Neck: supple, JVP not elevated, no LAD",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3402-3440",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Lungs: Clear to auscultation bilaterally, no wheezes, rales, \nrhonchi",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3443-3512",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "CV: Regular rate and rhythm, normal S1 + S2, no murmurs, rubs, \ngallops",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3515-3586",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Abdomen: soft, non-tender, non-distended, bowel sounds present, \nno rebound tenderness or guarding, no organomegaly, no \nsuprapubic tenderness",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3589-3731",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "BACK: tender to palpation over L1 vertebral spinal region in \nmidline",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3732-3801",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Ext: Warm, well perfused, 2+ pulses, no clubbing, cyanosis or \nedema.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3802-3871",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Area of pain is over the lateral R hip and upper thigh, \nno brusing or swelling, no tenderness to palpation in that area.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3872-3993",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Neuro:  A+O x 3. ___ strength ___ throughout.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=3997-4042",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Sensation grossly \nintact.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4043-4069",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "DISCHARGE PHYSICAL EXAM",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4071-4094",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Vitals: 98.0 136/68 84 20 95% RA",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4095-4127",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "General: Alert, oriented, no acute distress.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4129-4173",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Extremely kyphotic \nwith lordosis of T/L spine area.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4174-4226",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "HEENT: Sclera anicteric, MMM, oropharynx clear. no swelling or \nerythema on gums near site of tooth extraction",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4227-4337",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Neck: supple, JVP not elevated, no LAD",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4340-4378",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Lungs: Clear to auscultation bilaterally, no wheezes, rales, \nrhonchi",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4381-4450",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "CV: Regular rate and rhythm, normal S1 + S2, no murmurs, rubs, \ngallops",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4453-4524",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Abdomen: soft, non-tender, non-distended, bowel sounds present, \nno rebound tenderness or guarding, no organomegaly, no \nsuprapubic tenderness",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4527-4669",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "BACK: tender to palpation over L1 vertebral spinal region in \nmidline",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4670-4739",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Ext: Warm, well perfused, 2+ pulses, no clubbing, cyanosis or \nedema.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4740-4809",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Area of pain is over the lateral R hip and upper thigh, \nno brusing or swelling, no tenderness to palpation in that area.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4810-4931",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Neuro:  A+O x 3. ___ strength ___ throughout.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4935-4980",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Sensation grossly \nintact.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=4981-5007",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "ADMISSION LABS",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5030-5044",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:20PM   SODIUM-126* POTASSIUM-3.9 CHLORIDE-94*",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5045-5097",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:44PM URINE  HOURS-RANDOM CREAT-38 SODIUM-10",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5098-5148",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "POTASSIUM-15 CHLORIDE-10",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5150-5174",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:44PM URINE  OSMOLAL-196",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5175-5205",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:29PM URINE  COLOR-Yellow APPEAR-Clear SP ___",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5206-5257",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:29PM URINE  BLOOD-NEG NITRITE-NEG PROTEIN-NEG",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5258-5310",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "GLUCOSE-NEG KETONE-40 BILIRUBIN-NEG UROBILNGN-NEG PH-5.5 LEUK-TR",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5312-5376",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:29PM URINE  RBC-3* WBC-13* BACTERIA-NONE YEAST-NONE",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5377-5435",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "EPI-1 TRANS EPI-1",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5437-5454",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:29PM URINE  HYALINE-3*",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5455-5484",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 11:44AM   NA+-121*",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5485-5507",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:30AM   GLUCOSE-99 UREA N-18 CREAT-0.8 SODIUM-119*",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5508-5564",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "POTASSIUM-4.7 CHLORIDE-83* TOTAL CO2-24 ANION GAP-17",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5566-5618",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:30AM   ALBUMIN-4.3 CALCIUM-9.2 PHOSPHATE-3.1",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5619-5670",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MAGNESIUM-2.2",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5672-5685",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:30AM   25OH VitD-23*",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5686-5713",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:30AM   WBC-11.5* RBC-4.38 HGB-13.4 HCT-38.6 MCV-88",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5714-5771",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCH-30.5 MCHC-34.6 RDW-12.8",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5773-5800",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:30AM   NEUTS-82.1* LYMPHS-10.9* MONOS-6.7 EOS-0.2",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5801-5857",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "BASOS-0.1",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5859-5868",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:30AM   PLT COUNT-290",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5869-5896",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:05PM   UREA N-13 CREAT-0.7 SODIUM-117* POTASSIUM-4.6",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5897-5956",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "CHLORIDE-79* TOTAL CO2-24 ANION GAP-19",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5958-5996",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:05PM   estGFR-Using this",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=5997-6028",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:05PM   WBC-10.2 RBC-4.48 HGB-13.1 HCT-39.4 MCV-88",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6029-6085",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCH-29.2 MCHC-33.1 RDW-13.1",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6087-6114",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:05PM   PLT COUNT-350#",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6115-6143",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:05PM URINE  COLOR-Straw APPEAR-Clear SP ___",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6144-6194",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:05PM URINE  BLOOD-TR NITRITE-NEG PROTEIN-NEG",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6195-6246",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "GLUCOSE-NEG KETONE-40 BILIRUBIN-NEG UROBILNGN-NEG PH-6.0",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6248-6304",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "LEUK-MOD",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6306-6314",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:05PM URINE  RBC-2 WBC-5 BACTERIA-FEW YEAST-NONE",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6315-6369",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "EPI-0 TRANS EPI-<1 RENAL EPI-<1",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6371-6402",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:05PM URINE  MUCOUS-RARE",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6403-6433",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Vit D -- 23",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6435-6446",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s37",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "UCx x 2 - contaminated",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6448-6470",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s38",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ L spine Xray",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6472-6488",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s39",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Age indeterminate compression fracture (greater than 50% height \nloss) of L1 vertebral body with associated focal kyphosis at \nthis level.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6489-6627",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s40",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "CXR ___",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6630-6637",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s41",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Limited exam due to patient rotation.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6638-6675",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s42",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "No acute cardiopulmonary \nprocess.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6677-6711",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s43",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "No evidence of pneumonia.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6713-6738",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s44",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "R hip x ray ___",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6741-6756",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s45",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "AP film of the pelvis plus two added views of the right hip and \nproximal femur.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6757-6837",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s46",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "No fracture is identified.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6839-6865",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s47",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The hips and SI \njoints are normal and symmetric.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6867-6916",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s48",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Generalized demineralization \nwith unusual calcifications in the L4-L5 and L5-S1 discs.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=6918-7005",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s49",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There \nis a large amount of stool, particularly in the rectum.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7007-7069",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s50",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "No \nascites.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7071-7083",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s51",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Vascular calcifications are present.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7084-7120",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s52",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "DISCHARGE LABS",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7123-7137",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s53",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:25AM BLOOD WBC-8.8 RBC-4.30 Hgb-12.8 Hct-38.1 MCV-89",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7138-7197",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s54",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCH-29.7 MCHC-33.5 RDW-13.2 Plt ___",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7199-7234",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s55",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:30AM BLOOD Glucose-107* UreaN-10 Creat-0.7 Na-132*",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7235-7292",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s56",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "K-4.2 Cl-99 HCO3-23 AnGap-14",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7294-7322",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s57",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:25AM BLOOD Calcium-9.6 Phos-2.7 Mg-2.1",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7323-7368",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient is an ___ year old woman w PMH HTN, HLD, OA, \npresenting with back and leg pain after a fall 2 weeks ago, \ncourse complicated by poor PO intake, found to have \nhyponatremia.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7394-7579",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Back and leg pain s/p fall: The patient has a history of \nrecent fall while walking in the snow.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7581-7679",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Fall appears to be a \nmechanical fall due to slipping in the snow.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7680-7746",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "No prodromal \nlightheadnedness, no LOC.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7747-7786",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Xray shows compression fracture of L1 \nof inderterminite age, per ortho consult it is likely an old \nfracutre and not acute.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7787-7911",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "R hip film shows no fracture over site \nof pian.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7912-7960",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient's pain was controlled with standing tylenol \nand tramadol for breakthrough.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=7961-8048",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "NSAIDs were DCed.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8049-8066",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "- Continues to complain of bilateral thigh pain -- on \nsimvastatin.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8067-8134",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Would consider checking CK if patient continues to \nhave thigh pain beyond reasonable time frame and consider d/cing \nsimvastatin",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8135-8264",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Hyponatremia: The patient was found to have hypoNa to 117 at",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8267-8329",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "On admission, FeNa 0.17, and the \npatient appeared dry on exam, suggesting hypovolemic \nhyponatremia.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8426-8527",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Also, the patient has had low solute intake had \nhas been drinking mostly water and tea, urine osms only \nmoderately concentrated suggesting that the patient is taking \ntoo much PO free water.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8528-8720",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Na improved to 130s at DC with IVF.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8721-8756",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Diet \nwas liberalized to avoid Na restriction.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8757-8803",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "- recommend rechecking BMP at next office to monitor for \ncontinued resolution of hyponatremia",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8804-8898",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Bone health: The patient has a h/o OA.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8900-8940",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "L/S spine film shows",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8941-8961",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "DJD and osteopenia as well as L1 compression Fx and kyphosis",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=8963-9023",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "L1/T12 of indeterminae age.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9025-9052",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Vit D low.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9053-9063",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Ca and Vit D were \nresumed.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9064-9091",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Social situation: The patient was living in the shelter long \nterm because her home was condemned due to hoarding behavior.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9146-9271",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The shelter has her on \"medical ban\" at this time since she was \nrequiring too much care.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9273-9362",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient denies current physical danger \nor abuse.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9546-9599",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Pyuria: WBCs in the urine.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9689-9717",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient is asymptomatic.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9718-9746",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "UCx \nwith vaginal flora.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9747-9771",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "No tx at this time.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9772-9791",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# HTN, HLD: cont lisinopril, simvastatin, ASA 81",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9793-9841",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s37",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She moved her bowels with a bowel regimin.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9909-9951",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s38",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# CODE:  FC, confirmed",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9954-9976",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s39",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# CONTACT:  ___, ___ ___",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=9978-10002",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s40",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# contact info for homeless shelter: phone -- ___, fax",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=10003-10057",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "The Preadmission Medication list is accurate and complete.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=10479-10537",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "1. Lisinopril 7.5 mg PO DAILY \nhold for SBP < 100",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=10538-10587",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "2. Aspirin 81 mg PO DAILY",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=10589-10614",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "3. Senna 2 TAB PO HS \nhold for loose stool",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=10616-10658",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "4. Docusate Sodium 100 mg PO TID \nhold for loose stool",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=10660-10714",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "5. Ibuprofen 400 mg PO Q8H:PRN pain",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=10716-10751",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "6. Simvastatin 5 mg PO HS",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=10753-10778",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=11853-11887",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=11888-11934",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - requires assistance or aid (walker \nor cane).",
+   "provenance": "discharge:note_id=10057009-DS-9:chars=11935-12010",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10057009-RR-19:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2146-06-08T14:04:00",
+   "text": "Limited exam due to patient rotation.",
+   "provenance": "radiology:note_id=10057009-RR-19:chars=471-508",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10057009-RR-19:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2146-06-08T14:04:00",
+   "text": "No acute cardiopulmonary process.",
+   "provenance": "radiology:note_id=10057009-RR-19:chars=510-543",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:10057009-RR-19:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2146-06-08T14:04:00",
+   "text": "No evidence of pneumonia.",
+   "provenance": "radiology:note_id=10057009-RR-19:chars=545-570",
+   "needs": []
+  },
+  {
+   "ref_id": "POE:rehab_therapy",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2146-06-06T16:05:31",
+   "text": "Physical Therapy: 1 order(s) before T_pa; first on hospital day 1, most recent 47.9 h before T_pa.",
+   "provenance": "poe:poe_id=10057009-50",
+   "needs": [
+    "rehab_therapy"
+   ]
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

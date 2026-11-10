@@ -1,0 +1,1930 @@
+{
+ "case_id": "23190436",
+ "content_hash": "3af4cd62cffeaf73082a53cdd18f57271d98a1c19d5b8c4a40f8b39cf61f6501",
+ "demographics": {
+  "age_at_admit": 68,
+  "sex": "M",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2186-02-11T20:53:00",
+  "dischtime": "2186-02-15T15:30:00",
+  "ed_intime": null,
+  "ed_outtime": null,
+  "observation_order_time": null,
+  "inpatient_order_time": "2186-02-11T21:16:40",
+  "inpatient_start": "2186-02-11T21:16:40",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2186-02-14T15:30:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: MEDICINE",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=147-164",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: No Known Allergies / Adverse Drug Reactions",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=167-223",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "Hematemesis",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=260-271",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "___ EGD with banding x 3",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=312-336",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "___ with ongoing alcohol abuse but no known liver disease \nadmitted to ___ for monitoring of hematemesis.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=368-473",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "His \nsymptoms began three days prior to admission with several large, \nloose black bowel movements.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=474-573",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He had a similar episode a few \nmonths ago that self resolved without intervention and he never \nconsulted a physician about this.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=574-704",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Does not follow regularly with \nhis PCP (extent of routine care is a DOT physical every couple \nof yrs).",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=705-809",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He also began to feel fatigued and weak around this \ntime.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=810-868",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Yesterday he had another black stool and in the evening \nbegan experiencing epigastric and LUQ abdominal pain.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=869-979",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "This was a \ndull ache.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=980-1002",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He also began vomiting large amounts of black emesis.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1003-1056",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He had vomited several times through the night which prompted \nhim to come to the ED at ___ on morning of ___ \nfeeling nauseated.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1058-1187",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He had not had PO intake since evening prior.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1188-1233",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "At ___ he received bolus pantoprazole followed by gtt.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1235-1289",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Initial H/h 6.9/22.6.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1291-1312",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Plt 87.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1313-1320",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Coags: INR 1.45, PTT 36.8.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1321-1347",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "BUN 27,",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1348-1355",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Cr 0.9, AST 39, ALT 30, Alk phos 71, albumin 2.6, tbili 0.5.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1357-1417",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He \nwas initially slated to be admitted to the medicine floor but \nbegan having recurrent hematemesis and was therefore transferred \nto the ICU.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1418-1562",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "There he was intubated and underwent EGD.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1563-1604",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He was \nnoted to have esophageal varices that were not bleeding, and \nlikely gastric varices.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1605-1698",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Source of bleeding not clearly \nvisualized but presumed to be from gastric varices.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1699-1782",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Post \nprocedure he remained intubated, sedated with propofol, and \ndiscussion initiated for transfer to ___ for possible re-scope \nand ?TIPS.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1783-1924",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He was given CTX for SBP ppx post-bleed, started on \noctreotide, and switched to IV pantoprazole BID.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=1925-2026",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Hemodynamically \nstable with HR in low 100s, BP 140s systolic, satting well on \nvent.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2027-2112",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "HTN",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2137-2140",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "ETOH abuse.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2141-2152",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "No history of DTs or withdrawal symptoms, even while \nhospitalized for prior surgeries.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2153-2240",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Arthritis",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2241-2250",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Hx prostate cancer s/p prostatectomy about ___ yrs ago\ns/p left rotator cuff repair over ___ yrs ago",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2251-2351",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Alcoholic cirrhosis c/b esophageal varices s/p banding x 3",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2352-2410",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "(___)",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2412-2417",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "___ Tear requiring banding ___",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2418-2448",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Moderate Aortic Stenosis (aortic valve area=1.2 cm2).",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2449-2502",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Strong family history of prostate cancer in brothers, father, \npaternal grandfather.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2542-2626",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Father died age ___.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2628-2648",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Had CAD, MI in ___.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2649-2668",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Mother had ___ and DM.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2669-2691",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "No family history of liver disease.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2692-2727",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "No alcoholism in the family.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2728-2756",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "ADMISSION PHYSICAL EXAM",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2775-2798",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "=======================",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2799-2822",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "GENERAL: intubated and sedated",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2823-2853",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "HEENT: Sclera anicteric, MMM, oropharynx clear",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2854-2900",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "NECK: supple, JVP not elevated, no LAD",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2903-2941",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "LUNGS: Clear to auscultation bilaterally, no wheezes, rales, \nrhonchi",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=2944-3013",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "CV: Regular rate and rhythm, normal S1 S2, no murmurs, rubs, \ngallops",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3016-3085",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "ABD: soft, non-tender, non-distended, bowel sounds present, no \nrebound tenderness or guarding, no organomegaly",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3088-3199",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "EXT: Warm, well perfused, 2+ pulses, no clubbing, cyanosis or \nedema",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3202-3270",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "DISCHARGE PHYSICAL EXAM",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3274-3297",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "=======================",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3298-3321",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "VS: 97.5-98.5, 129-160/57-90, 67-78, 20, 97-100% on RA.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3322-3377",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "General: Resting comfortably in bed in NAD.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3378-3421",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "HEENT: sclera anictermic.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3423-3448",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "CV: ___ systolic murmur at right upper sternal border. otherwise \nregular rate and rhythm.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3450-3540",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Lungs: CTAB, no wheezing, crackles, or rhonchi.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3543-3590",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Abdomen: NABS, soft, NTND, obese. no shift dullness.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3591-3643",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Ext: No edema",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3645-3658",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Skin: no spider angiomas",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3661-3685",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Neuro: no asterixis",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3686-3705",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "ADMISSION LABS",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3727-3741",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "==============",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3742-3756",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 03:50AM BLOOD WBC-5.3 RBC-3.56* Hgb-9.5* Hct-29.0*",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3757-3811",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCV-82 MCH-26.8* MCHC-32.9 RDW-16.1* Plt Ct-77*",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3813-3860",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:20PM BLOOD ___ PTT-30.3 ___",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3861-3895",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:20PM BLOOD Glucose-157* UreaN-28* Creat-0.8 Na-137",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3896-3953",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "K-4.0 Cl-110* HCO3-19* AnGap-12",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3955-3986",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:20PM BLOOD Albumin-2.7* Calcium-8.0* Phos-1.7*",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=3987-4040",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Mg-1.7 Iron-229*",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4042-4058",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "DISCHARGE LABS",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4060-4074",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "==============",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4075-4089",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 04:15AM BLOOD WBC-4.4 RBC-3.68* Hgb-9.9* Hct-30.7*",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4090-4144",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCV-84 MCH-27.0 MCHC-32.3 RDW-17.4* Plt Ct-85*",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4146-4192",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 04:15AM BLOOD ___ PTT-33.5 ___",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4193-4227",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 04:15AM BLOOD Glucose-109* UreaN-11 Creat-0.8 Na-135",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4228-4284",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "K-3.4 Cl-102 HCO3-25 AnGap-11",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4286-4315",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 04:15AM BLOOD Calcium-8.5 Phos-2.8 Mg-1.7",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4316-4361",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "LIVER STUDIES",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4363-4376",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "=============",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4377-4390",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:20PM BLOOD ALT-23 AST-39 AlkPhos-56 TotBili-1.0",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4391-4445",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 03:50AM BLOOD ALT-28 AST-51* AlkPhos-58 TotBili-0.6",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4446-4501",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:06PM BLOOD ALT-36 AST-75* AlkPhos-60 TotBili-0.7",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4502-4557",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 04:37AM BLOOD ALT-47* AST-102* AlkPhos-62 TotBili-0.7",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4558-4615",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 04:20AM BLOOD ALT-61* AST-118* AlkPhos-65 TotBili-0.9",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4616-4673",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 04:15AM BLOOD ALT-57* AST-85* AlkPhos-72 TotBili-0.7",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4674-4730",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "ADDITIONAL LIVER WORK-UP",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4732-4756",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "========================",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4757-4781",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:20PM BLOOD HBsAg-NEGATIVE HBsAb-NEGATIVE",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4782-4829",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "HBcAb-NEGATIVE",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4831-4845",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:20PM BLOOD AMA-NEGATIVE Smooth-NEGATIVE",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4846-4892",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:20PM BLOOD ___",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4893-4914",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:20PM BLOOD AFP-3.3",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4915-4940",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 09:20PM BLOOD HCV Ab-NEGATIVE",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4941-4974",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MICROBIOLOGY",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4976-4988",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "============",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=4989-5001",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___: MRSA SCREEN: NO MRSA ISOLATED.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=5002-5037",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s37",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "IMAGING",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=5039-5046",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s38",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "=======",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=5047-5054",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s39",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___: EGD",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=5055-5063",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s41",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "This is appeared to be the most likely culprit \nlesion for the patient's large volume upper GI bleed.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=5502-5603",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s42",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "One band \nwas applied to the GE junction ulcerated lesion, a second band \nwas placed on the grade III varix, and a third band was applied \nto a concerning grade II varix all with excellent hemostasis.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=5604-5804",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s43",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Stomach: The stomach had a large quantity of old blood and clots \nhowever no gastric varices were appreciated.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=5807-5917",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s44",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Duodenum: Mucosa: Normal mucosa was noted.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=5920-5962",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s46",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "This is appeared to be the most likely culprit \nlesion for the patient's large volume upper GI bleed.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=6405-6506",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s47",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "One band \nwas applied to the GE junction ulcerated lesion, a second band \nwas placed on the grade III varix, and a third band was applied \nto a concerning grade II varix all with excellent hemostasis.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=6507-6707",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s48",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The stomach had a large quantity of old blood and clots however \nno gastric varices were appreciated.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=6708-6809",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s49",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Normal mucosa in the duodenum",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=6810-6839",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s50",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Otherwise normal EGD to third part of the duodenum",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=6840-6890",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s51",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___: TRANSTHORACIC ECHOCARDIOGRAM",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=6893-6926",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s52",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The left atrium is moderately dilated.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=6927-6965",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s53",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There is mild symmetric \nleft ventricular hypertrophy.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=6966-7020",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s54",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The left ventricular cavity size \nis normal.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7021-7065",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s55",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Due to suboptimal technical quality, a focal wall \nmotion abnormality cannot be fully excluded (posterior wall may \nbe focally hypokinetic).",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7066-7206",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s56",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Overall left ventricular systolic \nfunction is normal (LVEF = 70%).",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7207-7274",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s57",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Right ventricular chamber size \nand free wall motion are normal.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7275-7339",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s58",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The aortic root is mildly \ndilated at the sinus level.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7340-7394",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s59",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The aortic arch is mildly dilated.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7395-7429",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s60",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There are focal calcifications in the aortic arch.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7431-7481",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s61",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The number of \naortic valve leaflets cannot be determined.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7482-7540",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s62",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The aortic valve \nleaflets are moderately thickened.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7541-7593",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s63",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There is moderate aortic \nvalve stenosis (valve area = 1.2 cm2).",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7594-7658",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s64",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The mitral valve leaflets \nare mildly thickened.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7659-7707",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s65",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Mild (1+) mitral regurgitation is seen.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7708-7747",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s66",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There is no pericardial effusion.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7749-7782",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s67",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___: RIGHT UPPER QUADRANT ULTRASOUND WITH DOPPLER",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7786-7835",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s68",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "IMPRESSION:",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7836-7847",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s69",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "1. Coarsened and heterogeneous hepatic architecture.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7849-7901",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s70",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "No \nconcerning solid \nliver lesion identified.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7903-7949",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s71",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "2. Two hepatic cysts are noted.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7951-7982",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s72",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "3. Patent hepatic vasculature.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=7984-8014",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s73",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "4. Splenomegaly.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8016-8032",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "ASSESSMENT & PLAN: ___ with ongoing alcohol abuse but no known \nliver disease transferred from ___ to ___ for \nmonitoring of hematemesis and black bowel movements, found to \nhave esophageal varices and ___ Tear, requiring 3 \nbands for hemostasis, and new diagnosis of cirrhosis.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8059-8337",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Acute Gastrointestinal Bleed: hematemesis and dark stools were \nconcerning for upper GI bleed.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8340-8436",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Endoscopy done at ___ were \nonly revealing for nonbleeding questionable gastric and \nesophageal varices.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8437-8541",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "No intervention done at ___ as unable to \nclearly see source of bleed.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8543-8613",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He was subsequently transferred to",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8614-8648",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "___ ICU for further evaluation and management of \nhematemesis/melena.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8650-8719",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He was initially continued on octreotide,",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8720-8761",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "PPI BID.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8763-8771",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "GI was consulted on arrival to ___.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8772-8807",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He was intubated \nfor airway protection and underwent EGD by GI on ___.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8808-8879",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Results \nof the EGD showed one cord of grade III, two cords of grade II \nand one cord of grade I esophageal varices, as well as a likely",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=8880-9016",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "___ Tear (thought to be the causal lesion of the \nhematemesis and melena).",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=9018-9092",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "These lesions required a total of three \nbands.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=9093-9140",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He was subsequently continued on ceftriaxone for SBP \nprophylaxis in setting of bleed, octreotide.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=9141-9239",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "H/H remained stable \nand he was transferred to the ___ Medical floor.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=9240-9309",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "On the",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=9310-9316",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Medicine floor, the ceftriaxone was transitioned to \nciprfofloxacin and octreotide gtt was transitioned to nadolol.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=9318-9433",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "___.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=9501-9505",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "H/H at the \ntime of discharge was 9.9/30.7.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=9597-9640",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Alcoholic Cirrhosis: New diagnosis, as patient had esophageal \nvarices noted on EGD and right upper quadrant ultrasound with \ndoppler which showed \"coarsened and heterogeneous hepatic \narchitecture...patent hepatic vasculature...splenomegaly.\"",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=9725-9970",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Likely alcoholic given his history of alcohol abuse, but work-up \nfor alternative sources was carried out including hepatitis \npanel, AFP, LFTs, Iron tests for hemochromatosis (ferritin),",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=9973-10160",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "AMA, anti smooth muscle.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=10162-10186",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Hepatitis Panel was notable for \nnegative HBsAg, HBsAb, HBcAb, HCV Ab Anti-mitochondrial",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=10188-10276",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Antibody, Anti-Smooth Muscle antibody, ___.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=10278-10321",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "AFP was 3.3.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=10322-10334",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "RUQ-US \ndid not reveal concerning solid liver lesions (there were two \nhepatic cysts noted).",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=10335-10427",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Alpha-1-antitrypsin was also obtained and \nwas normal at 160.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=10428-10489",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Iron studies revealed a serum iron 229, TIBC",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=10490-10534",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "363, Ferritin 21, Transferrin 279.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=10536-10570",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "As part of initial transplant \nwork-up patient underwent an echocardiogram which showed \nsub-optimal image quality, but mild symmetric left ventricular \nhypertrophy, overall left ventricular systolic function of 70%, \nnormal right ventricular chamber size and free wall motion, \nmoderate aortic valve stenosis (valve area=1.1 cm2), mild mitral \nregurgitation.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=10571-10930",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Given these findings, he will require a repeat",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=10931-10977",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Given new diagnosis of cirrhosis, he will need to be vaccinated \nagainst Hepatitis A and Hepatitis B in the future.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=11033-11148",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s37",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Note: INR at the time of discharge 1.4.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=11150-11189",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s38",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "ALT 57, AST 85.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=11190-11205",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s39",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Albumin",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=11206-11213",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s40",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "2.8.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=11215-11219",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s41",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Moderate Aortic Stenosis: Please see above.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=11222-11267",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s42",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Hypertension: Prior to admission patient was on lisinopril 40 \nmg PO daily and diltiazem 240 mg PO daily.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=11270-11377",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s43",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "In the setting of \nacute GI bleed, anti-hypertensives were discontinued.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=11378-11450",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s44",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Given that \nhe was started on nadolol during hospitalization (as noted \nabove), diltaizem was discontinued.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=11451-11558",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s45",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He was re-started on \nlisinopril 40 mg PO daily at the time of discharge.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=11559-11632",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s48",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "1 mg PO daily.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=11824-11838",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=13434-13468",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=13469-13515",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - Independent.",
+   "provenance": "discharge:note_id=19271750-DS-4:chars=13516-13558",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19271750-RR-16:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2186-02-12T00:27:00",
+   "text": "No previous images.",
+   "provenance": "radiology:note_id=19271750-RR-16:chars=189-208",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19271750-RR-16:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2186-02-12T00:27:00",
+   "text": "The endotracheal tube extends to about 3.4 cm above the carina.",
+   "provenance": "radiology:note_id=19271750-RR-16:chars=210-273",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19271750-RR-16:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2186-02-12T00:27:00",
+   "text": "Nasogastric tube extends well into the stomach.",
+   "provenance": "radiology:note_id=19271750-RR-16:chars=275-322",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19271750-RR-16:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2186-02-12T00:27:00",
+   "text": "There are low lung volumes that accentuate the cardiac silhouette as well as the pulmonary vessels, though there may be some elevated pulmonary venous pressure.",
+   "provenance": "radiology:note_id=19271750-RR-16:chars=324-484",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19271750-RR-16:s5",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2186-02-12T00:27:00",
+   "text": "No evidence of acute focal pneumonia.",
+   "provenance": "radiology:note_id=19271750-RR-16:chars=486-523",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19271750-RR-17:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2186-02-12T14:50:00",
+   "text": "1. Coarsened and heterogeneous hepatic architecture.",
+   "provenance": "radiology:note_id=19271750-RR-17:chars=1448-1500",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19271750-RR-17:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2186-02-12T14:50:00",
+   "text": "No concerning solid liver lesion identified.",
+   "provenance": "radiology:note_id=19271750-RR-17:chars=1502-1546",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19271750-RR-17:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2186-02-12T14:50:00",
+   "text": "2. Two hepatic cysts are noted.",
+   "provenance": "radiology:note_id=19271750-RR-17:chars=1547-1578",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19271750-RR-17:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2186-02-12T14:50:00",
+   "text": "3. Patent hepatic vasculature.",
+   "provenance": "radiology:note_id=19271750-RR-17:chars=1579-1609",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19271750-RR-17:s5",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2186-02-12T14:50:00",
+   "text": "4. Splenomegaly.",
+   "provenance": "radiology:note_id=19271750-RR-17:chars=1610-1626",
+   "needs": []
+  },
+  {
+   "ref_id": "RX:iv_therapy:ceftriaxone",
+   "source": "prescriptions",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2186-02-12T15:00:00",
+   "text": "IV ceftriaxone: 1 order(s) running at some point in the 48 h before T_pa; stopped at T_pa; most recent start 48.5 h before T_pa.",
+   "provenance": "prescriptions:drug=ceftriaxone;pharmacy_id=66458907",
+   "needs": [
+    "iv_therapy"
+   ]
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

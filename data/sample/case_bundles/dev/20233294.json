@@ -1,0 +1,2666 @@
+{
+ "case_id": "20233294",
+ "content_hash": "9e7d837f6985d27d1d89f6a9783a6a2bba9f5e491a91d02a24d786eca21a92f5",
+ "demographics": {
+  "age_at_admit": 76,
+  "sex": "F",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2164-10-18T07:15:00",
+  "dischtime": "2164-10-31T17:52:00",
+  "ed_intime": null,
+  "ed_outtime": null,
+  "observation_order_time": null,
+  "inpatient_order_time": "2164-10-18T11:32:25",
+  "inpatient_start": "2164-10-18T11:32:25",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2164-10-30T17:52:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: CARDIOTHORACIC",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=147-170",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: Erythromycin Base / famotidine / lansoprazole / capcaisin / soap / Isosorbide / ipratropium",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=173-278",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "cough",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=315-320",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "1. Left thoracotomy and completion pneumonectomy.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=365-414",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "2. Mediastinal lymph node dissection.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=415-452",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "3. Buttressing of bronchial staple line with thymic fat.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=453-509",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "___ with distant hx of carcinoid tumor s/p LLL lobectomy",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=541-597",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "(___) more than ___ years ago, with recently\ndiscovered lingular nodule and FDG gravid hilar LAD biopsy \nproven\nto be carcinoid tumor.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=598-732",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She is now s/p Cyberknife therapy as well\nand presents to discuss surgical options which would be a\ncompletion pneumonectomy.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=733-858",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She has had PFT's in the interim \nwhich\ndemonstrate FEV1 106% and DLCO 79%.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=860-935",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She reports she is generally feeling well, though she has had an\nincreasing cough productive of white sputum.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=937-1046",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She denies fevers\nor chills.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1048-1076",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She has had some left shoulder pain as well.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1078-1122",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She \npresents now for surgical resection.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1123-1164",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "LLL carcinoid ___ yrs ago, s/p LLL lobectomy\nasthma, well controlled, no hosp\nmyeloproliferative disorder\npolycythemia ___ fibrillation",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1189-1324",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "GERD\nhypothyroidism\nhyperlipidemia\neczema\ns/p tonsils\ns/p extractions\ns/p excis lipoma shoulder\ns/p exc BCC eye lid",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1325-1440",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Mother: MI, died gastric or colon cancer",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1480-1520",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "Father: died MI",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1521-1536",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "___: brother lung cancer",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1537-1561",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "___: Other",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1562-1572",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "BP: 129/64.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1591-1602",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Heart Rate: 69.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1603-1618",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Weight: 106.7.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1619-1633",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Height: 62.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1634-1645",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "BMI:",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1646-1650",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "19.5.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1652-1657",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Temperature: 97.9.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1658-1676",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Resp.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1677-1682",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Rate: 16.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1683-1692",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Pain Score: 0.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1693-1707",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "O2",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1708-1710",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Saturation%:",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1712-1724",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "99. Distress Score: 4.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1725-1747",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Gen: NAD, A and OX3",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1748-1767",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Neck: Soft, supple, no LAD",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1768-1794",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Chest: CTAB",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1795-1806",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Cor: RRR",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1807-1815",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Abd: Soft, NT/ND, no rebound/guarding",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1816-1853",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Extrem: WWP, no cyanosis.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1854-1879",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "WBC   RBC   Hgb   Hct   MCV   MCH MCHC RDW",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1922-1964",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Plt Ct",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1968-1974",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:33    18.3* 3.07* 9.9*  31.4* 102* 32.3* 31.6",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=1976-2028",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "19.1* 612*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2030-2040",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-picc",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2042-2059",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:53    17.2* 3.31* 10.6* 33.5* 101* 32.1* 31.7",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2061-2113",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "18.8* 604*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2115-2125",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 03:59    16.3* 2.83* 9.4*  28.8* 102* 33.1* 32.5",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2127-2179",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "19.1* 567*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2181-2191",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-picc",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2193-2210",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 10:50    14.2* 3.22* 10.4* 33.1* 103* 32.3* 31.4",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2212-2264",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "19.0* 483*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2266-2276",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 15:05    12.5* 3.36* 10.9* 34.5* 103* 32.4* 31.5",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2278-2330",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "19.0* 510*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2332-2342",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:50    13.4* 3.21* 10.6* 32.4* 101* 32.8* 32.5",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2344-2396",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "18.4* 459*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2398-2408",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 02:10    14.2* 3.21* 10.3* 32.8* 102* 32.1* 31.4",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2410-2462",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "18.9* 430",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2464-2473",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 02:23    14.6* 3.32* 11.0* 33.9* 102* 33.1* 32.4",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2475-2527",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "18.7* 423",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2529-2538",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 02:01    13.1* 3.13* 10.3* 31.8* 102* 33.1* 32.5",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2540-2592",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "19.7* 382",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2594-2603",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 03:00    10.4  3.09* 10.3* 31.3* 101* 33.5* 33.0",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2605-2657",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "20.2* 382",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2659-2668",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 17:49                      31.0*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2670-2706",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 02:42    9.4   2.97* 10.0* 29.7* 100* 33.5* 33.5",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2718-2770",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "20.9* 332",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2772-2781",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 12:58                      34.2*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2783-2819",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:07                      36.0",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2831-2866",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 01:57    12.7* 3.50* 11.5* 35.2* 101* 32.9* 32.7",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2878-2930",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "21.5* 330",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2932-2941",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 19:50                      37.2",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2943-2978",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 18:10    15.3* 3.28* 11.1* 34.2* 104* 33.8* 32.4",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=2990-3042",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "20.1* 538*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3044-3054",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-___",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3056-3072",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 15:00                      34.5*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3074-3110",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s37",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-A",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3122-3136",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s38",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 11:09                      34.5*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3138-3174",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s39",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-A",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3186-3200",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s40",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:51                      35.8*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3202-3238",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s41",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-A",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3250-3264",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s42",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 05:46                      35.2*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3280-3316",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s43",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-A line",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3328-3347",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s44",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 01:22     9.2  3.59* 12.1  37.0 103*1 33.8* 32.8",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3349-3401",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s45",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "19.6* 448*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3403-3413",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s46",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-A line",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3415-3434",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s47",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 22:31    11.3* 2.80* 10.1* 31.3* 112* 36.3* 32.4",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3436-3488",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s48",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "15.9* 523*2",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3490-3501",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s49",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-arterial",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3503-3524",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s50",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Glucose UreaN Creat Na  K  Cl HCO3 AnGap",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3546-3586",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s51",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:53    931     9     0.5 136 4.6 97 32 12",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3588-3635",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s52",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 03:59    117*1  10     0.5 134 4.3 98 31 9",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3637-3683",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s53",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-picc",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3685-3702",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s54",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:52    116*1  12     0.4 136 5.0 98 31 12",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3704-3751",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s55",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "N",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3753-3754",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s56",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 15:05    1001   12     0.4 135 4.3 100 31 8",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3756-3803",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s57",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 07:50    105*1  11     0.4 135 4.7 98 30 12",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3805-3852",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s58",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 02:10    110*1  12     0.4 137 4.4 97 33* 11",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3854-3902",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s59",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 08:40                      133 4.7 94*",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3904-3946",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s60",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 02:23    111*1  12     0.5 132* 6.3*2 95* 27 16",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=3952-4003",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s61",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 02:01    124*1   8     0.3* 136 4.2 95* 32 13",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4005-4054",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s62",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 03:00    144*1   8     0.4 135 4.3 98 30 11",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4056-4103",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s63",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 02:42    123*1   9     0.3* 135 4.2 100 30 9",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4105-4153",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s64",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "ADDED CHEM @ 11:49AM",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4155-4175",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s65",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 01:57    159*1  11     0.4 136 5.0 ___",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4177-4219",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s66",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 18:10    174*1  13     0.5 135 5.3* ___",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4221-4264",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s67",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-aline",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4266-4284",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s68",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 01:22    162*1  11     0.5 139 4.1 ___",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4286-4328",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s69",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Source: Line-A line",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4330-4349",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s70",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 17:48                       138 4.2 104",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4351-4394",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s71",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "PATHOLOGY",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4397-4406",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s72",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ ___ #: ___",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4407-4421",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s73",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Date Specimen(s) Received: ___ Patient Location: ___",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4422-4474",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s75",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Date Reported: ___ Ordering Provider: ___, MD",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4480-4525",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s76",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": ": Responsible Provider: ___, MD",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4526-4557",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s77",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 1 of 4",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4558-4568",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s78",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "SURGICAL PATHOLOGY REPORT - Final",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4569-4602",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s79",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "PATHOLOGIC DIAGNOSIS:",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4603-4624",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s80",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "1. Lymph node, left, level 10:",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4625-4655",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s81",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Lymph node with metastatic atypical carcinoid tumor (___).",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4656-4714",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s82",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "2. Lymph node, left, level 5:",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4715-4744",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s83",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Lymph node with no malignancy identified (___).",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4745-4792",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s84",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "3. Lymph node, left, level 12:",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4793-4823",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s85",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Fragment of lung with no evidence of malignancy; no lymph node \ntissue present.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4824-4903",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s86",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "4. Lymph nodes, left, level 7:",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4904-4934",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s87",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Metastatic atypical carcinoid tumor in seven of fourteen lymph \nnodes (___).",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=4935-5011",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s88",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "5. Lung, left upper lobe, lobectomy:",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5012-5048",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s89",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Mass #1:",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5049-5057",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s91",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Tumor necrosis is present.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5104-5130",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s92",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Mitoses number up to 7 per ___ CXR :",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5131-5167",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s93",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Compared with prior film, there has been continuing \nopacification of the left hemithorax.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5168-5258",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s94",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Extreme marked leftward \nshift of the mediastinum is again seen, together with elevation \nof the left hemidiaphragm.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5260-5376",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s95",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "A left-sided chest tube is again \nnoted, as is a presumed epidural catheter.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5378-5454",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s96",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The right lung shows \nslight overexpansion, similar to the prior film, extending \nleftward across the midline, unchanged.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5456-5577",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s97",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "No right-sided CHF, \nfocal infiltrate, effusion or pneumothorax is detected.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5579-5655",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s98",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ CXR :",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5660-5669",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s99",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "As compared to the previous radiograph, no relevant change is \nseen.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5670-5738",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s100",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The \npostoperative pneumonectomy appearance of the left hemi thorax \nis constant.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5740-5821",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s101",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Minimal atelectasis and potential minimal right \npleural effusion.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5823-5889",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s102",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "The clips projecting over the lower right \nhemithorax are unchanged.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5891-5959",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s103",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ CXR :",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5962-5971",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s104",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Normal postoperative appearance, left pneumonectomy, 0 with \ncontinuing slow accumulation of fluid in the pneumonectomy space \nand stable substantial leftward cardiac shift.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=5972-6145",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s105",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Small right \npleural effusion may be present.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6146-6191",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s106",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Right upper lung is clear.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6193-6219",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s107",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ PICC line :",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6222-6237",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s108",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "1. Existing left arm approach PICC with tip in the subclavian \nvein replaced with a new double lumen PIC line with tip in the \nsuperior cavoatrial junction.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6238-6394",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s109",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "2.  Changes of pneumonectomy are present on the left.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6399-6452",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s110",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ CXR :",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6455-6464",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s111",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "1. The postoperative fluid collection appears similar in amount, \nallowing for differences in supine and upright technique.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6465-6588",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s112",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "2. Previously seen right lung vascular congestion has improved \nand the right lung is more clear.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6590-6687",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s113",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "3. Small right pleural effusion has improved.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6689-6734",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s114",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Micro :",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6739-6746",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s115",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 11:12 am URINE      Source: Catheter.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6748-6789",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s116",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "**FINAL REPORT ___",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6820-6838",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s117",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "URINE CULTURE (Final ___:",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6843-6868",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s118",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "PSEUDOMONAS AERUGINOSA.    >100,000 ORGANISMS/ML..",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6876-6926",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s119",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "SENSITIVITIES: MIC expressed in",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6959-6990",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s120",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCG/ML",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=6992-6998",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s121",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "_________________________________________________________",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7022-7079",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s122",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "PSEUDOMONAS AERUGINOSA",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7109-7131",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s123",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "|",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7161-7162",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s124",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "CEFEPIME--------------   <=1 S",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7166-7196",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s125",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "CEFTAZIDIME-----------     2 S",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7197-7227",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s126",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "CIPROFLOXACIN---------<=0.25 S",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7228-7258",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s127",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "GENTAMICIN------------     2 S",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7259-7289",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s128",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MEROPENEM-------------   0.5 S",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7290-7320",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s129",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "PIPERACILLIN/TAZO-----   <=4 S",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7321-7351",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s130",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "TOBRAMYCIN------------   <=1 S",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7352-7382",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s131",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 2:37 am URINE      Source: ___.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7384-7419",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s132",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "**FINAL REPORT ___",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7450-7468",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s133",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "URINE CULTURE (Final ___:    NO GROWTH.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7473-7512",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Mrs. ___ was admitted to the hospital and taken to the",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7540-7594",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Operating Room where she underwent a left thoracotomy and \ncompletion pneumonectomy, mediastinal lymph node dissection and \nbuttressing of bronchial staple line with thymic fat.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7596-7773",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She \ntolerated the procedure well and returned to the SICU in stable \ncondition.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7774-7854",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Her pain was initially not relieved with IV Dilaudid \nand she subsequently had an epidural placed which had good \neffect.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7856-7977",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Unfortunately it caused some low blood pressures and it \nwas turned off and she used a PCA for pain relief which was \nadequate.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=7979-8106",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She was able to use an incentive spirometer somewhat \neffectively and her hemodynamics remained stable.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8108-8211",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She has a history of PAF and developed atrial fibrillation on \npost op day #3 despite resuming her pre op medications of",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8213-8333",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Diltiazem and Metoprolol.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8335-8360",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Her rates were occasionally as high \nas 130-140 BPM and she required neosynephrine for \nvasoconstriction as her blood pressure was ___ /50 with a \nrapid rate.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8362-8520",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The Cardiology service was consulted and followed \nher on a daily basis.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8522-8594",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She was placed on IV Diltiazem and short \nacting metoprolol and eventually required digoxin for adequate \nrate control.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8596-8715",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "In the interim she was anticoagulated with",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8717-8759",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Coumadin.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8761-8770",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Although she occasionally would convert to NSR she \nwas unable to sustain it.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8772-8849",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Sotolol was started and she converted \nafter one dose.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8851-8905",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Her sinus rate was in the 60 range therefore",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8907-8951",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Diltiazem and Digoxin were stopped.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8953-8988",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She was maintained on",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=8990-9011",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Sotolol and Metoprolol and was able to maintain NRS.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9013-9065",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Her blood \npressure 110/50 and she was progressing well.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9067-9123",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She developed a leukocytosis of 13K on ___ and was started \non Vancomycin and Zosyn empirically for a right pneumonia.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9125-9243",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She \nwas not febrile nor did she have any sputum production.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9245-9305",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She was \npan cultured and her urine culture grew Pseudomonas aeruginosa \nand she was placed on a 5 day course of Cipro.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9307-9426",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She remained \nafebrile without any other symptoms but her WBC continued to \nrise.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9428-9509",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Her CXR was clear on the right side except for a small \nright pleural effusion.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9511-9590",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She had an ultrasound of the right \neffusion but it was considered minimal.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9592-9667",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Her room air \nsaturations were 94%.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9669-9704",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She felt that it was due to being off of her hydroxyurea which \nshe takes for PCV therefore it was resumed.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9705-9812",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Her oxygen saturations were 88% with activity after many",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9814-9870",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She remained in NRS for 48 hours prior to discharge and her INR \nwas 2.9.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=9987-10060",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "The Preadmission Medication list is accurate and complete.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10364-10422",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "1. Hydroxyurea 500 mg PO 5X/WEEK (___)",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10423-10461",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "2. Hydroxyurea 1000 mg PO 2X/WEEK (___)",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10463-10502",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "3. Metoprolol Succinate XL 12.5 mg PO DAILY",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10504-10547",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "4. Diltiazem Extended-Release 180 mg PO DAILY",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10549-10594",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "5. Warfarin 5 mg PO AS DIRECTED",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10596-10627",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "6. Pravastatin 40 mg PO DAILY",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10629-10658",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "7. Omeprazole 20 mg PO BID",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10660-10686",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "8. Aspirin 325 mg PO DAILY",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10688-10714",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "9. albuterol sulfate 90 mcg/actuation inhalation Q 4 hrs prn \nwheezing",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10716-10786",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "10. Levothyroxine Sodium 112 mcg PO DAILY",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10788-10829",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "11. Vitamin E 400 UNIT PO BID",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=10831-10860",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=12414-12448",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=12449-12495",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - Independent.",
+   "provenance": "discharge:note_id=14681621-DS-9:chars=12496-12538",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-15:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-18T20:02:00",
+   "text": "Status post pneumonectomy on the left.",
+   "provenance": "radiology:note_id=14681621-RR-15:chars=132-170",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-15:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-18T20:02:00",
+   "text": "Left chest tube and clips in situ.",
+   "provenance": "radiology:note_id=14681621-RR-15:chars=172-206",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-15:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-18T20:02:00",
+   "text": "Expected appearance of the pneumonectomy space.",
+   "provenance": "radiology:note_id=14681621-RR-15:chars=207-254",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-15:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-18T20:02:00",
+   "text": "No change in appearance of the right lung.",
+   "provenance": "radiology:note_id=14681621-RR-15:chars=256-298",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-15:s5",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-18T20:02:00",
+   "text": "The size of the cardiac silhouette is constant.",
+   "provenance": "radiology:note_id=14681621-RR-15:chars=300-347",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-18:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-20T11:09:00",
+   "text": "1) New lucency at the left lung apex.",
+   "provenance": "radiology:note_id=14681621-RR-18:chars=1011-1048",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-18:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-20T11:09:00",
+   "text": "2) Possible minimal increase in the degree of atelectasis in the right cardiophrenic region and minimal blunting of the right costophrenic angle.",
+   "provenance": "radiology:note_id=14681621-RR-18:chars=1052-1197",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-18:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-20T11:09:00",
+   "text": "3) Otherwise, no significant interval change.",
+   "provenance": "radiology:note_id=14681621-RR-18:chars=1201-1246",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-19:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-21T10:18:00",
+   "text": "Fluid continues to accumulate, as expected in the left pneumonectomy space.",
+   "provenance": "radiology:note_id=14681621-RR-19:chars=204-279",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-19:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-21T10:18:00",
+   "text": "Leftward mediastinal shift is stable.",
+   "provenance": "radiology:note_id=14681621-RR-19:chars=280-317",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-19:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-21T10:18:00",
+   "text": "No appreciable subcutaneous emphysema in the left chest wall.",
+   "provenance": "radiology:note_id=14681621-RR-19:chars=319-380",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-19:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-21T10:18:00",
+   "text": "Right lung clear.",
+   "provenance": "radiology:note_id=14681621-RR-19:chars=382-399",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-19:s5",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-21T10:18:00",
+   "text": "Cardiac size indeterminate because of leftward mediastinal shift.",
+   "provenance": "radiology:note_id=14681621-RR-19:chars=400-465",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-21:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-22T08:42:00",
+   "text": "As compared to the previous radiograph, no relevant change is seen.",
+   "provenance": "radiology:note_id=14681621-RR-21:chars=139-206",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-21:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-22T08:42:00",
+   "text": "The postoperative pneumonectomy appearance of the left hemi thorax is constant.",
+   "provenance": "radiology:note_id=14681621-RR-21:chars=208-287",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-21:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-22T08:42:00",
+   "text": "Minimal atelectasis and potential minimal right pleural effusion.",
+   "provenance": "radiology:note_id=14681621-RR-21:chars=289-354",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-21:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-22T08:42:00",
+   "text": "The clips projecting over the lower right hemithorax are unchanged.",
+   "provenance": "radiology:note_id=14681621-RR-21:chars=356-423",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-22:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-23T10:07:00",
+   "text": "Minimal changes demonstrated as compared to the prior study with gradual filling off the post pneumonectomy left knee hemi thorax.",
+   "provenance": "radiology:note_id=14681621-RR-22:chars=174-304",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-22:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-23T10:07:00",
+   "text": "There is minimal interval improvement of the right lung base variation with still present small right pleural effusion.",
+   "provenance": "radiology:note_id=14681621-RR-22:chars=306-425",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-22:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-23T10:07:00",
+   "text": "The right upper lung is essentially clear but of note is that right basal opacity and pleural fluid are new as compared to ___ and should be closely monitored or to exclude the possibility of developing infection",
+   "provenance": "radiology:note_id=14681621-RR-22:chars=427-639",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-23:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-24T12:03:00",
+   "text": "Interval continues increase in filling of the post pneumonectomy cavity is demonstrated as expected.",
+   "provenance": "radiology:note_id=14681621-RR-23:chars=172-272",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-23:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-24T12:03:00",
+   "text": "Right pleural effusion is small with right basal atelectasis overall unchanged.",
+   "provenance": "radiology:note_id=14681621-RR-23:chars=273-352",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-24:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-25T11:15:00",
+   "text": "Normal postoperative appearance, left pneumonectomy, 0 with continuing slow accumulation of fluid in the pneumonectomy space and stable substantial leftward cardiac shift.",
+   "provenance": "radiology:note_id=14681621-RR-24:chars=177-348",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-24:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-25T11:15:00",
+   "text": "Small right pleural effusion may be present.",
+   "provenance": "radiology:note_id=14681621-RR-24:chars=349-393",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-24:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-25T11:15:00",
+   "text": "Right upper lung is clear.",
+   "provenance": "radiology:note_id=14681621-RR-24:chars=395-421",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-25:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-25T14:30:00",
+   "text": "As compared to the previous radiograph, the patient has received the new left",
+   "provenance": "radiology:note_id=14681621-RR-25:chars=190-267",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-25:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-25T14:30:00",
+   "text": "PICC line.",
+   "provenance": "radiology:note_id=14681621-RR-25:chars=268-278",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-25:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-25T14:30:00",
+   "text": "The line is coiled at the level of the brachiocephalic vein and needs to be repositioned.",
+   "provenance": "radiology:note_id=14681621-RR-25:chars=279-368",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-25:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-25T14:30:00",
+   "text": "At the time of dictation and observation, the referring PICC nurse ___ was paged for notification, 14:38, on the ___.",
+   "provenance": "radiology:note_id=14681621-RR-25:chars=369-486",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-25:s5",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-25T14:30:00",
+   "text": "No other relevant change.",
+   "provenance": "radiology:note_id=14681621-RR-25:chars=487-512",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-26:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-26T14:57:00",
+   "text": "The left-sided PICC line has been pulled back and the distal lead tip is in the axillary/ brachiocephalic vein junction.",
+   "provenance": "radiology:note_id=14681621-RR-26:chars=135-255",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-26:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-26T14:57:00",
+   "text": "There is unchanged appearance of the lung fields with whiteout of the left lung aside for partial aeration of the left apex.",
+   "provenance": "radiology:note_id=14681621-RR-26:chars=257-381",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-26:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-26T14:57:00",
+   "text": "There is a small right-sided pleural effusion.",
+   "provenance": "radiology:note_id=14681621-RR-26:chars=383-429",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-26:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-26T14:57:00",
+   "text": "No pneumothoraces are present.",
+   "provenance": "radiology:note_id=14681621-RR-26:chars=431-461",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-28:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-28T09:20:00",
+   "text": "Fluid nearly filling the left pneumonectomy space has increased minimally since ___.",
+   "provenance": "radiology:note_id=14681621-RR-28:chars=240-324",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-28:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-28T09:20:00",
+   "text": "Small right pleural effusion is stable.",
+   "provenance": "radiology:note_id=14681621-RR-28:chars=326-365",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-28:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-28T09:20:00",
+   "text": "Right lung is clear, now with less vascular congestion.",
+   "provenance": "radiology:note_id=14681621-RR-28:chars=367-422",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-28:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-28T09:20:00",
+   "text": "Left heart border is obscured by the postoperative fluid collection, but probably not enlarged.",
+   "provenance": "radiology:note_id=14681621-RR-28:chars=424-519",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-29:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-28T15:32:00",
+   "text": "Successful placement of a 43 cm left arm approach double lumen Power PICC with tip in the superior cavoatrial junction.",
+   "provenance": "radiology:note_id=14681621-RR-29:chars=1562-1681",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-29:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-28T15:32:00",
+   "text": "The line is ready to use.",
+   "provenance": "radiology:note_id=14681621-RR-29:chars=1682-1707",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-30:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-29T13:52:00",
+   "text": "1. The postoperative fluid collection appears similar in amount, allowing for differences in supine and upright technique.",
+   "provenance": "radiology:note_id=14681621-RR-30:chars=734-856",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-30:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-29T13:52:00",
+   "text": "2. Previously seen right lung vascular congestion has improved and the right lung is more clear.",
+   "provenance": "radiology:note_id=14681621-RR-30:chars=857-953",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:14681621-RR-30:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2164-10-29T13:52:00",
+   "text": "3. Small right pleural effusion has improved.",
+   "provenance": "radiology:note_id=14681621-RR-30:chars=954-999",
+   "needs": []
+  },
+  {
+   "ref_id": "POE:wound_care",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2164-10-18T17:22:57",
+   "text": "Wound Care: 2 order(s) before T_pa; first on hospital day 1, most recent 288.5 h before T_pa.",
+   "provenance": "poe:poe_id=14681621-39,14681621-40",
+   "needs": [
+    "wound_care"
+   ]
+  },
+  {
+   "ref_id": "POE:rehab_therapy",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2164-10-28T07:09:52",
+   "text": "Occupational Therapy, Physical Therapy: 3 order(s) before T_pa; first on hospital day 8, most recent 58.7 h before T_pa.",
+   "provenance": "poe:poe_id=14681621-222,14681621-223,14681621-387",
+   "needs": [
+    "rehab_therapy"
+   ]
+  },
+  {
+   "ref_id": "POE:speech_therapy",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2164-10-22T12:54:23",
+   "text": "Speech/Swallowing: 1 order(s) before T_pa; first on hospital day 5, most recent 197.0 h before T_pa.",
+   "provenance": "poe:poe_id=14681621-172",
+   "needs": [
+    "speech_therapy"
+   ]
+  },
+  {
+   "ref_id": "POE:respiratory",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2164-10-18T17:22:57",
+   "text": "Oxygen Therapy: 1 order(s) before T_pa; first on hospital day 1, most recent 288.5 h before T_pa.",
+   "provenance": "poe:poe_id=14681621-45",
+   "needs": [
+    "respiratory"
+   ]
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

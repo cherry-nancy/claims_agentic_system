@@ -1,0 +1,1166 @@
+{
+ "case_id": "20515675",
+ "content_hash": "03bda78d0ab71ab0411ec319f5104ba99ed73c8cfe2ade880c565d3e7d7a906a",
+ "demographics": {
+  "age_at_admit": 91,
+  "sex": "F",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2151-06-16T00:20:00",
+  "dischtime": "2151-06-18T17:39:00",
+  "ed_intime": "2151-06-15T22:00:00",
+  "ed_outtime": "2151-06-16T00:21:19",
+  "observation_order_time": "2151-06-16T00:35:16",
+  "inpatient_order_time": "2151-06-16T14:34:17",
+  "inpatient_start": "2151-06-16T14:34:17",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2151-06-17T17:39:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: ORTHOPAEDICS",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=148-169",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: Penicillins / Sulfa (Sulfonamide Antibiotics) / E-Mycin",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=172-240",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "R intertrochanteric femur fracture",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=277-311",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "R Long TFN - ___ Dr. ___",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=352-376",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "___ of Present Illness:",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=380-403",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "REASON FOR CONSULT: Right inter-trochanteric femur fracture.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=404-464",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "INFORMATION SOURCE: The patient.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=466-498",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "HISTORY OF PRESENT ILLNESS: ___ female who presented to \nthe emergency department for evaluation of right hip pain after \na fall.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=500-629",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "She states that she was coming down a flight of stairs \nat home when she missed the final step and fell, landing on her \nright side.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=630-762",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "She denies head strike, loss of consciousness, or \npain elsewhere in her body.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=763-841",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "She says that she tried to stand but \nwas unable to ambulate and called EMS for transport to the \nhospital.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=842-949",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "At the time of evaluation she is complaining only of \nright hip pain with movement.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=950-1033",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "She denies weakness, numbness, \nheadache, vision changes, fevers, chills, chest pain, shortness \nof breath, nausea, vomiting, abdominal pain, changes in bowel or \nbladder function, or other symptoms.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1034-1233",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "PAST MEDICAL/SURGICAL HISTORY:",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1235-1265",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Hypothyroidism",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1269-1283",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Peripheral vascular disease",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1284-1311",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Status post cesarean section x 3",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1312-1344",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Status post TAH/BSO",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1345-1364",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Status post appendectomy",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1365-1389",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Status post T&A",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1390-1405",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "MEDICATIONS AT HOME:",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1407-1427",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Levothyroxine 25mcg QD",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1431-1453",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Vitamin B12",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1454-1465",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "ALLERGIES:",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1467-1477",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Penicillins",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1481-1492",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Erythromycin",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1493-1505",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Sulfa drugs",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1506-1517",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "SOCIAL HISTORY: Lives alone in ___ and is very active at \nbaseline.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1519-1586",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Community ambulator without assist.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1587-1622",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Denies tobacco, \nalcohol, or other drug use.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1623-1667",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "REVIEW OF SYSTEMS:  Negative except as per HPI.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1669-1716",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "PHYSICAL EXAMINATION:",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1718-1739",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Vital Signs - AVSS",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1741-1759",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "General - No acute distress.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1762-1790",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Right upper extremity - Fires extensor pollicis longus, opponens \npollicis, and interossei.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1792-1883",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Sensation intact to light touch in \naxillary, median, radial, and ulnar distributions.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1884-1970",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "No tenderness \nto palpation of digits, hand, wrist, forearm, elbow, shoulder, \nor clavicle.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=1971-2062",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Radial pulse 2+, distal extremity warm and \nwell-perfused, capillary refill less than 2 seconds.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2063-2159",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Compartments soft with no pain on passive range of motion of the \ndigits, wrist, or elbow.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2161-2251",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s37",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Skin intact with no erythema, \nbreakdown, or lacerations.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2252-2309",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s38",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Left upper extremity - Fires extensor pollicis longus, opponens \npollicis, and interossei.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2311-2401",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s39",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Sensation intact to light touch in \naxillary, median, radial, and ulnar distributions.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2402-2488",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s40",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "No tenderness \nto palpation of digits, hand, wrist, forearm, elbow, shoulder, \nor clavicle.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2489-2580",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s41",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Radial pulse 2+, distal extremity warm and \nwell-perfused, capillary refill less than 2 seconds.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2581-2677",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s42",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Compartments soft with no pain on passive range of motion of the \ndigits, wrist, or elbow.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2679-2769",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s43",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Skin intact with no erythema, \nbreakdown, or lacerations.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2770-2827",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s44",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Right lower extremity - Pain with logroll.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2829-2871",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s45",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Fires extensor \nhalluces longus, flexor halluces longus, tibialis anterior, and \ngastro-soleus.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2872-2967",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s46",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Sensation intact to light touch in sural, \nsaphenous, superficial peroneal, deep peroneal, and tibial \ndistributions.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=2968-3085",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s47",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "No tenderness to palpation of forefoot, midfoot, \nhindfoot, ankle, tibia, fibula, knee, femur, or hip.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=3086-3188",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s48",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Dorsalis \npedis pulse 1+, distal extremity warm and well perfused with \ncapillary refill less than 2 seconds.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=3189-3298",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s49",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Compartments soft with no \npain on passive range of motion of toes or ankle joint.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=3299-3381",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s50",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Skin \nintact with no erythema, breakdown, or lacerations.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=3383-3440",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s51",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Left lower extremity - Fires extensor halluces longus, flexor \nhalluces longus, tibialis anterior, and gastro-soleus.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=3442-3559",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s52",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Sensation \nintact to light touch in sural, saphenous, superficial peroneal, \ndeep peroneal, and tibial distributions.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=3560-3677",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s53",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "No tenderness to \npalpation of forefoot, midfoot, hindfoot, ankle, tibia, fibula, \nknee, femur, or hip.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=3678-3781",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s54",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Dorsalis pedis pulse 1+, distal extremity \nwarm and well perfused with capillary refill less than 2 \nseconds.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=3782-3891",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s55",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Compartments soft with no pain on passive range of \nmotion of toes, ankle, knee or hip.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=3892-3979",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s56",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Skin intact with no \nerythema, breakdown, or lacerations.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=3981-4038",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s57",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "LABORATORY DATA:",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4041-4057",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s58",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "WBC  17.0",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4059-4068",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s59",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "HGB  11.9",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4069-4078",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s60",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "HCT  38.7",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4079-4088",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s61",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "NA   140",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4090-4098",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s62",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "K    3.8",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4099-4107",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s63",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "CR   0.6",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4108-4116",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s64",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "UA with + leukocyte esterase, few WBC, few bacteria",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4118-4169",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s65",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "IMAGING DATA: X-ray/CT of the right hip demonstrate a \nnon-displaced right inter-trochanteric femur fracture.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4171-4280",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s66",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "ASSESSMENT AND PLAN: ___ female who presents with right \nhip pain and inability to ambulate and was found to have a right \ninter-trochanteric femur fracture.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4282-4439",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s67",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "Plan for admission to \northopedic surgery for operative fixation.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4440-4505",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s68",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "- Non-weight bearing right lower extremity",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4507-4549",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s69",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "- Pain control, ice, elevation",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4550-4580",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s70",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "- Lovenox 40mg QPM for DVT ___ consult for pre-operative risk assessment and \noptimization",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4581-4671",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s71",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "- Continue home medications",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4672-4699",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s72",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "- NPO for possible OR",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4700-4721",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Hypothyroidism",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4748-4762",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Peripheral vascular disease",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4763-4790",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Status post cesarean section x 3",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4791-4823",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Status post TAH/BSO",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4824-4843",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Status post appendectomy",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4844-4868",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Status post T&A",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4869-4884",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "non contributory",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4924-4940",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "AFVSS",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4958-4963",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "NAD",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4964-4967",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "RLE\nwwp, c/d/i",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4968-4982",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "SILT s/s/sp/dp/T",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=4987-5003",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient presented to the emergency department and was \nevaluated by the orthopedic surgery team.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=5029-5129",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was found \nto have right intertroch femur fracture and was admitted to the \northopedic surgery service.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=5130-5245",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was taken to the \noperating room on ___ for R TFN, which the patient tolerated \nwell (for full details please see the separately dictated \noperative report).",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=5247-5416",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was taken from the OR to the PACU \nin stable condition and after recovery from anesthesia was \ntransferred to the floor.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=5417-5549",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was initially given IV \nfluids and IV pain medications, and progressed to a regular diet \nand oral medications by POD#1.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=5551-5683",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was given \nperioperative antibiotics and anticoagulation per routine.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=5684-5765",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She \nhad a positive UA but patient had no symptoms and urine culture \nshowed only mixed skin flora.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=5766-5865",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patients home medications were \ncontinued throughout this hospitalization.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=5866-5944",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The ___ hospital course was otherwise unremarkable.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=6032-6083",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "At the time of discharge the patient was afebrile with stable \nvital signs that were within normal limits, pain was well \ncontrolled with oral medications, incisions were \nclean/dry/intact, and the patient was voiding/moving bowels \nspontaneously.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=6085-6332",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "A thorough \ndiscussion was had with the patient regarding the diagnosis and \nexpected post-discharge course, and all questions were answered \nprior to discharge.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=6494-6655",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "The Preadmission Medication list is accurate and complete.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=6685-6743",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "1. Levothyroxine Sodium 25 mcg PO DAILY",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=6744-6783",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=7355-7389",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=7390-7436",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - requires assistance or aid (walker \nor cane).",
+   "provenance": "discharge:note_id=11150340-DS-8:chars=7437-7512",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:11150340-RR-20:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2151-06-16T05:08:00",
+   "text": "1. Non-displaced intertrochanteric right femur fracture.",
+   "provenance": "radiology:note_id=11150340-RR-20:chars=1202-1259",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:11150340-RR-20:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2151-06-16T05:08:00",
+   "text": "2. Degenerative changes of the hips, lower lumbar spine, and SI joints.",
+   "provenance": "radiology:note_id=11150340-RR-20:chars=1260-1332",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:11150340-RR-21:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2151-06-17T10:06:00",
+   "text": "1. Undisplaced intertrochanteric fracture through the right proximal femur with surrounding muscular edema",
+   "provenance": "radiology:note_id=11150340-RR-21:chars=1518-1624",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:11150340-RR-21:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2151-06-17T10:06:00",
+   "text": "2. Mild degenerative changes in the bilateral hip joints.",
+   "provenance": "radiology:note_id=11150340-RR-21:chars=1625-1682",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:11150340-RR-21:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2151-06-17T10:06:00",
+   "text": "3. Mild degenerative changes in the bilateral sacroiliac joints and lower lumbar spine.",
+   "provenance": "radiology:note_id=11150340-RR-21:chars=1683-1770",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:11150340-RR-21:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2151-06-17T10:06:00",
+   "text": "4. Possible greater trochanteric bursitis in the left hip region.",
+   "provenance": "radiology:note_id=11150340-RR-21:chars=1771-1836",
+   "needs": []
+  },
+  {
+   "ref_id": "POE:wound_care",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2151-06-16T14:34:17",
+   "text": "Wound Care: 1 order(s) before T_pa; first on hospital day 1, most recent 27.1 h before T_pa.",
+   "provenance": "poe:poe_id=11150340-69",
+   "needs": [
+    "wound_care"
+   ]
+  },
+  {
+   "ref_id": "POE:rehab_therapy",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2151-06-16T14:34:17",
+   "text": "Physical Therapy: 1 order(s) before T_pa; first on hospital day 1, most recent 27.1 h before T_pa.",
+   "provenance": "poe:poe_id=11150340-74",
+   "needs": [
+    "rehab_therapy"
+   ]
+  },
+  {
+   "ref_id": "POE:respiratory",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2151-06-16T15:22:52",
+   "text": "Oxygen Therapy: 2 order(s) before T_pa; first on hospital day 1, most recent 26.3 h before T_pa.",
+   "provenance": "poe:poe_id=11150340-72,11150340-82",
+   "needs": [
+    "respiratory"
+   ]
+  },
+  {
+   "ref_id": "RX:iv_therapy:cefazolin",
+   "source": "prescriptions",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2151-06-16T16:00:00",
+   "text": "IV cefazolin: 1 order(s) running at some point in the 48 h before T_pa; stopped at T_pa; most recent start 25.6 h before T_pa.",
+   "provenance": "prescriptions:drug=cefazolin;pharmacy_id=89496098",
+   "needs": [
+    "iv_therapy"
+   ]
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

@@ -1,0 +1,776 @@
+{
+ "case_id": "20185624",
+ "content_hash": "7a368930ff2a12965ff9e897ba3b681d2f854f8b32111542aae66c15363305d0",
+ "demographics": {
+  "age_at_admit": 70,
+  "sex": "M",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2140-09-29T14:58:00",
+  "dischtime": "2140-10-04T15:47:00",
+  "ed_intime": "2140-09-29T13:48:00",
+  "ed_outtime": "2140-09-29T19:21:00",
+  "observation_order_time": null,
+  "inpatient_order_time": "2140-09-29T19:24:26",
+  "inpatient_start": "2140-09-29T19:24:26",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2140-10-03T15:47:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: ORTHOPAEDICS",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=143-164",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: codeine",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=167-187",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "Left leg pain",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=224-237",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "L Tibia IMN ___",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=278-293",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "___ transferred from OSH for L tib/fib fracture.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=325-373",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Patient \nslipped on ice and fell onto his left side.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=375-427",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Unable to ambulate \ndue to pain in leg since fall.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=429-479",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Taken to OSH and found to have \ncomminuted L tib/fib fracture.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=481-543",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Transferred here for orthopedic \nmanagement.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=545-589",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Denies numbness, head strike, headache, neck pain, \nback pain.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=591-653",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "___/PSH:",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=679-687",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "HTN",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=689-692",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "DM\nanxiety disorder\nappendectomy",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=693-725",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "MEDS:",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=727-732",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "aspirin 81mg daily\nmetformin 1000mg BID\nlisinopril 20mg daily\nsimvastatin 40mg daily\nranitidine 150mg BID",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=734-839",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Cymbalta 60mg daily\nmirtazapine 90mg daily\nalprazolam 0.5mg prn anxiety\nglipizide",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=840-921",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "2.5mg daily\nbetimol Drop each eye\namlodipine 5mg daily",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=922-976",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "ALL: codein",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=978-989",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "NC",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1029-1031",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "LLE wound is clean.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1049-1068",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "LLE with blisters.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1069-1087",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Improved erythema.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1088-1106",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "NVI",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1108-1111",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "NAD",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1112-1115",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient presented to the emergency department and was \nevaluated by the orthopedic surgery team.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1141-1241",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was found \nto have Left tib/fib fracture and was admitted to the orthopedic \nsurgery service.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1242-1347",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was taken to the operating room on",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1348-1394",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "___ for Left tibial IMN, which the patient tolerated well.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1396-1454",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "For \nfull details of the procedure please see the separately dictated \noperative report.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1455-1543",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was taken from the OR to the PACU \nin stable condition and after satisfactory recovery from \nanesthesia was transferred to the floor.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1544-1689",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient was \ninitially given IV fluids and IV pain medications, and \nprogressed to a regular diet and oral medications by POD#1.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1690-1822",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The \npatient was given ___ antibiotics and anticoagulation \nper routine.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1823-1895",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient's home medications were continued \nthroughout this hospitalization.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=1896-1975",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "On POD 1, he was having increasing pain so splint was taken down \nand was found to have erythema and slight blistering.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2075-2194",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He had no \npain with passive extension.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2195-2234",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He was started on Bactrim and",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2235-2264",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Keflex for cellulitis of the LLE.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2266-2299",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He developed ___ with",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2300-2321",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Creatinine of 1.5 on POD 2 from a baseline of 1.0.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2323-2373",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Medicine was \nconsulted.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2374-2398",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He was bolused 2 Liters normal saline and was \ntransitioned to IV cefazolin.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2399-2475",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "His creatinine improved to 1.1 and \nwas transitioned to PO keflex.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2476-2542",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He was placed in a bivalved cast \nfor LLE to monitor cellulitis and blistering.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2543-2622",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "On POD 1, he \nfailed to void after removing foley catheter so Urology was \nconsulted and foley was reinserted.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2623-2733",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Five days later, the foley \nwas removed <<<<>>>>>>>>>>>>>>>",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2734-2793",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "At the time of discharge the patient's pain was well controlled \nwith oral medications, incisions were clean/dry/intact.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2795-2915",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Lovenox 40mg QD for 4 weeks for DVT prophylaxis.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=2984-3032",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "A thorough \ndiscussion was had with the patient regarding the diagnosis and \nexpected post-discharge course including reasons to call the \noffice or return to the hospital, and all questions were \nanswered.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=3083-3289",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "The patient expressed readiness for discharge.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=3414-3460",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "aspirin 81mg daily\nmetformin 1000mg BID\nlisinopril 20mg daily\nsimvastatin 40mg daily\nranitidine 150mg BID",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=3489-3594",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "Cymbalta 60mg daily\nmirtazapine 90mg daily\nalprazolam 0.5mg prn anxiety\nglipizide",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=3595-3676",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "2.5mg daily\nbetimol Drop each eye\namlodipine 5mg daily",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=3677-3731",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=4837-4871",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=4872-4918",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - requires assistance or aid (walker \nor cane).",
+   "provenance": "discharge:note_id=13280680-DS-3:chars=4919-4994",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-14:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-09-29T16:40:00",
+   "text": "Comminuted, displaced fractures of the proximal left fibular shaft and mid to distal tibia, with significant interval improvement in angulation since the prior study.",
+   "provenance": "radiology:note_id=13280680-RR-14:chars=629-795",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-13:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-09-29T17:39:00",
+   "text": "Mild enlarged of the cardiac silhouette.",
+   "provenance": "radiology:note_id=13280680-RR-13:chars=386-426",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-13:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-09-29T17:39:00",
+   "text": "No focal consolidation or pulmonary edema.",
+   "provenance": "radiology:note_id=13280680-RR-13:chars=428-470",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-16:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-09-29T19:12:00",
+   "text": "1. Comminuted mid and distal tibial fracture as described above without intra-articular extension.",
+   "provenance": "radiology:note_id=13280680-RR-16:chars=2514-2612",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-16:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-09-29T19:12:00",
+   "text": "The ankle mortise is preserved.",
+   "provenance": "radiology:note_id=13280680-RR-16:chars=2614-2645",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-16:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-09-29T19:12:00",
+   "text": "2. Comminuted fracture of the proximal fibula.",
+   "provenance": "radiology:note_id=13280680-RR-16:chars=2647-2693",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-16:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-09-29T19:12:00",
+   "text": "The peroneal nerve is seen along the fracture line.",
+   "provenance": "radiology:note_id=13280680-RR-16:chars=2695-2746",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-16:s5",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-09-29T19:12:00",
+   "text": "3. Mildly displaced fractures through the bases of the second through fourth metatarsals is seen with tiny osseous fragments at the expected location of the Lisfranc ligament.",
+   "provenance": "radiology:note_id=13280680-RR-16:chars=2748-2924",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-17:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-09-30T09:13:00",
+   "text": "Intraoperative images from IM nail placement through a comminuted spiral fracture of the tibia.",
+   "provenance": "radiology:note_id=13280680-RR-17:chars=798-893",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-17:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-09-30T09:13:00",
+   "text": "Comminuted fracture of the proximal fibula also noted.",
+   "provenance": "radiology:note_id=13280680-RR-17:chars=895-949",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-17:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-09-30T09:13:00",
+   "text": "Please see the operative report further details.",
+   "provenance": "radiology:note_id=13280680-RR-17:chars=950-998",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-19:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-10-02T16:06:00",
+   "text": "Three views of the left foot are submitted:",
+   "provenance": "radiology:note_id=13280680-RR-19:chars=237-280",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-19:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-10-02T16:06:00",
+   "text": "No fracture or dislocation is seen.",
+   "provenance": "radiology:note_id=13280680-RR-19:chars=282-317",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:13280680-RR-19:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2140-10-02T16:06:00",
+   "text": "Degenerative subcortical partial cysts are noted.",
+   "provenance": "radiology:note_id=13280680-RR-19:chars=319-368",
+   "needs": []
+  },
+  {
+   "ref_id": "POE:wound_care",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2140-09-29T21:29:15",
+   "text": "Wound Care: 2 order(s) before T_pa; first on hospital day 1, most recent 90.3 h before T_pa.",
+   "provenance": "poe:poe_id=13280680-86,13280680-87",
+   "needs": [
+    "wound_care"
+   ]
+  },
+  {
+   "ref_id": "POE:rehab_therapy",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2140-09-29T21:29:15",
+   "text": "Physical Therapy: 1 order(s) before T_pa; first on hospital day 1, most recent 90.3 h before T_pa.",
+   "provenance": "poe:poe_id=13280680-90",
+   "needs": [
+    "rehab_therapy"
+   ]
+  },
+  {
+   "ref_id": "POE:respiratory",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2140-09-29T23:24:25",
+   "text": "Oxygen Therapy: 2 order(s) before T_pa; first on hospital day 1, most recent 88.4 h before T_pa.",
+   "provenance": "poe:poe_id=13280680-88,13280680-98",
+   "needs": [
+    "respiratory"
+   ]
+  },
+  {
+   "ref_id": "RX:iv_therapy:cefazolin",
+   "source": "prescriptions",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2140-10-01T18:00:00",
+   "text": "IV cefazolin: 1 order(s) running at some point in the 48 h before T_pa; still active at T_pa; most recent start 45.8 h before T_pa.",
+   "provenance": "prescriptions:drug=cefazolin;pharmacy_id=82055593",
+   "needs": [
+    "iv_therapy"
+   ]
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

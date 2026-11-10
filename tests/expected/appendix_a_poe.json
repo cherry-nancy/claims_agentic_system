@@ -1,0 +1,6 @@
+{
+  "_source": "plan/snf_pa_consensus_work_plan_1025.md Appendix A (POE lines); reproduced with inpatient order = any ADT Admit/Transfer/Postop/Discharge order (New or Change) with Admit category 'Admit to inpatient'; observation-to-inpatient = observation order at or before it. Protected (CLAUDE.md hard rule 7).",
+  "snf_note_pct_with_inpatient_order_rounded": 78,
+  "snf_observation_then_inpatient": 14384,
+  "snf_midnights_ge3_by_inpatient_order": 37337
+}

@@ -1,9 +1,0 @@
-{
-  "rule": "sha256(f'{salt}:{subject_id}')[:8] / 16**8 < dev_fraction -> dev, else test",
-  "salt": "snf-pa-split-v1",
-  "dev_fraction": 0.5,
-  "source": "data/derived/cohort/pool.parquet (strict year rule 2011-2018, design \u00a73.2)",
-  "n_subjects": 26661,
-  "n_dev": 13544,
-  "n_test": 13117
-}

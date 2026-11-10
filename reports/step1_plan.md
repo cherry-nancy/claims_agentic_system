@@ -108,3 +108,14 @@
 - hook 与权限设置：见 `reports/proposal_hooks_settings.md`（待你同意）。
 - 本步不需要 skill。
 - 不派 subagent：每个 subtask 都很小，而且相互依赖（1b → 1c → 1d → 1g）。
+
+## 执行中的变更（补记于 2026-11-08）
+
+| 日期 | 改了什么 | 为什么 | 谁定的 | 详细记录 |
+|---|---|---|---|---|
+| 2026-11-08 | 先建 hook 再做 ①（计划第 6 节问题 6） | 让 ① 本身在护栏下做 | 用户 | `step1_env_repo_fix.md` 2.1 |
+| 2026-11-08 | Python 改为 3.11（计划里只问"固定成哪个版本"） | 用户先说 3.10.5，但 duckdb ≥2.0 需要 ≥3.11；用户改选 3.11 | 用户 | `step1_env_repo_fix.md` 2.2、4.1 |
+| 2026-11-08 | 新增：`pyproject.toml` 加 hatchling build-system（计划没有） | 不加的话检查脚本 import 不到 `snf_pa` | 实现时的判断 | `step1_env_repo_fix.md` 2.2 |
+| 2026-11-08 | 1f 不改代码 | `test_sample.py` 本来就是 300 | 实现时的判断 | `step1_env_repo_fix.md` 2.2 |
+| 2026-11-08 | 独立审查后 hook 返工（无 .venv 时放行、冻结冲突、父目录绕过等 5 处） | 审查发现的真问题 | 审查意见 | `step1_env_repo_fix.md` 第 6 节 |
+| 2026-11-08 | 设计文档 3.1 / 11.5 改为"`.csv` 或 `.csv.gz`" | 本机是 `.csv.gz` | 用户 | `plan/decision_log.md` D-001 |

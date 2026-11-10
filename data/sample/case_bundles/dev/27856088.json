@@ -1,0 +1,1900 @@
+{
+ "case_id": "27856088",
+ "content_hash": "0b5f536e94567521dae78c141b171f80ec78d8919f841a8baae5c7c632cda85c",
+ "demographics": {
+  "age_at_admit": 85,
+  "sex": "F",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2177-02-11T18:32:00",
+  "dischtime": "2177-02-14T17:40:00",
+  "ed_intime": "2177-02-11T13:28:00",
+  "ed_outtime": "2177-02-11T21:00:00",
+  "observation_order_time": "2177-02-11T23:35:21",
+  "inpatient_order_time": "2177-02-12T10:13:39",
+  "inpatient_start": "2177-02-12T10:13:39",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2177-02-13T17:40:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: MEDICINE",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=137-154",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: Amoxicillin / metoclopramide / morphine / Tegaserod / Penicillins / Sulfa(Sulfonamide Antibiotics)",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=157-269",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "Back pain",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=306-315",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "None",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=356-360",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Ms. ___ is an ___ year old female with a history of Stage I",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=392-451",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "T1bN0M0 invasive ductal carcinoma, ER/PR+  \nand HER2- of the R breast diagnosed in ___ s/p modified \nright mastectomy (no adjuvant hormone therapy) who presents with \nworsening low back pain and left lower extremity paresthesias.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=453-682",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She called her PCP ___ asked her to go tho the ED \nfor expedited evaluation.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=684-760",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She had been in her USOH until early",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=761-797",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "___ when she began to have left hip and low back pain.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=799-853",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Her left lower extremity paresthesias involving the left lateral \ncalf began two to three weeks ago and occur only when she \nstands.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=855-987",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She has not noticed weakness; however, three days prior \nto admission she sustained a fall while walking down the steps \nof her home.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=988-1121",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "This had never happened to her in the past.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=1122-1165",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "There \nwas no LOC or headstrike, lightheadedness, sz activity or trip.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=1166-1236",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She thinks she fell because of her excruciating pain.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=1238-1291",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She broke \nthe fall with her hands and sustained a laceration to the right \narm which required several sutures.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=1292-1403",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": ".",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=1406-1407",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "I have not seen her outside records which are being located now; \nhowever, a detailed desciption of her studies done in the last \ntwo weeks is provided in the radiaton oncology note from \ntonight: \"MRI of the L-spine was ordered and  \nperformed on ___ that revealed a marrow replacing lesion  \ninvolving the posterior left side of the L3 vertebral body  \ninvolving the left pedicle and left superior and inferior \nfacets.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=1410-1831",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Linear T2 hyperintensity involving the superior aspect of the L3",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=1834-1898",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "vertebral body reflected associated fracture.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=1902-1947",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "The report notes  \nthat these findingsweare highly suspicious for metastatic \ndisease  \ngiven the patient's history of breast cancer and tissue sampling",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=1948-2100",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "was advised.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=2104-2116",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Dr. ___ a bone scan performed on",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=2117-2149",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "___ which revealed a poorly defined left L3 osteolucent  \nlesion in the vertebral body pedicle and left transverse process",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=2152-2274",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "with increased activity in upper L3 extending into the left  \ntransverse process, possibly consistent with an infiltrating  \nprocess causing pathologic fracture as there was mild L3 upper  \nendplate collapse new since ___ plain films and ___ CT.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=2278-2523",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "There was punctate increased uptake in the R side of T2, T3, or",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=2526-2589",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "T4 without radiographic correlate, and increased indeterminate  \nactivity in R anterior 4th rib near costochondral junction,  \npossibly posttraumatic or marrow infiltrating lesion.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=2593-2773",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Plain \nfilms  \nof ___ on ___ revealed several mild wedge compression  \nfractures at T6-T8 with no lytic or sclerotic lesions.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=2774-2899",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Plain  \nfilms of L-spine on ___ revealed mild probably pathologic  \nfracture of upper L3 with lytic lesion of left L3 pedicle and  \ntransverse process.\"",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=2900-3052",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": ".",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3055-3056",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "In the ED, initial VS were T98.4, HR 81, BP 163/90, RR 18, O2 \nsat 100%.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3059-3131",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Exam did not show any focal neurological deficits.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3132-3182",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Labs were unremarkable.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3184-3207",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Ortho spine evaluated her for cord \ncompression, and they felt this was unlikely based on a clinical \nexam.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3208-3315",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Apparently she had a CD with her imaging but it has not \nbeen loaded into the system and we are trying to locate it.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3316-3432",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She \nwas also seen by radiation oncology, who felt she should be \nadmitted to medicine for expedited work up and pain control.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3433-3559",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She \nwas given dilaudid .5mg iv, lorazepam .5 mg iv, and 1LNS.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3560-3622",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "VS \nupon transfer were T98.4, p 67, 147/80, r 18, 99% RA.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3623-3680",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": ".",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3683-3684",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Currently",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3687-3696",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She continuted to complain of severe worsening pain in back, L \ngroin, L hip, L leg.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3699-3783",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s37",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Also having numbness/tingling and \nsubjective weakness in L leg x 2.5 weeks.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3784-3860",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s38",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "No incontinence.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3861-3877",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s39",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "No \nfevers but occasional chills. 5 lbs weight loss in 2 weeks.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3878-3941",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s40",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Unable to perform ADLs d/t pain.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3943-3975",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s41",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Also had a fall earlier this \nweek and left wrist is now in a splint, but reportedly no \nfracture.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=3976-4074",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s42",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": ".",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4077-4078",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s43",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "ROS:",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4081-4085",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s44",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "+ chills, abdominal pain, occasional nausea associated with her \npain, constipation,weight loss, weakness, shortness of breath",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4088-4214",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s45",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "- fever, night sweats, headache, vision changes, rhinorrhea, \ncongestion, sore throat, cough, chest pain, vomiting, diarrhea,",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4217-4342",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s46",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "BRBPR, melena, hematochezia, dysuria, hematuria.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4344-4392",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Invasive ductal carcinoma R breast s/p modified right mastectomy",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4420-4484",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "___, with new lytic lesion of L3 vertebral body",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4486-4533",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "IBS",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4536-4539",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "\"Benign tumor\" of small bowel s/p excision in early ___",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4542-4597",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "GERD",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4600-4604",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Diverticulosis",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4607-4621",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Esophagitis",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4624-4635",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "CCY",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4638-4641",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "TAH/BSO at age ___ for \"bleeding\"",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4644-4677",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "HTN",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4680-4683",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "5 or 6 sisters with breast cancer diagnosed in their ___.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4725-4782",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "No \novarian, pancreatic, colon or bone cancer in the family.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4783-4843",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "ADMISSION PHYSICAL EXAM:",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4864-4888",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "VS - Temp 98.5 F, BP 154/78, HR 84, R 16, O2-sat 98% RA",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4891-4946",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "GENERAL - well-appearing female, comfortable when still but has \nmoderate discomfort with movement",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=4949-5047",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "HEENT - NC/AT, PERRLA, EOMI, sclerae anicteric, MM somewhat dry,",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5050-5114",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "OP clear",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5116-5124",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "NECK - supple, no thyromegaly, no JVD, no carotid bruits",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5127-5183",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "LUNGS - CTA bilat, no r/rh/wh, good air movement, resp \nunlabored, no accessory muscle use",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5186-5276",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "HEART - PMI non-displaced, RRR, no MRG, nl S1-S2",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5279-5327",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "ABDOMEN - NABS, soft/NT/ND, no masses or HSM, no \nrebound/guarding",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5330-5396",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "EXTREMITIES - WWP, no c/c/e, 2+ peripheral pulses (radials,",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5399-5458",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "DPs), right arm/wrist in ace bandage and hard wrist immobilizer",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5460-5523",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "SKIN - no rashes or lesions",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5527-5554",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "LYMPH - no cervical or axillary LAD",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5557-5592",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "BREAST EXAM: s/p right mastectomy with well healed scar.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5595-5651",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "No \npalpable lesions in any quadrant of either breast.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5652-5706",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "No nipple \ndischarge in the left breast.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5707-5747",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "No obvious skin changes in the \nchest.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5748-5786",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "RECTAL EXAM: Rectal tone is present.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5789-5825",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "She has brown stool without \ngross blood.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5826-5867",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Guaiac not done.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5868-5884",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "NEURO - awake, A&Ox3, CNs II-XII grossly intact, muscle strength",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5887-5951",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "___ throughout including upper extremities bilaterally, lower \nextremities bilaterally upon flexion/extension of hip, knees, \nankles, sensation grossly intact throughout, specifically there \nis no saddle anesthesia, DTRs 1+ and symmetric, heel to shin and \nrapid alternating movements are intact, gait exam was not done.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=5953-6273",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "DISCHARGE PHYSICAL EXAM:",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6279-6303",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "VS - Tm 98.0F, BP 108-145/51-70, HR 60-80s, R ___, O2sat",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6304-6360",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "96-99% RA",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6362-6371",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "GENERAL - elderly female lying in bed, NAD distress, sits up \nwell with assist",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6374-6452",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "HEENT - PERRL, EOMI, sclerae anicteric, MM somewhat dry, OP \nclear",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6453-6519",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "NECK - supple, no thyromegaly, no JVD, no carotid bruits",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6522-6578",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "LUNGS - CTA bilat, good air movement, resp unlabored, no \naccessory muscle use",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6581-6659",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "HEART - RRR, no MRG, nl S1-S2",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6662-6691",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "ABDOMEN - NABS, soft/NT/ND, no masses or HSM, no \nrebound/guarding",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6694-6760",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "EXTREMITIES - WWP, no c/c/e, 2+ peripheral pulses (radials,",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6763-6822",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "DPs), right arm in bandage to cover stitches.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6824-6869",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "No pain to \npalpation of left leg or hip",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6871-6911",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "SKIN - no rashes or lesions",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6912-6939",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "BACK - No TTP over spinous processes",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6944-6980",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s37",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "NEURO - awake, A&Ox3, CNs II-XII grossly intact, muscle strength",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=6981-7045",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s38",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "___ with left hip flexion otherwise ___ in all muscle groups, \nsensation grossly intact throughout.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7047-7146",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s39",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Reflexes 1+ and symmetric",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7148-7173",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "LABS:",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7196-7201",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "On admission:",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7204-7217",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:35PM BLOOD WBC-5.3 RBC-3.99* Hgb-13.0 Hct-39.3",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7218-7271",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCV-99* MCH-32.6* MCHC-33.1 RDW-13.3 Plt ___",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7273-7317",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:35PM BLOOD Neuts-59.6 ___ Monos-8.4 Eos-1.2",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7318-7368",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Baso-1.3",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7370-7378",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:35PM BLOOD ___ PTT-29.3 ___",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7379-7413",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:35PM BLOOD Glucose-104* UreaN-7 Creat-0.5 Na-136",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7414-7469",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "K-3.4 Cl-103 HCO3-23 AnGap-13",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7471-7500",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:35PM BLOOD Calcium-9.2 Phos-2.5* Mg-2.0",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7501-7547",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "On discharge:",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7551-7564",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:15AM BLOOD WBC-4.5 RBC-3.89* Hgb-12.7 Hct-38.9",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7565-7618",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCV-100* MCH-32.6* MCHC-32.7 RDW-13.3 Plt ___",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7620-7665",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:15AM BLOOD ___ PTT-29.4 ___",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7666-7700",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:15AM BLOOD Glucose-86 UreaN-9 Creat-0.5 Na-136 K-3.9",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7701-7760",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Cl-103 HCO3-24 AnGap-13",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7762-7785",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 06:15AM BLOOD Calcium-8.3* Phos-4.0 Mg-1.9",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7786-7832",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MICRO:",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7835-7841",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 6:20 pm URINE",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7842-7859",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "**FINAL REPORT ___",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7888-7906",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "URINE CULTURE (Final ___:",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7910-7935",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s22",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MIXED BACTERIAL FLORA ( >= 3 COLONY TYPES), CONSISTENT",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7943-7997",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s23",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "WITH SKIN",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=7999-8008",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s24",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "AND/OR GENITAL CONTAMINATION.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=8015-8044",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s25",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "IMAGING:",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=8049-8057",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s26",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ Radiology MR ___ L-SPINE W & W/O CONT",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=8060-8101",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s27",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "IMPRESSION:",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=8103-8114",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s28",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "1. Extensive metastatic replacement of the L3 vertebral body and \nits left posterior elements, with some retropulsion of its \ndorsal cortex.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=8116-8256",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s29",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There is an associated left epidural and \nforaminal soft tissue component narrowing the left subarticular \nzone, likely impinging upon the traversing left L4 and, \npossibly, more caudal nerve roots at that site, as well as the \nexiting left L3 nerve root in that foramen.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=8257-8528",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s30",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "2. Slight anterior wedge deformities of the T7 and T8 vertebrae, \nlikely chronic, with no evidence of acute pathologic vertebral \ncompression.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=8530-8672",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s31",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "3. Additional metastatic foci in the T6, likely T8, T9, T12 and",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=8674-8737",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s32",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "L2 vertebrae, without associated soft tissue abnormality.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=8739-8796",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s33",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "4. No pathologic leptomeningeal or radicular enhancement.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=8798-8855",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s34",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "5. Degenerative disease at the C4-5 and C5-6 levels, with \nsignificant spinal canal narrowing and ventral cord remodeling, \nincompletely imaged.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=8857-9001",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s35",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "6. Evidence of extensive periventricular white matter \nabnormality, which may represent sequelae of chronic small \nvessel ischemic disease, incompletely imaged.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=9003-9163",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s36",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ Radiology CT L-SPINE W/O CONTRAST",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=9168-9205",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s37",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Lytic, expansile lesion involving the left L3 vertebral body \nextending through the pedicle into the posterior elements.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=9207-9327",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s38",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "Soft \ntissue encroaches on the spinal canal, though this is better \nevaluated on the MRI of the same date.Abnormal soft tissue is \nalso seen within the left neural foramina at L2/L3 and 3/L4.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=9328-9519",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s39",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "There is mild compression deformity at L3; however, no fracture \nragments enter the spinal canal.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=9521-9618",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s40",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ Radiology CHEST (PA & LAT)",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=9623-9653",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s41",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "No evidence of acute cardiopulmonary process.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=9655-9700",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "___ yo F with Stage I T1bN0M0 invasive ductal carcinoma, ER/PR+ \nand HER2- of the R breast diagnosed in ___ s/p modified \nright mastectomy (no adjuvant hormone therapy) who presents with \nprogressive low back pain, left lower extremity paresthesias, \nleft hip pain in the setting of a reportedly new lytic lesion in \nthe posterior left side of the L3 vertebral body and wedge \ncompression fractures in T6 to T8 of unknown chronicity.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=9727-10160",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "ACTIVE ISSUES BY PROBLEM",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=10165-10189",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# L3 lytic lesion: highly concerning for malignant metastasis, \nwith breast cancer the likely primary.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=10194-10296",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "MRI showed lesion in L3 \nand also likely metastatic foci throughout numerous vertebrae in \nthe thoracic spine as well.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=10298-10416",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "No evidence of cord compression or \ncauda equina.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=10418-10467",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Pain in L hip/leg likely from impingement of L3-4 \nnerve roots causing radicular, neuropathic pain.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=10469-10568",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Ortho spine \nevaluated her imaging (also had lumbar CT) and felt that her \nspine was stable but recommended a brace for further stability \nand pain control.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=10570-10726",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She was started on standing tylenol, tramadol",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=10728-10773",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "(oxycodone made her \"groggy\", lidocaine patch, and gabapentin \nfor pain relief.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=10775-10854",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Radiation oncology evaluated the patient and \nfelt that radiation therapy could be helpful in relieving pain \nfrom the impingement, but they recommended biopsy for definitive \ntissue diagnosis prior to any radiation plans.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=10856-11078",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "(she prefers to be treated near home) for tissue diagnosis.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=11183-11242",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She was educated on the \nwarning signs for cord compression and cauda equina and told to \ngo to the ED immediately if she develops any of those symptoms.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=11354-11507",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "CHRONIC, INACTIVE ISSUES:",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=11511-11536",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Menopausal Syndrome:  her estrogen replacement was held due to \nthe possibility of relapsed breast cancer",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=11537-11644",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# GERD and Esophagitis: continued omeprazole",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=11651-11695",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# HTN:  continued lisinopril, amlodipine",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=11703-11743",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Depression:  continued citalopram",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=11750-11785",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "# Allergic asthma: continued albuterol inh prn and montekulast",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=11793-11855",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "Premarin 0.625 mg daily",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=12816-12839",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "ASA 81 mg daily",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=12842-12857",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "Ambien 10 mg qhs",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=12860-12876",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "Omeprazole 20 mg BID",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=12879-12899",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "Singulair 10 mg daily",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=12902-12923",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "ProAir 2 puffs as needed",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=12926-12950",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "Lisinopril 2.5 mg daily",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=12953-12976",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "Amlodipine 2.5 mg daily",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=12979-13002",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "Citalopram 10 mg daily",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=13005-13027",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=15010-15044",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=15045-15091",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - Independent.",
+   "provenance": "discharge:note_id=19536356-DS-19:chars=15092-15134",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-4:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-11T15:14:00",
+   "text": "No evidence of acute cardiopulmonary process.",
+   "provenance": "radiology:note_id=19536356-RR-4:chars=487-532",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-6:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-12T17:46:00",
+   "text": "Lytic, expansile lesion involving the left L3 vertebral body extending through the pedicle into the posterior elements with foci of osseous discontinuity.",
+   "provenance": "radiology:note_id=19536356-RR-6:chars=1460-1614",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-6:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-12T17:46:00",
+   "text": "Soft tissue encroaches on the spinal canal, though this is better evaluated on the MRI of the same date.",
+   "provenance": "radiology:note_id=19536356-RR-6:chars=1616-1720",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-6:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-12T17:46:00",
+   "text": "Abnormal soft tissue is also seen within the left neural foramina at L2/L3 and L3/L4.",
+   "provenance": "radiology:note_id=19536356-RR-6:chars=1722-1807",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-6:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-12T17:46:00",
+   "text": "There is mild compression deformity at L3; however, no fracture fragments enter the spinal canal.",
+   "provenance": "radiology:note_id=19536356-RR-6:chars=1809-1906",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-6:s5",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-12T17:46:00",
+   "text": "Pl. see concurrent MR study for additional details.",
+   "provenance": "radiology:note_id=19536356-RR-6:chars=1907-1958",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-5:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-13T14:35:00",
+   "text": "1. Extensive metastatic replacement of the L3 vertebral body and its left posterior elements, with some retropulsion of its dorsal cortex.",
+   "provenance": "radiology:note_id=19536356-RR-5:chars=5073-5212",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-5:s2",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-13T14:35:00",
+   "text": "There is an associated left epidural and foraminal soft tissue component narrowing the left subarticular zone, likely impinging upon the traversing left L4 and, possibly, more caudal nerve roots at that site, as well as the exiting left L3 nerve root in that foramen.",
+   "provenance": "radiology:note_id=19536356-RR-5:chars=5214-5481",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-5:s3",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-13T14:35:00",
+   "text": "2. Slight anterior wedge deformities of the T7 and T8 vertebrae, likely chronic, with no evidence of acute pathologic vertebral compression.",
+   "provenance": "radiology:note_id=19536356-RR-5:chars=5482-5623",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-5:s4",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-13T14:35:00",
+   "text": "3. Additional metastatic foci in the T6, likely T8, T9, T12 and L2 vertebrae, without associated soft tissue abnormality.",
+   "provenance": "radiology:note_id=19536356-RR-5:chars=5624-5746",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-5:s5",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-13T14:35:00",
+   "text": "4. No pathologic leptomeningeal or radicular enhancement.",
+   "provenance": "radiology:note_id=19536356-RR-5:chars=5747-5805",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-5:s6",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-13T14:35:00",
+   "text": "5. Degenerative disease at the C4-5 and C5-6 levels, with significant spinal canal narrowing and ventral cord remodeling, incompletely imaged.",
+   "provenance": "radiology:note_id=19536356-RR-5:chars=5806-5949",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:19536356-RR-5:s7",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2177-02-13T14:35:00",
+   "text": "6. Evidence of extensive periventricular white matter abnormality, which may represent sequelae of chronic small vessel ischemic disease, incompletely imaged.",
+   "provenance": "radiology:note_id=19536356-RR-5:chars=5950-6109",
+   "needs": []
+  },
+  {
+   "ref_id": "POE:rehab_therapy",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2177-02-11T23:35:21",
+   "text": "Physical Therapy: 1 order(s) before T_pa; first on hospital day 1, most recent 42.1 h before T_pa.",
+   "provenance": "poe:poe_id=19536356-42",
+   "needs": [
+    "rehab_therapy"
+   ]
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

@@ -76,6 +76,40 @@ class NeedCatalog(BaseModel):
         return next(n for n in self.needs if n.id == need_id)
 
 
+SOURCES_FILE = ROOT / "knowledge" / "sources.yaml"
+
+
+class Source(BaseModel):
+    id: str = Field(pattern=r"^[a-z][a-z0-9_]*$")
+    tables: list[str] = Field(min_length=1)
+    t_pa_field: str
+    leakage: str
+    evidence_kind: Literal["span", "fact"]
+    id_format: str
+    module: str
+
+
+class SourceRegistry(BaseModel):
+    version: int
+    sources: list[Source]
+    content_hash: str = ""
+
+    @model_validator(mode="after")
+    def _unique(self):
+        ids = [s.id for s in self.sources]
+        if len(ids) != len(set(ids)):
+            raise ValueError("duplicate source ids")
+        return self
+
+
+@lru_cache(maxsize=4)
+def load_sources(path: Path = SOURCES_FILE) -> SourceRegistry:
+    raw = path.read_bytes()
+    reg = SourceRegistry.model_validate(yaml.safe_load(raw))
+    reg.content_hash = hashlib.sha256(raw.replace(b"\r\n", b"\n")).hexdigest()[:12]
+    return reg
+
+
 @lru_cache(maxsize=4)
 def load_needs(path: Path = NEEDS_FILE) -> NeedCatalog:
     raw = path.read_bytes()

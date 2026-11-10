@@ -1,0 +1,828 @@
+{
+ "case_id": "29478142",
+ "content_hash": "bf9e21f331af2c2f2a47c545be6aac28f8701982bf033dc74520d4b5fc27fb6d",
+ "demographics": {
+  "age_at_admit": 71,
+  "sex": "M",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2175-02-19T07:01:00",
+  "dischtime": "2175-02-20T14:44:00",
+  "ed_intime": "2175-02-18T23:09:00",
+  "ed_outtime": "2175-02-19T08:52:00",
+  "observation_order_time": "2175-02-19T09:04:31",
+  "inpatient_order_time": "2175-02-19T10:34:08",
+  "inpatient_start": "2175-02-19T10:34:08",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2175-02-19T14:44:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: MEDICINE",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=150-167",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: Codeine / lisinopril",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=170-203",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "sob",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=240-243",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "none",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=284-288",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "___ h/o COPD, CAD, ___, admit with 2 weeks of progressive SOB, \nand increased cough.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=319-403",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "His symptoms initiated with URI symptoms \nof head and sinus congestion and runny nose 2 weeks ago and \nsince then his cough increased over the past few days.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=405-562",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He \nbrings up clear ___ phlegm and has had more SOB.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=564-616",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He denies \northopnea, PND, swelling or CP during this time.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=618-677",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "He has not had \nfever, chills, myalgias or flu like symptoms.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=679-740",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "His head \ncongestion is better.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=742-773",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "No sick contacts.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=775-792",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Many admits for COPD \nexacebation in ___ (3 total).",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=794-845",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "I reviewed ___ clinic visit ___ \nwhere his FEV1 was substantially reduced from prior values at",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=847-941",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "1.06L.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=943-949",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Ordered to start roflumilast.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=951-980",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "Unclear if he was \nactaully stopping metoprolol as he told me it was discussed to \nbe stopped during last admit and this is mentioned in PCP visit \nin ___, but it remains on his med lists.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=982-1170",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "13pt ROS otherwise negative",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1172-1199",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "all information below is confirmed with patient",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1201-1248",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "PMH:",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1273-1277",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- Chronic systolic heart failure  EF = 52% on stress in ___",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1279-1338",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- Hypertension",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1339-1353",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- Chronic obstructive pulmonary disease",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1356-1395",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- Chronic Low back pain",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1398-1421",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- Chronic renal insufficiency",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1424-1453",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "- CAD s/p LAD stent ___",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1456-1479",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "PSHx",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1481-1485",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "S/p laminectomy and spinal fusion",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1486-1519",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "His father died of \"old age\" at ___.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1560-1596",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "He worked in a ___.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1597-1616",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "His mother died at ___ of cancer.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1617-1650",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "118/72 90 94%RA",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1669-1684",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "RN told me he had coughing fit earlier in AM\nawake, ao3 not confused ,fluent speech",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1685-1768",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "JVP not elevated at 45 degrees head up and even when head \nrecelined to 20 degrees\nno focal crackles\nfew coarse wheezes on expiration\na few dry coughs heard\nsoft non tender abdomen, no ruq tenderness or hepatomegaly\nno peripheral edema\nno visible rash",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=1769-2020",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "calm",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2022-2026",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 02:54AM BLOOD WBC-6.8 RBC-4.68 Hgb-13.6* Hct-40.3",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2048-2101",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "MCV-86 MCH-29.0 MCHC-33.7 RDW-14.1 Plt ___",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2103-2145",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 02:54AM BLOOD Glucose-100 UreaN-13 Creat-1.6* Na-138",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2146-2202",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "K-4.0 Cl-100 HCO3-24 AnGap-18",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2204-2233",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "___ 02:54AM BLOOD proBNP-115",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2234-2262",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PR:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PR",
+   "available_at": null,
+   "text": "no focal infiltrate on cxr",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2264-2290",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "___ with COPD exacerbation, acute.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2316-2350",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "LIkely viral bronchitis.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2352-2376",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "THere were no features supportive of influenza thus did not \ntest.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2379-2445",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He clinically improved with less dyspnea and wheeze with \nsteroid and bronchodilator treatment.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2447-2542",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He received a dose of IV \nsolumedrol in the ED and then transitioned to PO prednisone 60mg \non ___.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2544-2643",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He also was started on 5 day course of azithromycin.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2645-2697",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He was also recently started on \nroflumilast.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2795-2840",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He had no clinical signs or symptoms of decompensated diastolic",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2842-2905",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "CHF and his HTN and CAD remained stable chronic issues.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2907-2962",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He will remain on other home meds including lasix, ace-I.  He \ntells me that his MD at last discharge thought to stop \nmetoprolol and he was no longer taking it.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=2964-3125",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "I see no clear \nreason to stop it as there are numerous reasons for his frequent",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3127-3207",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "COPD exacerbations that are more likely than a medication effect \nfrom a cardio-selective beta blocker.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3209-3312",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "He is likely to benefit \nfrom continued beta blocker.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3314-3367",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "chronic pain: stable\noxycodone",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3369-3399",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "The Preadmission Medication list is accurate and complete.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3429-3487",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "1. Aspirin 81 mg PO DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3488-3513",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "2. Calcium Carbonate 1500 mg PO DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3515-3552",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "3. Clopidogrel 75 mg PO DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3554-3583",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "4. Docusate Sodium 100 mg PO DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3585-3619",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "5. Fluticasone-Salmeterol Diskus (500/50)  1 INH IH BID",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3621-3676",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "6. Furosemide 10 mg PO DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3678-3706",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "7. Gabapentin 100 mg PO QHS",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3708-3735",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "8. Lisinopril 20 mg PO DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3737-3765",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "9. Metoprolol Succinate XL 75 mg PO DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3767-3808",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "10. Montelukast 10 mg PO DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3810-3840",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s12",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "11. Nicotine Patch 7 mg TD DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3842-3874",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s13",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "12. Nitroglycerin SL 0.4 mg SL Q5MIN:PRN chest pain",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3876-3927",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s14",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "13. OxycoDONE (Immediate Release)  5 mg PO Q8H:PRN pain",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3929-3984",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s15",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "14. Perphenazine 4 mg PO QHS",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=3986-4014",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s16",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "15. Senna 8.6 mg PO DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=4016-4041",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s17",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "16. Vitamin D 1000 UNIT PO DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=4043-4075",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s18",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "17. Simvastatin 20 mg PO DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=4077-4107",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s19",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "18. Albuterol Inhaler ___ PUFF IH Q4H:PRN coughing/wheezing",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=4109-4168",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s20",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "19. Tiotropium Bromide 1 CAP IH DAILY",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=4170-4207",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s21",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "20. roflumilast 500 mcg oral daily",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=4209-4243",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=5626-5660",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=5661-5707",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - Independent.",
+   "provenance": "discharge:note_id=17475607-DS-17:chars=5708-5750",
+   "needs": []
+  },
+  {
+   "ref_id": "RAD:17475607-RR-66:s1",
+   "source": "radiology",
+   "kind": "span",
+   "section": "IMPRESSION",
+   "available_at": "2175-02-19T03:43:00",
+   "text": "No acute cardiopulmonary pathology.",
+   "provenance": "radiology:note_id=17475607-RR-66:chars=415-450",
+   "needs": []
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

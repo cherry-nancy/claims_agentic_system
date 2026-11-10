@@ -1,4 +1,4 @@
-"""data/splits/{dev,test}_cases.csv: sizes, split discipline, one admission per patient, quotas, determinism."""
+"""data/splits/{dev,test}_cases.csv: sizes, split discipline (by admission), quotas, determinism."""
 import csv
 import json
 import sys
@@ -21,9 +21,9 @@ def read(split):
 
 
 @pytest.fixture(scope="module")
-def subjects():
-    with (SPLITS / "subjects.csv").open(encoding="utf-8") as f:
-        return {int(r["subject_id"]): r["split"] for r in csv.DictReader(f)}
+def admissions():
+    with (SPLITS / "admissions.csv").open(encoding="utf-8") as f:
+        return {int(r["hadm_id"]): r["split"] for r in csv.DictReader(f)}
 
 
 def test_sizes():
@@ -31,14 +31,31 @@ def test_sizes():
     assert len(read("test")) == 200
 
 
-def test_split_discipline_and_unique_patients(subjects):
+def test_split_discipline_and_unique_admissions(admissions):
+    """Design v9: split and sampling unit is the admission; a patient may appear more than once."""
     seen = set()
     for split in ("dev", "test"):
         for r in read(split):
-            sid = int(r["subject_id"])
-            assert subjects[sid] == split, f"{sid} drawn into {split} but belongs to {subjects[sid]}"
-            assert sid not in seen
-            seen.add(sid)
+            h = int(r["hadm_id"])
+            assert admissions[h] == split, f"{h} drawn into {split} but belongs to {admissions[h]}"
+            assert h not in seen
+            seen.add(h)
+
+
+def test_no_rehab():
+    for split in ("dev", "test"):
+        assert {r["discharge_location"] for r in read(split)} <= {"SKILLED NURSING FACILITY", "HOME HEALTH CARE", "HOME"}
+
+
+def test_quota_settings_pinned():
+    """Design v9 / step2_plan revision: per scenario dev SNF 8 / HHC 7 / HOME 5, test x2 (20 / 40 per scenario)."""
+    meta = json.loads(META.read_text(encoding="utf-8"))
+    assert meta["dev_quota_per_scenario"] == {"SKILLED NURSING FACILITY": 8, "HOME HEALTH CARE": 7, "HOME": 5}
+    assert meta["test_multiplier"] == 2
+    for split, per in (("dev", 20), ("test", 40)):
+        rows = read(split)
+        for scen in meta["scenarios"]:
+            assert sum(r["scenario"] == scen for r in rows) == per, (split, scen)
 
 
 def test_cells_match_quotas():

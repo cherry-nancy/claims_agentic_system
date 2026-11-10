@@ -1,0 +1,432 @@
+{
+ "case_id": "29948362",
+ "content_hash": "8ed0a5858844616a1847cd5021140743cd20dcad37b6abd727e71cb18e9b25e1",
+ "demographics": {
+  "age_at_admit": 77,
+  "sex": "F",
+  "insurance": "Medicare"
+ },
+ "timeline": {
+  "admittime": "2183-02-02T07:15:00",
+  "dischtime": "2183-02-03T17:26:00",
+  "ed_intime": null,
+  "ed_outtime": null,
+  "observation_order_time": null,
+  "inpatient_order_time": "2183-02-02T09:13:54",
+  "inpatient_start": "2183-02-02T09:13:54",
+  "inpatient_start_source": "poe_admit_inpatient",
+  "t_pa": "2183-02-02T17:26:00",
+  "prior_stays_30d": []
+ },
+ "evidence": [
+  {
+   "ref_id": "DS:HDR:SVC",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Service: OTOLARYNGOLOGY",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=145-168",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HDR:ALG",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HDR",
+   "available_at": null,
+   "text": "Allergies: Sulfa(Sulfonamide Antibiotics)",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=171-214",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:CC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "CC",
+   "available_at": null,
+   "text": "Patient presents for DL/balloon diliation/tracheostomy change",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=251-312",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PROC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PROC",
+   "available_at": null,
+   "text": "DL/balloon diliation/tracheostomy change",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=354-394",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "The patient presents for complex posterior glottic and tracheal \nstenosis.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=427-501",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She previously underwent balloon dilation with the",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=503-553",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "CO2 laser.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=555-565",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She is able to cap and has been doing well.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=567-610",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She is \ncurrently on long-term antibiotics for spinal\nosteomyelitis.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=611-679",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HPI:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HPI",
+   "available_at": null,
+   "text": "She presents for trach change to ___ long \nterm cannula, as well as DL and balloon dilatation.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=680-774",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "COPD (chronic, stable, not on O2 at home)",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=801-842",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "PE (in ___, on coumadin since)",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=843-873",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "HTN",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=874-877",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "CAD (cath ___ - 50-55% stenosis ___ diagonal LAD, ___ \nstenosis mid LAD, EF 55%)",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=878-958",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Depression (anxious type)",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=959-984",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Cervical spondylosis",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=985-1005",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Rotator cuff tear (L side)",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1006-1032",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s8",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Allergic rhinitis",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1033-1050",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s9",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "GERD",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1052-1056",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s10",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Fibromyalgia",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1057-1069",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PMH:s11",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PMH",
+   "available_at": null,
+   "text": "Restless leg syndrome\nh/o Melanoma (s/p excision)",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1070-1119",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:FH:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "FH",
+   "available_at": null,
+   "text": "noncontributory",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1159-1174",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Well appearing",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1192-1206",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "NAD",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1208-1211",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Breathing comfortably",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1212-1233",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Trach in place + suture\nno bleeding around site",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1234-1281",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:PE:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "PE",
+   "available_at": null,
+   "text": "Patient able to cap trach intermittently",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1283-1323",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Patient is a ___ y/o F with complex airway history.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1349-1400",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "Please see \npreviously dicated op notes for full details.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1401-1458",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s4",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She underwent the procedure and trach changed to ___ long \nterm cannula.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1553-1625",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s5",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "She stayed overnight for airway monitoring.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1626-1669",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s6",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "At ___, she continued her daptomycin for osteomyelitis as well \nas coumadin for PE.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1672-1755",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:HC:s7",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "HC",
+   "available_at": null,
+   "text": "On POD#1, there were no evidence of desats, and she was doing \nwell.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=1757-1825",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:MEDADM:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "MEDADM",
+   "available_at": null,
+   "text": "See EMR",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=2080-2087",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s1",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Mental Status: Clear and coherent.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=2400-2434",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s2",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Level of Consciousness: Alert and interactive.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=2435-2481",
+   "needs": []
+  },
+  {
+   "ref_id": "DS:COND:s3",
+   "source": "discharge_note",
+   "kind": "span",
+   "section": "COND",
+   "available_at": null,
+   "text": "Activity Status: Ambulatory - Independent.",
+   "provenance": "discharge:note_id=15108186-DS-13:chars=2482-2524",
+   "needs": []
+  },
+  {
+   "ref_id": "POE:respiratory",
+   "source": "poe",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2183-02-02T09:27:38",
+   "text": "Oxygen Therapy: 1 order(s) before T_pa; first on hospital day 1, most recent 8.0 h before T_pa.",
+   "provenance": "poe:poe_id=15108186-804",
+   "needs": [
+    "respiratory"
+   ]
+  },
+  {
+   "ref_id": "RX:iv_therapy:daptomycin",
+   "source": "prescriptions",
+   "kind": "fact",
+   "section": null,
+   "available_at": "2183-02-02T15:00:00",
+   "text": "IV daptomycin: 1 order(s) running at some point in the 48 h before T_pa; still active at T_pa; most recent start 2.4 h before T_pa.",
+   "provenance": "prescriptions:drug=daptomycin;pharmacy_id=31354504",
+   "needs": [
+    "iv_therapy"
+   ]
+  }
+ ],
+ "sources": {
+  "discharge_note": "registry-v1-3f1e072e69b2+code-1db8015655c3",
+  "radiology": "registry-v1-3f1e072e69b2",
+  "prescriptions": "registry-v1-3f1e072e69b2",
+  "poe": "registry-v1-3f1e072e69b2",
+  "needs_catalog": "v2-288cc9628a16"
+ },
+ "assumed": {
+  "C2": "assume_snf_admission_within_30_days_of_discharge",
+  "C7": "assume_physician_certification_submitted",
+  "C8": "assume_benefit_days_available"
+ },
+ "missing": [
+  "pt_ot_evaluation_note"
+ ]
+}

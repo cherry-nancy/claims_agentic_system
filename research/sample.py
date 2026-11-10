@@ -2,16 +2,16 @@
 
     uv run python research/sample.py
 
-Inputs: data/derived/cohort/pool.parquet, data/splits/subjects.csv (frozen), data/derived/parquet/*,
+Inputs: data/derived/cohort/pool.parquet, data/splits/admissions.csv (frozen), data/derived/parquet/*,
 knowledge/needs.yaml. Outputs: data/splits/{dev,test}_cases.csv and data/splits/sample.meta.json.
 
-Rules (decided in step ②, see reports/step2_cohort_subset.md):
-- dev cases only from dev patients, test cases only from test patients (subjects.csv).
-- Cells = scenario x discharge location. Per scenario: dev SNF 8 / HHC 5 / HOME 4 / REHAB 3 (= 20),
+Rules (step ②; revised after the 2026-11-09 team review, decision_log D-008):
+- dev cases only from dev admissions, test cases only from test admissions (admissions.csv, split by hadm_id).
+- Cells = scenario x discharge location (no REHAB). Per scenario: dev SNF 8 / HHC 7 / HOME 5 (= 20),
   test twice that (= 40). 5 scenarios -> dev 100, test 200.
 - In every cell about 25% of the slots go to boundary cases (observation admission type, < 3 naive
   midnights, or admitted from a SNF); the rest are drawn from all remaining candidates of the cell.
-- At most one admission per patient. Cells are filled scarcest-first so rare cells get their patients.
+- The unit is the admission: a patient may contribute more than one admission. Cells are filled scarcest-first.
 - Shortfall in a cell moves to HHC, then SNF, of the same scenario; recorded in the meta file.
 - Order inside a cell = sha256(SALT:hadm_id); deterministic on any machine.
 """
@@ -27,8 +27,8 @@ import duckdb
 from scenarios import SCENARIOS, SPLIT, build_candidates  # noqa: E402  (run from repo root: research/ on path)
 from snf_pa.paths import ROOT
 
-SALT = "snf-pa-sample-v1"
-DEV_QUOTA = {"SKILLED NURSING FACILITY": 8, "HOME HEALTH CARE": 5, "HOME": 4, "REHAB": 3}
+SALT = "snf-pa-sample-v2"
+DEV_QUOTA = {"SKILLED NURSING FACILITY": 8, "HOME HEALTH CARE": 7, "HOME": 5}
 MULT = {"dev": 1, "test": 2}
 BOUNDARY_SHARE = 0.25
 FALLBACK = ["HOME HEALTH CARE", "SKILLED NURSING FACILITY"]
@@ -55,16 +55,16 @@ def draw(rows: list[dict], split: str) -> tuple[list[dict], list[dict]]:
         v.sort(key=lambda r: rank(r["hadm_id"]))
     target = {(s, loc): q * MULT[split] for s in SCENARIOS for loc, q in DEV_QUOTA.items()}
     used, picked, cells = set(), [], []
-    order = sorted(target, key=lambda c: len({r["subject_id"] for r in by_cell[c]}))  # scarcest first
+    order = sorted(target, key=lambda c: len(by_cell[c]))  # scarcest cell first
 
     def take(cell, k, want_boundary):
         out = []
         for r in by_cell[cell]:
             if len(out) == k:
                 break
-            if r["subject_id"] in used or (want_boundary and not r["boundary"]):
+            if r["hadm_id"] in used or (want_boundary and not r["boundary"]):
                 continue
-            used.add(r["subject_id"])
+            used.add(r["hadm_id"])
             out.append(r)
         return out
 
